@@ -16,7 +16,7 @@ class CourseManagementController < ApplicationController
     
     if @success
       if @user.is_professor
-        redirect_to :users
+        redirect_to :professor_view
       else
         redirect_to :users
       end

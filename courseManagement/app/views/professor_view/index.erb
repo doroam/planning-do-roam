@@ -1,0 +1,12 @@
+<%#
+# To change this template, choose Tools | Templates
+# and open the template in the editor.
+%>
+
+<%@tree.keys.each do |group|%>
+<b><%=group.name%></b><br/>
+<%@tree[group].each do |user|%>
+      <%= user.login %><br/>
+    <%end%>
+      <br/>
+<%end%>
