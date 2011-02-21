@@ -22,8 +22,10 @@
         <br/>
   <%end%>
     </td>
+    
     <td>
-
+<%= select_tag "project_id", options_from_collection_for_select(Project.all, "id", "name"),
+			:label => "Projektname" %>
     </td>
   </tr>
 </table>
