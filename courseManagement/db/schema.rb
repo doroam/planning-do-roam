@@ -10,10 +10,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110221122150) do
+ActiveRecord::Schema.define(:version => 20110221192532) do
 
   create_table "groups", :force => true do |t|
     t.string   "name"
+    t.integer  "user_one_id"
+    t.integer  "user_two_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -21,10 +23,11 @@ ActiveRecord::Schema.define(:version => 20110221122150) do
   create_table "users", :force => true do |t|
     t.string   "login"
     t.string   "name"
-    t.integer  "group_id"
     t.boolean  "is_professor"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_one_id"
+    t.integer  "user_two_id"
   end
 
 end
