@@ -3,14 +3,19 @@
 <table>
   <tr>
     <th>Name</th>
-    <th></th>
-    <th></th>
+    <th>1. Teilnehmer</th>
+    <th>2. Teilnehmer</th>
     <th></th>
   </tr>
 
-<% @groups.each do |group| %>
+<% @groups.each do |group| 
+	user_one = User.find(group.user_one_id)
+	user_two = User.find(group.user_two_id)
+%>
   <tr>
     <td><%= group.name %></td>
+	<td><%= user_one.name %></td>
+	<td><%= user_two.name %></td>
     <td><%= link_to 'Show', group %></td>
     <td><%= link_to 'Edit', edit_group_path(group) %></td>
     <td><%= link_to 'Destroy', group, :confirm => 'Are you sure?', :method => :delete %></td>

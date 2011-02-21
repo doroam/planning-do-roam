@@ -1,3 +1,4 @@
 class User < ActiveRecord::Base
-  belongs_to :group
+  validates_presence_of :name
+  validates_presence_of :login
 end
