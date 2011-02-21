@@ -3,9 +3,14 @@ CourseManagement::Application.routes.draw do
 
   resources :groups
   
-  resources :course_management
+  #resources :course_management
+  #resources :professor_view
 
-  match '/signin',  :to => 'course_management#new'
+  root :to => "course_management#index"
+
+  match 'course_management' => 'course_management#create'
+
+  match 'professor_view' => 'professor_view#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

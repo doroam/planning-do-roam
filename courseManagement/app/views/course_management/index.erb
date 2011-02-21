@@ -2,16 +2,16 @@
 # To change this template, choose Tools | Templates
 # and open the template in the editor.
 %>
+<br/>
 
-<%= "index" %>
-<%= @title %> <%=@testvar%>
-<%= form_for(:course_management) do |f| %>
+<%= form_tag(:course_management) do %>
   <div class="field">
-    <%= f.label :login %><br />
-    <%= f.text_field :login %>
+    <%= label(:login,"Login") %><br />
+    <%= text_field(:login,"login") %>
   </div>
   <div class="actions">
-    <%= f.submit "Sign in" %>
-  </div>
+    <%= submit_tag "Anmelden" %>
+  </div><br/>
+<div><%= flash[:errorMessage] %></div>
 <% end %>
 
