@@ -3,10 +3,27 @@
 # and open the template in the editor.
 %>
 
-<%@tree.keys.each do |group|%>
-<b><%=group.name%></b><br/>
-<%@tree[group].each do |user|%>
-      <%= user.login %><br/>
-    <%end%>
-      <br/>
-<%end%>
+<h1>Die Gruppen ihrer Veranstaltung</h1>
+<br/>
+<table border="1">
+  <head>
+    <th width="300"><b>Gruppenname</b><br/>Teilnehmern</th>
+  <th valign="top" width="300">Projekt</th>
+
+  </head>
+
+  <tr>
+    <td>
+  <%Group.all.each do |group|%>
+  <b><%=group.name%></b><br/>
+  <%group.users.each do |user|%>
+        <%= user.login %><br/>
+      <%end%>
+        <br/>
+  <%end%>
+    </td>
+    <td>
+
+    </td>
+  </tr>
+</table>

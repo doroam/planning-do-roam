@@ -44,13 +44,15 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to(@user, :notice => 'User was successfully created.') }
+        format.html { flash[:errorMessage]="Ihre Benutzer wurde angelegt, bitte melden sie sich an!"
+                      redirect_to root_path }
         format.xml  { render :xml => @user, :status => :created, :location => @user }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
       end
     end
+    
   end
 
   # PUT /users/1
