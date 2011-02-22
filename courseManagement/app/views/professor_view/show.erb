@@ -2,22 +2,19 @@
 # To change this template, choose Tools | Templates
 # and open the template in the editor.
 %>
-
 <h1>Die Gruppen ihrer Veranstaltung</h1>
-<br/>
-
-
-<table border="1">
+<%=flash[:errorMessage]%><br/>
+<%= link_to 'Projekt anlegen', new_project_path %>
+<table border="1" align="center">
   <head>
     <th width="300"><b>Gruppenname</b><br/>Teilnehmern</th>
   <th valign="top" width="300">Projekt</th>
-
+  <th valign="top" width="300">Repository Url</th>
   </head>
-<%Group.all.each do |group|%>
-  <tr>
-    
+  <%Group.all.each do |group|%>
+  <tr>    
     <td> 
-  <b><%=group.name%></b><%=group.id%><br/>
+  <b><%=group.name%></b><br/>
   <%project = group.project
       project_id = ""
       if project!=nil
@@ -27,15 +24,18 @@
         <%= user.login %><br/>
       <%end%>
         <br/>
-    </td>
-    
+    </td>    
     <td valign="top">
       <%= form_for(group) do |f|%>      
       <%= select_tag "project_id", options_from_collection_for_select(get_available_projects(group), "id", "name",project_id),
 			:label => "Projektname",:style =>"width:300px",  :onchange => "this.form.submit()" %>
       <%end%>
     </td>
-    
+    <td valign="top">
+      <%= form_for(group) do |f|%>
+      <%= f.text_field :repository_url %>
+      <%end%>
+    </td>
   </tr>
   <%end%>
 </table>

@@ -4,42 +4,30 @@
 %>
 
 <% 
-require 'groups_helper'
-
 groups = get_available_groups
 projects = Project.all
-
-user = session["login_user"]
+user     = session["login_user"]
+group    = user.group
+group_id = ""
+project_id = ""
+if group != nil
+  group_id =group.id
+  if user.group.project !=nil
+      project_id = user.group.project.id
+  end
+end
 %>
 
-<h1>Gruppen:</h1>
-<%= form_tag('setUserToGroup') do |f| %>
-	<% 
-		if user.group == nil %>
-			<%=select_tag("group_id", options_from_collection_for_select(groups, "id", "name"))%>
-		<% else %>
-			<%=select_tag("group_id", options_from_collection_for_select(groups, "id", "name", 
-				user.group.id))%>
-		<% end %>
-	<%= submit_tag "Eintragen" %>
-<%end%>
-
-<% if user.group != nil %>
-	<h1>Projekte</h1>
-	
-	<% if user.group.project != nil %>
-	    <%= form_for(user.group) do |f|%>      
-	      <%= select_tag "project_id", options_from_collection_for_select(
-					get_available_projects(user.group), "id", "name", user.group.project),
-					:label => "Projektname",:style =>"width:100px",  
-					:onchange => "this.form.submit()" %>
-		<% end %> 
-	<% else %>
-	    <%= form_for(user.group) do |f|%>      
-	      <%= select_tag "project_id", options_from_collection_for_select(
-					get_available_projects(user.group), "id", "name"),
-					:label => "Projektname",:style =>"width:100px",  
-					:onchange => "this.form.submit()" %>
-		<% end %>
-	<% end %> 
-<% end %>	
+<h1>Benutzer</h1><br/>
+Login: <%=user.login%><br/>
+Name: <%=user.name%>
+  <%= form_tag('setUserToGroup') do |f| %>
+  Gruppe:
+    <%=select_tag("group_id", options_from_collection_for_select(groups, "id", "name", group_id),
+			:label => "Gruppe",:style =>"width:300px",  :onchange => "this.form.submit()")%>
+  <%end%><br/>
+<%= form_for(group) do |f|%>
+  Projekt: 
+      <%= select_tag "project_id", options_from_collection_for_select(get_available_projects(group), "id", "name",project_id),
+			:label => "Projektname",:style =>"width:300px",  :onchange => "this.form.submit()" %>
+      <%end%>

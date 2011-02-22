@@ -2,11 +2,9 @@
 # To change this template, choose Tools | Templates
 # and open the template in the editor.
 %>
-<br/>
-
 <%= form_tag(:course_management) do %>
   <div class="field">
-    <%= label(:login,"Login") %><br />
+    <h1><%= label(:login,"Login")%></h1><br />
     <%= text_field(:login,"login") %>
   </div>
   <div class="actions">
@@ -14,5 +12,5 @@
   </div><br/>
 <div><%= flash[:errorMessage] %></div>
 <% end %>
-<br/><%= link_to 'New User', new_user_path %>
+<br/><%= link_to 'Benutzer anlegen', new_user_path %>
 
