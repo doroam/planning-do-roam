@@ -1,5 +1,5 @@
 class ProfessorViewController < ApplicationController
-  def index
+  def show
     @tree = Hash.new
 
    #User.all.each do |user|

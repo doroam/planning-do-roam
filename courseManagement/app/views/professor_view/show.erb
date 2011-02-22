@@ -16,6 +16,7 @@
     
     <td> 
   <b><%=group.name%></b><br/>
+  <%= group.project %><br/>
   <%group.users.each do |user|%>
         <%= user.login %><br/>
       <%end%>
@@ -24,10 +25,10 @@
     </td>
     
     <td valign="top">
-<%= simple_form_for @group do |f|%>
-      <%= select_tag "project_id", options_from_collection_for_select(Project.getAvailableProjects, "id", "name"),
-			:label => "Projektname", :onchange => "alert('Input collected!')" %>
-<%end%>
+      <%= form_for(group) do |f| %>
+      <%= select_tag "project_id", options_from_collection_for_select(Project.all, "id", "name"),
+			:label => "Projektname", :onchange => "this.form.submit()",:selected => group.project %>
+      <%end%>
     </td>
     
   </tr>
