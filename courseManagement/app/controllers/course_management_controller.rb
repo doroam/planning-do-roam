@@ -15,6 +15,7 @@ class CourseManagementController < ApplicationController
     end
     
     if @success
+      session[:login_user] = @user
       if @user.is_professor
         #render(professor_view_url, :action => "show")
         redirect_to professor_view_url

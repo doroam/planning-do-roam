@@ -1,5 +1,5 @@
 module ProjectsHelper
-  def getAvailableProjects()
+  def get_available_projects()
     result = Array.new
     Project.all.each do |project|
       if project.group == nil

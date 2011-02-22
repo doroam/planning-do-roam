@@ -62,10 +62,14 @@ class GroupsController < ApplicationController
         project = Project.find(project_id)
         @group.project = project
     end
+    redirect_url = professor_view_url
+    if !session[:login_user].is_professor
+      redirect_url = :groups
+    end
 
     respond_to do |format|
       if @group.update_attributes(params[:group])
-        format.html { redirect_to(@group, :notice => 'Group was successfully updated.') }
+        format.html { redirect_to redirect_url}#(@group, :notice => 'Group was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
