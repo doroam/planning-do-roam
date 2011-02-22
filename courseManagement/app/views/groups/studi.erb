@@ -9,11 +9,19 @@ require 'groups_helper'
 @users = User.all
 @groups = get_available_groups
 @projects = Project.all
+
+@user = session["login_user"]
 %>
 
 <h1>Gruppen:</h1>
 <%= form_tag('setUserToGroup') do |f| %>
-	<%= select_tag("group_id", options_from_collection_for_select(@groups, "id", "name"))%>
+	<% 
+		if @user.group == nil %>
+			<%=select_tag("group_id", options_from_collection_for_select(@groups, "id", "name"))%>
+		<% else %>
+			<%=select_tag("group_id", options_from_collection_for_select(@groups, "id", "name", 
+				@user.group.id))%>
+		<% end %>
 	<%= submit_tag "Eintragen" %>
 <%end%>
 
