@@ -2,7 +2,7 @@ require 'test_helper'
 
 class UsersControllerTest < ActionController::TestCase
   setup do
-    @user = users(:firstUser)
+    @user  = users(:firstUser)
   end
 
   test "should get index" do
@@ -10,18 +10,17 @@ class UsersControllerTest < ActionController::TestCase
     assert_response :success
     assert_not_nil assigns(:users)
   end
-
   test "should get new" do
     get :new
     assert_response :success
   end
 
-  test "should create user" do
+  test "should create professor user" do
     assert_difference('User.count') do
       post :create, :user => @user.attributes
     end
 
-   # assert_redirected_to user_path(assigns(:user))
+    assert_redirected_to root_path(assigns(:root_path))    
   end
 
   test "should show user" do

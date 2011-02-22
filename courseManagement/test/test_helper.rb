@@ -10,4 +10,8 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  
+  def set_user_id_to_session(id)
+    session[:login_user_id] = id
+  end
 end

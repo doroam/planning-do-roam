@@ -34,11 +34,12 @@ class GroupsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should update group" do
+  test "should update group as professor" do
     put :update, :id => @group.to_param, :group => @group.attributes
-    #assert_redirected_to group_path(assigns(:users))
-    #TODO Redirect testen
+    assert_redirected_to professor_view_path(assigns(:professor_view))
   end
+
+  #TODO o.g Testfall mit session, wo Benutzer student ist -> weiterleitung auf :users
 
   test "should destroy group" do
     assert_difference('Group.count', -1) do

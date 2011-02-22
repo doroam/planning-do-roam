@@ -21,8 +21,7 @@ class ProjectsControllerTest < ActionController::TestCase
       post :create, :project => @project.attributes
     end
 
-   # assert_redirected_to project_path(assigns("professor_view#show"))
-   #TODO Redirect testen
+   assert_redirected_to professor_view_path(assigns(:professor_view))
   end
 
   test "should show project" do
