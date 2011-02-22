@@ -2,8 +2,11 @@
 # To change this template, choose Tools | Templates
 # and open the template in the editor.
 %>
+<%user_id = session[:login_user_id]
+user = User.find(user_id)%>
 <h1>Die Gruppen ihrer Veranstaltung</h1>
 <%=flash[:errorMessage]%><br/>
+Name:<%=user.name%><br/>
 <%= link_to 'Projekt anlegen', new_project_path %>
 <table border="1" align="center">
   <head>

@@ -62,13 +62,14 @@ class GroupsController < ApplicationController
   def update
     @group = Group.find(params[:id])
     project_id = params[:project_id]
+    user = User.find(session[:login_user_id])
     if project_id!=nil
         project        = Project.find(project_id)
         @group.project = project
     end
     redirect_url = professor_view_url
-    if session[:login_user]!=nil
-      if !session[:login_user].is_professor
+    if user!=nil
+      if !user.is_professor
         redirect_url = "/studi_groups_view_url"
       end
     end
@@ -97,11 +98,11 @@ class GroupsController < ApplicationController
   end
   
   def setUserToGroup
-      group = Group.find(params[:group_id])
-
-      user = session[:login_user]
+      group   = Group.find(params[:group_id])
+      user_id = session[:login_user_id]
+      user    = User.find(user_id)
       
-      user.group=group
+      user.group = group
       user.save
       redirect_to '/studi_groups_view_url'
   end
