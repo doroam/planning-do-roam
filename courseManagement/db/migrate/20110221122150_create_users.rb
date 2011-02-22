@@ -4,6 +4,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :login
       t.string :name
       t.boolean :is_professor
+      t.references :group
 
       t.timestamps
     end

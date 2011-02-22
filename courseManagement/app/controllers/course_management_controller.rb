@@ -19,7 +19,7 @@ class CourseManagementController < ApplicationController
         #render(professor_view_url, :action => "show")
         redirect_to professor_view_url
       else
-        redirect_to :users
+        redirect_to :groups
       end
     else      
       flash[:errorMessage] = "Benutzername nicht gefunden."
