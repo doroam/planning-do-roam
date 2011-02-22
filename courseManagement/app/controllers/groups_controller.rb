@@ -53,6 +53,10 @@ class GroupsController < ApplicationController
     end
   end
 
+  def studi
+    
+  end
+
   # PUT /groups/1
   # PUT /groups/1.xml
   def update

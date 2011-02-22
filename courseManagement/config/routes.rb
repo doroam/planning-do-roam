@@ -14,6 +14,8 @@ CourseManagement::Application.routes.draw do
 
   match 'professor_view' => 'professor_view#show'
 
+  match 'studi_groups_view_url' => 'groups#studi'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

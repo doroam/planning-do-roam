@@ -18,9 +18,9 @@ class CourseManagementController < ApplicationController
       session[:login_user] = @user
       if @user.is_professor
         #render(professor_view_url, :action => "show")
-        redirect_to professor_view_url
+        redirect_to :professor_view
       else
-        redirect_to :groups
+        redirect_to "/studi_groups_view_url"
       end
     else      
       flash[:errorMessage] = "Benutzername nicht gefunden."
