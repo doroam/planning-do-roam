@@ -43,10 +43,22 @@ class GroupsControllerTest < ActionController::TestCase
       put :update, :id => @group.to_param, :group => @group.attributes
       assert_redirected_to professor_view_path(assigns(:professor_view))
     else 
-      assert false, "Could not create user - user.id == nil!"
+      assert false, "Could not create professor user - user.id == nil!"
     end
   end
 
+  test "should update group as student" do
+    user = User.new(:name=> "TestUser", :login => "TestUser", :is_professor=>false)
+    user.save
+    if user.id != nil
+      @request.session[:login_user_id] = user.id
+    
+      put :update, :id => @group.to_param, :group => @group.attributes
+      assert_redirected_to "/studi_groups_view_url"
+    else 
+      assert false, "Could not create student user - user.id == nil!"
+    end
+  end
   #TODO o.g Testfall mit session, wo Benutzer student ist -> weiterleitung auf :users
 
   test "should destroy group" do
