@@ -1,8 +1,12 @@
 require 'test_helper'
 
 class GroupTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  test "the truth" do
-    assert true
+  def test_should_create_group
+    group = Group.new(:name => "TestGroup")
+    assert group.save
+  end
+  
+  def test_should_have_3_groups
+    assert_equal 3, Group.count
   end
 end

@@ -1,13 +1,19 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  login: MyString
-  name: MyString
+firstUser:
+  login: maximus
+  name: OliverSchnieders
   group: 
   is_professor: false
 
-two:
-  login: MyString
-  name: MyString
+secondUser:
+  login: felipe
+  name: FelipeLopez
   group: 
   is_professor: false
+
+thirdUser:
+     login: cabo
+     name: CarstenBormann
+     group:
+     is_professor: true
