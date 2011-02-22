@@ -23,19 +23,16 @@
       if project!=nil
         project_id = project.id
       end%>
-  <%= project_id %><br/>
   <%group.users.each do |user|%>
         <%= user.login %><br/>
       <%end%>
         <br/>
-  
     </td>
     
     <td valign="top">
-      <%= form_for(group) do |f|%>
-      
+      <%= form_for(group) do |f|%>      
       <%= select_tag "project_id", options_from_collection_for_select(get_available_projects(group), "id", "name",project_id),
-			:label => "Projektname", :onchange => "this.form.submit()" %>
+			:label => "Projektname",:style =>"width:300px",  :onchange => "this.form.submit()" %>
       <%end%>
     </td>
     

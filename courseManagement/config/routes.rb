@@ -16,6 +16,8 @@ CourseManagement::Application.routes.draw do
 
   match 'studi_groups_view_url' => 'groups#studi'
 
+  match 'setUserToGroup' => 'groups#setUserToGroup'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
