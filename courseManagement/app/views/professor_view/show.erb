@@ -5,6 +5,8 @@
 
 <h1>Die Gruppen ihrer Veranstaltung</h1>
 <br/>
+
+
 <table border="1">
   <head>
     <th width="300"><b>Gruppenname</b><br/>Teilnehmern</th>
@@ -32,7 +34,7 @@
     <td valign="top">
       <%= form_for(group) do |f|%>
       
-      <%= select_tag "project_id", options_from_collection_for_select(Project.all, "id", "name",project_id),
+      <%= select_tag "project_id", options_from_collection_for_select(get_available_projects(group), "id", "name",project_id),
 			:label => "Projektname", :onchange => "this.form.submit()" %>
       <%end%>
     </td>
