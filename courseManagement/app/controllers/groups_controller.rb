@@ -57,7 +57,12 @@ class GroupsController < ApplicationController
   # PUT /groups/1.xml
   def update
     @group = Group.find(params[:id])
-    p params
+    project_id = params[:project_id]
+    if project_id!=nil
+        project = Project.find(project_id)
+        @group.project = project
+    end
+
     respond_to do |format|
       if @group.update_attributes(params[:group])
         format.html { redirect_to(@group, :notice => 'Group was successfully updated.') }

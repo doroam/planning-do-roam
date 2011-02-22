@@ -20,14 +20,14 @@
 		<%= f.label 'Benutzername:' %>
     	<%= f.text_field :name %><br />
 		<%= f.label '1. Teilnehmer:' %>
-		<%= f.select("user_one_id", options_from_collection_for_select(User.all, "id", "name"))%>
+		<%= select_tag("user_one_id", options_from_collection_for_select(User.all, "id", "name"))%>
 		<br />
-                <%= f.text_field :name, :label => 'Benutzername:' %><br />
-		<%= f.label 'project' %>
-		<%= select_tag "project_id", options_from_collection_for_select(Project.all, "id", "name") %>
+                <!--%= f.text_field :name, :label => 'Benutzername:' %><br /-->
 		<%= f.label '2. Teilnehmer:' %>
-		<%= f.select("user_two_id", options_from_collection_for_select(User.all, "id", "name"),
-			:label => "2. Teilnehmer") %>
+		<%= select_tag("user_two_id", options_from_collection_for_select(User.all, "id", "name")) %><br/><br/>
+                <%= f.label 'project' %>
+		<%= select_tag "project_id", options_from_collection_for_select(Project.all, "id", "name") %>
+		
 		
 		<div class="actions" style="margin-top:25px;">	
 			<%= f.submit %>
