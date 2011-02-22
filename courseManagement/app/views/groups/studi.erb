@@ -12,8 +12,9 @@ group_id = ""
 project_id = ""
 if group != nil
   group_id =group.id
-  if user.group.project !=nil
-      project_id = user.group.project.id
+  group = Group.find(group_id)
+  if group.project !=nil
+      project_id = group.project.id
   end
 end
 %>
