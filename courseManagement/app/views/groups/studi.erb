@@ -3,6 +3,55 @@
 # and open the template in the editor.
 %>
 
-<%= "studi" %>
-slkdjdlkd<br/>
-swkjdsöäölk
+<% 
+require 'groups_helper'
+
+@users = User.all
+@groups = get_available_groups
+@projects = Project.all
+%>
+
+<h1>Gruppen:</h1>
+<%= form_tag('setUserToGroup') do |f| %>
+	<%= select_tag("group_id", options_from_collection_for_select(@groups, "id", "name"))%>
+	<%= submit_tag "Eintragen" %>
+<%end%>
+
+
+<h1>Benutzer:</h1>
+<table>
+  <tr>
+  	<th>ID</th>
+    <th>Login</th>
+    <th>Name</th>
+    <th>Is professor</th>
+    <th></th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+  	<td><%= user.id %></td>
+    <td><%= user.login %></td>
+    <td><%= user.name %></td>
+    <td><%= user.is_professor %></td>
+    <td><%= link_to 'Show', user %></td>
+  </tr>
+<% end %>
+</table>
+
+<h1>Projekte:</h1>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Group</th>
+    <th></th>
+  </tr>
+
+<%  @projects.each do |project| %>
+		  <tr>
+		    <td><%= project.name %></td>
+		    <td><%= project.group %></td>
+		    <td><%= link_to 'Show', project %></td>
+		  </tr>
+	<% end %>
+	</table>	

@@ -68,7 +68,7 @@ class GroupsController < ApplicationController
     end
     redirect_url = professor_view_url
     if !session[:login_user].is_professor
-      redirect_url = :groups
+      redirect_url = "/studi_groups_view_url"
     end
 
     respond_to do |format|
@@ -92,5 +92,18 @@ class GroupsController < ApplicationController
       format.html { redirect_to(groups_url) }
       format.xml  { head :ok }
     end
+  end
+  
+  def setUserToGroup
+      @group = Group.find(params[:group_id])
+      
+      userID = session["login_user"].id
+      
+      if @group.users == nil
+        @group.users = Array.new
+      end
+      
+      @group.users.push userID
+      
   end
 end
