@@ -2,7 +2,7 @@ require 'test_helper'
 
 class ProjectTest < ActiveSupport::TestCase
   def test_should_create_project
-    project = Project.new(:name => "TestProject")
+    project = Project.new(valid_project)
     assert project.save
   end
   

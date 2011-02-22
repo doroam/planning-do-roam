@@ -2,7 +2,7 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
   def test_should_create_a_user
-    user = User.new(:name => "TestUser", :login => "TestUser")
+    user = User.new(valid_student_user)
     assert user.save
   end
   

@@ -35,7 +35,7 @@ class GroupsControllerTest < ActionController::TestCase
   end
 
   test "should update group as professor" do
-    user = User.new(:name=> "TestUser", :login => "TestUser", :is_professor=>true)
+    user = User.new(valid_professor_user)
     user.save
     if user.id != nil
       @request.session[:login_user_id] = user.id
@@ -48,7 +48,7 @@ class GroupsControllerTest < ActionController::TestCase
   end
 
   test "should update group as student" do
-    user = User.new(:name=> "TestUser", :login => "TestUser", :is_professor=>false)
+    user = User.new(valid_student_user)
     user.save
     if user.id != nil
       @request.session[:login_user_id] = user.id
@@ -59,7 +59,6 @@ class GroupsControllerTest < ActionController::TestCase
       assert false, "Could not create student user - user.id == nil!"
     end
   end
-  #TODO o.g Testfall mit session, wo Benutzer student ist -> weiterleitung auf :users
 
   test "should destroy group" do
     assert_difference('Group.count', -1) do
