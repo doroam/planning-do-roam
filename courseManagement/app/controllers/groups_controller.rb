@@ -95,15 +95,12 @@ class GroupsController < ApplicationController
   end
   
   def setUserToGroup
-      @group = Group.find(params[:group_id])
+      group = Group.find(params[:group_id])
+
+      user = session[:login_user]
       
-      user = session["login_user"]
-      
-      if @group.users == nil
-        @group.users = Array.new
-      end
-      
-      @group.users.push(user)
+      user.group=group
+      user.save
       redirect_to '/studi_groups_view_url'
   end
 end

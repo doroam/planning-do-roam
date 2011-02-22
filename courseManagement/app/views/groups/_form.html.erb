@@ -17,14 +17,14 @@
   end
 %>
         <%=project%><br/>
-		<%= f.label 'Benutzername:' %>
+		<%= f.label 'Name' %>
     	<%= f.text_field :name %><br />
-		<%= f.label '1. Teilnehmer:' %>
+		<!--%= f.label '1. Teilnehmer:' %>
 		<%= select_tag("user_one_id", options_from_collection_for_select(User.all, "id", "name"))%>
 		<br />
                 <!--%= f.text_field :name, :label => 'Benutzername:' %><br /-->
-		<%= f.label '2. Teilnehmer:' %>
-		<%= select_tag("user_two_id", options_from_collection_for_select(User.all, "id", "name")) %><br/><br/>
+		<!--%= f.label '2. Teilnehmer:' %>
+		<%= select_tag("user_two_id", options_from_collection_for_select(User.all, "id", "name")) %><br/><br/-->
                 <%= f.label 'project' %>
 		<%= select_tag "project_id", options_from_collection_for_select(Project.all, "id", "name") %>
 		

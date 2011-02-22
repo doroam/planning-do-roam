@@ -6,21 +6,21 @@
 <% 
 require 'groups_helper'
 
-@users = User.all
-@groups = get_available_groups
-@projects = Project.all
+users = User.all
+groups = get_available_groups
+projects = Project.all
 
-@user = session["login_user"]
+user = session["login_user"]
 %>
 
 <h1>Gruppen:</h1>
 <%= form_tag('setUserToGroup') do |f| %>
 	<% 
-		if @user.group == nil %>
-			<%=select_tag("group_id", options_from_collection_for_select(@groups, "id", "name"))%>
+		if user.group == nil %>
+			<%=select_tag("group_id", options_from_collection_for_select(groups, "id", "name"))%>
 		<% else %>
-			<%=select_tag("group_id", options_from_collection_for_select(@groups, "id", "name", 
-				@user.group.id))%>
+			<%=select_tag("group_id", options_from_collection_for_select(groups, "id", "name", 
+				user.group.id))%>
 		<% end %>
 	<%= submit_tag "Eintragen" %>
 <%end%>
@@ -36,7 +36,7 @@ require 'groups_helper'
     <th></th>
   </tr>
 
-<% @users.each do |user| %>
+<% users.each do |user| %>
   <tr>
   	<td><%= user.id %></td>
     <td><%= user.login %></td>
@@ -55,7 +55,7 @@ require 'groups_helper'
     <th></th>
   </tr>
 
-<%  @projects.each do |project| %>
+<%  projects.each do |project| %>
 		  <tr>
 		    <td><%= project.name %></td>
 		    <td><%= project.group %></td>
