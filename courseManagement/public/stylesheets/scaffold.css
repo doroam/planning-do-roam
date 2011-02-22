@@ -1,8 +1,25 @@
 body { background-color: #c8c8c8; color: #333;
+    margin-top:30px;
+    padding:0px;
+    margin-left:auto;
+    margin-right:auto;
+    text-align:center;
+    width:100%;
 
-    margin:50px 0px; padding:0px;
-	text-align:center;
-
+}
+.container{
+    width:940px;
+    margin-left:auto;
+    margin-right:auto;
+    text-align:center;
+}
+.scrollbar{
+    text-align:center;
+    position:relative;
+    
+    height:450px;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 body, p, ol, ul, td {

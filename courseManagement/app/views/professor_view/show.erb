@@ -5,9 +5,9 @@
 <%user_id = session[:login_user_id]
 user = User.find(user_id)%>
 <h1>Die Gruppen ihrer Veranstaltung</h1>
-<%=flash[:errorMessage]%><br/>
-Name:<%=user.name%><br/>
-<%= link_to 'Projekt anlegen', new_project_path %>
+Name:<%=user.name%><br/> <br/>
+<div class="container">
+<div class ="scrollbar">
 <table border="1" align="center">
   <head>
     <th width="300"><b>Gruppenname</b><br/>Teilnehmern</th>
@@ -42,3 +42,7 @@ Name:<%=user.name%><br/>
   </tr>
   <%end%>
 </table>
+</div>
+</div>
+<%=flash[:errorMessage]%><br/>
+<%= link_to 'Abmelden', root_path %>&nbsp;&nbsp;<%= link_to 'Projekt anlegen', new_project_path %>

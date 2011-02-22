@@ -21,7 +21,8 @@ end
 
 <h1>Student</h1><br/>
 Login: <%=user.login%><br/>
-Name: <%=user.name%>
+Name: <%=user.name%><br/>
+<br/>
   <%= form_tag('setUserToGroup') do |f| %>
   Gruppe:
     <%=select_tag("group_id", options_from_collection_for_select(groups, "id", "name", group_id),
@@ -33,4 +34,6 @@ Name: <%=user.name%>
       <%= select_tag "project_id", options_from_collection_for_select(get_available_projects(group), "id", "name",project_id),
 			:label => "Projektname",:style =>"width:300px",  :onchange => "this.form.submit()" %>
       <%end%>
-<%end%>
+<%end%><%=flash[:errorMessage]%><br/>
+<%= link_to 'Abmelden', root_path %> &nbsp;&nbsp;<%= link_to 'Gruppe anlegen', new_group_path %>
+  

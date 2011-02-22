@@ -44,7 +44,8 @@ class GroupsController < ApplicationController
 
     respond_to do |format|
       if @group.save
-        format.html { redirect_to(@group, :notice => 'Group was successfully created.') }
+        format.html { flash[:errorMessage]="Die Gruppe wurde erfolgreich angelegt."
+          redirect_to "/studi_groups_view_url"}#redirect_to(@group, :notice => 'Group was successfully created.') }
         format.xml  { render :xml => @group, :status => :created, :location => @group }
       else
         format.html { render :action => "new" }
@@ -60,9 +61,11 @@ class GroupsController < ApplicationController
   # PUT /groups/1
   # PUT /groups/1.xml
   def update
-    @group = Group.find(params[:id])
-    project_id = params[:project_id]
-    user = User.find(session[:login_user_id])
+    @group      = Group.find(params[:id])
+    project_id  = params[:project_id]
+    user_id     = session[:login_user_id]
+    user        = User.find(user_id)
+    
     if project_id!=nil
         project        = Project.find(project_id)
         @group.project = project
