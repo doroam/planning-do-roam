@@ -14,4 +14,32 @@ class ActiveSupport::TestCase
   def set_user_id_to_session(id)
     session[:login_user_id] = id
   end
+  
+  def valid_professor_user
+    {
+      :name => "Professor",
+      :login => "prof",
+      :is_professor => true
+    }
+  end
+  
+  def valid_student_user
+    {
+      :name => "Student",
+      :login => "stud",
+      :is_professor => false    
+    }
+  end
+  
+  def valid_group
+    {
+      :name => "TestGroup"
+    }    
+  end
+  
+  def valid_project
+    {
+      :name => "TestProject"
+    }
+  end
 end

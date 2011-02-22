@@ -2,7 +2,7 @@ require 'test_helper'
 
 class GroupTest < ActiveSupport::TestCase
   def test_should_create_group
-    group = Group.new(:name => "TestGroup")
+    group = Group.new(valid_group)
     assert group.save
   end
   
