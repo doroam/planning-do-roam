@@ -4,12 +4,12 @@ start_point_string = "Start"
 end_point_string = "Ziel"
 %>
 <table>
-  <tr><td width="120px">Startpunkt:</td><td>
+  <tr><td width="80px">Startpunkt:</td><td>
 <%= form_tag('/updateRoute', :remote => true) do |f| %>
 	<span class="pointInput">
                 
 		<%= text_field_tag 'start_point', start_point_string %>
-		<%= submit_tag "Hinzufügen"%>
+		<!--%= submit_tag "Hinzufügen"%-->
 	</span>
 <% end%>
 </td></tr>
@@ -18,7 +18,7 @@ end_point_string = "Ziel"
 	<span class="pointInput">
                 
 		<%= text_field_tag 'end_point', end_point_string %>
-		<%= submit_tag "Hinzufügen"%>
+		<!--%= submit_tag "Hinzufügen"%-->
 	</span>
 <% end%>
 </td></tr>

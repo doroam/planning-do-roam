@@ -2,8 +2,8 @@ var map; //complex object of type OpenLayers.Map
 function loadMap(){
 	// Start position for the map (hardcoded here for simplicity,
 	// but maybe you want to get from URL params)
-	var lat=47.496792
-	var lon=7.571726
+	var lat=53.075878
+	var lon=8.807311
 	var zoom=12
 	//47.547855" lon="7.589664
 	init(lat,lon,zoom,map);
