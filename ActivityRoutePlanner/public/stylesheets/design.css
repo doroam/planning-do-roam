@@ -1,0 +1,31 @@
+/* 
+    Document   : design
+    Created on : 23.02.2011, 11:07:48
+    Author     : pipo
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+.header{
+    height:100px;
+    width:100%;
+    background-color: red;
+}
+.menu{
+    width:400px;
+    height:100%;
+    background-color: blue;
+}
+.map{
+    height:100%;
+    width:100%;
+    background-color: green;
+}
