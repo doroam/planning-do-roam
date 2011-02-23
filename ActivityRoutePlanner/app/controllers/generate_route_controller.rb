@@ -18,9 +18,8 @@ class GenerateRouteController < ApplicationController
 
     #weiterleiten zur startseite
     respond_to do |format|
-      format.html { redirect_to(root_path)}
-      format.html { redirect_to root_path }
-      format.js
+      format.html { render 'init/_form'}
+      format.js 
     end
   end
 end
