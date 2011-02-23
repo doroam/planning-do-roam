@@ -1,13 +1,31 @@
-<%= form_for('/updateRoute', :remote => true) do |f|%>
+<%
 
-<div class="pointInput">
-<%= f.label "Start"%>
-<%= f.text_field :start_point%>
-</div>
+route = session[:main_route]
 
-<div class="pointInput">
-<%= f.label "Ziel"%>
-<%= f.text_field :end_point%>
-</div>
+start_point_string = "Start"
+end_point_string = "Ziel"
 
+if route != nil
+	if route.start_point != nil
+		start_point_string = route.start_point
+	end
+	if route.end_point != nil
+		end_point_string = route.end_point
+	end
+end
+
+%>
+
+<%= form_tag('/updateRoute', :remote => true) do |f| %>
+	<div class="pointInput">
+		<%= text_field_tag 'start_point', start_point_string %>
+		<%= submit_tag "Hinzufügen"%>
+	</div>
+<% end%>
+
+<%= form_tag('/updateRoute', :remote => true) do |f| %>
+	<div class="pointInput">
+		<%= text_field_tag 'end_point', end_point_string %>
+		<%= submit_tag "Hinzufügen"%>
+	</div>
 <% end%>
