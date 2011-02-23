@@ -8,8 +8,7 @@ class GenerateRouteController < ApplicationController
     route = session[:main_route]
         
     
-    if params[:start_point] != nil
-      point = Point.new(params[:start_point])
+    if params[:start_point] != nil     
       route.start_point = params[:start_point]
     elsif params[:end_point] != nil
       route.end_point = params[:end_point]
