@@ -6,5 +6,9 @@ class GenerateRouteController < ApplicationController
   
   def updateRoute
     
+    
+    respond_to do |format|
+      
+    end
   end
 end
