@@ -1,0 +1,13 @@
+<%= form_for('updateRoute', :remote => true) do |f|%>
+
+<div class="pointInput">
+<%= f.label "Start"%>
+<%= f.text_field :start_point%>
+</div>
+
+<div class="pointInput">
+<%= f.label "Ziel"%>
+<%= f.text_field :end_point%>
+</div>
+
+<% end%>

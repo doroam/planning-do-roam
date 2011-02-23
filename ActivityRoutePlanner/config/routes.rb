@@ -9,6 +9,8 @@ ActivityRoutePlanner::Application.routes.draw do
   get "init/index"
 
   root :to => "init#index"
+  
+  match "updateRoute" => "generateRouteController#updateRoute"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

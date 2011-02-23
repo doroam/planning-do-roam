@@ -37,3 +37,7 @@ html,body{
     height:100%;
     width:100%;
 }
+
+.pointInput{
+	margin-top:25px;
+}
