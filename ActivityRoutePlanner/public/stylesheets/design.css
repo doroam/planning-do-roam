@@ -30,13 +30,14 @@ table{
 .header{
     height:100px;
     width:100%;
+    text-align: center;
 }
 
 #map{
     position:absolute;
     height:400px;
-    background-color: black;
-    height: 600px;
+    
+    height: 500px;
     width: 700px;
 }
 .pointInput{
