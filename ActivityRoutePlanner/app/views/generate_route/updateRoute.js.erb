@@ -1,1 +1,17 @@
-alert('Parameter setted');
+<% if params[:end_point] %>
+	$('#endPoint').append("OK")
+<% end %>
+
+<% if params[:start_point] %>
+	$('#startPoint').append("OK")
+<% end %>
+
+<% if params[:add_new_activity_select_box] %>
+	$('#addNewActivity').append(.html(
+		<%= escape_javaScript(
+		form_tag('updateRoute', :remote => true) do |f|%>
+			<%= select_tag "Aktivitäten","<option>Kiosk</option><option>Tankstelle</option><option>Einkaufen</option>"%> 
+		<%end)%>
+	))
+	
+<% end %>

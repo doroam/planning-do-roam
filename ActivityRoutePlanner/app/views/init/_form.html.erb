@@ -2,24 +2,49 @@
 route = session[:main_route]
 start_point_string = "Start"
 end_point_string = "Ziel"
+
 %>
+
+
 <table>
   <tr><td width="80px">Startpunkt:</td><td>
-<%= form_tag('/updateRoute', :remote => true) do |f| %>
-	<span class="pointInput">
+<%= #Startpunkt formluar
+	form_tag('/updateRoute', :remote => true) do |f| %>
+	<span class="pointInput" id="startPoint">
                 
 		<%= text_field_tag 'start_point', start_point_string %>
-		<!--%= submit_tag "Hinzufügen"%-->
 	</span>
 <% end%>
+
+
 </td></tr>
   <tr><td>Endpunkt:</td><td>
-<%= form_tag('/updateRoute', :remote => true) do |f| %>
-	<span class="pointInput">
+<%= #Endpunkt formlar
+	form_tag('/updateRoute', :remote => true) do |f| %>
+	<span class="pointInput" id="endPoint">
                 
 		<%= text_field_tag 'end_point', end_point_string %>
-		<!--%= submit_tag "Hinzufügen"%-->
 	</span>
 <% end%>
+
+
+	<span id="addNewActivity">
+		
+<% #Aktivitäten		
+		form_tag('/updateRoute', :remote => true) do |f| %>                
+			<%= select_tag "Aktivitäten", 
+				"<option>Kiosk</option><option>Tankstelle</option><option>Einkaufen</option>" 
+			%>
+		<% end%>
+	</span>	
+
+<% #Add new activity %>
+	<span id="addActivity">                
+		<%= 
+			form_tag('/updateRoute', :remote => true) do |f| %>
+				<%= submit_tag '+', :name => "add_new_activity_select_box" %>
+			<% end%>	
+	</span>
+
 </td></tr>
 </table>
