@@ -12,20 +12,12 @@ end
 <table>
   <tr><td width="80px">Startpunkt:</td><td>
   	 	
-<%
-@point_type = "start_point"
-%>
-<span class="pointInput" id="start_point"> 
-<%= render :partial => 'route/routeForm'%>
-</span>
+  <%= render :partial => 'route/routeForm',:locals => {:point => route.start_point,:type => 'start'} %>
+
 
 </td></tr>
 <tr><td>Endpunkt:</td><td>
-  	
-<%
-@point_type = "end_point"
-%>
-<%= render 'route/routeForm'%>
-
+  
+<%= render :partial => 'route/routeForm',:locals => {:point => route.start_point,:type => 'end'}%>
 </td></tr>
 </table>

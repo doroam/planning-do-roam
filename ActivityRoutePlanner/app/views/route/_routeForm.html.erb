@@ -1,3 +1,12 @@
+<%
+label = ""
+
+if point != nil && point.label!=nil && (!point.label.eql? "")
+  label = "ok"
+end
+%>
+<span class="pointInput" id="<%=type%>_id">
 <%= form_tag('/updateRoute', :remote => true) do |f| %>                
-			<%= text_field_tag @point_type %>			
-	<% end%>		
+			<%= text_field_tag type,point.label %><%=label%>
+	<% end%>
+</span>
