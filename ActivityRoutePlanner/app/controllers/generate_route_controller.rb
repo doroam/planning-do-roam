@@ -16,11 +16,8 @@ class GenerateRouteController < ApplicationController
      
     end
     
-    session[:main_route] = route
-
     respond_to do |format|      
-      format.js #{render :partial => 'init/routeForm'}
+      format.js 
     end
-
   end
 end

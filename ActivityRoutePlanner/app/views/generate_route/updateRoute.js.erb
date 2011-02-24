@@ -1,14 +1,14 @@
 <% if params[:end_point] %>
 	var elem = document.getElementById('end_point');
-	elem.innerHTML = "<%=params[:end_point]%>";	
+	elem.innerHTML = "<%= escape_javascript(render(:partial => 'route/showRoutePoint',
+		"point" => "end_point", "value" => params[:end_point]))%>";	
 <% end %>
 
 <% if params[:start_point] %>
 	var elem = document.getElementById('start_point');
-	<!--elem.innerHTML = "<%=params[:start_point]%>";-->
-	elem.innerHTML = "<%= escape_javascript(render(:partial => 'init/routeForm'))%>";	
+	elem.innerHTML = "<%= escape_javascript(render(:partial => 'route/showRoutePoint',
+		"point" => "start_point", "value" => params[:start_point]))%>";	
 <% end %>
-
 
 <% if params[:add_new_activity_select_box] %>
 	<% # Das setzen von neuen Selektboxen über DOM funktioniert nicht %>

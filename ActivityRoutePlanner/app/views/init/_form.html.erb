@@ -7,12 +7,6 @@ if session[:number_of_act] == nil
 	session[:number_of_act] = 1
 end
 
-if route.start_point != nil
-	start_point_string = route.start_point
-end
-if route.end_point != nil
-	end_point_string = route.end_point
-end
 %>
 
 <table>
@@ -22,7 +16,7 @@ end
 @point_type = "start_point"
 %>
 <span class="pointInput" id="start_point"> 
-<%= render :partial => 'routeForm'%>
+<%= render :partial => 'route/routeForm'%>
 </span>
 
 </td></tr>
@@ -31,7 +25,7 @@ end
 <%
 @point_type = "end_point"
 %>
-<%= render 'routeForm'%>
+<%= render 'route/routeForm'%>
 
 </td></tr>
 </table>
