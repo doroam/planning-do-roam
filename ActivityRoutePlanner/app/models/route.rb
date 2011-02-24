@@ -19,12 +19,21 @@ class Route
   def self.get_sql_results(res)
     result = Array.new
     res.each  do |row|
-      row.each do |field|
-        p field.to_s
-        #point = Point.new(field[1],field[2],field[3])
-        #result.push(point)
-      end
+      
+      point = make_point(row)
+      result.push(point)
     end
     return result
+  end
+  def self.make_point(row)
+    name  = row["name"]
+    lat   = row["x"]
+    lon   = row["y"]
+    
+    point       = Point.new
+    point.label = name
+    point.lat   = lat
+    point.long  = lon
+    return point
   end
 end
