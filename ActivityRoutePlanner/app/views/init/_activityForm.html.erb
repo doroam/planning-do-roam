@@ -1,0 +1,26 @@
+<table>
+<tr><td id="addNewActivity">
+		
+<% #Aktivitäten%>		
+	<% i = 0
+		while session[:number_of_act] < i %>
+		<tr><td>
+			<%= form_tag('/updateRoute', :remote => true) do |f| %>                
+				<%= select_tag "Aktivitäten", 
+					"<option>Kiosk</option><option>Tankstelle</option><option>Einkaufen</option>" 
+				%>
+			<% end %>
+		<% i = i + 1 %>
+		</td></tr>
+	<% end %>				
+
+</td></tr>
+
+<% #Add new activity %>
+<tr><td id="addActivity">                
+		<%= 
+			form_tag('/updateRoute', :remote => true) do |f| %>
+				<%= submit_tag '+', :name => "add_new_activity_select_box" %>
+			<% end%>	
+</td></tr>
+</table>
