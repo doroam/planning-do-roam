@@ -12,14 +12,15 @@ class GenerateRouteController < ApplicationController
       route.start_point = params[:start_point]
     elsif params[:end_point] != nil
       route.end_point = params[:end_point]
+    elsif params[:add_new_activity_select_box] != nil            
+     
     end
     
     session[:main_route] = route
 
-    #weiterleiten zur startseite
-    respond_to do |format|
-      format.html { render 'init/_form'}
-      format.js 
+    respond_to do |format|      
+      format.js {render :partial => 'init/routeForm'}
     end
+
   end
 end
