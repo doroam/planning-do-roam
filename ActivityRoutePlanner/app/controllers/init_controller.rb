@@ -4,7 +4,10 @@ class InitController < ApplicationController
     route = Route.new
     route.start_point = Point.new
     route.end_point = Point.new
-    route.activities = Array.new    
+    
+    route.activities = Array.new
+    route.activities.push Activity.new("tag1", "value1")
+    route.activities.push Activity.new("tag2", "value2")
     
     session[:main_route] = route
 

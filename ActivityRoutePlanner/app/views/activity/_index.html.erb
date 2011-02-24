@@ -1,0 +1,17 @@
+<%
+route = session[:main_route]
+%>
+
+<table>
+<tr><td id="activity">
+
+<% #For each activity one select box
+	if route.activities != nil
+		route.activities.each do |a| %>
+			  <%= render :partial => 'activity/activityForm',
+				:locals => {:tag => a.tag, :value => a.value} %>
+		<%end%>
+	<%end%>	
+	
+</td></tr>
+</table>

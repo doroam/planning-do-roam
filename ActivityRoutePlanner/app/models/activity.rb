@@ -6,4 +6,17 @@ class Activity
   def initialize
     
   end
+  
+  def initialize(tag, value)
+    @tag = tag
+    @value = value
+  end
+  
+  def value
+    return @value
+  end
+  
+  def tag
+    return @tag
+  end
 end
