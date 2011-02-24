@@ -1,17 +1,40 @@
 var map; //complex object of type OpenLayers.Map
+var zoom = 11;
 function loadMap(){
 	// Start position for the map (hardcoded here for simplicity,
 	// but maybe you want to get from URL params)
 	var lat=53.075878
 	var lon=8.807311
-	var zoom=12
+	
 	//47.547855" lon="7.589664
-	init(lat,lon,zoom,map);
+	init(lat,lon,zoom);
 }
-		
+function addMark(label,type){
+    var params = label.split(";");
+    if(params.length>1){
+        var lat = params[0].replace(",", ".");
+        var lon = params[1].replace(",", ".");
+
+
+        var src = type!=null &&type == "start"?"javascripts/img/marker.png":"javascripts/img/marker-blue.png";
+        var layerMarkers = map.getLayer("OpenLayers.Layer.Markers_85");
+
+        // Add the Layer with GPX Track choose the color of the Track (replace #00FF00 by the HTML code of the color you want)
+        //var lgpx = new OpenLayers.Layer.GPX("MB Bruderholz", "mb_bruderholz.GPX", "blue");
+        //map.addLayer(lgpx);
+
+        var lonLat = new OpenLayers.LonLat(lon, lat).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject());
+        //map.setCenter (lonLat, zoom);
+
+        var size = new OpenLayers.Size(21,25);
+        var offset = new OpenLayers.Pixel(-(size.w/2), -size.h+15);
+        var icon = new OpenLayers.Icon(src,size,offset);
+        layerMarkers.addMarker(new OpenLayers.Marker(lonLat,icon));
+    }
+}
  
 //Initialise the 'map' object
-function init(lat,lon,zoom,map) {
+function init(lat,lon,zoom) {
 	map = new OpenLayers.Map ("map", {
 			controls:[
 				new OpenLayers.Control.Navigation(),
@@ -48,8 +71,8 @@ function init(lat,lon,zoom,map) {
 	var lonLat = new OpenLayers.LonLat(lon, lat).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject());
 	map.setCenter (lonLat, zoom);
  
-	var size = new OpenLayers.Size(21,25);
+	/*var size = new OpenLayers.Size(21,25);
 	var offset = new OpenLayers.Pixel(-(size.w/2), -size.h+15);
 	var icon = new OpenLayers.Icon('http://www.openstreetmap.org/openlayers/img/marker.png',size,offset);
-	layerMarkers.addMarker(new OpenLayers.Marker(lonLat,icon));
+	layerMarkers.addMarker(new OpenLayers.Marker(lonLat,icon));*/
 }

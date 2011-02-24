@@ -1,13 +1,2 @@
-<% route = session[:main_route]
-
-if params[:activity] != nil
-	#params[:activity] = tag
-	act = Activity.new(params[:activity],"")
-	route.activities.push act
-
-	session[:main_route] = route
-%>
-	var elem = document.getElementById('activity');
-	elem.innerHTML = "<%= escape_javascript(render(:partial => 'activity/index'))%>";
-
-<%end%>
+var elem = document.getElementById('activity_id');
+elem.innerHTML = "<%= escape_javascript(render(:partial => 'activity/index'))%>";

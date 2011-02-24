@@ -5,6 +5,12 @@
   <%= stylesheet_link_tag :all,'design' %>
   <%= javascript_include_tag :defaults,'util.js','OpenLayers.js','http://www.openstreetmap.org/openlayers/OpenStreetMap.js' %>
   <%= csrf_meta_tag %>
+  <script>
+  // this allows jquery to be called along with scriptaculous and YUI without any conflicts
+  // the only difference is all jquery functions should be called with $j instead of $
+  // e.g. $j('#div_id').stuff instead of $('#div_id').stuff
+  var $j = jQuery.noConflict();
+</script>
 </head>
 <body onload="javascript:loadMap();">
 

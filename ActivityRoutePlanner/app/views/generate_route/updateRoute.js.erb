@@ -1,11 +1,13 @@
 <%
 route = session[:main_route]
 if params[:end] %>
+        addMark("<%=route.end_point.label%>","end");
 	var elem = document.getElementById('end_id');
 	elem.innerHTML = "<%= escape_javascript(render(:partial => 'route/routeForm',:locals => {:point => route.end_point,:type => 'end'}))%>";
 <% end %>
 
 <% if params[:start] %>
+        addMark("<%=route.start_point.label%>","start");
 	var elem = document.getElementById('start_id');
 	elem.innerHTML = "<%= escape_javascript(render(:partial => 'route/routeForm',:locals => {:point => route.start_point,:type => 'start'}))%>";
 <% end %>

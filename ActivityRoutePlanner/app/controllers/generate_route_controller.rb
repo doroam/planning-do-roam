@@ -1,9 +1,6 @@
 class GenerateRouteController < ApplicationController
   
-  def create
-    
-  end
-  
+
   def updateRoute
     route = session[:main_route]
            

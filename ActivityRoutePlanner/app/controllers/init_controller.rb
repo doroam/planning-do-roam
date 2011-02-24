@@ -6,12 +6,14 @@ class InitController < ApplicationController
     route.end_point = Point.new
     
     route.activities = Array.new
-    route.activities.push Activity.new("tag1", "value1")
-    route.activities.push Activity.new("tag2", "value2")
+    route.activities.push(Activity.new("", ""))
     
-    session[:main_route] = route
+    activity_list = Array.new
+    activity_list.push(Activity.new("amenity", "hospital"))
+    activity_list.push(Activity.new("amenity", "bank"))
 
-    test = Route.get_points_near_to()
+    session[:main_activity_list] = activity_list
+    session[:main_route] = route
 
     @route = route
     respond_to do |format|
