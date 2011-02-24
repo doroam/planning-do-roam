@@ -5,7 +5,8 @@
 
 <% if params[:start_point] %>
 	var elem = document.getElementById('start_point');
-	elem.innerHTML = "<%=params[:start_point]%>";		
+	<!--elem.innerHTML = "<%=params[:start_point]%>";-->
+	elem.innerHTML = "<%= escape_javascript(render(:partial => 'init/routeForm'))%>";	
 <% end %>
 
 
