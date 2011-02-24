@@ -1,4 +1,3 @@
-
 <%
 route = session[:main_route]
 if params[:end] %>
@@ -9,10 +8,4 @@ if params[:end] %>
 <% if params[:start] %>
 	var elem = document.getElementById('start_id');
 	elem.innerHTML = "<%= escape_javascript(render(:partial => 'route/routeForm',:locals => {:point => route.start_point,:type => 'start'}))%>";
-<% end %>
-
-<% if params[:add_new_activity_select_box] %>
-	<% # Das setzen von neuen Selektboxen über DOM funktioniert nicht %>
-	<% session[:number_of_act] = session[:number_of_act] + 1 %>
-	
 <% end %>

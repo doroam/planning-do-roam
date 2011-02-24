@@ -4,6 +4,8 @@ class InitController < ApplicationController
     route = Route.new
     route.start_point = Point.new
     route.end_point = Point.new
+    route.activities = Array.new    
+    
     session[:main_route] = route
 
     test = Route.get_points_near_to()
