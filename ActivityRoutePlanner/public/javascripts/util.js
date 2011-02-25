@@ -1,38 +1,84 @@
 var map; //complex object of type OpenLayers.Map
 var zoom = 11;
+var markerHash = new Array();
+
 function loadMap(){
 	// Start position for the map (hardcoded here for simplicity,
 	// but maybe you want to get from URL params)
 	var lat=53.075878
 	var lon=8.807311
-	
+	//53.075878;8.807311
 	//47.547855" lon="7.589664
 	init(lat,lon,zoom);
 }
-function addMark(label,type){
-    var params = label.split(";");
-    if(params.length>1){
-        var lat = params[0].replace(",", ".");
-        var lon = params[1].replace(",", ".");
+function addMark(lat,lon,type){
+    alert("addMark  "+lat+"  "+lon+"  "+type);
 
 
-        var src = type!=null &&type == "start"?"javascripts/img/marker.png":"javascripts/img/marker-blue.png";
+        var src = type!=null && type == "start" ? "javascripts/img/marker.png":"javascripts/img/marker-blue.png";
         var layerMarkers = map.getLayer("OpenLayers.Layer.Markers_85");
 
         // Add the Layer with GPX Track choose the color of the Track (replace #00FF00 by the HTML code of the color you want)
         //var lgpx = new OpenLayers.Layer.GPX("MB Bruderholz", "mb_bruderholz.GPX", "blue");
         //map.addLayer(lgpx);
+        var marker = markerHash[type];
+        if(marker == null){
+            marker           = createMarker(lon,lat,src);
+            markerHash[type] =  marker;
+            layerMarkers.addMarker(marker);
+        }
+        else{
+            marker = markerHash[type];
+            layerMarkers.removeMarker(marker);
+            updateMarker(marker,lon,lat,src);
+            layerMarkers.addMarker(marker);
+        }    
+}
+function addActivityMark(lat,lon,type,index){
+    alert("addActivityMark  "+lat+"  "+lon+"  "+type,index);
+    var src = "javascripts/img/marker-gold.png";
+    var layerMarkers = map.getLayer("OpenLayers.Layer.Markers_85");
 
-        var lonLat = new OpenLayers.LonLat(lon, lat).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject());
-        //map.setCenter (lonLat, zoom);
 
-        var size = new OpenLayers.Size(21,25);
-        var offset = new OpenLayers.Pixel(-(size.w/2), -size.h+15);
-        var icon = new OpenLayers.Icon(src,size,offset);
-        layerMarkers.addMarker(new OpenLayers.Marker(lonLat,icon));
+    if(markerHash[type]==null)
+        markerHash[type] = new Array();
+
+
+    var marker = markerHash[type][index];
+    if(marker == null){
+        marker           = createMarker(lon,lat,src);
+        markerHash[type][index] =  marker;
+        layerMarkers.addMarker(marker);
+    }
+    else{
+
+        marker = markerHash[type][index];
+        layerMarkers.removeMarker(marker);
+        updateMarker(marker,lon,lat,src);
+        layerMarkers.addMarker(marker);
     }
 }
- 
+function createMarker(lon,lat,src){
+    var lonLat = new OpenLayers.LonLat(lon, lat).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject());
+    //map.setCenter (lonLat, zoom);
+
+    var size    = new OpenLayers.Size(21,25);
+    var offset  = new OpenLayers.Pixel(-(size.w/2), -size.h+15);
+    var icon    = new OpenLayers.Icon(src,size,offset);
+    return new OpenLayers.Marker(lonLat,icon);
+}
+
+function updateMarker(marker,lon,lat,src){
+    var lonLat = new OpenLayers.LonLat(lon, lat).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject());
+    //map.setCenter (lonLat, zoom);
+
+    var size    = new OpenLayers.Size(21,25);
+    var offset  = new OpenLayers.Pixel(-(size.w/2), -size.h+15);
+    var icon    = new OpenLayers.Icon(src,size,offset);
+    marker.lonlat = lonLat;
+    marker.icon = icon;
+}
+
 //Initialise the 'map' object
 function init(lat,lon,zoom) {
 	map = new OpenLayers.Map ("map", {

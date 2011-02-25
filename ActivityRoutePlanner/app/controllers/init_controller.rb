@@ -11,6 +11,8 @@ class InitController < ApplicationController
     activity_list = Array.new
     activity_list.push(Activity.new("amenity", "hospital"))
     activity_list.push(Activity.new("amenity", "bank"))
+    activity_list.push(Activity.new("amenity", "police"))
+    activity_list.push(Activity.new("amenity", "telephone"))
 
     session[:main_activity_list] = activity_list
     session[:main_route] = route

@@ -11,6 +11,14 @@ class Point
   def initialize
   end
 
-
+  def parse_label
+    results =@label.split(";")
+    if results.size > 1
+      @lat = results[0]
+      @long = results[1]
+    else
+      #
+    end
+  end
 
 end

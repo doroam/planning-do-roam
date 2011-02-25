@@ -1,2 +1,8 @@
+<%route = session[:main_route]
+  activity = route.activities.last
+  activity.result.each.with_index do |result, index|
+%>
+addActivityMark("<%=result.lat%>","<%=result.long%>","<%=activity.value%>","<%=index%>");
+<%end%>
 var elem = document.getElementById('activity_id');
 elem.innerHTML = "<%= escape_javascript(render(:partial => 'activity/index'))%>";
