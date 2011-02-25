@@ -2,7 +2,7 @@
 <span id="activity_id">
 <% if route.activities != nil
 	route.activities.each do |a| %>
-          <%= render :partial => 'activity/activityForm',:locals => {:activity => a}%>
+          <%= render :partial => 'activity/activityForm',:locals => {:activity => a}%><br />
         <%end%>
   <%end%>
 </span>

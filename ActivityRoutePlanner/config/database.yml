@@ -25,7 +25,7 @@ osm_data:
   adapter: postgresql
   database: bremen
   username: postgres
-  password: postgres
+  password: peterpan23
   host: localhost
   encoding: UTF8
 
