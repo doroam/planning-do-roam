@@ -11,6 +11,17 @@ class GenerateRouteController < ApplicationController
       route.end_point.label = params[:end]
       route.end_point.parse_label
     end
+    
+    #If user has given an start- and endPoint, 
+    #so activates activity-list if not done
+    if (route.start_point.label != nil) && (route.end_point.label != nil)
+      if (!route.start_point.label.eql? "") && (!route.end_point.label.eql? "")
+        if route.activities == nil
+           route.activities = Array.new
+           route.activities.push(Activity.new("", ""))
+        end   
+      end       
+    end
 
     session[:main_route] = route
     

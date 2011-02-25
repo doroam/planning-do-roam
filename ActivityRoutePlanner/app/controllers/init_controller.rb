@@ -6,9 +6,6 @@ class InitController < ApplicationController
       route.start_point = Point.new
       route.end_point = Point.new
 
-      route.activities = Array.new
-      route.activities.push(Activity.new("", ""))
-
       activity_list = Array.new
       activity_list.push(Activity.new("amenity", "hospital"))
       activity_list.push(Activity.new("amenity", "bank"))
