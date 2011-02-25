@@ -1,8 +1,13 @@
-<%= select_tag "activity",
+<%= select_tag "activity_"+index.to_s,
           options_from_collection_for_select(session[:main_activity_list],"value","value",activity.value),
           :style =>"width:130px",
           :include_blank => true,
 			:onchange => remote_function(
-				:url=> "/updateActivity",
-				:with => " 'activity=' +document.getElementById('activity').value"
+				:url=> "/addActivity",
+				:with => " 'activity=' +document.getElementById('activity_"+index.to_s+"').value"
 )%>
+
+<%if show_delete %>
+	<%= # link to remove that activity
+	link_to "delete", "/deleteActivity?deleteActivity="+index.to_s, :remote => true%>
+<%end%>

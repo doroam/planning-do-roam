@@ -1,8 +1,18 @@
 <%route = session[:main_route]%>
 <span id="activity_id">
 <% if route.activities != nil
-	route.activities.each do |a| %>
-          <%= render :partial => 'activity/activityForm',:locals => {:activity => a}%><br />
+	route.activities.each_index do |index| %>
+		  <% 
+			elem = route.activities[index]
+			show_delete = true
+			
+			if index == route.activities.length-1
+				show_delete = false
+			end
+		  %>
+          <%= render :partial => 'activity/activityForm',
+				:locals => {:activity => elem, :index => index, :show_delete => show_delete}
+		  %><br />
         <%end%>
   <%end%>
 </span>
