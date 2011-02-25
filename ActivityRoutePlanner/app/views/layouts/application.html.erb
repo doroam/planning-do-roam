@@ -3,7 +3,7 @@
 <head>
   <title>ActivityRoutePlanner</title>
   <%= stylesheet_link_tag :all,'design' %>
-  <%= javascript_include_tag :defaults,'prototype.js','util.js','OpenLayers.js','http://www.openstreetmap.org/openlayers/OpenStreetMap.js' %>
+  <%= javascript_include_tag 'prototype.js',:defaults %>
   <%= csrf_meta_tag %>
   <script>
   // this allows jquery to be called along with scriptaculous and YUI without any conflicts
@@ -11,6 +11,7 @@
   // e.g. $j('#div_id').stuff instead of $('#div_id').stuff
   var $j = jQuery.noConflict();
 </script>
+  <%= javascript_include_tag 'util.js','OpenLayers.js','http://www.openstreetmap.org/openlayers/OpenStreetMap.js' %>
 </head>
 <body onload="javascript:loadMap();">
 

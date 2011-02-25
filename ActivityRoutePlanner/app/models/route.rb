@@ -11,7 +11,7 @@ class Route
     pend    = route.end_point
     activities = route.activities
 
-    sql = "select "+global_field_name+","+global_field_long+","+global_field_lat+","+get_distance_query(pstart,pend)+" from "+global_table_point
+    sql = "select "+Global::global_field_name+","+global_field_long+","+global_field_lat+","+get_distance_query(pstart,pend)+" from "+global_table_point
 
     activities.each do |activity|
       where   = " where "+global_field_amenity+" = '"+activity.value+"' order by distance limit 3;"
@@ -34,8 +34,8 @@ class Route
 
   private
   def self.get_distance_query(pstart,pend)
-    distance_p1 = "distance(GeomFromText('POINT("+pstart.lat+" "+pstart.long+")',4326),st_transform(way,4326))"
-    distance_p2 = "distance(GeomFromText('POINT("+pend.lat+" "+pend.long+")',4326),st_transform(way,4326))"
+    distance_p1 = "distance(GeomFromText('POINT("+pstart.long+" "+pstart.lat+")',4326),st_transform(way,4326))"
+    distance_p2 = "distance(GeomFromText('POINT("+pend.long+" "+pend.lat+")',4326),st_transform(way,4326))"
     result      = "("+distance_p1+"+"+distance_p2+")as distance"
     return result
   end

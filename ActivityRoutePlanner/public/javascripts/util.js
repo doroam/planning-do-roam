@@ -36,7 +36,7 @@ function addMark(lat,lon,type){
 }
 function addActivityMark(lat,lon,type,index){
     alert("addActivityMark  "+lat+"  "+lon+"  "+type,index);
-    var src = "javascripts/img/marker-gold.png";
+    var src = "images/icons/"+type+".png";
     var layerMarkers = map.getLayer("OpenLayers.Layer.Markers_85");
 
 
