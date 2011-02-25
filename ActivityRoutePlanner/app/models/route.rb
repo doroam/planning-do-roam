@@ -25,11 +25,11 @@ class Route
   end
 
   def self.get_closest_activity(activity,pstart,pend)
-    global_field_name = Global::global_field_name
-    global_field_long = Global::global_field_long
-    global_field_lat  = Global::global_field_lat
-    global_table_point = Global::global_table_point
-    global_field_amenity = Global::global_field_amenity
+    global_field_name = Global::GLOBAL_FIELD_NAME
+    global_field_long = Global::GLOBAL_FIELD_LONG
+    global_field_lat  = Global::GLOBAL_FIELD_LAT
+    global_table_point = Global::GLOBAL_TABLE_POINT
+    global_field_amenity = Global::GLOBAL_FIELD_AMENITY
     sql     = "select "+global_field_name+","+global_field_long+","+global_field_lat+","+get_distance_query(pstart,pend)+" from "+global_table_point
     where   = " where "+global_field_amenity+" = '"+activity.value+"' order by distance limit 3;"
     result  = execute_sql(sql+where)
