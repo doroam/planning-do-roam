@@ -27,7 +27,7 @@ class InitController < ApplicationController
     session[:main_route] = nil
 
     respond_to do |format|
-        format.html { redirect_to("/init/index") }
+        format.html { redirect_to( root_path) }
     end    
   end
 
