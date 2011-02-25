@@ -10,8 +10,12 @@ class Route
     pstart  = route.start_point
     pend    = route.end_point
     activities = route.activities
-
-    sql = "select "+Global::global_field_name+","+global_field_long+","+global_field_lat+","+get_distance_query(pstart,pend)+" from "+global_table_point
+    global_field_name = Global::global_field_name
+    global_field_long = Global::global_field_long
+    global_field_lat  = Global::global_field_lat
+    global_table_point = Global::global_table_point
+    global_field_amenity = Global::global_field_amenity
+    sql = "select "+global_field_name+","+global_field_long+","+global_field_lat+","+get_distance_query(pstart,pend)+" from "+global_table_point
 
     activities.each do |activity|
       where   = " where "+global_field_amenity+" = '"+activity.value+"' order by distance limit 3;"
@@ -21,11 +25,11 @@ class Route
   end
 
   def self.get_closest_activity(activity,pstart,pend)
-    global_field_name = "name"
-    global_field_long = "X(transform(way,4326))"
-    global_field_lat  = "Y(transform(way,4326))"
-    global_table_point = "planet_osm_point"
-    global_field_amenity = "amenity"
+    global_field_name = Global::global_field_name
+    global_field_long = Global::global_field_long
+    global_field_lat  = Global::global_field_lat
+    global_table_point = Global::global_table_point
+    global_field_amenity = Global::global_field_amenity
     sql     = "select "+global_field_name+","+global_field_long+","+global_field_lat+","+get_distance_query(pstart,pend)+" from "+global_table_point
     where   = " where "+global_field_amenity+" = '"+activity.value+"' order by distance limit 3;"
     result  = execute_sql(sql+where)
