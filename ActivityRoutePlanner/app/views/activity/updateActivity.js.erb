@@ -4,5 +4,5 @@
 %>
 addActivityMark("<%=result.lat%>","<%=result.long%>","<%=activity.value%>","<%=index%>");
 <%end%>
-var elem = document.getElementById('activity_id');
-elem.innerHTML = "<%= escape_javascript(render(:partial => 'activity/index'))%>";
+var elem = document.getElementById('route_id');
+elem.innerHTML = "<%= escape_javascript(render(:partial => 'init/menu'))%>";
