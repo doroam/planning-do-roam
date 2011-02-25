@@ -11,7 +11,7 @@ class InitController < ApplicationController
       activity_list.push(Activity.new("amenity", "hospital"))
       activity_list.push(Activity.new("amenity", "bank"))
       activity_list.push(Activity.new("amenity", "police"))
-      activity_list.push(Activity.new("amenity", "telephone"))
+      activity_list.push(Activity.new("amenity", "restaurant"))
 
       session[:main_activity_list] = activity_list
       session[:main_route] = route
@@ -27,7 +27,7 @@ class InitController < ApplicationController
     session[:main_route] = nil
 
     respond_to do |format|
-        format.html { redirect_to("/init/index") }
+        format.html { redirect_to( root_path) }
     end    
   end
 

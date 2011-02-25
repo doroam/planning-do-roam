@@ -12,7 +12,7 @@ function loadMap(){
 	init(lat,lon,zoom);
 }
 function addMark(lat,lon,type){
-    alert("addMark  "+lat+"  "+lon+"  "+type);
+    //alert("addMark  "+lat+"  "+lon+"  "+type);
 
 
         var src = type!=null && type == "start" ? "javascripts/img/marker.png":"javascripts/img/marker-blue.png";
@@ -35,7 +35,7 @@ function addMark(lat,lon,type){
         }    
 }
 function addActivityMark(lat,lon,type,index){
-    alert("addActivityMark  "+lat+"  "+lon+"  "+type,index);
+    //alert("addActivityMark  "+lat+"  "+lon+"  "+type,index);
     var src = "images/icons/"+type+".png";
     var layerMarkers = map.getLayer("OpenLayers.Layer.Markers_85");
 
