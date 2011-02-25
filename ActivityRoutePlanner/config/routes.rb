@@ -13,7 +13,9 @@ ActivityRoutePlanner::Application.routes.draw do
   match "updateRoute" => "generateRoute#updateRoute"
   match "addActivity" => "activity#updateActivity"
   match "deleteActivity" => "activity#updateActivity"
-
+  match "reset" => "init#index"
+  match "resetMethod" => "init#reset"
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

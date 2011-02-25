@@ -9,7 +9,7 @@ class ActivityController < ApplicationController
     end
       
      respond_to do |format|      
-     format.js
+      format.js
     end
   end
   

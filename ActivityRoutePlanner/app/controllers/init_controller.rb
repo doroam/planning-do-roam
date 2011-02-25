@@ -2,6 +2,7 @@ class InitController < ApplicationController
   helper_method :get_points_near_to
   def index
     if session[:main_route] == nil
+      p "neu"
       route = Route.new
       route.start_point = Point.new
       route.end_point = Point.new
@@ -17,10 +18,17 @@ class InitController < ApplicationController
     end
     @route = route
     respond_to do |format|
-      format.html # index.html.erb
+      format.html
       format.xml  { render :xml }
     end
   end
 
+  def reset
+    session[:main_route] = nil
+
+    respond_to do |format|
+        format.html { redirect_to("/init/index") }
+    end    
+  end
 
 end
