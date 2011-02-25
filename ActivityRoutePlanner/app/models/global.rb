@@ -1,10 +1,10 @@
 # To change this template, choose Tools | Templates
 # and open the template in the editor.
 
-class Global < Enumeration
-  self.add_value(:global_field_name, 'name')
-  self.add_value(:global_field_amenity, 'amenity')
-  self.add_value(:global_table_point, 'planet_osm_point')
-  self.add_value(:global_field_long, 'X(transform(way,4326))')
-  self.add_value(:global_field_lat, 'Y(transform(way,4326))')
+class Global < ActiveRecord::Base 
+  GLOBAL_FIELD_NAME = 'name'
+  GLOBAL_FIELD_AMENITY = 'amenity'
+  GLOBAL_TABLE_POINT = 'planet_osm_point'
+  GLOBAL_FIELD_LONG = 'X(transform(way,4326))'
+  GLOBAL_FIELD_LAT =  'Y(transform(way,4326))'
 end
