@@ -2,7 +2,6 @@ class InitController < ApplicationController
   helper_method :get_points_near_to
   def index
     if session[:main_route] == nil
-      p "neu"
       route = Route.new
       route.start_point = Point.new
       route.end_point = Point.new
