@@ -1,11 +1,7 @@
-<%
-route = session[:main_route]
-%>
-
-<%= form_tag('/updateActivity', :remote => true) do |f|%>
-	<%= select_tag "activity", 
-		options_from_collection_for_select(session[:main_activity_list],"value","value",activity.value),
-                :style =>"width:130px",
-                :onchange => "this.form.submit()",
-		:include_blank => true %>       			
+<%= form_tag('/updateActivity', :remote => true, :html => {:id => 'updateActivity_id'}) do |f|%>
+	<%= select_tag "activity",
+          options_from_collection_for_select(session[:main_activity_list],"value","value",activity.value),
+          :style =>"width:130px",
+          :include_blank => true%>
+        <%= submit_tag %>
 <%end%>

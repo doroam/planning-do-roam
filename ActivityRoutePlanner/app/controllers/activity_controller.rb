@@ -1,12 +1,13 @@
 class ActivityController < ApplicationController
   
-  def update_activity
+  def updateActivity
     route = session[:main_route]
     
     route.activities.push(Activity.new("amenity",params[:activity]))
+    
      
     respond_to do |format|      
-     format.js {render :partial => 'route/routeForm' }
+     format.js 
     end
   end
 end
