@@ -47,3 +47,6 @@ table{
 .pointInput{
 	margin-top:25px;
 }
+.info_text{ font-style:italic;
+        color :gray;
+}
