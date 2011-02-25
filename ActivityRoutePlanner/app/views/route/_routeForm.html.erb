@@ -1,10 +1,18 @@
 <%label = ""
+default = ""
 if point != nil && point.label!=nil && (!point.label.eql? "")
   label = "ok"
+  default = point.label
+else
+  if type.eql?("start")
+    default = "53.075878;8.80731"
+  else
+    default = "53.175878;8.90731"
+  end
 end
 %>
 <span class="pointInput" id="<%=type%>_id">
 <%= form_tag('/updateRoute', :remote => true) do |f| %>                
-			<%= text_field_tag type,point.label %><%=label%>
+			<%= text_field_tag type,default %><%=label%>
 	<% end%>
 </span>

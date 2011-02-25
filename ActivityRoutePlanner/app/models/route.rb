@@ -20,6 +20,18 @@ class Route
     end
   end
 
+  def self.get_closest_activity(activity,pstart,pend)
+    global_field_name = "name"
+    global_field_long = "X(transform(way,4326))"
+    global_field_lat  = "Y(transform(way,4326))"
+    global_table_point = "planet_osm_point"
+    global_field_amenity = "amenity"
+    sql     = "select "+global_field_name+","+global_field_long+","+global_field_lat+","+get_distance_query(pstart,pend)+" from "+global_table_point
+    where   = " where "+global_field_amenity+" = '"+activity.value+"' order by distance limit 3;"
+    result  = execute_sql(sql+where)
+    activity.result = result
+  end
+
   private
   def self.get_distance_query(pstart,pend)
     distance_p1 = "distance(GeomFromText('POINT("+pstart.lat+" "+pstart.long+")',4326),st_transform(way,4326))"
@@ -45,8 +57,8 @@ class Route
   end
   def self.make_point(row)
     name  = row["name"]
-    lat   = row["x"]
-    lon   = row["y"]
+    lat   = row["y"]
+    lon   = row["x"]
     
     point       = Point.new
     point.label = name
