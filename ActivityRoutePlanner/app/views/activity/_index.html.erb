@@ -1,5 +1,6 @@
 <%route = session[:main_route]%>
 <span id="activity_id">
+  <table>
 <% if route.activities != nil
 	route.activities.each_index do |index| %>
 		  <% 
@@ -12,7 +13,8 @@
 		  %>
           <%= render :partial => 'activity/activityForm',
 				:locals => {:activity => elem, :index => index, :show_delete => show_delete}
-		  %><br />
+		  %>
         <%end%>
   <%end%>
+</table>
 </span>
