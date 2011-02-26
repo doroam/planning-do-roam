@@ -1,9 +1,10 @@
 <%label = ""
 default = ""
 if point != nil && point.label!=nil && (!point.label.eql? "")
-  label = "ok"
+  showDelete = true
   default = point.label
 else
+  showDelete = false
   if type.eql?("start")
     default = "53.075878;8.80731"
   else
@@ -13,6 +14,10 @@ end
 %>
 <span class="pointInput" id="<%=type%>_id">
 <%= form_tag('/updateRoute', :remote => true) do |f| %>                
-			<%= text_field_tag type,default %><%=label%>
+			<%= text_field_tag type,default %>
+		<%if showDelete%>	
+			<%= # link to remove that activity
+			link_to "delete", "/updateRoute?delete_point="+type, :remote => true%>
+		<% end%>	
 	<% end%>
 </span>
