@@ -1,37 +1,35 @@
 class ActivityController < ApplicationController
   
   def updateActivity
+    route = session[:main_route] 
   
     if params[:activity]
-      addActivity
+      id = params[:id].to_i
+      if id < route.activities.length-1
+        route = changeActivity(params[:activity], id, route)
+      else
+        route = addActivity(route, params[:activity])
+      end      
     elsif params[:deleteActivity]
-      deleteActivity    
+      route =  deleteActivity(route, params[:deleteActivity])    
     end
+     
+    session[:main_route] = route
       
-     respond_to do |format|      
+    respond_to do |format|      
       format.js
     end
   end
   
-  def deleteActivity
-    index = params[:deleteActivity]
-    route = session[:main_route]
-     
-    p route.activities.length
-    
-    
+  #delete activity from list
+  def deleteActivity(route, index)      
     route.activities.delete_at index.to_i
-    
-    p route.activities.length 
-    
-    session[:main_route] = route
+    return route
   end
   
-  def addActivity
-    route = session[:main_route]
-
-    activity = Activity.new("amenity",params[:activity])
-    Route.get_closest_activity(activity,route.start_point,route.end_point)
+  #add activity to list
+  def addActivity(route, act)   
+    activity = create(route, act)
 
     #If activity list contains only spacer -> insert at 0
     #else insert at bevor last position
@@ -41,6 +39,19 @@ class ActivityController < ApplicationController
       route.activities.insert(-2, activity) 
     end
 
-    session[:main_route] = route
+    return route
+  end
+  
+  #change activity
+  def changeActivity(act, id, route)
+    activity = create(route, act)
+    route.activities[id] = activity
+    return route
+  end
+  
+  def create(route, act)
+    activity = Activity.new("amenity",act)
+    Route.get_closest_activity(activity,route.start_point,route.end_point)
+    return activity
   end
 end
