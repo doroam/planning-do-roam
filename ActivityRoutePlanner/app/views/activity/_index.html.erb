@@ -4,21 +4,6 @@
 <% 
   if route.activities != nil
 %><tr><td colspan="2">Activities:</td></tr><%
-	#get possible_values
-	possible_values = Array.new
-	session[:main_activity_list].each do |a|
-		contains = false
-		
-		route.activities.each do |b|
-			if b.value.eql? a.value
-				contains = true
-				break
-			end
-		end
-		if !contains
-			possible_values.push a
-		end
-	end
 	route.activities.each_index do |index| %>
 		  <% 
 			elem = route.activities[index]
@@ -27,15 +12,10 @@
 			if index == route.activities.length-1
 				show_delete = false
 			end
-
-			dummyArray = Array.new
-			dummyArray = possible_values.dup
-			dummyArray.insert(0, elem)
 		  %>
           <%= render :partial => 'activity/form',
 				:locals => {:activity => elem, :index => index, 
-							:show_delete => show_delete,							
-							:possible_values => dummyArray}
+							:show_delete => show_delete}
 		  %>
         <%end%>
   <%end%>

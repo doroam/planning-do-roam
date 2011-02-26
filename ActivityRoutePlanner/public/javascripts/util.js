@@ -12,9 +12,6 @@ function loadMap(){
 	init(lat,lon,zoom);
 }
 function addMark(lat,lon,type){
-    //alert("addMark  "+lat+"  "+lon+"  "+type);
-
-
         var src = type!=null && type == "start" ? "javascripts/img/marker.png":"javascripts/img/marker-blue.png";
         var layerMarkers = map.getLayer("OpenLayers.Layer.Markers_85");
 
@@ -22,6 +19,11 @@ function addMark(lat,lon,type){
         //var lgpx = new OpenLayers.Layer.GPX("MB Bruderholz", "mb_bruderholz.GPX", "blue");
         //map.addLayer(lgpx);
         var marker = markerHash[type];
+        
+        if(lat=="" && lon =="" && markerHash[type]!=null)
+            layerMarkers.removeMarker(marker);
+
+        
         if(marker == null){
             marker           = createMarker(lon,lat,src);
             markerHash[type] =  marker;
@@ -33,6 +35,16 @@ function addMark(lat,lon,type){
             updateMarker(marker,lon,lat,src);
             layerMarkers.addMarker(marker);
         }    
+}
+function removeMark(value){
+    var marks = markerHash[value];
+    if(marks!=null){
+        for(var i =0;i<marks.length;i++){
+            var mark = marks[i];
+            var layerMarkers = map.getLayer("OpenLayers.Layer.Markers_85");
+            layerMarkers.removeMarker(mark);
+        }
+    }
 }
 function addActivityMark(lat,lon,type,index){
     //alert("addActivityMark  "+lat+"  "+lon+"  "+type,index);

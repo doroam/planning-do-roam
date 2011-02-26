@@ -14,12 +14,16 @@ class Route
     global_field_long = Global::global_field_long
     global_field_lat  = Global::global_field_lat
     global_table_point = Global::global_table_point
+    global_table_polygon = Global::global_table_polygon
     global_field_amenity = Global::global_field_amenity
-    sql = "select "+global_field_name+","+global_field_long+","+global_field_lat+","+get_distance_query(pstart,pend)+" from "+global_table_point
+    sqlHeadPoint    = "select "+global_field_name+","+global_field_long+","+global_field_lat+","+get_distance_query(pstart,pend)+" from "+global_table_point
+    sqlHeadPolygon  = "select "+global_field_name+","+global_field_long+","+global_field_lat+","+get_distance_query(pstart,pend)+" from "+global_table_polygon
 
     activities.each do |activity|
-      where   = " where "+global_field_amenity+" = '"+activity.value+"' order by distance limit 3;"
-      result  = execute_sql(sql+where)
+      limit   = " order by distance limit 3;"
+      where   = " where "+global_field_amenity+" = '"+activity.value+"' "
+      sql = "("+sqlHeadPoint+where+" union "+sqlHeadPolygon+where+") "+limit
+      result  = execute_sql(sql)
       activity.result = result
     end
   end
@@ -29,10 +33,14 @@ class Route
     global_field_long = Global::GLOBAL_FIELD_LONG
     global_field_lat  = Global::GLOBAL_FIELD_LAT
     global_table_point = Global::GLOBAL_TABLE_POINT
+    global_table_polygon = Global::GLOBAL_TABLE_POLYGON
     global_field_amenity = Global::GLOBAL_FIELD_AMENITY
-    sql     = "select "+global_field_name+","+global_field_long+","+global_field_lat+","+get_distance_query(pstart,pend)+" from "+global_table_point
-    where   = " where "+global_field_amenity+" = '"+activity.value+"' order by distance limit 3;"
-    result  = execute_sql(sql+where)
+    sqlHeadPoint    = "select "+global_field_name+","+global_field_long+","+global_field_lat+","+get_distance_query(pstart,pend)+" from "+global_table_point
+    sqlHeadPolygon  = "select "+global_field_name+","+global_field_long+","+global_field_lat+","+get_distance_query(pstart,pend)+" from "+global_table_polygon
+    limit   = " order by distance limit 3;"
+    where   = " where "+global_field_amenity+" = '"+activity.value+"' "
+    sql     = "("+sqlHeadPoint+where+" union "+sqlHeadPolygon+where+") "+limit
+    result = execute_sql(sql)
     activity.result = result
   end
 

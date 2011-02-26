@@ -20,12 +20,14 @@ body{
     overflow:scroll;
 }
 tr,td{
-    vertical-align:top;
+    vertical-align:middle;
+    height: 20px;
 }
 root {
     display: block;
 }
 table{
+
 }
 .header{
     height:100px;
@@ -49,4 +51,7 @@ table{
 }
 .info_text{ font-style:italic;
         color :gray;
+}
+.delete{
+    vertical-align: bottom;
 }

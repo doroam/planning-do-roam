@@ -1,5 +1,5 @@
 <%route = session[:main_route]
-if params[:end]
+if params[:end] || (params[:delete_point]!=nil && params[:delete_point].eql?("end"))
   point = route.end_point
   type = "end"
 else

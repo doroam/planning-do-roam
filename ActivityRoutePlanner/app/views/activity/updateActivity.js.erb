@@ -1,12 +1,16 @@
 <%route = session[:main_route]
-
-  if route.activities.length > 1
+if params[:deleteActivity]!=nil%>
+  removeMark("<%=params[:activity]%>");
+<%else%>
+  <%if params[:activity] && route.activities.length > 1
  	 activity = route.activities[route.activities.length-2]
+	 activity.result.each.with_index do |result, index|
+	%>
+  addActivityMark("<%=result.lat%>","<%=result.long%>","<%=activity.value%>","<%=index%>");
+<%end%>
+<%end%>
+<%end%>
 
-	  	activity.result.each.with_index do |result, index|
-		%>
-		addActivityMark("<%=result.lat%>","<%=result.long%>","<%=activity.value%>","<%=index%>");
-		<%end%>
-  <%end%>
+
 var elem = document.getElementById('route_id');
 elem.innerHTML = "<%= escape_javascript(render(:partial => 'init/menu'))%>"; 
