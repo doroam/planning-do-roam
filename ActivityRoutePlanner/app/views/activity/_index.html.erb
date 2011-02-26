@@ -3,7 +3,7 @@
   <table>
 <% 
   if route.activities != nil
-
+%><tr><td colspan="2">Activities:</td></tr><%
 	#get possible_values
 	possible_values = Array.new
 	session[:main_activity_list].each do |a|
@@ -32,7 +32,7 @@
 			dummyArray = possible_values.dup
 			dummyArray.insert(0, elem)
 		  %>
-          <%= render :partial => 'activity/activityForm',
+          <%= render :partial => 'activity/form',
 				:locals => {:activity => elem, :index => index, 
 							:show_delete => show_delete,							
 							:possible_values => dummyArray}
