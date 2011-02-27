@@ -10,7 +10,6 @@ if params[:deleteActivity]!=nil%>
 <%end%>
 <%end%>
 <%end%>
-
-
 var elem = document.getElementById('route_id');
-elem.innerHTML = "<%= escape_javascript(render(:partial => 'init/menu'))%>"; 
+elem.innerHTML = "<%= escape_javascript(render(:partial => 'init/menu'))%>";
+hideWall();

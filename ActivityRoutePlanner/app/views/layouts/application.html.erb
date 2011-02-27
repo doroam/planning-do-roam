@@ -3,6 +3,8 @@
 <head>
   <title>ActivityRoutePlanner</title>
   <%= stylesheet_link_tag :all,'design' %>
+
+  <%=stylesheet_link_tag("../javascripts/yui/container/assets/container")%>
   <%= javascript_include_tag 'prototype.js',:defaults %>
   <%= csrf_meta_tag %>
   <script>
@@ -11,7 +13,7 @@
   // e.g. $j('#div_id').stuff instead of $('#div_id').stuff
   var $j = jQuery.noConflict();
 </script>
-  <%= javascript_include_tag 'util.js','OpenLayers.js','http://www.openstreetmap.org/openlayers/OpenStreetMap.js' %>
+  <%= javascript_include_tag 'OpenLayers.js','http://www.openstreetmap.org/openlayers/OpenStreetMap.js','yui/yahoo-dom-event/yahoo-dom-event.js','yui/container/container-min.js','util.js','yuiUtils.js'%>
 </head>
 <body onload="javascript:loadMap();">
 

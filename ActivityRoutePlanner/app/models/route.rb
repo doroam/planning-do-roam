@@ -35,11 +35,11 @@ class Route
     global_table_point = Global::GLOBAL_TABLE_POINT
     global_table_polygon = Global::GLOBAL_TABLE_POLYGON
     global_field_amenity = Global::GLOBAL_FIELD_AMENITY
-    sqlHeadPoint    = "select "+global_field_name+","+global_field_long+","+global_field_lat+","+get_distance_query(pstart,pend)+" from "+global_table_point
-    sqlHeadPolygon  = "select "+global_field_name+","+global_field_long+","+global_field_lat+","+get_distance_query(pstart,pend)+" from "+global_table_polygon
+    sql_head_point    = "select "+global_field_name+","+global_field_long+","+global_field_lat+","+get_distance_query(pstart,pend)+" from "+global_table_point
+    sql_head_polygon  = "select "+global_field_name+","+global_field_long+","+global_field_lat+","+get_distance_query(pstart,pend)+" from "+global_table_polygon
     limit   = " order by distance limit 3;"
     where   = " where "+global_field_amenity+" = '"+activity.value+"' "
-    sql     = "("+sqlHeadPoint+where+" union "+sqlHeadPolygon+where+") "+limit
+    sql     = "("+sql_head_point+where+" union "+sql_head_polygon+where+") "+limit
     result = execute_sql(sql)
     activity.result = result
   end

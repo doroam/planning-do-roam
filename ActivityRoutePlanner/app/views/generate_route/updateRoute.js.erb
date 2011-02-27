@@ -10,3 +10,4 @@ end
 addMark("<%=point.lat%>","<%=point.long%>","<%=type%>");
 var elem = document.getElementById('route_id');
 elem.innerHTML = "<%= escape_javascript(render(:partial => 'init/menu',:locals => {:point => point,:type => type}))%>";
+hideWall();
