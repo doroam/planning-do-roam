@@ -11,7 +11,7 @@ function loadMap(){
 	//47.547855" lon="7.589664
 	init(lat,lon,zoom);
 }
-function addMark(lat,lon,type){
+function addMark(name,lat,lon,type){
         var src = type!=null && type == "start" ? "javascripts/img/marker.png":"javascripts/img/marker-blue.png";
         var layerMarkers = map.getLayer("OpenLayers.Layer.Markers_85");
 
@@ -25,19 +25,19 @@ function addMark(lat,lon,type){
 
         
         if(marker == null){
-            marker           = createMarker(lon,lat,src);
+            marker           = createMarker(name,lon,lat,src);
             markerHash[type] =  marker;
             layerMarkers.addMarker(marker);
         }
         else{
             marker = markerHash[type];
             layerMarkers.removeMarker(marker);
-            updateMarker(marker,lon,lat,src);
+            updateMarker(name,marker,lon,lat,src);
             layerMarkers.addMarker(marker);
         }    
 }
-function removeMark(value){
-    var marks = markerHash[value];
+function removeMark(id){
+    var marks = markerHash[id];
     if(marks!=null){
         for(var i =0;i<marks.length;i++){
             var mark = marks[i];
@@ -46,47 +46,52 @@ function removeMark(value){
         }
     }
 }
-function addActivityMark(lat,lon,type,index){
-    //alert("addActivityMark  "+lat+"  "+lon+"  "+type,index);
+function addActivityMark(name,lat,lon,type,index,id){
+    //alert("addActivityMark  "+lat+"  "+lon+"  "+type+"  "+index);
     var src = "images/icons/"+type+".png";
     var layerMarkers = map.getLayer("OpenLayers.Layer.Markers_85");
 
 
-    if(markerHash[type]==null)
-        markerHash[type] = new Array();
+    if(markerHash[id]==null)
+        markerHash[id] = new Array();
 
 
-    var marker = markerHash[type][index];
+    var marker = markerHash[id][index];
     if(marker == null){
-        marker           = createMarker(lon,lat,src);
-        markerHash[type][index] =  marker;
+        marker           = createMarker(name,lon,lat,src);
+        markerHash[id][index] =  marker;
+        
         layerMarkers.addMarker(marker);
+        
     }
     else{
 
-        marker = markerHash[type][index];
+        marker = markerHash[id][index];
         layerMarkers.removeMarker(marker);
-        updateMarker(marker,lon,lat,src);
+        updateMarker(name,marker,lon,lat,src);
         layerMarkers.addMarker(marker);
     }
 }
-function createMarker(lon,lat,src){
+function createMarker(tooltip,lon,lat,src){
+    //alert(tooltip+"  "+lon+"  "+lat+"  "+src)
     var lonLat = new OpenLayers.LonLat(lon, lat).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject());
     //map.setCenter (lonLat, zoom);
 
     var size    = new OpenLayers.Size(21,25);
     var offset  = new OpenLayers.Pixel(-(size.w/2), -size.h+15);
     var icon    = new OpenLayers.Icon(src,size,offset);
+    icon.imageDiv.firstChild.title = tooltip;
     return new OpenLayers.Marker(lonLat,icon);
 }
 
-function updateMarker(marker,lon,lat,src){
+function updateMarker(name,marker,lon,lat,src){
     var lonLat = new OpenLayers.LonLat(lon, lat).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject());
     //map.setCenter (lonLat, zoom);
 
     var size    = new OpenLayers.Size(21,25);
     var offset  = new OpenLayers.Pixel(-(size.w/2), -size.h+15);
     var icon    = new OpenLayers.Icon(src,size,offset);
+    icon.imageDiv.firstChild.title = name;
     marker.lonlat = lonLat;
     marker.icon = icon;
 }

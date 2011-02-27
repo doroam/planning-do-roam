@@ -1,12 +1,16 @@
 <%route = session[:main_route]
 if params[:deleteActivity]!=nil%>
-  removeMark("<%=params[:activity]%>");
+  removeMark("<%=params[:deleteActivity]%>");
 <%else%>
   <%if params[:activity] && route.activities.length > 1
- 	 activity = route.activities[route.activities.length-2]
+         id = params[:id]
+         if id==nil||id.eql?("")
+           id = route.activities.length-2
+         end
+ 	 activity = route.activities[id.to_i]
 	 activity.result.each.with_index do |result, index|
 	%>
-  addActivityMark("<%=result.lat%>","<%=result.long%>","<%=activity.value%>","<%=index%>");
+  addActivityMark("<%=result.label%>","<%=result.lat%>","<%=result.long%>","<%=activity.value%>","<%=index%>","<%=id%>");
 <%end%>
 <%end%>
 <%end%>

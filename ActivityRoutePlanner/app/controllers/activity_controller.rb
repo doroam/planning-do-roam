@@ -24,7 +24,6 @@ class ActivityController < ApplicationController
   #delete activity from list
   def deleteActivity(route, index)
     activity          = route.activities[index.to_i]
-    params[:activity] = activity.value
     route.activities.delete_at index.to_i
     return route
   end

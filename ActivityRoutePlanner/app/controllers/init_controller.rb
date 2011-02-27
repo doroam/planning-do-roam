@@ -2,9 +2,7 @@ class InitController < ApplicationController
   helper_method :get_points_near_to
   def index
     if session[:main_route] == nil
-      route = Route.new
-      route.start_point = Point.new
-      route.end_point = Point.new
+      route = Route.new      
 
       activity_list = Array.new
       activity_list.push(Activity.new("amenity", "hospital"))

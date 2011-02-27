@@ -4,8 +4,29 @@
 class Route
   attr_accessor :start_point,:end_point,:activities
   def initialize
-    
+    @start_point = Point.new
+    @end_point = Point.new
   end
+  def show_markers()
+    script = ""
+    if @start_point != nil && @start_point.label!=nil
+      script = "addMark('"+@start_point.label+"','"+@start_point.lat+"','"+@start_point.long+"','start');"
+    end
+    if @end_point != nil && @end_point.label
+      script += "addMark('"+@end_point.label+"','"+@end_point.lat+"','"+@end_point.long+"','end');"
+    end
+    if @activities != nil
+      @activities.each.with_index do |activity,id|
+        if activity.result != nil
+            activity.result.each.with_index do |result, index|
+              script += "addActivityMark('"+result.label+"','"+result.lat+"','"+result.long+"','"+activity.value+"','"+index.to_s+"','"+id.to_s+"');"            
+          end
+        end
+      end
+    end
+    return script
+  end
+    
   def self.get_closest_activities(route)
     pstart  = route.start_point
     pend    = route.end_point
@@ -40,7 +61,7 @@ class Route
     limit   = " order by distance limit 3;"
     where   = " where "+global_field_amenity+" = '"+activity.value+"' "
     sql     = "("+sql_head_point+where+" union "+sql_head_polygon+where+") "+limit
-    result = execute_sql(sql)
+    result  = execute_sql(sql)
     activity.result = result
   end
 
@@ -78,4 +99,5 @@ class Route
     point.long  = lon
     return point
   end
+  
 end
