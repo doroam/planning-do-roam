@@ -29,4 +29,12 @@ osm_data:
   host: localhost
   encoding: UTF8
 
+road_data:
+  adapter: postgresql
+  database: routing
+  username: postgres
+  password: peterpan23
+  host: localhost
+  encoding: UTF8
+
 

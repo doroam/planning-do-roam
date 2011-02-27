@@ -3,6 +3,7 @@
 	<h2>Route</h2><br/>
 	<span style="font-size:12px;">
 		<%= link_to "reset", "/resetMethod" ,:onclick => 'showWall();'%>
+          <%= link_to "check", "/check_edge" ,:remote => true,:onclick => 'showWall();'%>
 	</span><br/>
 <%= render 'init/form' %>
 <%= render 'activity/index' %>	

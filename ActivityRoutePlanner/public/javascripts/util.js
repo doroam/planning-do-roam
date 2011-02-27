@@ -11,6 +11,24 @@ function loadMap(){
 	//47.547855" lon="7.589664
 	init(lat,lon,zoom);
 }
+function loadRoute(){
+   var layer = new OpenLayers.Layer.Vector("KML", {
+                projection: map.displayProjection,
+                strategies: [new OpenLayers.Strategy.Fixed()],
+                protocol: new OpenLayers.Protocol.HTTP({
+                    url: "kmlRoute.kml",
+                    format: new OpenLayers.Format.KML({
+                        extractStyles: true,
+                        extractAttributes: true
+                    })
+                })
+            });
+    //var lonLat = new OpenLayers.LonLat(-112.169, 36.099).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject());
+    //map.setCenter(lonLat);
+    map.addLayer(layer);
+
+
+}
 function addMark(name,lat,lon,type){
         var src = type!=null && type == "start" ? "javascripts/img/marker.png":"javascripts/img/marker-blue.png";
         var layerMarkers = map.getLayer("OpenLayers.Layer.Markers_85");
