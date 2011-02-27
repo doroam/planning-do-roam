@@ -13,11 +13,11 @@ else
 end
 %>
 <span class="pointInput" id="<%=type%>_id">
-<%= form_tag('/updateRoute', :remote => true) do |f| %>                
-			<%= text_field_tag type,default %>
+<%= form_tag('/updateRoute', :remote => true) do |f| %>
+			<%= text_field_tag type,default%>
 		<%if showDelete%>	
 			<%= # link to remove that activity
-			link_to image_tag("delete.gif", :border=>0,:class => "delete"), "/updateRoute?delete_point="+type,:class=>"delete", :remote => true%>
+			link_to image_tag("delete.gif", :border=>0,:class => "delete"), "/updateRoute?delete_point="+type,:class=>"delete", :remote => true,:onclick => 'showWall();'%>
 		<% end%>	
 	<% end%>
 </span>

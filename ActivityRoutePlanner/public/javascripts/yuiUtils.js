@@ -27,14 +27,6 @@ function initLoadingPanel() {
     YAHOO.yuiObjectContainer.loading.show();
 }
 
-//window.onDomReady(addWallListeners);
-YAHOO.util.Event.onDOMReady(addWallListeners);
-function addWallListeners(){
-    var elements = document.getElementsByClassName('actionSelectBox');
-    alert(elements.length);
-    //Event.observe(elements, "onChange", showWall);
-    YAHOO.util.Event.addListener(elements, "change", showWall);
-}
 function showWall(){
     if (!YAHOO.yuiObjectContainer.loading) {
 		initLoadingPanel();

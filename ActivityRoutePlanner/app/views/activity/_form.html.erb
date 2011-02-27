@@ -9,7 +9,7 @@ if show_delete %>
           :style =>"width:155px",
           :include_blank => true,
           :class => 'actionSelectBox',
-	:onchange => remote_function(
+	:onchange => 'showWall();'+remote_function(
 	:url=> "/addActivity",
 	:with => " 'id="+index.to_s+"&activity=' +document.getElementById('activity_"+index.to_s+"').value")%>
   </td></tr>
