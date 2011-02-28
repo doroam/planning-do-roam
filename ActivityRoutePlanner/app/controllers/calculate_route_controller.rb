@@ -6,6 +6,7 @@ class CalculateRouteController < ApplicationController
     res = XmlGenerator.generate_route(result)
     params[:kml] = res
     File.open("public/kmlRoute.kml", 'w') {|f| f.write(res) }
+    
     respond_to do |format|
       format.js
     end

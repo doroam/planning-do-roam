@@ -31,7 +31,7 @@ osm_data:
 
 road_data:
   adapter: postgresql
-  database: routing
+  database: rout
   username: postgres
   password: peterpan23
   host: localhost
