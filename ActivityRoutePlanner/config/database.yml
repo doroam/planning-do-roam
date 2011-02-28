@@ -23,7 +23,7 @@ production:
 
 osm_data:
   adapter: postgresql
-  database: routes
+  database: po
   username: postgres
   password: postgres
   host: localhost

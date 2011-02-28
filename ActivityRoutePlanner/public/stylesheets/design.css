@@ -55,3 +55,8 @@ table{
 .delete{
     vertical-align: bottom;
 }
+.setPoint{
+    background-color: white;
+    border-color: black;
+    border-width: 1px;
+}

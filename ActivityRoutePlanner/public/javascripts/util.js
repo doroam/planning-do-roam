@@ -1,5 +1,5 @@
 var map; //complex object of type OpenLayers.Map
-var zoom = 11;
+var zoom = 12;
 var markerHash = new Array();
 var route = null;
 function loadMap(){
@@ -13,22 +13,36 @@ function loadMap(){
         map.events.register('click', map, handleMapClick);
 
 }
-function handleMapClick(evt)
-    {
-       var lonlat = map.getLonLatFromViewPortPx(evt.xy);
-       // use lonlat
-       alert(lonlat);
-    }
 
-function loadRoute(session_id){
+
+function handleMapClick(evt)
+{
+       var lonlat = map.getLonLatFromViewPortPx(evt.xy);
+       
+       var proj1 = new OpenLayers.Projection("EPSG:4326");
+       var proj2 = new OpenLayers.Projection("EPSG:900913");
+       var trans = lonlat.transform(proj2,proj1);
+       showSetPointMenu(trans,evt);
+       
+}
+
+
+function loadRoute(fileName,start_lat,start_lon,end_lat,end_lon){
+    //Delete old route
     if(route!=null)
         map.removeLayer(route);
 
+    /* Nice try to calculate zoom
+     *var bounds = new OpenLayers.Bounds();
+    bounds.extend(new OpenLayers.LonLat(end_lon,end_lat));
+    bounds.extend(new OpenLayers.LonLat(start_lon,start_lat));
+    bounds.toBBOX();
+    alert(bounds);*/
     route = new OpenLayers.Layer.Vector("KML", {
                 projection: map.displayProjection,
                 strategies: [new OpenLayers.Strategy.Fixed()],
                 protocol: new OpenLayers.Protocol.HTTP({
-                    url: "kmlRoute_"+session_id+".kml?nocache=" + (new Date().getTime()),
+                    url: fileName,
                     format: new OpenLayers.Format.KML({
                         extractStyles: true,
                         extractAttributes: true
@@ -37,9 +51,10 @@ function loadRoute(session_id){
             });
     //var lonLat = new OpenLayers.LonLat(-112.169, 36.099).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject());
     //map.setCenter(lonLat);
+    //map.zoomTo(map.getZoomForExtent(bounds)-2);
     map.addLayer(route);
-
-
+    
+    hideWall();
 }
 function addMark(name,lat,lon,type){
         var src ="javascripts/img/marker-gold.png";

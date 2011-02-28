@@ -38,3 +38,29 @@ function hideWall(){
 		YAHOO.yuiObjectContainer.loading.hide();
 	}
 }
+
+function showSetPointMenu(latLon,e){
+    var mouseXY = YAHOO.util.Event.getXY(e);
+    var mX = mouseXY[0];
+    var mY = mouseXY[1];
+
+    // Build overlay2 dynamically, initially hidden, at position x:400,y:500, and 300px wide
+    YAHOO.yuiObjectContainer.pointMenu = new YAHOO.widget.Dialog("setPoint", { xy:[mX,mY],
+                                                                           visible:false,
+                                                                           close:true,
+                                                                           width:"200px",
+                                                                            height:"60px"} );
+
+    var coordinates = escape(latLon.lat+";"+latLon.lon);
+    var linkStart = "<a onclick=\"hideSetPoint();showWall();\" href=\"/updateRoute?start="+coordinates+"\" data-remote=\"true\">Set start point</a>";
+    var linkEnd = "<a onclick=\"hideSetPoint();showWall();\" href=\"/updateRoute?end="+coordinates+"\" data-remote=\"true\">Set end point</a>";
+    YAHOO.yuiObjectContainer.pointMenu.setBody("<div class=\"setPoint\">Coordinates:<br/> "+latLon+" <br/>"+linkStart+" &nbsp "+linkEnd+"</div>");
+    YAHOO.yuiObjectContainer.pointMenu.render(document.body);
+    YAHOO.yuiObjectContainer.pointMenu.show();
+}
+
+function hideSetPoint(){
+    if(YAHOO.yuiObjectContainer.pointMenu){
+        YAHOO.yuiObjectContainer.pointMenu.hide();
+    }
+}
