@@ -16,8 +16,27 @@ class Global
   IMAGE_URL_PREFIX = "images/icons/"
   IMAGE_URL_SUFFIX = ".png"  
   IMAGE_URLS = {
-    "doctors"=>"aertze"
-    
-    }
-  
+    "doctors"=>"aertze",
+    "pharmacy"=>"apotheke",
+    "bakery"=>"bakery",
+    "bank"=>"bank",
+    "argingStation"=>"battery", "chargingStation"=>"battery",
+    "school"=>"bildungseinrichtungen",
+    "bus_stop"=>"busstop",
+    "cafe"=>"cafe",
+    "car sharing"=>"carshare",
+    "kindergarten"=>"childcare",
+    "doctors"=>"doctor",
+    "education"=>"education",
+    "fast_food"=>"fastfood",
+    "fuel"=>"fuel",
+    "restaurant"=>"gastronomie",
+    "atm"=>"geldautomat",
+    "hospital"=>"hospital",
+    "cinema"=>"kino",
+    "parking"=>"parking",
+    "police"=>"police",
+    "restaurant"=>"restaurant",
+    "theatre"=>"theater"    
+  }  
 end
