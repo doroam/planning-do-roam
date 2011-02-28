@@ -8,4 +8,12 @@ class Global < ActiveRecord::Base
   GLOBAL_TABLE_POLYGON = 'planet_osm_polygon'
   GLOBAL_FIELD_LONG = 'X(st_centroid(transform(way,4326)))'
   GLOBAL_FIELD_LAT =  'Y(st_centroid(transform(way,4326)))'
+  
+  IMAGE_URL_PREFIX = "images/icons/"
+  IMAGE_URL_PREFIX = ".png"  
+  IMAGE_URLS = {
+    "doctors"=>"aertze"
+    
+    }
+  
 end
