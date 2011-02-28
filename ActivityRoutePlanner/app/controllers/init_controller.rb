@@ -4,6 +4,7 @@ class InitController < ApplicationController
     if session[:main_route] == nil
       route = Route.new      
 
+      #dummy activities
       activity_list = Array.new
       activity_list.push(Activity.new("amenity", "hospital"))
       activity_list.push(Activity.new("amenity", "bank"))
@@ -20,12 +21,11 @@ class InitController < ApplicationController
     end
   end
 
+  #reset route an reload page
   def reset
     session[:main_route] = nil
-
     respond_to do |format|
         format.html { redirect_to( root_path) }
     end    
   end
-
 end

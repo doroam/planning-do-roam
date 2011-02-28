@@ -1,12 +1,16 @@
 class GenerateRouteController < ApplicationController
   
+  #controller is called on each activity action
   def updateRoute
     route = session[:main_route]
-           
+    
+    #start point was set
     if params[:start]!=nil
       route = setStartPoint(route, params[:start])
+    #destination point was set
     elsif params[:end]!=nil
       route = setEndPoint(route, params[:end])
+    #delete a point  
     elsif params[:delete_point] != nil
       if params[:delete_point].eql? "start"
         route = removeStartPoint(route)
@@ -15,6 +19,7 @@ class GenerateRouteController < ApplicationController
       end 
     end
  
+    #activate or deactivate activities to choose
     route = activateOrDeactivateActivities(route) 
 
     session[:main_route] = route
@@ -46,19 +51,19 @@ class GenerateRouteController < ApplicationController
       return route
   end
   
+  #If user has given an start- and endPoint, 
+  #so activates activity-list if not done  
   def activateOrDeactivateActivities(route)
-    #If user has given an start- and endPoint, 
-    #so activates activity-list if not done
     if (route.start_point.label != nil) && (route.end_point.label != nil)
       if (!route.start_point.label.eql? "") && (!route.end_point.label.eql? "")
         if route.activities == nil
            route.activities = Array.new
            route.activities.push(Activity.new("", ""))
         end
-      else
+      else #if labels of points are empty
         route.activities = nil
       end     
-    else
+    else #if labels of points are nil
       route.activities = nil
     end
     

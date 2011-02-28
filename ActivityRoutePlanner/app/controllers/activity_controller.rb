@@ -1,8 +1,11 @@
 class ActivityController < ApplicationController
   
+  #method is called on a action of each 
+  #activity
   def updateActivity
     route = session[:main_route] 
   
+    #add or update activity  
     if params[:activity]
       id = params[:id].to_i
       if id < route.activities.length-1
@@ -50,6 +53,7 @@ class ActivityController < ApplicationController
     return route
   end
   
+  #create an activiy object
   def create(route, act)
     activity = Activity.new("amenity",act)
     Route.get_closest_activity(activity,route.start_point,route.end_point)

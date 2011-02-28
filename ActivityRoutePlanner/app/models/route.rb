@@ -1,6 +1,3 @@
-# To change this template, choose Tools | Templates
-# and open the template in the editor.
-
 class Route 
   
   attr_accessor :start_point,:end_point,:activities
@@ -100,5 +97,4 @@ class Route
     point.long  = lon
     return point
   end
-  
 end

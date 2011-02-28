@@ -20,7 +20,9 @@ class Activity
     return @tag
   end
 
-
+  #returns possible values to choose activities
+  #if a activity is selected, it shell not be selectable
+  #again
   def get_possible_values(session)
     possible_values = Array.new
     route = session[:main_route]
