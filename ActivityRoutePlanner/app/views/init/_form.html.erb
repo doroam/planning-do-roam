@@ -5,15 +5,16 @@ end_point_string = "Ziel"
 
 %>
 <br/>
-<span class="info_text">Koordinaten eingeben:"54.0987;65.9887"</span>
+<span class="info_text">Please input your coordinates!<br />
+		Example: "54.0987;65.9887"</span>
 <table>
 
-  <tr><td width="80px">Startpunkt:</td><td>
+  <tr><td width="80px">Start:</td><td>
   	 	
   <%= render :partial => 'route/routeForm',:locals => {:point => route.start_point,:type => 'start'} %>
 
 </td></tr>
-<tr><td>Endpunkt:</td><td>
+<tr><td>Destination:</td><td>
   
 <%= render :partial => 'route/routeForm',:locals => {:point => route.end_point,:type => 'end'}%>
 </td></tr>
