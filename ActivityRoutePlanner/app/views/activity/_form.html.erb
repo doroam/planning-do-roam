@@ -1,8 +1,5 @@
-<tr><td width="70px" align="right" vertical-align="middle"><%
-if show_delete %>
-	<%= # link to remove that activity
-	link_to image_tag("delete.gif", :border=>0,:class => "delete"), "/deleteActivity?deleteActivity="+index.to_s, :remote => true,:onclick=>'showWall();'%>
-<%end%></td><td>
+<tr><td width="80px">
+</td><td>	
 <%= select_tag "activity_"+index.to_s,
             options_from_collection_for_select(
             activity.get_possible_values(session),"value","value",activity.value),
@@ -12,4 +9,9 @@ if show_delete %>
 	:onchange => 'showWall();'+remote_function(
 	:url=> "/addActivity",
 	:with => " 'tag="+tag+"&id="+index.to_s+"&activity=' +document.getElementById('activity_"+index.to_s+"').value")%>
-  </td></tr>
+  </td><td>
+  <%if show_delete %>
+	<%= # link to remove that activity
+	link_to image_tag("delete.gif", :border=>0,:class => "delete"), "/deleteActivity?deleteActivity="+index.to_s, :remote => true,:onclick=>'showWall();'%>
+<%end%>
+</td></tr>

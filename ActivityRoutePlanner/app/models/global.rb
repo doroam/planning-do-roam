@@ -14,7 +14,7 @@ class Global
   GLOBAL_FIELD_END_POINT_LAT = "y(endpoint(transform(the_geom,4326))) as end_lat"
   
   IMAGE_URL_PREFIX = "images/icons/"
-  IMAGE_URL_PREFIX = ".png"  
+  IMAGE_URL_SUFFIX = ".png"  
   IMAGE_URLS = {
     "doctors"=>"aertze"
     
