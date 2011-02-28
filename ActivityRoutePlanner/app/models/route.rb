@@ -1,7 +1,8 @@
 # To change this template, choose Tools | Templates
 # and open the template in the editor.
 
-class Route
+class Route 
+  
   attr_accessor :start_point,:end_point,:activities
   def initialize
     @start_point = Point.new
@@ -27,7 +28,7 @@ class Route
     return script
   end
     
-  def self.get_closest_activities(route)
+  def self.get_closest_activities(route)        
     pstart  = route.start_point
     pend    = route.end_point
     activities = route.activities

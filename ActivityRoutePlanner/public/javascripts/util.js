@@ -1,7 +1,7 @@
 var map; //complex object of type OpenLayers.Map
 var zoom = 11;
 var markerHash = new Array();
-
+var route = null;
 function loadMap(){
 	// Start position for the map (hardcoded here for simplicity,
 	// but maybe you want to get from URL params)
@@ -10,13 +10,25 @@ function loadMap(){
 	//53.075878;8.807311
 	//47.547855" lon="7.589664
 	init(lat,lon,zoom);
+        map.events.register('click', map, handleMapClick);
+
 }
-function loadRoute(){
-   var layer = new OpenLayers.Layer.Vector("KML", {
+function handleMapClick(evt)
+    {
+       var lonlat = map.getLonLatFromViewPortPx(evt.xy);
+       // use lonlat
+       alert(lonlat);
+    }
+
+function loadRoute(session_id){
+    if(route!=null)
+        map.removeLayer(route);
+
+    route = new OpenLayers.Layer.Vector("KML", {
                 projection: map.displayProjection,
                 strategies: [new OpenLayers.Strategy.Fixed()],
                 protocol: new OpenLayers.Protocol.HTTP({
-                    url: "kmlRoute.kml",
+                    url: "kmlRoute_"+session_id+".kml?nocache=" + (new Date().getTime()),
                     format: new OpenLayers.Format.KML({
                         extractStyles: true,
                         extractAttributes: true
@@ -25,12 +37,17 @@ function loadRoute(){
             });
     //var lonLat = new OpenLayers.LonLat(-112.169, 36.099).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject());
     //map.setCenter(lonLat);
-    map.addLayer(layer);
+    map.addLayer(route);
 
 
 }
 function addMark(name,lat,lon,type){
-        var src = type!=null && type == "start" ? "javascripts/img/marker.png":"javascripts/img/marker-blue.png";
+        var src ="javascripts/img/marker-gold.png";
+        if(type == "start")
+            src = "javascripts/img/marker.png";
+        else if(type == "end")
+            src = "javascripts/img/marker-blue.png";
+
         var layerMarkers = map.getLayer("OpenLayers.Layer.Markers_85");
 
         // Add the Layer with GPX Track choose the color of the Track (replace #00FF00 by the HTML code of the color you want)
@@ -43,14 +60,14 @@ function addMark(name,lat,lon,type){
 
         
         if(marker == null){
-            marker           = createMarker(name,lon,lat,src);
+            marker           = createMarker(type+"-"+name,lon,lat,src);
             markerHash[type] =  marker;
             layerMarkers.addMarker(marker);
         }
         else{
             marker = markerHash[type];
             layerMarkers.removeMarker(marker);
-            updateMarker(name,marker,lon,lat,src);
+            updateMarker(type+"-"+name,marker,lon,lat,src);
             layerMarkers.addMarker(marker);
         }    
 }

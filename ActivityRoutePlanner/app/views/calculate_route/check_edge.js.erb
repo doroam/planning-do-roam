@@ -1,2 +1,15 @@
-loadRoute();
+<% res =  params[:geo_res]
+  if res.nearest_start!=nil
+    point = res.nearest_start
+    type = "nearest_src"%>
+    addMark("<%=point.label%>","<%=point.lat%>","<%=point.long%>","<%=type%>");
+  <%end
+  if res.nearest_end!=nil
+    point = res.nearest_end
+    type = "nearest_target"
+  %>
+  addMark("<%=point.label%>","<%=point.lat%>","<%=point.long%>","<%=type%>");
+  <%end%>
+
+loadRoute('<%=request.session_options[:id]%>');
 hideWall();

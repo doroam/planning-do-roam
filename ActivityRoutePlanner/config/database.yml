@@ -23,17 +23,9 @@ production:
 
 osm_data:
   adapter: postgresql
-  database: bremen
+  database: routes
   username: postgres
-  password: peterpan23
-  host: localhost
-  encoding: UTF8
-
-road_data:
-  adapter: postgresql
-  database: rout
-  username: postgres
-  password: peterpan23
+  password: postgres
   host: localhost
   encoding: UTF8
 
