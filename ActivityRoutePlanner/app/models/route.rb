@@ -5,6 +5,10 @@ class Route
     @start_point = Point.new
     @end_point = Point.new
   end
+  
+  def activities
+    return @self.activities
+  end
   def show_markers()
     script = ""
     if @start_point != nil && @start_point.label!=nil

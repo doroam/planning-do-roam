@@ -3,7 +3,7 @@ require 'test_helper'
 class ActivityControllerTest < ActionController::TestCase
   
   test "ajax redirect test" do
-    
+
   end
   
   test "delete activity" do

@@ -26,7 +26,7 @@ class ActivityController < ApplicationController
   
   #delete activity from list
   def deleteActivity(route, index)
-    activity          = route.activities[index.to_i]
+    activity = route.activities[index.to_i]
     route.activities.delete_at index.to_i
     return route
   end

@@ -2,16 +2,19 @@ require 'test_helper'
 
 class PointTest < ActiveSupport::TestCase
   test "should parse label to lat and long" do
-    route = valid_route_without_label_parse
+    point = valid_point_object_with_label
+    point.parse_label
     
-    route.end_point.parse_label
-    route.start_point.parse_label
-    
-    assert_equal route.start_point.lat  "53.075878" "Start Point lat is not correct"
-    assert_equal route.start_point.long "8.80731" "Start Point long is not correct"
-    
-    assert_equal route.end_point.lat "53.115878"  "End Point lat is not correct"
-    assert_equal route.end_point.long "8.85731" "End Point long is not correct"
+    assert_equal point.lat,  valid_point_lat, "Start Point lat is not correct"
+    assert_equal point.long, valid_point_long, "Start Point long is not correct"
   end
 
+  test "shoud initialize point" do
+    point = valid_point_object
+    
+    assert point != nil, "Could not create point object"
+    assert point.activities != nil, "point.activities is nil"
+    assert_equal point.lat, valid_point_lat, "Point.lat is not correct"
+    assert_equal point.long, valid_point_long, "Point.long is not correct"
+  end
 end
