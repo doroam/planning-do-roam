@@ -22,7 +22,7 @@ class RouteGenerator
     source_start  = nil
     target_end    = nil
     src_point = route.start_point
-    p "::::way="+result_way.to_s
+    
     result_way.each do |point|
       source = get_nearest_edge(src_point)
       target = get_nearest_edge(point)
