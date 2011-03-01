@@ -26,7 +26,7 @@ class ActivityTest < ActiveSupport::TestCase
   test "should add activity to list" do
     route = valid_route_object    
     
-    assert_difference(route.activities.count.to_s,+1) do
+    assert_difference(route.activities.count.to_s) do
       route.activities.push Activity.new(valid_activity_tag,valid_activity_value)
     end 
   end

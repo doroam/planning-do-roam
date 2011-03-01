@@ -9,11 +9,10 @@ class PointTest < ActiveSupport::TestCase
     assert_equal point.long, valid_point_long, "Start Point long is not correct"
   end
 
-  test "shoud initialize point" do
+  test "should initialize point" do
     point = valid_point_object
     
     assert point != nil, "Could not create point object"
-    assert point.activities != nil, "point.activities is nil"
     assert_equal point.lat, valid_point_lat, "Point.lat is not correct"
     assert_equal point.long, valid_point_long, "Point.long is not correct"
   end
