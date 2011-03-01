@@ -1,14 +1,29 @@
-<tr><td width="80px">
+<tr><td width="80px" align="right">
+<%if show_delete 
+
+	iconPath = Global::IMAGE_URL_PREFIX
+	iconType = Global::IMAGE_URL_SUFFIX
+	icon = Global::IMAGE_URLS[activity.tag+"_"+activity.value]
+
+	if icon == nil
+		icon=""
+	end
+%>
+	<img src="<%= iconPath+icon+iconType%>" 
+		alt="<%= activity.value%>" 
+		title="<%= activity.value%>" 
+		height="20px"/>
+<%end%>
 </td><td>	
 <%= select_tag "activity_"+index.to_s,
             options_from_collection_for_select(
-            activity.get_possible_values(session),"value","value",activity.value),
+            activity.get_possible_values(session),"tag_value","value",activity.tag+"_"+activity.value),
           :style =>"width:155px",
           :include_blank => true,
           :class => 'actionSelectBox',
 	:onchange => 'showWall();'+remote_function(
 	:url=> "/addActivity",
-	:with => " 'tag="+tag+"&id="+index.to_s+"&activity=' +document.getElementById('activity_"+index.to_s+"').value")%>
+	:with => " 'tag="+activity.tag+"&id="+index.to_s+"&activity=' +document.getElementById('activity_"+index.to_s+"').value")%>
   </td><td>
   <%if show_delete %>
 	<%= # link to remove that activity
