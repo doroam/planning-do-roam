@@ -30,7 +30,7 @@ class Activity
   def get_possible_values(session)
     possible_values = Array.new
     route = session[:main_route]
-    session[:main_activity_list].each do |a|
+    Global::ACTIVITIES.each do |a|
       contains = false
       route.activities.each do |b|
         if b.value.eql? a.value

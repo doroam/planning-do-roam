@@ -4,7 +4,6 @@ class InitController < ApplicationController
     if session[:main_route] == nil
       route = Route.new      
    
-      session[:main_activity_list] = Global::ACTIVITIES
       session[:main_route] = route
     end
     @route = route

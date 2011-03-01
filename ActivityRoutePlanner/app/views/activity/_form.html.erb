@@ -24,7 +24,7 @@
 		  :heigth=>5,
 	:onchange => 'showWall();'+remote_function(
 	:url=> "/addActivity",
-	:with => " 'tag="+activity.tag+"&id="+index.to_s+"&activity=' +document.getElementById('activity_"+index.to_s+"').value")%>
+	:with => "'id="+index.to_s+"&activity=' +document.getElementById('activity_"+index.to_s+"').value")%>
   </td><td>
   <%if show_delete %>
 	<%= # link to remove that activity
