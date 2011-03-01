@@ -55,7 +55,7 @@ class ActivityController < ApplicationController
   
   #create an activiy object
   def create(route, act)
-    splitted = act.split("_")
+    splitted = act.split("$")
     activity = Activity.new(splitted[0],splitted[1])
     Route.get_closest_activity(activity,route.start_point,route.end_point)
     return activity

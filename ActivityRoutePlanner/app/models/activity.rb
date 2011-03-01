@@ -21,7 +21,7 @@ class Activity
   end
   
   def tag_value
-    return @tag+"_"+@value
+    return @tag+"$"+@value
   end
 
   #returns possible values to choose activities

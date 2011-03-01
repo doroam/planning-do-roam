@@ -28,8 +28,16 @@ class Route
     if @activities != nil
       @activities.each.with_index do |activity,id|
         if activity.result != nil
-            activity.result.each.with_index do |result, index|
-              script += "addActivityMark('"+result.label+"','"+result.lat+"','"+result.long+"','"+activity.value+"','"+index.to_s+"','"+id.to_s+"');"            
+          #image path
+          iconPath = Global::IMAGE_URL_PREFIX
+          iconType = Global::IMAGE_URL_SUFFIX
+          icon = Global::IMAGE_URLS[activity.tag+"_"+activity.value]
+          if icon == nil
+            icon=""
+          end
+          imagePath = iconPath+icon+iconType
+          activity.result.each.with_index do |result, index|
+              script += "addActivityMark('"+result.label+"','"+result.lat+"','"+result.long+"','"+imagePath+"','"+index.to_s+"','"+id.to_s+"');"
           end
         end
       end

@@ -3,7 +3,7 @@
 
 	iconPath = Global::IMAGE_URL_PREFIX
 	iconType = Global::IMAGE_URL_SUFFIX
-	icon = Global::IMAGE_URLS[activity.tag+"_"+activity.value]
+	icon = Global::IMAGE_URLS[activity.tag+"$"+activity.value]
 
 	if icon == nil
 		icon=""
@@ -17,7 +17,7 @@
 </td><td>	
 <%= select_tag "activity_"+index.to_s,
             options_from_collection_for_select(
-            activity.get_possible_values(session),"tag_value","value",activity.tag+"_"+activity.value),
+            activity.get_possible_values(session),"tag_value","value",activity.tag+"$"+activity.value),
           :style =>"width:155px",
           :include_blank => true,
           :class => 'actionSelectBox',
