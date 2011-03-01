@@ -3,16 +3,8 @@ class InitController < ApplicationController
   def index
     if session[:main_route] == nil
       route = Route.new      
-
-      #dummy activities
-      activity_list = Array.new
-      activity_list.push(Activity.new("amenity", "hospital"))
-      activity_list.push(Activity.new("amenity", "bank"))
-      activity_list.push(Activity.new("amenity", "police"))
-      activity_list.push(Activity.new("amenity", "restaurant"))
-      activity_list.push(Activity.new("sport", "bowling"))
-
-      session[:main_activity_list] = activity_list
+   
+      session[:main_activity_list] = Global::ACTIVITIES
       session[:main_route] = route
     end
     @route = route

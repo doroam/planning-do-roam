@@ -21,6 +21,7 @@
           :style =>"width:155px",
           :include_blank => true,
           :class => 'actionSelectBox',
+		  :heigth=>5,
 	:onchange => 'showWall();'+remote_function(
 	:url=> "/addActivity",
 	:with => " 'tag="+activity.tag+"&id="+index.to_s+"&activity=' +document.getElementById('activity_"+index.to_s+"').value")%>
