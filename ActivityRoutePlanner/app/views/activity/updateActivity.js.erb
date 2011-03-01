@@ -9,8 +9,17 @@ if params[:deleteActivity]!=nil%>
          end
  	 activity = route.activities[id.to_i]
 	 activity.result.each.with_index do |result, index|
+		
+	#image path
+	iconPath = Global::IMAGE_URL_PREFIX
+	iconType = Global::IMAGE_URL_SUFFIX
+	icon = Global::IMAGE_URLS[activity.tag+"_"+activity.value]
+	if icon == nil
+		icon=""
+	end
+	imagePath = iconPath+icon+iconType
 	%>
-  addActivityMark("<%=result.label%>","<%=result.lat%>","<%=result.long%>","<%=activity.value%>","<%=index%>","<%=id%>");
+  addActivityMark("<%=result.label%>","<%=result.lat%>","<%=result.long%>","<%=imagePath%>","<%=index%>","<%=id%>");
 <%end%>
 <%end%>
 <%end%>

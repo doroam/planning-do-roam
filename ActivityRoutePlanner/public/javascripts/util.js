@@ -96,9 +96,8 @@ function removeMark(id){
         }
     }
 }
-function addActivityMark(name,lat,lon,type,index,id){
+function addActivityMark(name,lat,lon,imagePath,index,id){
     //alert("addActivityMark  "+lat+"  "+lon+"  "+type+"  "+index);
-    var src = "images/icons/"+type+".png";
     var layerMarkers = map.getLayer("OpenLayers.Layer.Markers_85");
 
 
@@ -108,7 +107,7 @@ function addActivityMark(name,lat,lon,type,index,id){
 
     var marker = markerHash[id][index];
     if(marker == null){
-        marker           = createMarker(name,lon,lat,src);
+        marker           = createMarker(name,lon,lat,imagePath);
         markerHash[id][index] =  marker;
         
         layerMarkers.addMarker(marker);
