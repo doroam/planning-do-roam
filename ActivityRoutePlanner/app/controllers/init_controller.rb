@@ -10,6 +10,7 @@ class InitController < ApplicationController
       activity_list.push(Activity.new("amenity", "bank"))
       activity_list.push(Activity.new("amenity", "police"))
       activity_list.push(Activity.new("amenity", "restaurant"))
+      activity_list.push(Activity.new("sport", "bowling"))
 
       session[:main_activity_list] = activity_list
       session[:main_route] = route

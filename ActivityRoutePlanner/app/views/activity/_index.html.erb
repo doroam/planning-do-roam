@@ -13,9 +13,10 @@
 				show_delete = false
 			end
 		  %>
+		  
           <%= render :partial => 'activity/form',
 				:locals => {:activity => elem, :index => index, 
-							:show_delete => show_delete, :tag => ""}
+							:show_delete => show_delete}
 		  %>
         <%end%>
   <%end%>
