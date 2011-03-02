@@ -7,7 +7,7 @@ Select algorithm:
 </td><td>
 <%= select_tag "setAlgorithmus",
             options_for_select(Global::ALGORITHMUS_LIST,route.algorithmus),
-		:style=>"width:100px;",
+		:style=>"width:117px;",
 	    :onchange => 'showWall();'+remote_function(
 		 	 :url=> "/setAlgorithmus",
 			 :with => "'algo=' +document.getElementById('setAlgorithmus').value")
@@ -19,7 +19,7 @@ Sort activities:
 </td><td>
 <%= select_tag "sort",
             options_for_select(["false","true"],route.sort),
-		:style=>"width:100px;",
+		:style=>"width:117px;",
 	    :onchange => 'showWall();'+remote_function(
 		 	 :url=> "/setAlgorithmus",
 			 :with => "'sort=' +document.getElementById('sort').value")
