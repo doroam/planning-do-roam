@@ -29,15 +29,15 @@ class Route
       @activities.each.with_index do |activity,id|
         if activity.result != nil
           #image path
-          iconPath = Global::IMAGE_URL_PREFIX
-          iconType = Global::IMAGE_URL_SUFFIX
-          icon = Global::IMAGE_URLS[activity.tag+"_"+activity.value]
+          iconPath  = Global::IMAGE_URL_PREFIX
+          iconType  = Global::IMAGE_URL_SUFFIX
+          icon      = Global::IMAGE_URLS[activity.tag+"$"+activity.value]
           if icon == nil
             icon=""
           end
           imagePath = iconPath+icon+iconType
           activity.result.each.with_index do |result, index|
-              script += "addActivityMark('"+result.label+"','"+result.lat+"','"+result.long+"','"+imagePath+"','"+index.to_s+"','"+id.to_s+"');"
+                script += "addActivityMark('"+result.label+"','"+result.lat+"','"+result.long+"','"+imagePath+"','"+index.to_s+"','"+id.to_s+"');"
           end
         end
       end
@@ -83,10 +83,11 @@ class Route
   #creates points from the results of a sql query
   def self.get_sql_results(res)
     result = Array.new
-    res.each  do |row|
-      
+    res.each  do |row|      
       point = make_point(row)
-      result.push(point)
+      if point != nil
+        result.push(point)
+      end
     end
     return result
   end
@@ -97,11 +98,13 @@ class Route
     name  = row["name"]
     lat   = row["y"]
     lon   = row["x"]
-    
-    point       = Point.new
-    point.label = name
-    point.lat   = lat
-    point.long  = lon
-    return point
+    if name != nil && lat != nil && lon != nil
+      point       = Point.new
+      point.label = name
+      point.lat   = lat
+      point.long  = lon
+      return point
+    end
+    return nil
   end
 end

@@ -43,21 +43,47 @@ class RouteGenerator
       source = get_nearest_edge(src_point)
       target = get_nearest_edge(point)
 
-      #get coordinates of nearest edge to start and end points
-      if src_point.label.eql?(route.start_point.label)
-        source_start = source
-      end
-      if point.label.eql?(route.end_point.label)
-        target_end = target
+      #if a source and target vertice was found
+      
+        #get coordinates of nearest edge to start and end points
+        if src_point!=nil && src_point.label.eql?(route.start_point.label)
+          source_start = source
+        end
+        if point!= nil && point.label.eql?(route.end_point.label)
+          target_end = target
+        end
+      if source != nil && target !=nil
+        #add route from source to target to the kml list
+        result.concat(generate_simple_route(source,target))
+      else
+        p "no vertice found"
       end
 
-      #add route from source to target to the kml list
-      result.concat(generate_simple_route(source,target))
-      src_point = point
+      #if the point was not found
+      #the source point is still the same
+      if point != nil
+        src_point = point
+      end
     end
 
+    p ":::paths found="+result.size.to_s
+    start_lat = 0.0
+    start_lon = 0.0
+    end_lat   = 0.0
+    end_lon   = 0.0
+    if source_start != nil
+      start_lat = source_start["start_lat"]
+      start_lon = source_start["start_long"]
+    end
+
+    if target_end !=nil
+      end_lat = target_end["end_lat"]
+      end_lon = target_end["end_long"]
+    end
+
+
     #build result object
-    geo_result = GeoResult.new(source_start["start_lat"], source_start["start_long"], target_end["end_lat"], target_end["end_long"], result)
+    geo_result = GeoResult.new(start_lat,start_lon , end_lat, end_lon, result)
 
     if geo_result==nil
       geo_result = GeoResult.new(nil,nil,nil,nil,nil)
@@ -72,20 +98,24 @@ class RouteGenerator
   private
   #Gets the nearest edge to a point
   def self.get_nearest_edge(point)
-    #gets start and end point of the edge and
-    start_end_coordinates = GLOBAL_FIELD_END_POINT_LONG+","+GLOBAL_FIELD_END_POINT_LAT+","+GLOBAL_FIELD_START_POINT_LONG+","+GLOBAL_FIELD_START_POINT_LAT
-    sql = "SELECT name,type_name, "+start_end_coordinates+", source, target, distance("+GLOBAL_FIELD_TRANSFORMED_ROAD_GEOM+", GeometryFromText('POINT("+point.long+" "+point.lat+")', 4326)) AS dist FROM "+TABLE
-	  #data for the bounding box around the point
-    #performance!
-    lat_max   = (point.lat.to_d+0.1).to_s
-    long_max  = (point.long.to_d+0.1).to_s
-    lat_min   = (point.lat.to_d-0.1).to_s
-    long_min  = (point.long.to_d-0.1).to_s
-    #sql = "SELECT source,distance(GeomFromText('POINT("+point.lat+" "+point.long+")',4326),st_transform(the_geom,4326))  FROM ways"
-    #except_ways = "true"#"(highway='primary' or highway='secondary' or highway='motorway' or highway='trunk')"#"(highway != '' and highway!='cycleway' and highway!='pedestrian' and highway!='footway')"
-    where = " WHERE ("+GLOBAL_FIELD_TRANSFORMED_ROAD_GEOM+" && setsrid('BOX3D("+long_min+" "+lat_min+","+long_max+" "+lat_max+")'::box3d, 4326) )ORDER BY dist LIMIT 1;"
-    #executes and parses the result as an edge
-    return get_edge(sql+where)
+    #if nothing was found
+    if point != nil
+      #gets start and end point of the edge and
+      start_end_coordinates = GLOBAL_FIELD_END_POINT_LONG+","+GLOBAL_FIELD_END_POINT_LAT+","+GLOBAL_FIELD_START_POINT_LONG+","+GLOBAL_FIELD_START_POINT_LAT
+      sql = "SELECT name,type_name, "+start_end_coordinates+", source, target, distance("+GLOBAL_FIELD_TRANSFORMED_ROAD_GEOM+", GeometryFromText('POINT("+point.long+" "+point.lat+")', 4326)) AS dist FROM "+TABLE
+      #data for the bounding box around the point
+      #performance!
+      lat_max   = (point.lat.to_d+0.1).to_s
+      long_max  = (point.long.to_d+0.1).to_s
+      lat_min   = (point.lat.to_d-0.1).to_s
+      long_min  = (point.long.to_d-0.1).to_s
+      #sql = "SELECT source,distance(GeomFromText('POINT("+point.lat+" "+point.long+")',4326),st_transform(the_geom,4326))  FROM ways"
+      #except_ways = "true"#"(highway='primary' or highway='secondary' or highway='motorway' or highway='trunk')"#"(highway != '' and highway!='cycleway' and highway!='pedestrian' and highway!='footway')"
+      where = " WHERE ("+GLOBAL_FIELD_TRANSFORMED_ROAD_GEOM+" && setsrid('BOX3D("+long_min+" "+lat_min+","+long_max+" "+lat_max+")'::box3d, 4326) )ORDER BY dist LIMIT 1;"
+      #executes and parses the result as an edge
+      return get_edge(sql+where)
+    end
+    return nil
   end
 
 
