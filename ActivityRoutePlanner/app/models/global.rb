@@ -18,6 +18,8 @@ class Global
   GLOBAL_FIELD_END_POINT_LONG         = 'x(endpoint('+GLOBAL_FIELD_TRANSFORMED_ROAD_GEOM+')) as end_long'
   GLOBAL_FIELD_END_POINT_LAT          = 'y(endpoint('+GLOBAL_FIELD_TRANSFORMED_ROAD_GEOM+')) as end_lat'
   
+  ALGORITHMUS_LIST = ["A*","Dijkstra"]
+  
   IMAGE_URL_PREFIX = "images/icons/"
   IMAGE_URL_SUFFIX = ".png"  
   IMAGE_URLS = {

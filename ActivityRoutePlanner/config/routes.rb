@@ -16,6 +16,7 @@ ActivityRoutePlanner::Application.routes.draw do
   match "reset" => "init#index"
   match "resetMethod" => "init#reset"
   match "check_edge" => "calculate_route#check_edge"
+  match "setAlgorithmus"=>"generateRoute#set_algorithmus"
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
