@@ -36,7 +36,7 @@ class Route
         end
       end
     end
-    if @kml_path != nil || @kml_path.eql?("")
+    if @kml_path != nil && !@kml_path.eql?("")
       script += "loadRoute('"+@kml_path+"');"
     end
     return script

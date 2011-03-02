@@ -29,7 +29,8 @@ function handleMapClick(evt)
 }
 
 
-function loadRoute(fileName,start_lat,start_lon,end_lat,end_lon){
+function loadRoute(fileName){
+
     //Delete old route
     removeRoute();
 
@@ -66,8 +67,11 @@ function addMark(name,lat,lon,type){
 
         var marker = markerHash[type];
         
-        if(lat=="" && lon =="" && markerHash[type]!=null)
+        if(lat=="" && lon =="" && markerHash[type]!=null){
+
             layerMarkers.removeMarker(marker);
+            markerHash[type] = null;
+        }
 
         
         if(marker == null){
@@ -86,12 +90,8 @@ function removeMarker(id){
     //alert(id);
     var marker = markerHash[id];
     if(marker!=null){
-        try{
             layerMarkers.removeMarker(marker);
-        }
-        catch(e){
-            alert(e);
-        }
+            marker = null;
     }
 }
 function addActivityMark(name,lat,lon,imagePath,id){
@@ -181,24 +181,21 @@ function removeMarks(){
     removeRoute();
 }
 function removeRoute(){
-    try{
+    
     //remove vertices
     var vertice = markerHash["nearest_src"]
-    if(vertice!=null)
+    if(vertice!=null){
         layerMarkers.removeMarker(vertice);
-
-    vertice_t = markerHash["nearest_target"]
-
-    if(vertice_t!=null)
+        vertice = null
+    }
+    var vertice_t = markerHash["nearest_target"]
+    if(vertice_t!=null){
         layerMarkers.removeMarker(vertice_t);
-    
-        
-    
+        vertice_t = null;
+    }
+
     if(route!=null){
         map.removeLayer(route);
-    }
-    }
-    catch(e){
-        alert(e);
+        route = null;
     }
 }
