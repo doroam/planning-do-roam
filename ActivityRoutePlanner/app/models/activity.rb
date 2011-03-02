@@ -26,13 +26,21 @@ class Activity
   end
 
   def get_image_url
-    iconPath = Global::IMAGE_URL_PREFIX
-		iconType = Global::IMAGE_URL_SUFFIX
+    icon_path = Global::IMAGE_URL_PREFIX
+		icon_type = Global::IMAGE_URL_SUFFIX
     icon     = Global::IMAGE_URLS[@tag+"$"+@value]
     if icon == nil
 				icon = ""
 			end
-		return iconPath+icon+iconType
+		return icon_path+icon+icon_type
+  end
+
+  def get_image_id
+    icon     = Global::IMAGE_URLS[@tag+"$"+@value]
+    if icon == nil
+				icon = "no_image_found"
+			end
+		return icon
   end
 
   #returns possible values to choose activities
@@ -58,13 +66,15 @@ class Activity
 
 
   def  <=> (o)
-    if self.result==nil || self.result[0]==nil || o.result==nil || o.result[0]==nil
-      p ":::::::failed"
+    if self.result==nil || self.result[0]==nil
       return 1
+    end
+    if o.result==nil || o.result[0]==nil
+      return -1
     end
 
     result = self.result[0] <=> o.result[0]
-    p ":::result="+result.to_s
+    p ":::"+@tag+@value+"  result="+result.to_s
     return result
   end
 

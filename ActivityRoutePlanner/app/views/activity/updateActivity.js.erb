@@ -12,12 +12,14 @@ if params[:deleteActivity]!=nil%>
 	      id = route.activities.length-2
 	    end
 	    activity = route.activities[id.to_i]
-	    activity.result.each.with_index do |result, index|
+	    result = activity.result
+            if result!=nil #.each.with_index do |result, index|
 			
 			imagePath = activity.get_image_url()
+                        image_id  = activity.get_image_id()
 			%>
 		      addActivityMark("<%=result.label%>","<%=result.lat%>","<%=result.long%>",
-			  	"<%=imagePath%>","<%=index%>");
+			  	"<%=imagePath%>","<%=index%>","<%=image_id%>");
     <%end%>
 <%end%>
 <%end%>

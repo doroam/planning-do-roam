@@ -35,33 +35,33 @@ class Point
     point1 = self
     point2 = o
     
-    result_src = -1
+    result_src = 1
     d_src = point2.distance_source
     p ":::::  1_src"+point1.distance_source.to_s+"2_src="+point2.distance_source.to_s
     if point1.distance_source < point2.distance_source
       d_src = point1.distance_source
-      result_src = 1
+      result_src = -1
     end
     
     
     p "::::: 1_target"+point1.distance_target.to_s+"2_target="+point2.distance_target.to_s
-    result_target = -1
+    result_target = 1
     d_target = point2.distance_target
     if point1.distance_target < point2.distance_target
       d_target = point1.distance_target
-      result_target = 1
+      result_target = -1
     end
 
     p ":::: src="+result_src.to_s+"   target="+result_target.to_s
-    if result_src==1 && result_target==1
-      return 1;
-    elsif result_src==-1 && result_target==-1
-      return -1
+    if result_src==-1 && result_target==-1
+      return -1;
+    elsif result_src==1 && result_target==1
+      return 1
     else
       if d_src < d_target
-        return result_src
+        return 1
       else
-        return result_target
+        return -1
       end
     end
     

@@ -33,7 +33,7 @@ class ActivityController < ApplicationController
     if activity == nil
        return route
     end    
-    params[:deleteActivity] = activity.get_image_url()
+    params[:deleteActivity] = activity.get_image_id()
     route.activities.delete_at index.to_i
     return route
     
@@ -78,7 +78,7 @@ class ActivityController < ApplicationController
     activity = Activity.new(splitted[0],splitted[1])
     Route.get_closest_activity(activity,route.start_point,route.end_point)
     
-    if activity.result == nil || activity.result.length == 0
+    if activity.result == nil
       flash[:error] = "Activity was not found!"
       return nil
     end    

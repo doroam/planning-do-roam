@@ -4,9 +4,11 @@
 <% 
   if route.activities != nil
 %><tr><td colspan="2">Activities:</td></tr><%
-	route.activities.sort.each_index do |index| %>
+        list = route.activities
+        sorted = list.sort
+	list.each.with_index do |elem,index| %>
 		  <% 
-			elem = route.activities[index]
+			#elem = route.activities[index]
 			show_delete = true						
 
 			if index == route.activities.length-1

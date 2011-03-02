@@ -30,9 +30,9 @@ class Route
       @activities.each.with_index do |activity,id|
         if activity.result != nil
           imagePath = activity.get_image_url()
-          activity.result.each.with_index do |result, index|
-                script += "addActivityMark('"+result.label+"','"+result.lat+"','"+result.long+"','"+imagePath+"','"+index.to_s+"','"+id.to_s+"');"
-          end
+          imageID   = activity.get_image_id()
+          result    = activity.result
+                script += "addActivityMark('"+result.label+"','"+result.lat+"','"+result.long+"','"+imagePath+"','"+index.to_s+"','"+imageID+"');"          
         end
       end
     end
@@ -45,7 +45,7 @@ class Route
     sql_head_point    = "select "+GLOBAL_FIELD_NAME+","+GLOBAL_FIELD_LONG+","+GLOBAL_FIELD_LAT+","+get_distance_query(pstart,pend)+" from "+GLOBAL_TABLE_POINT
     sql_head_polygon  = "select "+GLOBAL_FIELD_NAME+","+GLOBAL_FIELD_LONG+","+GLOBAL_FIELD_LAT+","+get_distance_query(pstart,pend)+" from "+GLOBAL_TABLE_POLYGON
     #order the results to get closest TODO limit 1!
-    limit   = " order by distance limit 3;"
+    limit   = " order by distance limit 1;"
     where   = " where "+activity.tag+" = '"+activity.value+"' "
     sql     = "("+sql_head_point+where+" union "+sql_head_polygon+where+") "+limit
     result  = execute_sql(sql)
@@ -76,14 +76,11 @@ class Route
 
   #creates points from the results of a sql query
   def self.get_sql_results(res)
-    result = Array.new
-    res.each  do |row|      
+    row = res[0]
+    if row!= nil
       point = make_point(row)
-      if point != nil
-        result.push(point)
-      end
     end
-    return result
+    return point
   end
 
 
@@ -94,7 +91,10 @@ class Route
     lon   = row["x"]
     d_source = row["dist_source"]
     d_target = row["dist_target"]
-    if name != nil && lat != nil && lon != nil
+    if name ==nil
+      name = "no name found"
+    end
+    if lat != nil && lon != nil
       point       = Point.new
       point.label = name
       point.lat   = lat
