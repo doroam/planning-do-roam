@@ -85,11 +85,15 @@ class Route
 
   #creates points from the results of a sql query
   def self.get_sql_results(res)
-    row = res[0]
-    if row!= nil
-      point = make_point(row)
-    end
-    return point
+    if res.length > 0
+      row = res[0]
+      if row!= nil
+        point = make_point(row)
+      end
+      return point
+    else
+      return nil
+    end  
   end
 
 
