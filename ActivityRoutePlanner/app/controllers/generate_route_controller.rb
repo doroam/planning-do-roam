@@ -47,6 +47,7 @@ class GenerateRouteController < ApplicationController
   end
   
   def setEndPoint(route, label)
+
       route.end_point.label = label
       route.end_point.parse_label
       route.activities = nil
