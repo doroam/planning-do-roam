@@ -41,13 +41,15 @@ class GenerateRouteController < ApplicationController
   
   def setStartPoint(route, label)
       route.start_point.label = label
-      route.start_point.parse_label      
+      route.start_point.parse_label
+      route.activities = nil
       return route
   end
   
   def setEndPoint(route, label)
       route.end_point.label = label
       route.end_point.parse_label
+      route.activities = nil
       return route
   end
   

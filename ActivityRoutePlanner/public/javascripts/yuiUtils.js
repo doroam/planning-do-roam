@@ -3,25 +3,6 @@
  */
 YAHOO.namespace("yuiObjectContainer");
 
-YAHOO.yuiObjectContainer.Data = {
-
-    accounts: [
-     {name: "ABC Company", id: 57367 },
-     {name: "Acme Supply Company", id: 84377},
-     {name: "Avery Widgets", id: 73678},
-     {name: "AAA International", id: 73675},
-     {name: "Atlantic Brothers, Inc", id: 83757},
-     {name: "Ace Products", id: 48588},
-     {name: "Above Average, Ltd", id: 75968}
- ]};
-
-
-
-
-
-
-
-
 /**
  * Funktion zum Initialisieren und Anzeigen des Lade Bildschirm
  */
