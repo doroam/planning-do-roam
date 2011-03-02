@@ -27,13 +27,25 @@ class ActivityController < ApplicationController
   #delete activity from list
   def deleteActivity(route, index)
     activity = route.activities[index.to_i]
+    
+    #if activity not found
+    if activity == nil
+       return route
+    end    
+    
     route.activities.delete_at index.to_i
     return route
+    
   end
   
   #add activity to list
   def addActivity(route, act)   
     activity = create(route, act)
+
+    #if activity not found
+    if activity == nil
+       return route
+    end
 
     #If activity list contains only spacer -> insert at 0
     #else insert at bevor last position
@@ -49,6 +61,12 @@ class ActivityController < ApplicationController
   #change activity
   def changeActivity(act, id, route)
     activity = create(route, act)
+    
+    #if activity was not found
+    if activity == nil
+      return route
+    end
+    
     route.activities[id] = activity
     return route
   end
@@ -58,6 +76,12 @@ class ActivityController < ApplicationController
     splitted = act.split("$")
     activity = Activity.new(splitted[0],splitted[1])
     Route.get_closest_activity(activity,route.start_point,route.end_point)
+    
+    if activity.result == nil || activity.result.length == 0
+      flash[:error] = "Activity was not found!"
+      return nil
+    end    
+    
     return activity
   end
 end
