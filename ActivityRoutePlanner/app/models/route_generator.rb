@@ -24,6 +24,7 @@ class RouteGenerator
     
     #create node way
     result_way = route.activities.clone
+    sort_activities = route.sort
 
     #result_way = result_way.sort
 
@@ -31,9 +32,12 @@ class RouteGenerator
     result_way.delete_at(result.length-1)
     #get first (closest) activity form the 3 posibilities
     #TODO show just nearest
-    result_way = result_way.collect { |activity|  activity.result[0]}
+    result_way = result_way.collect { |activity|  activity.result}
+
     #set last point
-    result_way = result_way.sort
+    if sort_activities.eql?("true")
+      result_way = result_way.sort
+    end
     result_way.push(route.end_point)
 
     #initlialize start point
@@ -57,7 +61,7 @@ class RouteGenerator
         end
       if source != nil && target !=nil
         #add route from source to target to the kml list
-        result.concat(generate_simple_route(source,target))
+        result.concat(generate_simple_route(source,target,route))
       else
         p "no vertice found"
       end
@@ -123,7 +127,7 @@ class RouteGenerator
 
 
   #generates a route between 2 points
-  def self.generate_simple_route(source,target)
+  def self.generate_simple_route(source,target,route)
     result = Array.new
 
     if source!=nil && target!=nil
@@ -134,7 +138,7 @@ class RouteGenerator
       #p "::::::::src="+edge_src+"-"+highway_src+"   target="+edge_target+"-"+highway_target
 
       #get path from source to target
-      result = get_shortest_path(edge_src,edge_target);
+      result = get_shortest_path(edge_src,edge_target,route);
       if result.size==0
         p ":::::::::NO PATH FOUND"
       end
@@ -146,11 +150,15 @@ class RouteGenerator
 
 
   #gets the path from source to target TODO select algorithm
-  def self.get_shortest_path(source,target)    
+  def self.get_shortest_path(source,target,route)
     sql       = "SELECT rt.gid, asKML(rt."+GLOBAL_FIELD_ROAD_GEOM+") AS geojson,length(rt."+GLOBAL_FIELD_ROAD_GEOM+") AS length, "+TABLE+".gid FROM "+TABLE+","
-
-    algorithm = "dijkstra_sp"
+    
     algorithm = "astar_sp"
+    alg_select = route.algorithmus
+    if alg_select.eql?("Dijkstra")
+      algorithm = "dijkstra_sp"
+    end
+    
 	  where     = " (SELECT gid, the_geom FROM "+algorithm+"('"+TABLE+"',"+source+","+target+")) as rt WHERE "+TABLE+".gid=rt.gid;"
     return get_path(sql+where)
   end

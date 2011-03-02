@@ -66,14 +66,14 @@ class Activity
 
 
   def  <=> (o)
-    if self.result==nil || self.result[0]==nil
+    if self.result==nil
       return 1
     end
-    if o.result==nil || o.result[0]==nil
+    if o.result==nil
       return -1
     end
 
-    result = self.result[0] <=> o.result[0]
+    result = self.result <=> o.result
     p ":::"+@tag+@value+"  result="+result.to_s
     return result
   end

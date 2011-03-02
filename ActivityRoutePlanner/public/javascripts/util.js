@@ -90,8 +90,8 @@ function removeMarker(id){
         
     }
 }
-function addActivityMark(name,lat,lon,imagePath,index,id){
-    alert("addActivityMark  "+lat+"  "+lon+"  "+imagePath+"  "+index+"  "+id);
+function addActivityMark(name,lat,lon,imagePath,id){
+    //alert("addActivityMark  "+lat+"  "+lon+"  "+imagePath+"  "+id);
 
     var marker = markerHash[id];
     
