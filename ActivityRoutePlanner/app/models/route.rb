@@ -52,6 +52,14 @@ class Route
     activity.result = result
   end
 
+  def sort
+    return @sort
+  end
+  
+  def algortihmus
+    return @algorithmus
+  end
+
   private
   #Gets the distance from the point to the start point and from the point to the endpoint
   #and adds them. So we can later sort this distance and find the nearest one

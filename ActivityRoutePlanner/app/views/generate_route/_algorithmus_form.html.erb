@@ -1,17 +1,28 @@
-<%algorithmus = session[:main_route].algorithmus %>
+<%route = session[:main_route] %>
+
+<table>
+<tr>
+	<td style="width:120px;">	
 Select algorithm:
+</td><td>
 <%= select_tag "setAlgorithmus",
-            options_for_select(Global::ALGORITHMUS_LIST),
+            options_for_select(Global::ALGORITHMUS_LIST,route.algorithmus),
+		:style=>"width:100px;",
 	    :onchange => 'showWall();'+remote_function(
 		 	 :url=> "/setAlgorithmus",
 			 :with => "'algo=' +document.getElementById('setAlgorithmus').value")
 %>
-<br />
-Sort activities
-
+</td></tr>
+<tr>
+	<td style="width:120px;">	
+Sort activities:
+</td><td>
 <%= select_tag "sort",
-            options_for_select(["false","true"]),
+            options_for_select(["false","true"],route.sort),
+		:style=>"width:100px;",
 	    :onchange => 'showWall();'+remote_function(
 		 	 :url=> "/setAlgorithmus",
 			 :with => "'sort=' +document.getElementById('sort').value")
 %>
+</td></tr>
+</table>
