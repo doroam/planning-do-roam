@@ -4,7 +4,7 @@
 <% 
   if route.activities != nil
 %><tr><td colspan="2">Activities:</td></tr><%
-	route.activities.each_index do |index| %>
+	route.activities.sort.each_index do |index| %>
 		  <% 
 			elem = route.activities[index]
 			show_delete = true						

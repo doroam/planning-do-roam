@@ -85,6 +85,7 @@ function addMark(name,lat,lon,type){
         }    
 }
 function removeMarker(id){
+    //alert(id);
     var marks = markerHash[id];
     if(marks!=null){
         for(var i =0;i<marks.length;i++){
@@ -93,22 +94,22 @@ function removeMarker(id){
         }
     }
 }
-function addActivityMark(name,lat,lon,imagePath,index,id){
-    //alert("addActivityMark  "+lat+"  "+lon+"  "+type+"  "+index);
+function addActivityMark(name,lat,lon,imagePath,index){
+    //alert("addActivityMark  "+lat+"  "+lon+"  "+imagePath+"  "+index);
 
-    if(markerHash[id]==null)
-        markerHash[id] = new Array();
+    if(markerHash[imagePath]==null)
+        markerHash[imagePath] = new Array();
 
 
-    var marker = markerHash[id][index];
+    var marker = markerHash[imagePath][index];
     if(marker == null){
         marker           = createMarker(name,lon,lat,imagePath);
-        markerHash[id][index] =  marker;        
+        markerHash[imagePath][index] =  marker;
         layerMarkers.addMarker(marker);
         
     }
     else{
-        marker = markerHash[id][index];
+        marker = markerHash[imagePath][index];
         layerMarkers.removeMarker(marker);
         updateMarker(name,marker,lon,lat,imagePath);
         layerMarkers.addMarker(marker);

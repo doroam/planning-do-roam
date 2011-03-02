@@ -26,13 +26,14 @@ class ActivityController < ApplicationController
   
   #delete activity from list
   def deleteActivity(route, index)
+    
     activity = route.activities[index.to_i]
     
     #if activity not found
     if activity == nil
        return route
     end    
-    
+    params[:deleteActivity] = activity.get_image_url()
     route.activities.delete_at index.to_i
     return route
     
@@ -84,4 +85,5 @@ class ActivityController < ApplicationController
     
     return activity
   end
+
 end

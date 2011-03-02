@@ -1,15 +1,9 @@
 <tr><td width="80px" align="right">
 <%if show_delete 
 
-	iconPath = Global::IMAGE_URL_PREFIX
-	iconType = Global::IMAGE_URL_SUFFIX
-	icon = Global::IMAGE_URLS[activity.tag+"$"+activity.value]
-
-	if icon == nil
-		icon=""
-	end
+        imageUrl = activity.get_image_url()
 %>
-	<img src="<%= iconPath+icon+iconType%>" 
+	<img src="<%= imageUrl%>"
 		alt="<%= activity.value%>" 
 		title="<%= activity.value%>" 
 		height="20px"/>

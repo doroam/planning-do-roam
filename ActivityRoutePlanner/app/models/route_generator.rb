@@ -25,12 +25,15 @@ class RouteGenerator
     #create node way
     result_way = route.activities.clone
 
+    #result_way = result_way.sort
+
     #delete last empty activity (is always the new empty one)
     result_way.delete_at(result.length-1)
     #get first (closest) activity form the 3 posibilities
     #TODO show just nearest
     result_way = result_way.collect { |activity|  activity.result[0]}
     #set last point
+    result_way = result_way.sort
     result_way.push(route.end_point)
 
     #initlialize start point
