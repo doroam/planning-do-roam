@@ -31,6 +31,9 @@ class ActiveSupport::TestCase
   def valid_activity_value
     return "police"
   end
+  def valid_activity_string
+    return "amenity$police"
+  end
   #activity end
   #route helper start
   def valid_route_object

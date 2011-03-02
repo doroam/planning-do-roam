@@ -4,7 +4,8 @@ class ActivityController < ApplicationController
   #activity
   def updateActivity
     route = session[:main_route] 
-    activity = Activity.new("","")
+    activity = Activity.new("","")#dummy activity
+    
     #add or update activity  
     if params[:activity]
       id = params[:id].to_i

@@ -17,20 +17,30 @@ class ActivityTest < ActiveSupport::TestCase
     assert route!=nil, "Could not create route object"
     assert activity!=nil, "Could not create activityect"        
     
-    route.activities.push Activity.new(valid_activity_tag,valid_activity_value)
-     
-    #session[:main_route] = route
-    #session[:main_activity_list] = activity
+    route.activities.push Activity.new(valid_activity_tag,valid_activity_value)     
   end
   
-#  test "should add activity to list" do
-#    route = valid_route_object    
-#    
-#    assert route != nil, "Route object is nil"
-#    assert route.activities != nil, "route.activities is nil"
-#    
-#    assert_difference(route.activities) do
-#      route.activities.push Activity.new(valid_activity_tag,valid_activity_value)
-#    end 
-#  end
+  test "should add activity to list" do 
+    route = valid_route_object
+    route.activities.push valid_activity_object
+    assert valid_activity_object.addActivity(route, valid_activity_string), 
+          "Number of objects in list doent increment."
+   end
+  
+  test "should delete activity from list" do 
+    act = valid_activity_object
+    
+    route = valid_route_object
+    route.activities.push act
+    assert act.deleteActivity(valid_route_object, 0), "Delete Activity failed."   
+  end
+  
+  test "change activity" do
+     act = Activity.new(valid_activity_tag,valid_activity_value)
+     
+     route = valid_route_object
+     route.activities.push act
+     
+     assert act.changeActivity(valid_route_object, valid_activity_string,0), "Change Activity failed."  
+  end
 end
