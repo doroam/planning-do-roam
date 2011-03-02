@@ -57,6 +57,12 @@ class ActiveSupport::TestCase
     route.activities = Array.new
     
     return route
+  end  
+  def valid_route_algorithmus
+    return "A*"
+  end
+  def valid_route_sort
+    return "false"
   end
   #Route end
   #Point helper start
