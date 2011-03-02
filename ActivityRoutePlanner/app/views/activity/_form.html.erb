@@ -12,7 +12,7 @@
 <%= select_tag "activity_"+index.to_s,
             options_from_collection_for_select(
             activity.get_possible_values(session),"tag_value","value",activity.tag+"$"+activity.value),
-          :style =>"width:155px",
+          :style =>"width:156px",
           :include_blank => true,
           :class => 'actionSelectBox',
 		  :heigth=>5,
