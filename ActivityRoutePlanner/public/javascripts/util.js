@@ -1,9 +1,10 @@
 var map; //complex object of type OpenLayers.Map
 var zoom = 12;
-var markerHash = new Array();
+var markerHash = null;
 var route = null;
 var layerMarkers = null;
 function loadMap(){
+    markerHash = new Array();
 	// Start position for the map (hardcoded here for simplicity,
 	// but maybe you want to get from URL params)
 	var lat=53.075878
@@ -63,9 +64,6 @@ function addMark(name,lat,lon,type){
         else if(type == "end")
             src = "javascripts/img/marker-blue.png";
 
-        // Add the Layer with GPX Track choose the color of the Track (replace #00FF00 by the HTML code of the color you want)
-        //var lgpx = new OpenLayers.Layer.GPX("MB Bruderholz", "mb_bruderholz.GPX", "blue");
-        //map.addLayer(lgpx);
         var marker = markerHash[type];
         
         if(lat=="" && lon =="" && markerHash[type]!=null)
@@ -85,34 +83,30 @@ function addMark(name,lat,lon,type){
         }    
 }
 function removeMarker(id){
-    var marks = markerHash[id];
-    if(marks!=null){
-        for(var i =0;i<marks.length;i++){
-            var mark = marks[i];
-            layerMarkers.removeMarker(mark);
-        }
+    //alert(id);
+    var marker = markerHash[id];
+    if(marker!=null){
+            layerMarkers.removeMarker(marker);
+        
     }
 }
 function addActivityMark(name,lat,lon,imagePath,index,id){
-    //alert("addActivityMark  "+lat+"  "+lon+"  "+type+"  "+index);
+    alert("addActivityMark  "+lat+"  "+lon+"  "+imagePath+"  "+index+"  "+id);
 
-    if(markerHash[id]==null)
-        markerHash[id] = new Array();
-
-
-    var marker = markerHash[id][index];
+    var marker = markerHash[id];
+    
     if(marker == null){
         marker           = createMarker(name,lon,lat,imagePath);
-        markerHash[id][index] =  marker;        
+        markerHash[id]   =  marker;
         layerMarkers.addMarker(marker);
         
     }
     else{
-        marker = markerHash[id][index];
+        marker = markerHash[id];
         layerMarkers.removeMarker(marker);
         updateMarker(name,marker,lon,lat,imagePath);
         layerMarkers.addMarker(marker);
-    }
+    }    
 }
 function createMarker(tooltip,lon,lat,src){
     //alert(tooltip+"  "+lon+"  "+lat+"  "+src)
@@ -168,33 +162,18 @@ function init(lat,lon,zoom) {
 	map.addLayer(layerCycleMap);
 	layerMarkers = new OpenLayers.Layer.Markers("Markers");
 	map.addLayer(layerMarkers);
- 
-	// Add the Layer with GPX Track choose the color of the Track (replace #00FF00 by the HTML code of the color you want)
-	//var lgpx = new OpenLayers.Layer.GPX("MB Bruderholz", "mb_bruderholz.GPX", "blue");
-	//map.addLayer(lgpx);
- 
+
 	var lonLat = new OpenLayers.LonLat(lon, lat).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject());
 	map.setCenter (lonLat, zoom);
- 
-	/*var size = new OpenLayers.Size(21,25);
-	var offset = new OpenLayers.Pixel(-(size.w/2), -size.h+15);
-	var icon = new OpenLayers.Icon('http://www.openstreetmap.org/openlayers/img/marker.png',size,offset);
-	layerMarkers.addMarker(new OpenLayers.Marker(lonLat,icon));*/
+
 }
 
 function removeMarks(){
-    //remove activity markers
-    for(var i=0;i<markerHash.length;i++){
-        var marker = markerHash[i];
-        if(marker instanceof Array){
-            for(var j=0;j<marker.length;j++){
-                var subMarker = marker[j];
-                layerMarkers.removeMarker(subMarker);
-            }
-        }
-    }
-    
-
+    layerMarkers.clearMarkers();
+    if (markerHash["start"]!=null)
+        layerMarkers.addMarker(markerHash["start"]);
+    if(markerHash["end"]!=null)
+        layerMarkers.addMarker(markerHash["end"]);
     removeRoute();
 }
 function removeRoute(){

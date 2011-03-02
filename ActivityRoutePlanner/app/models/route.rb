@@ -15,7 +15,6 @@ class Route
   end
   
   #Creates javascript code to show the Marks of the selected route
-  #TODO show path
   def show_markers()
     script = ""
     #adds start mark
@@ -30,17 +29,10 @@ class Route
     if @activities != nil
       @activities.each.with_index do |activity,id|
         if activity.result != nil
-          #image path
-          iconPath  = Global::IMAGE_URL_PREFIX
-          iconType  = Global::IMAGE_URL_SUFFIX
-          icon      = Global::IMAGE_URLS[activity.tag+"$"+activity.value]
-          if icon == nil
-            icon=""
-          end
-          imagePath = iconPath+icon+iconType
-          activity.result.each.with_index do |result, index|
-                script += "addActivityMark('"+result.label+"','"+result.lat+"','"+result.long+"','"+imagePath+"','"+index.to_s+"','"+id.to_s+"');"
-          end
+          imagePath = activity.get_image_url()
+          imageID   = activity.get_image_id()
+          result    = activity.result
+                script += "addActivityMark('"+result.label+"','"+result.lat+"','"+result.long+"','"+imagePath+"','"+index.to_s+"','"+imageID+"');"          
         end
       end
     end
@@ -53,7 +45,7 @@ class Route
     sql_head_point    = "select "+GLOBAL_FIELD_NAME+","+GLOBAL_FIELD_LONG+","+GLOBAL_FIELD_LAT+","+get_distance_query(pstart,pend)+" from "+GLOBAL_TABLE_POINT
     sql_head_polygon  = "select "+GLOBAL_FIELD_NAME+","+GLOBAL_FIELD_LONG+","+GLOBAL_FIELD_LAT+","+get_distance_query(pstart,pend)+" from "+GLOBAL_TABLE_POLYGON
     #order the results to get closest TODO limit 1!
-    limit   = " order by distance limit 3;"
+    limit   = " order by distance limit 1;"
     where   = " where "+activity.tag+" = '"+activity.value+"' "
     sql     = "("+sql_head_point+where+" union "+sql_head_polygon+where+") "+limit
     result  = execute_sql(sql)
@@ -73,9 +65,9 @@ class Route
   #and adds them. So we can later sort this distance and find the nearest one
   #TODO: Get path distance, not airline distance
   def self.get_distance_query(pstart,pend)
-    distance_p1 = "distance(GeomFromText('POINT("+pstart.long+" "+pstart.lat+")',4326),st_transform(way,4326))"
-    distance_p2 = "distance(GeomFromText('POINT("+pend.long+" "+pend.lat+")',4326),st_transform(way,4326))"
-    result      = "("+distance_p1+"+"+distance_p2+")as distance"
+    distance_p1 = "distance(GeomFromText('POINT("+pstart.long+" "+pstart.lat+")',4326),st_transform(way,4326)) "
+    distance_p2 = "distance(GeomFromText('POINT("+pend.long+" "+pend.lat+")',4326),st_transform(way,4326)) "
+    result      = distance_p1+" as dist_source,"+distance_p2+" as dist_target,("+distance_p1+"+"+distance_p2+")as distance"
     return result
   end
 
@@ -92,14 +84,11 @@ class Route
 
   #creates points from the results of a sql query
   def self.get_sql_results(res)
-    result = Array.new
-    res.each  do |row|      
+    row = res[0]
+    if row!= nil
       point = make_point(row)
-      if point != nil
-        result.push(point)
-      end
     end
-    return result
+    return point
   end
 
 
@@ -108,11 +97,18 @@ class Route
     name  = row["name"]
     lat   = row["y"]
     lon   = row["x"]
-    if name != nil && lat != nil && lon != nil
+    d_source = row["dist_source"]
+    d_target = row["dist_target"]
+    if name ==nil
+      name = "no name found"
+    end
+    if lat != nil && lon != nil
       point       = Point.new
       point.label = name
       point.lat   = lat
       point.long  = lon
+      point.distance_source = d_source.to_f
+      point.distance_target = d_target.to_f
       return point
     end
     return nil
