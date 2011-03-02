@@ -2,6 +2,7 @@ var map; //complex object of type OpenLayers.Map
 var zoom = 12;
 var markerHash = new Array();
 var route = null;
+var layerMarkers = null;
 function loadMap(){
 	// Start position for the map (hardcoded here for simplicity,
 	// but maybe you want to get from URL params)
@@ -62,8 +63,6 @@ function addMark(name,lat,lon,type){
         else if(type == "end")
             src = "javascripts/img/marker-blue.png";
 
-        var layerMarkers = map.getLayer("OpenLayers.Layer.Markers_85");
-
         // Add the Layer with GPX Track choose the color of the Track (replace #00FF00 by the HTML code of the color you want)
         //var lgpx = new OpenLayers.Layer.GPX("MB Bruderholz", "mb_bruderholz.GPX", "blue");
         //map.addLayer(lgpx);
@@ -90,14 +89,12 @@ function removeMarker(id){
     if(marks!=null){
         for(var i =0;i<marks.length;i++){
             var mark = marks[i];
-            mark.erase();
+            layerMarkers.removeMarker(mark);
         }
     }
 }
 function addActivityMark(name,lat,lon,imagePath,index,id){
     //alert("addActivityMark  "+lat+"  "+lon+"  "+type+"  "+index);
-    var layerMarkers = map.getLayer("OpenLayers.Layer.Markers_85");
-
 
     if(markerHash[id]==null)
         markerHash[id] = new Array();
@@ -106,16 +103,15 @@ function addActivityMark(name,lat,lon,imagePath,index,id){
     var marker = markerHash[id][index];
     if(marker == null){
         marker           = createMarker(name,lon,lat,imagePath);
-        markerHash[id][index] =  marker;
-        
+        markerHash[id][index] =  marker;        
         layerMarkers.addMarker(marker);
         
     }
     else{
         marker = markerHash[id][index];
-        //layerMarkers.removeMarker(marker);
+        layerMarkers.removeMarker(marker);
         updateMarker(name,marker,lon,lat,imagePath);
-        //layerMarkers.addMarker(marker);
+        layerMarkers.addMarker(marker);
     }
 }
 function createMarker(tooltip,lon,lat,src){
@@ -139,8 +135,7 @@ function updateMarker(name,marker,lon,lat,src){
     var icon    = new OpenLayers.Icon(src,size,offset);
     icon.imageDiv.firstChild.title = name;
     marker.lonlat   = lonLat;
-    marker.icon     = icon;
-    marker.draw();
+    marker.icon     = icon;    
 }
 
 //Initialise the 'map' object
@@ -194,22 +189,23 @@ function removeMarks(){
         if(marker instanceof Array){
             for(var j=0;j<marker.length;j++){
                 var subMarker = marker[j];
-                subMarker.erase();
+                layerMarkers.removeMarker(subMarker);
             }
         }
     }
-    //remove vertices
-    var vertice = markerHash["nearest_src"]
-    if(vertice!=null)
-        vertice.erase();
-
-    vertice = markerHash["nearest_target"]
-    if(vertice!=null)
-        vertice.erase();
+    
 
     removeRoute();
 }
 function removeRoute(){
+    //remove vertices
+    var vertice = markerHash["nearest_src"]
+    if(vertice!=null)
+        layerMarkers.removeMarker(vertice);
+
+    vertice = markerHash["nearest_target"]
+    if(vertice!=null)
+        layerMarkers.removeMarker(vertice);
     if(route!=null)
         map.removeLayer(route);
 }
