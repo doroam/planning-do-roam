@@ -12,9 +12,9 @@ class Point
 
   #parses input coordinats to lat and long
   def parse_label
-    results =@label.split(";")
+    results = @label.split(";")
     if results.size > 1
-      @lat = results[0]
+      @lat  = results[0]
       @long = results[1]
       
       num_lat = @lat.to_f
