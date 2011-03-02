@@ -26,7 +26,7 @@ class ActivityController < ApplicationController
   
   #delete activity from list
   def deleteActivity(route, index)
-    
+    route.kml_path = ""
     activity = route.activities[index.to_i]
     
     #if activity not found

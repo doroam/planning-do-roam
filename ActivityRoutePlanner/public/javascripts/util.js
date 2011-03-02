@@ -86,8 +86,12 @@ function removeMarker(id){
     //alert(id);
     var marker = markerHash[id];
     if(marker!=null){
+        try{
             layerMarkers.removeMarker(marker);
-        
+        }
+        catch(e){
+            alert(e);
+        }
     }
 }
 function addActivityMark(name,lat,lon,imagePath,id){
@@ -177,14 +181,24 @@ function removeMarks(){
     removeRoute();
 }
 function removeRoute(){
+    try{
     //remove vertices
     var vertice = markerHash["nearest_src"]
     if(vertice!=null)
         layerMarkers.removeMarker(vertice);
 
-    vertice = markerHash["nearest_target"]
-    if(vertice!=null)
-        layerMarkers.removeMarker(vertice);
-    if(route!=null)
+    vertice_t = markerHash["nearest_target"]
+
+    if(vertice_t!=null)
+        layerMarkers.removeMarker(vertice_t);
+    
+        
+    
+    if(route!=null){
         map.removeLayer(route);
+    }
+    }
+    catch(e){
+        alert(e);
+    }
 }
