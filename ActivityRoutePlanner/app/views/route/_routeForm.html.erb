@@ -1,15 +1,10 @@
 <%label = ""
 default = ""
 if point != nil && point.label!=nil && (!point.label.eql? "")
-  showDelete = true
-  default = point.label
+  showDelete  = true
+  default     = point.label
 else
   showDelete = false
-  if type.eql?("start")
-    default = "53.075878;8.80731"
-  else
-    default = "53.115878;8.85731"
-  end
 end
 %>
 <span class="pointInput" id="<%=type%>_id">
