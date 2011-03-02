@@ -29,8 +29,7 @@ function handleMapClick(evt)
 
 function loadRoute(fileName,start_lat,start_lon,end_lat,end_lon){
     //Delete old route
-    if(route!=null)
-        map.removeLayer(route);
+    removeRoute();
 
     /* Nice try to calculate zoom
      *var bounds = new OpenLayers.Bounds();
@@ -86,13 +85,12 @@ function addMark(name,lat,lon,type){
             layerMarkers.addMarker(marker);
         }    
 }
-function removeMark(id){
+function removeMarker(id){
     var marks = markerHash[id];
     if(marks!=null){
         for(var i =0;i<marks.length;i++){
             var mark = marks[i];
-            var layerMarkers = map.getLayer("OpenLayers.Layer.Markers_85");
-            layerMarkers.removeMarker(mark);
+            mark.erase();
         }
     }
 }
@@ -114,11 +112,10 @@ function addActivityMark(name,lat,lon,imagePath,index,id){
         
     }
     else{
-
         marker = markerHash[id][index];
-        layerMarkers.removeMarker(marker);
-        updateMarker(name,marker,lon,lat,src);
-        layerMarkers.addMarker(marker);
+        //layerMarkers.removeMarker(marker);
+        updateMarker(name,marker,lon,lat,imagePath);
+        //layerMarkers.addMarker(marker);
     }
 }
 function createMarker(tooltip,lon,lat,src){
@@ -141,8 +138,9 @@ function updateMarker(name,marker,lon,lat,src){
     var offset  = new OpenLayers.Pixel(-(size.w/2), -size.h+15);
     var icon    = new OpenLayers.Icon(src,size,offset);
     icon.imageDiv.firstChild.title = name;
-    marker.lonlat = lonLat;
-    marker.icon = icon;
+    marker.lonlat   = lonLat;
+    marker.icon     = icon;
+    marker.draw();
 }
 
 //Initialise the 'map' object
@@ -187,4 +185,31 @@ function init(lat,lon,zoom) {
 	var offset = new OpenLayers.Pixel(-(size.w/2), -size.h+15);
 	var icon = new OpenLayers.Icon('http://www.openstreetmap.org/openlayers/img/marker.png',size,offset);
 	layerMarkers.addMarker(new OpenLayers.Marker(lonLat,icon));*/
+}
+
+function removeMarks(){
+    //remove activity markers
+    for(var i=0;i<markerHash.length;i++){
+        var marker = markerHash[i];
+        if(marker instanceof Array){
+            for(var j=0;j<marker.length;j++){
+                var subMarker = marker[j];
+                subMarker.erase();
+            }
+        }
+    }
+    //remove vertices
+    var vertice = markerHash["nearest_src"]
+    if(vertice!=null)
+        vertice.erase();
+
+    vertice = markerHash["nearest_target"]
+    if(vertice!=null)
+        vertice.erase();
+
+    removeRoute();
+}
+function removeRoute(){
+    if(route!=null)
+        map.removeLayer(route);
 }

@@ -6,7 +6,10 @@ else
   point = route.start_point
   type = "start"
 end
+if params[:delete_point]!=nil
 %>
+removeMarks();
+<%end%>
 addMark("<%=point.label%>","<%=point.lat%>","<%=point.long%>","<%=type%>");
 var elem = document.getElementById('route_id');
 elem.innerHTML = "<%= escape_javascript(render(:partial => 'init/menu',:locals => {:point => point,:type => type}))%>";

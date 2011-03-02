@@ -1,6 +1,6 @@
 <%route = session[:main_route]
 if params[:deleteActivity]!=nil%>
-  removeMark("<%=params[:deleteActivity]%>");
+  removeMarker("<%=params[:deleteActivity]%>");
 
 <%elsif flash[:error]%>  
   alert('<%= flash[:error]%>');
