@@ -72,7 +72,8 @@ function addMark(name,lat,lon,type){
         if(lat=="" && lon =="" && markerHash[type]!=null){
 
             layerMarkers.removeMarker(marker);
-            markerHash[type] = null;
+            //markerHash[type] = null;
+            marker = null
         }
 
         
@@ -108,8 +109,9 @@ function addActivityMark(name,lat,lon,imagePath,id){
         
     }
     else{
-        marker = markerHash[id];
+        
         layerMarkers.removeMarker(marker);
+        
         updateMarker(name,marker,lon,lat,imagePath);
         layerMarkers.addMarker(marker);
     }    

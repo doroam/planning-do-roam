@@ -3,6 +3,7 @@
 
 class RouteGenerator
   TABLE = "hb_topo"
+  GLOBAL_FIELD_TYPE             = Global::GLOBAL_FIELD_TYPE
   GLOBAL_FIELD_END_POINT_LONG   = Global::GLOBAL_FIELD_END_POINT_LONG
   GLOBAL_FIELD_END_POINT_LAT    = Global::GLOBAL_FIELD_END_POINT_LAT
   GLOBAL_FIELD_START_POINT_LONG = Global::GLOBAL_FIELD_START_POINT_LONG
@@ -123,7 +124,7 @@ class RouteGenerator
       long_min  = (point.long.to_d-0.1).to_s
       #sql = "SELECT source,distance(GeomFromText('POINT("+point.lat+" "+point.long+")',4326),st_transform(the_geom,4326))  FROM ways"
       #except_ways = "true"#"(highway='primary' or highway='secondary' or highway='motorway' or highway='trunk')"#"(highway != '' and highway!='cycleway' and highway!='pedestrian' and highway!='footway')"
-      where =  ""#" WHERE ("+GLOBAL_FIELD_TRANSFORMED_ROAD_GEOM+" && setsrid('BOX3D("+long_min+" "+lat_min+","+long_max+" "+lat_max+")'::box3d, 4326) )"
+      where =  " WHERE "+GLOBAL_FIELD_TYPE+"!='pedestrian' "#"("+GLOBAL_FIELD_TRANSFORMED_ROAD_GEOM+" && setsrid('BOX3D("+long_min+" "+lat_min+","+long_max+" "+lat_max+")'::box3d, 4326) )"
       where += " ORDER BY dist LIMIT 1;"
       #executes and parses the result as an edge
       return get_edge(sql+where)

@@ -7,6 +7,7 @@ class Point
   GLOBAL_TABLE_POINT    = Global::GLOBAL_TABLE_POINT
   GLOBAL_TABLE_POLYGON  = Global::GLOBAL_TABLE_POLYGON
   GLOBAL_FIELD_AMENITY  = Global::GLOBAL_FIELD_AMENITY
+  
 
   attr_accessor :lat,:long,:label,:distance_source,:distance_target
   #constructor for label, lat and long

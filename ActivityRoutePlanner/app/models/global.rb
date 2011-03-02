@@ -17,6 +17,7 @@ class Global
   GLOBAL_FIELD_START_POINT_LAT        = 'y(startpoint('+GLOBAL_FIELD_TRANSFORMED_ROAD_GEOM+')) as start_lat'
   GLOBAL_FIELD_END_POINT_LONG         = 'x(endpoint('+GLOBAL_FIELD_TRANSFORMED_ROAD_GEOM+')) as end_long'
   GLOBAL_FIELD_END_POINT_LAT          = 'y(endpoint('+GLOBAL_FIELD_TRANSFORMED_ROAD_GEOM+')) as end_lat'
+  GLOBAL_FIELD_TYPE                   = 'type_name'
   
   ALGORITHMUS_LIST = ["A*","Dijkstra"]
   
