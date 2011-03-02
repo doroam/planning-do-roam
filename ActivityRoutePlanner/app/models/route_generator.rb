@@ -19,8 +19,9 @@ class RouteGenerator
   #start-activities-end
   def self.generate_route(route)
     ActiveRecord::Base.establish_connection(:osm_data)
-    geo_result = nil
-    result = Array.new
+    geo_result  = nil
+    result      = Array.new
+    errors      = Array.new
     
     #create node way
     result_way = route.activities.clone
@@ -30,8 +31,8 @@ class RouteGenerator
 
     #delete last empty activity (is always the new empty one)
     result_way.delete_at(result.length-1)
+    
     #get first (closest) activity form the 3 posibilities
-    #TODO show just nearest
     result_way = result_way.collect { |activity|  activity.result}
 
     #set last point
@@ -61,7 +62,12 @@ class RouteGenerator
         end
       if source != nil && target !=nil
         #add route from source to target to the kml list
-        result.concat(generate_simple_route(source,target,route))
+        path = generate_simple_route(source,target,route)
+        if path.length>0
+          result.concat(path)
+        else
+          errors.push(src_point.label+" -> "+point.label)
+        end
       else
         p "no vertice found"
       end
@@ -90,10 +96,9 @@ class RouteGenerator
 
 
     #build result object
-    geo_result = GeoResult.new(start_lat,start_lon , end_lat, end_lon, result)
-
+    geo_result = GeoResult.new(start_lat,start_lon , end_lat, end_lon, result,errors)
     if geo_result==nil
-      geo_result = GeoResult.new(nil,nil,nil,nil,nil)
+      geo_result = GeoResult.new(nil,nil,nil,nil,nil,nil)
     end
 
     geo_result.kml_list = result
@@ -118,7 +123,8 @@ class RouteGenerator
       long_min  = (point.long.to_d-0.1).to_s
       #sql = "SELECT source,distance(GeomFromText('POINT("+point.lat+" "+point.long+")',4326),st_transform(the_geom,4326))  FROM ways"
       #except_ways = "true"#"(highway='primary' or highway='secondary' or highway='motorway' or highway='trunk')"#"(highway != '' and highway!='cycleway' and highway!='pedestrian' and highway!='footway')"
-      where = " WHERE ("+GLOBAL_FIELD_TRANSFORMED_ROAD_GEOM+" && setsrid('BOX3D("+long_min+" "+lat_min+","+long_max+" "+lat_max+")'::box3d, 4326) )ORDER BY dist LIMIT 1;"
+      where =  ""#" WHERE ("+GLOBAL_FIELD_TRANSFORMED_ROAD_GEOM+" && setsrid('BOX3D("+long_min+" "+lat_min+","+long_max+" "+lat_max+")'::box3d, 4326) )"
+      where += " ORDER BY dist LIMIT 1;"
       #executes and parses the result as an edge
       return get_edge(sql+where)
     end

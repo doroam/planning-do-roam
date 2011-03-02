@@ -49,12 +49,13 @@ function showSetPointMenu(latLon,e){
                                                                            visible:false,
                                                                            close:true,
                                                                            width:"200px",
-                                                                            height:"60px"} );
+                                                                            height:"85px"} );
+
 
     var coordinates = escape(latLon.lat+";"+latLon.lon);
     var linkStart = "<a onclick=\"hideSetPoint();showWall();\" href=\"/updateRoute?start="+coordinates+"\" data-remote=\"true\">Set start point</a>";
     var linkEnd = "<a onclick=\"hideSetPoint();showWall();\" href=\"/updateRoute?end="+coordinates+"\" data-remote=\"true\">Set end point</a>";
-    YAHOO.yuiObjectContainer.pointMenu.setBody("<div class=\"setPoint\"><b>Coordinates:</b><br/> <b>Latitude:</b> "+latLon.lat+"<br /><b>Longitude:</b>"+latLon.lon+" <br/>"+linkStart+" &nbsp "+linkEnd+"</div>");
+    YAHOO.yuiObjectContainer.pointMenu.setBody("<div class=\"setPoint\"><b>Coordinates:</b><br/> <b>Latitude:</b> "+latLon.lat+"<br /><b>Longitude:</b> "+latLon.lon+" <br/>"+linkStart+" &nbsp "+linkEnd+"</div>");
     YAHOO.yuiObjectContainer.pointMenu.render(document.body);
     YAHOO.yuiObjectContainer.pointMenu.show();
 }

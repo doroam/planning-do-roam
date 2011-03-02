@@ -56,7 +56,8 @@ function loadRoute(fileName){
     //map.zoomTo(map.getZoomForExtent(bounds)-2);
     map.addLayer(route);
     
-    hideWall();
+    setTimeout ( "hideWall();", 1500 );
+
 }
 function addMark(name,lat,lon,type){
         //alert(name+"   "+lat+"  "+lon+"  "+type);

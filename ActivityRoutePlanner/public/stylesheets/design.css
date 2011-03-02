@@ -67,6 +67,7 @@ table{
 .setPoint{
     border-color: black;
     border-width: 1px;
+    margin:10px
 }
 
 div.headline{
