@@ -24,6 +24,14 @@ class Global
   IMAGE_URL_PREFIX = "images/icons/"
   IMAGE_URL_SUFFIX = ".png"  
   IMAGE_URLS = {
+    "tourism$museum" => "museum",
+    "tourism$hotel" => "hotel",
+    "leisure$sports_centre" => "fitness",
+    "railway$station" => "trainstation",
+    "railway$tram_stop" => "busstop",
+    "amenity$library" => "library",
+    "amenity$post_office" => "post_office",
+    "amenity$nightclub" => "dance",
     "amenity$pharmacy"=>"apotheke",
     "amenity$bakery"=>"bakery",
     "amenity$bank"=>"bank",
@@ -49,6 +57,14 @@ class Global
   } 
   
 ACTIVITIES = [
+      Activity.new("tourism", "museum"),
+      Activity.new("tourism", "hotel"),
+      Activity.new("leisure", "sports_centre"),
+      Activity.new("railway", "station"),
+      Activity.new("railway", "tram_stop"),
+      Activity.new("amenity", "library"),
+      Activity.new("amenity", "post_office"),
+      Activity.new("amenity", "nightclub"),
       Activity.new("amenity", "pharmacy"),
       Activity.new("amenity", "bakery"),
       Activity.new("amenity", "bank"),
