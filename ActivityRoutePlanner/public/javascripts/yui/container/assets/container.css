@@ -215,6 +215,7 @@ PLEASE NOTE:
 .yui-panel .bd {
     overflow:hidden;
     padding:4px;
+	background-color: #c8d8d8;
 }
 
 .yui-panel .bd p {
