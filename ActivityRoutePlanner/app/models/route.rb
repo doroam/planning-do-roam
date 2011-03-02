@@ -6,7 +6,7 @@ class Route
   GLOBAL_TABLE_POLYGON  = Global::GLOBAL_TABLE_POLYGON
   GLOBAL_FIELD_AMENITY  = Global::GLOBAL_FIELD_AMENITY
 
-  attr_accessor :start_point,:end_point,:activities,:algorithmus,:sort
+  attr_accessor :start_point,:end_point,:activities,:algorithmus,:sort,:kml_path
   def initialize
     @start_point = Point.new
     @end_point = Point.new
@@ -32,10 +32,11 @@ class Route
           imagePath = activity.get_image_url()
           imageID   = activity.get_image_id()
           result    = activity.result
-                script += "addActivityMark('"+result.label+"','"+result.lat+"','"+result.long+"','"+imagePath+"','"+index.to_s+"','"+imageID+"');"          
+                script += "addActivityMark('"+result.label+"','"+result.lat+"','"+result.long+"','"+imagePath+"','"+imageID+"');"          
         end
       end
     end
+    script += "loadRoute('"+@kml_path+"');"
     return script
   end    
 
