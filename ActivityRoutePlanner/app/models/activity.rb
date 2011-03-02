@@ -77,5 +77,64 @@ class Activity
     p ":::"+@tag+@value+"  result="+result.to_s
     return result
   end
+  
+  #add activity to list
+  def addActivity(route, act)   
+    activity = create_activity(route, act)
 
+    #if activity found
+    if activity != nil
+      #If activity list contains only spacer -> insert at 0
+      #else insert at bevor last position
+      if route.activities.length == 1
+        route.activities.insert(0, activity)
+      else        
+        route.activities.insert(-2, activity) 
+      end
+      return true
+    else
+      return false
+    end    
+  end
+  
+  #change activity
+  def changeActivity(route, act, id)
+    activity = create_activity(route, act)
+    
+    #if activity was found
+    if activity != nil   
+      route.activities[id] = activity
+      return true
+    else
+      return false
+    end
+  end  
+
+  #delete activity from list
+  def deleteActivity(route, index)
+    route.kml_path = ""
+    activity = route.activities[index.to_i]
+    
+    #if activity found
+    if activity != nil  
+       route.activities.delete_at index.to_i
+       return true
+    else
+      return false
+    end   
+  end
+
+  #create an activiy object
+  def create_activity(route, act)
+    splitted = act.split("$")
+    activity = Activity.new(splitted[0],splitted[1])
+    Route.get_closest_activity(activity,route.start_point,route.end_point)
+    
+    if activity.result == nil
+      return nil
+    end    
+    
+    return activity
+  end
+  
 end
