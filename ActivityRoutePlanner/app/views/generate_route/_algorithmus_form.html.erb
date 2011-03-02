@@ -1,0 +1,17 @@
+<%algorithmus = session[:main_route].algorithmus %>
+Select algorithm:
+<%= select_tag "setAlgorithmus",
+            options_for_select(Global::ALGORITHMUS_LIST),
+	    :onchange => 'showWall();'+remote_function(
+		 	 :url=> "/setAlgorithmus",
+			 :with => "'algo=' +document.getElementById('setAlgorithmus').value")
+%>
+<br />
+Sort activities
+
+<%= select_tag "sort",
+            options_for_select(["false","true"]),
+	    :onchange => 'showWall();'+remote_function(
+		 	 :url=> "/setAlgorithmus",
+			 :with => "'sort=' +document.getElementById('sort').value")
+%>

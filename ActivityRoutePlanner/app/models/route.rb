@@ -6,11 +6,12 @@ class Route
   GLOBAL_TABLE_POLYGON  = Global::GLOBAL_TABLE_POLYGON
   GLOBAL_FIELD_AMENITY  = Global::GLOBAL_FIELD_AMENITY
 
-  attr_accessor :start_point,:end_point,:activities,:algorithmus
+  attr_accessor :start_point,:end_point,:activities,:algorithmus,:sort
   def initialize
     @start_point = Point.new
     @end_point = Point.new
-    @algorithmus = Algorithmus.new
+    @algorithmus = "A*"
+    @sort = "false"
   end
   
   #Creates javascript code to show the Marks of the selected route
