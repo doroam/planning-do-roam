@@ -59,6 +59,7 @@ function loadRoute(fileName){
     hideWall();
 }
 function addMark(name,lat,lon,type){
+        //alert(name+"   "+lat+"  "+lon+"  "+type);
         var src ="javascripts/img/marker-gold.png";
         if(type == "start")
             src = "javascripts/img/marker.png";
