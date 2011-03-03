@@ -21,7 +21,7 @@ Select algorithm:
 	dummyAlg.push Activity.new("exact","Dijkstra")
 %>
 <%= select_tag "setAlgorithmus",
-            options_from_collection_for_select(dummyAlg,"value","tag",route.sort),
+            options_from_collection_for_select(dummyAlg,"value","tag",route.algorithmus),
 		:style=>"width:117px;",
 	    :onchange => 'showWall();'+remote_function(
 		 	 :url=> "/setAlgorithmus",
