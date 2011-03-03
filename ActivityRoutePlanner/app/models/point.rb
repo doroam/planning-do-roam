@@ -42,6 +42,10 @@ class Point
       @label = num_lat.to_s+";"+num_lon.to_s
     else
       get_point_by_name()
+      if @label == nil
+        @lat = nil
+        @long = nil
+      end
     end
     @distance_source = 0.0
     @distance_target = 0.0
