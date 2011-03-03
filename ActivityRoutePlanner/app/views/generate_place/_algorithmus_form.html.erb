@@ -16,12 +16,12 @@
 Select algorithm:
 </td><td>
 <%
-	dummyAlg = Array.new
-	dummyAlg.push Activity.new("fast","A*")
-	dummyAlg.push Activity.new("exact","Dijkstra")
+	alg_list = Array.new
+	alg_list.push Activity.new("fast","A*")
+	alg_list.push Activity.new("exact","Dijkstra")
 %>
 <%= select_tag "setAlgorithmus",
-            options_from_collection_for_select(dummyAlg,"value","tag",route.algorithmus),
+            options_from_collection_for_select(alg_list,"value","tag",route.algorithmus),
 		:style=>"width:117px;",
 	    :onchange => 'showWall();'+remote_function(
 		 	 :url=> "/setAlgorithmus",
@@ -33,12 +33,14 @@ Select algorithm:
 Notice sort:
 </td><td>
 <% 
-	dummyAct = Array.new
-	dummyAct.push Activity.new("yes","false")
-	dummyAct.push Activity.new("no","true")
+	sort_list = Array.new
+        #yes:to keep the initial sort but false: no sort
+	sort_list.push Activity.new("yes","false")
+        #no: to not keep the initial sort but true to sort the list
+	sort_list.push Activity.new("no","true")
 %><%=
 	select_tag "sort",
-            options_from_collection_for_select(dummyAct,"value","tag",route.sort),
+            options_from_collection_for_select(sort_list,"value","tag",route.sort),
 		:style=>"width:117px;",
 	    :onchange => 'showWall();'+remote_function(
 		 	 :url=> "/setAlgorithmus",

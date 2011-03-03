@@ -28,13 +28,15 @@ class GeneratePlaceController < ApplicationController
       format.js 
     end
   end
-  
+  #removes a point
   def removePoint(point)
     point.reset
   end
-  
+  #sets a point with the entered label
   def setPoint(point, label)
       point.label = label
+      #parse the input if it is "lat;lon"
+      #or searches the input in the db
       point.parse_label
       handle_error(point,label)
   end
@@ -56,11 +58,12 @@ class GeneratePlaceController < ApplicationController
       route.activities = nil
     end   
   end
-  
+
+  #sets the algorithmus and sorting method to use
   def set_algorithmus       
-    a = params[:algo]
+    a     = params[:algo]
     route = session[:main_route]
-    sort = params[:sort]
+    sort  = params[:sort]
     
     if a != nil
       route.algorithmus = a
@@ -74,6 +77,7 @@ class GeneratePlaceController < ApplicationController
     end
   end
 
+  #handles errors by parsing lables of a point
   def handle_error(point,label)
     if point.label == nil || point.label.eql?("")
       flash[:error_msg] = "The place "+CGI.escape(label)+" could not be found"

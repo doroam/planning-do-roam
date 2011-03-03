@@ -1,6 +1,5 @@
 <tr><td width="80px" align="right">
 <%if show_delete 
-
         imageUrl = activity.get_image_url()
 %>
 	<img src="<%= imageUrl%>"
@@ -10,12 +9,12 @@
 <%end%>
 </td><td>
 <%= select_tag "activity_"+index.to_s,
-            options_from_collection_for_select(
+            options_from_collection_for_select(#get available activities and sort by value
             activity.get_possible_values(session).sort {|a,b| a.value <=> b.value} ,"tag_value","value",activity.tag+"$"+activity.value),
 		  :size=>"1",
 		  :style =>"width:156px;",
-          :include_blank => true,
-          :class => 'actionSelectBox',
+                  :include_blank => true,
+                  :class => 'actionSelectBox',
 		  :onfocus=>"this.size=7",
 		  :onblur=>"this.size=1",
 		  :onmouseenter=>"this.size=7",

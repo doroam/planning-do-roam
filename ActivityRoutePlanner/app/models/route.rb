@@ -1,4 +1,5 @@
 class Route 
+  #contains the main information of the application
   GLOBAL_FIELD_NAME     = Global::GLOBAL_FIELD_NAME
   GLOBAL_FIELD_LONG     = Global::GLOBAL_FIELD_LONG
   GLOBAL_FIELD_LAT      = Global::GLOBAL_FIELD_LAT
@@ -6,13 +7,22 @@ class Route
   GLOBAL_TABLE_POLYGON  = Global::GLOBAL_TABLE_POLYGON
   GLOBAL_FIELD_AMENITY  = Global::GLOBAL_FIELD_AMENITY
 
-  attr_accessor :start_point,:end_point,:activities,:algorithmus,:sort,:kml_path
+
+  attr_accessor :start_point,#start point of the route
+    :end_point,#end point of the route
+    :activities,#activities
+    :algorithmus,#algorithmus to calculate the route
+    :sort,#flag to sort the activities
+    :kml_path#path to the kml file to show the route
+
+  #initializes a route
   def initialize
     @start_point = Point.new
     @end_point = Point.new
     @algorithmus = "A*"
     @sort = "false"
   end
+  #resets a route
   def reset
     @activities = nil
     @kml_path = ""
@@ -39,20 +49,24 @@ class Route
         end
       end
     end
+    #adds the route if there is one
     if @kml_path != nil && !@kml_path.eql?("")
       script += "loadRoute('"+@kml_path+"');"
     end
     return script
   end    
 
-  #gets the 3 closest points to start and endpoint where the activity can be done
+  #gets the closest point to start and endpoint where the activity can be done
   def self.get_closest_activity(activity,pstart,pend)
-    
+    #head of the sql query for the point table
     sql_head_point    = "select "+GLOBAL_FIELD_NAME+","+GLOBAL_FIELD_LONG+","+GLOBAL_FIELD_LAT+","+get_distance_query(pstart,pend)+" from "+GLOBAL_TABLE_POINT
+    #head of the sql query for the polygon table
     sql_head_polygon  = "select "+GLOBAL_FIELD_NAME+","+GLOBAL_FIELD_LONG+","+GLOBAL_FIELD_LAT+","+get_distance_query(pstart,pend)+" from "+GLOBAL_TABLE_POLYGON
-    #order the results to get closest TODO limit 1!
+    #sort the results and gets the closest one
     limit   = " order by distance limit 1;"
+    #gets the desired activity
     where   = " where "+activity.tag+" = '"+activity.value+"' "
+    #unites the results of the point table and the polygon table
     sql     = "("+sql_head_point+where+" union "+sql_head_polygon+where+") "+limit
     result  = execute_sql(sql)
     activity.result = result
@@ -79,8 +93,7 @@ class Route
 
 
   # executes a sql query and gets the results
-  def self.execute_sql(sql)
-    #sql = "SELECT name,X(transform(way,4326)),Y(transform(way,4326))  FROM planet_osm_point where name like '%bremen%';"
+  def self.execute_sql(sql)    
     ActiveRecord::Base.establish_connection(:osm_data)
     res = ActiveRecord::Base.connection.execute(sql)
     res = get_sql_results(res)
@@ -88,7 +101,7 @@ class Route
   end
 
 
-  #creates points from the results of a sql query
+  #creates points from the results of a sql query if there are some
   def self.get_sql_results(res)
     if res.num_tuples >0
       row = res[0]
@@ -104,14 +117,20 @@ class Route
 
   #creates a point from a result of the database
   def self.make_point(row)
+    #fields for the point
     name  = row["name"]
     lat   = row["y"]
     lon   = row["x"]
+    #distance to route's start point
+    #distance to route's end point
     d_source = row["dist_source"]
     d_target = row["dist_target"]
+
+    #if no name available
     if name ==nil
       name = "no name found"
     end
+    #set information
     if lat != nil && lon != nil
       point       = Point.new
       point.label = name

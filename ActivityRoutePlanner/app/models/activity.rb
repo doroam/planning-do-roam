@@ -1,11 +1,9 @@
-# To change this template, choose Tools | Templates
-# and open the template in the editor.
-
 class Activity
   include Comparable
-  attr_accessor :tag, :value, :result
-  def initialize
-    
+  attr_accessor :tag,#tag of the activity in the database
+    :value,#value in the db
+    :result#nearest point to start and end point with the selected tag and value
+  def initialize    
   end
   
   def initialize(tag, value)
@@ -25,6 +23,7 @@ class Activity
     return @tag+"$"+@value
   end
 
+  #gets the image url of the activity
   def get_image_url
     icon_path = Global::IMAGE_URL_PREFIX
 		icon_type = Global::IMAGE_URL_SUFFIX
@@ -35,6 +34,7 @@ class Activity
 		return icon_path+icon+icon_type
   end
 
+  #gets the id of the activity. it is the name of the icon
   def get_image_id
     icon     = Global::IMAGE_URLS[@tag+"$"+@value]
     if icon == nil
@@ -64,7 +64,9 @@ class Activity
     return possible_values
   end
 
-
+  #comparator for activities
+  #it compares the result point
+  #see <=> of class point
   def  <=> (o)
     if self.result==nil
       return 1
@@ -126,6 +128,7 @@ class Activity
 
   #create an activiy object
   def create_activity(route, act)
+    #parse the value to get tag and value
     splitted = act.split("$")
     activity = Activity.new(splitted[0],splitted[1])
     Route.get_closest_activity(activity,route.start_point,route.end_point)

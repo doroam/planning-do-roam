@@ -1,7 +1,6 @@
-# To change this template, choose Tools | Templates
-# and open the template in the editor.
-
+#class for constants
 class Global
+  # database constants
   GLOBAL_FIELD_NAME                   = 'name'
   GLOBAL_FIELD_AMENITY                = 'amenity'
   GLOBAL_TABLE_POINT                  = 'planet_osm_point'
@@ -19,8 +18,7 @@ class Global
   GLOBAL_FIELD_END_POINT_LAT          = 'y(endpoint('+GLOBAL_FIELD_TRANSFORMED_ROAD_GEOM+')) as end_lat'
   GLOBAL_FIELD_TYPE                   = 'type_name'
   
-  ALGORITHMUS_LIST = ["A*","Dijkstra"]
-  
+  #constants to map the activities to icons
   IMAGE_URL_PREFIX = "images/icons/"
   IMAGE_URL_SUFFIX = ".png"  
   IMAGE_URLS = {
@@ -55,7 +53,7 @@ class Global
     "sport$climbing"=>"climbing",
     "sport$golf"=>"golfcourse"
   } 
-  
+#list of activities with tag and value in the database
 ACTIVITIES = [
       Activity.new("tourism", "museum"),
       Activity.new("tourism", "hotel"),

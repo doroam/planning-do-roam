@@ -63,12 +63,15 @@ class RouteGenerator
         #add route from source to target to the kml list
         path = generate_simple_route(source,target,route)
         if path.length>0
+          #adds a line from the start point to the nearest source point of the edge
           line = get_kml_line(src_point.lat,src_point.long, source["start_lat"],source["start_long"])
           result.push(line)
-          result.concat(path)          
+          result.concat(path)
+          #adds a line form the end point to the nearest end point of the edge
           line = get_kml_line(point.lat,point.long, target["end_lat"],target["end_long"])
           result.push(line)
         else
+          #error message if the path could not be found
           errors.push(CGI.escape(src_point.label)+" to "+CGI.escape(point.label))
         end
       else
@@ -82,7 +85,8 @@ class RouteGenerator
       end
     end
 
-    p ":::paths found="+result.size.to_s
+
+    #coordinates from the nearest source edge and nearest target edge
     start_lat = 0.0
     start_lon = 0.0
     end_lat   = 0.0
@@ -196,6 +200,8 @@ class RouteGenerator
     end
     return result
   end
+
+  #creates a line in kml format between the given coordinates
   def self.get_kml_line(src_lat,src_lon,target_lat,target_lon)
     return "<LineString><coordinates>"+src_lon.to_s+","+src_lat.to_s+" "+target_lon.to_s+","+target_lat.to_s+"</coordinates></LineString>"
   end

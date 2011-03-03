@@ -11,13 +11,20 @@
    Syntax recommendation http://www.w3.org/TR/REC-CSS2/
 */
 a:visited{
-	color:#0000FF;
+	color:#757575;
+        font-weight:bolder;
 }
 a:link{
-	color:#0000FF;
+	color:#757575;
+        font-weight:bolder;        
 }
 a:active{
-	color:#0000FF;
+	color:#757575;
+        font-weight:bolder;
+}
+a:hover{
+	color:red;
+        font-weight:bolder;
 }
 
 body{
@@ -51,7 +58,7 @@ table{
     position:fixed;
     left:280px;        
     height: 93%;
-    width: 79%;
+    width: 76%;
     padding: 0;
     margin: 0;
 }

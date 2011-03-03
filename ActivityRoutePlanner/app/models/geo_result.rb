@@ -1,8 +1,9 @@
-# To change this template, choose Tools | Templates
-# and open the template in the editor.
-
+#class to store a route result
 class GeoResult
-  attr_accessor :nearest_start,:nearest_end,:kml_list,:errors
+  attr_accessor :nearest_start,#nearest vertice to start point
+    :nearest_end,#nearest vertice to end point
+    :kml_list,#list of paths in kml form
+    :errors#error list
   def initialize (start_lat,start_lon,end_lat,end_lon,kml_list,errors)
     @nearest_start = Point.new
     @nearest_start.label = start_lat+";"+start_lon

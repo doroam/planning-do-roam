@@ -1,4 +1,5 @@
-<% res =  params[:geo_result]
+<%   #sets the nearest markers
+  res =  params[:geo_result]
   start_lat = 0.0
   start_lon = 0.0
   end_lat = 0.0
@@ -18,7 +19,6 @@
   %>
   addMark("<%=point.label%>","<%=end_lat%>","<%=end_lon%>","<%=type%>");
   <%end%>
-
 loadRoute('<%=params[:file_name]%>');
 <%
   error_msg = "The next paths could not be found.";
