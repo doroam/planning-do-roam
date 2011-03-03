@@ -1,12 +1,9 @@
 
 <div class="route" id="route_id">
 	<div class="headline">Route</div><br/>
-	<span style="font-size:12px;">
-          <%= link_to "Reset Route", "/resetMethod" ,:onclick => 'showWall();'%>
-          <%= link_to "Create Route", "/check_edge", :remote => true, :onclick => 'showWall();'%>
-		  <br />
+	<span style="font-size:12px;">          
 		  <%= render :partial=>"generate_place/algorithmus_form"%>
-	</span><br/>
+	</span>
 <%= render 'init/form' %>
 <%= render 'activity/index' %>	
 </div>

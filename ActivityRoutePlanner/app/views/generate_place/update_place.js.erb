@@ -9,6 +9,9 @@ end
 %>
 removeMarks();
 addMark("<%=point.label%>","<%=point.lat%>","<%=point.long%>","<%=type%>");
+<%if flash[:error_msg]!= nil%>
+alert('<%=flash[:error_msg]%>');
+<%end%>
 var elem = document.getElementById('route_id');
 elem.innerHTML = "<%= escape_javascript(render(:partial => 'init/menu',:locals => {:point => point,:type => type}))%>";
 hideWall();

@@ -1,6 +1,10 @@
 <%route = session[:main_route] %>
 
 <table style="font-size:11px;">
+  <tr>
+    <td><%= link_to "Reset Route", "/resetMethod" ,:onclick => 'showWall();'%></td>
+    <td align="right"><%= link_to "Create Route", "/check_edge", :remote => true, :onclick => 'showWall();'%></td>
+  </tr>
 <tr>
 	<td style="width:120px;">	
 Select algorithm:

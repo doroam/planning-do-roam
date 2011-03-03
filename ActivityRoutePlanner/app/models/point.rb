@@ -20,6 +20,12 @@ class Point
   def initialize
   end
 
+  def reset
+    @label = ""
+    @lat = nil
+    @long = nil
+  end
+
   #parses input coordinats to lat and long
   def parse_label
     results = @label.split(";")

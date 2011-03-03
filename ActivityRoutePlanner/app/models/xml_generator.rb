@@ -3,8 +3,8 @@ require "rexml/document"
 class XmlGenerator < ActionController::Base
 
   def self.generate_route(segments)
-    doc = REXML::Document.new
-    body = generate_head(doc)
+    doc   = REXML::Document.new
+    body  = generate_head(doc)
     segments.each.with_index do |segment,index|
       set_segment(body,segment,index)
     end
@@ -16,7 +16,7 @@ class XmlGenerator < ActionController::Base
   def self.set_segment(folder,segment,index)
     place = folder.add_element("Placemark")
     place.add_attribute("id", index.to_s)
-    place.add_element("styleUrl").add_text("#lineStyle")
+    place.add_element("styleUrl").add_text("#style1")
     place.add(parse(segment))
   end
 
@@ -33,11 +33,11 @@ class XmlGenerator < ActionController::Base
     desc = document.add_element("description")
     desc.add_text("testText")
     style = document.add_element("Style")
-    style.add_attribute("id", "lineStyle")
-    lineStyle = document.add_element("LineStyle")
-    lineStyle.add_element("color").add_text("7fff00ff")
-    lineStyle.add_element("width").add_text("9")
-    document.add_element("PolyStyle").add_element("color").add_text("7fff00ff")
+    style.add_attribute("id", "style1")
+    lineStyle = style.add_element("LineStyle")
+    lineStyle.add_element("color").add_text("7fff0000")
+    lineStyle.add_element("width").add_text("7")
+    document.add_element("PolyStyle").add_element("color").add_text("7FF0000")
     return document
   end
   def self.parse(data)

@@ -6,54 +6,39 @@ class GeneratePlaceController < ApplicationController
     
     #start point was set
     if params[:start]!=nil
-      route = setStartPoint(route, params[:start])
+      setPoint(route.start_point, params[:start])
+      route.reset()
     #destination point was set
     elsif params[:end]!=nil
-      route = setEndPoint(route, params[:end])
+      setPoint(route.end_point, params[:end])
+      route.reset()
     #delete a point  
     elsif params[:delete_point] != nil
       if params[:delete_point].eql? "start"
-        route = removeStartPoint(route)
+        removePoint(route.start_point)
       elsif params[:delete_point].eql? "end"  
-        route = removeEndPoint(route)   
+        removePoint(route.end_point)
       end 
     end
  
     #activate or deactivate activities to choose
-    route = activateOrDeactivateActivities(route) 
-
-    session[:main_route] = route
+    activateOrDeactivateActivities(route) 
     
     respond_to do |format|      
       format.js 
     end
   end
   
-  def removeStartPoint(route)
-    route.start_point = Point.new
-    return route
+  def removePoint(point)
+    point.reset
   end
   
-  def removeEndPoint(route)
-    route.end_point = Point.new
-    return route
+  def setPoint(point, label)
+      point.label = label
+      point.parse_label
+      handle_error(point,label)
   end
   
-  def setStartPoint(route, label)
-      route.start_point.label = label
-      route.start_point.parse_label
-      route.activities = nil
-      route.kml_path = ""
-      return route
-  end
-  
-  def setEndPoint(route, label)
-      route.end_point.label = label
-      route.end_point.parse_label
-      route.activities = nil
-      route.kml_path = ""
-      return route
-  end
   
   #If user has given an start- and endPoint, 
   #so activates activity-list if not done  
@@ -69,9 +54,7 @@ class GeneratePlaceController < ApplicationController
       end     
     else #if labels of points are nil
       route.activities = nil
-    end
-    
-    return route
+    end   
   end
   
   def set_algorithmus       
@@ -88,6 +71,14 @@ class GeneratePlaceController < ApplicationController
     session[:main_route] = route    
     respond_to do |format|      
       format.js 
+    end
+  end
+
+  def handle_error(point,label)
+    if point.label == nil || point.label.eql?("")
+      flash[:error_msg] = "The place "+label+" could not be found"
+    else
+      flash[:error_msg] = nil
     end
   end
 end

@@ -13,7 +13,10 @@ class Route
     @algorithmus = "A*"
     @sort = "false"
   end
-  
+  def reset
+    @activities = nil
+    @kml_path = ""
+  end
   #Creates javascript code to show the Marks of the selected route
   def show_markers()
     script = ""
