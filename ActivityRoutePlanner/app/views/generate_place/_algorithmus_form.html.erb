@@ -5,8 +5,13 @@
 	<td style="width:120px;">	
 Select algorithm:
 </td><td>
+<%
+	dummyAlg = Array.new
+	dummyAlg.push Activity.new("fast","A*")
+	dummyAlg.push Activity.new("exact","Dijkstra")
+%>
 <%= select_tag "setAlgorithmus",
-            options_for_select(Global::ALGORITHMUS_LIST,route.algorithmus),
+            options_from_collection_for_select(dummyAlg,"value","tag",route.sort),
 		:style=>"width:117px;",
 	    :onchange => 'showWall();'+remote_function(
 		 	 :url=> "/setAlgorithmus",
@@ -15,10 +20,15 @@ Select algorithm:
 </td></tr>
 <tr>
 	<td style="width:120px;">	
-Sort activities:
+Notice sort:
 </td><td>
-<%= select_tag "sort",
-            options_for_select(["false","true"],route.sort),
+<% 
+	dummyAct = Array.new
+	dummyAct.push Activity.new("yes","false")
+	dummyAct.push Activity.new("no","true")
+%><%=
+	select_tag "sort",
+            options_from_collection_for_select(dummyAct,"value","tag",route.sort),
 		:style=>"width:117px;",
 	    :onchange => 'showWall();'+remote_function(
 		 	 :url=> "/setAlgorithmus",
