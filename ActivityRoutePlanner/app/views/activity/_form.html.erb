@@ -8,17 +8,21 @@
 		title="<%= activity.value%>" 
 		height="20px"/>
 <%end%>
-</td><td>	
+</td><td>
 <%= select_tag "activity_"+index.to_s,
             options_from_collection_for_select(
             activity.get_possible_values(session).sort {|a,b| a.value <=> b.value} ,"tag_value","value",activity.tag+"$"+activity.value),
-          :style =>"width:156px",
+		  :size=>"1",
+		  :style =>"width:156px;",
           :include_blank => true,
           :class => 'actionSelectBox',
-		  :heigth=>5,
+		  :onfocus=>"this.size=7",
+		  :onblur=>"this.size=1",
+		  :onmouseleave=>"this.size=1",	 
 	:onchange => 'showWall();'+remote_function(
 	:url=> "/addActivity",
 	:with => "'id="+index.to_s+"&activity=' +document.getElementById('activity_"+index.to_s+"').value")%>
+  
   </td><td>
   <%if show_delete %>
 	<%= # link to remove that activity
