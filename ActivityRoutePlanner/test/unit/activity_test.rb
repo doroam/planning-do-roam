@@ -32,7 +32,7 @@ class ActivityTest < ActiveSupport::TestCase
     
     route = valid_route_object
     route.activities.push act
-    assert act.deleteActivity(valid_route_object, 0), "Delete Activity failed."   
+    assert act.deleteActivity(route, 0), "Delete Activity failed."   
   end
   
   test "change activity" do
