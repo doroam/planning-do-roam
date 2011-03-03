@@ -100,6 +100,7 @@ class Point
       d_src = point1.distance_source
       result_src = -1
     end
+    return result_src
     #compare distance to target
     result_target = 1
     d_target = point2.distance_target

@@ -53,8 +53,8 @@ class XmlGenerator < ActionController::Base
     desc      = document.add_element("description")
     desc.add_text("Route for activities")
     #create styles
-    generate_style(document,"style1","7fff0000")
-    generate_style(document,"style2","7ff000ff")#7f0000ff
+    generate_style(document,"style1","7fff0000")#7fff0000
+    generate_style(document,"style2","7fff0000")#7f0000ff
     return document
   end  
   #parses a string to a kml object
