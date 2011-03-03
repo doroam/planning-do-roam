@@ -10,13 +10,13 @@ ActivityRoutePlanner::Application.routes.draw do
 
   root :to => "init#index"
   
-  match "updateRoute" => "generateRoute#updateRoute"
+  match "updateRoute" => "generate_place#update_place"
   match "addActivity" => "activity#updateActivity"
   match "deleteActivity" => "activity#updateActivity"
   match "reset" => "init#index"
   match "resetMethod" => "init#reset"
-  match "check_edge" => "calculate_route#check_edge"
-  match "setAlgorithmus"=>"generateRoute#set_algorithmus"
+  match "check_edge" => "calculate_route#calculate_route"
+  match "setAlgorithmus"=>"generate_place#set_algorithmus"
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

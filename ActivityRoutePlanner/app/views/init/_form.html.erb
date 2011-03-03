@@ -14,11 +14,11 @@ end_point_string = "Ziel"
 
   <tr><td width="80px">Start:</td><td>
   	 	
-  <%= render :partial => 'route/routeForm',:locals => {:point => route.start_point,:type => 'start'} %>
+  <%= render :partial => 'place/place_form',:locals => {:point => route.start_point,:type => 'start'} %>
 
 </td></tr>
 <tr><td>Destination:</td><td>
   
-<%= render :partial => 'route/routeForm',:locals => {:point => route.end_point,:type => 'end'}%>
+<%= render :partial => 'place/place_form',:locals => {:point => route.end_point,:type => 'end'}%>
 </td></tr>
 </table>

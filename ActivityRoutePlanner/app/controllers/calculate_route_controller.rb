@@ -1,5 +1,5 @@
 class CalculateRouteController < ApplicationController
-  def check_edge
+  def calculate_route
     session_id    = request.session_options[:id]
     file_name_app = "kmlRoute_"+session_id+".kml"
     file_name     = "public/"+file_name_app

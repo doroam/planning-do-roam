@@ -113,11 +113,11 @@ class Activity
   #delete activity from list
   def deleteActivity(route, index)
     route.kml_path = ""
-    activity = route.activities[index.to_i]
+    activity = route.activities[index]
     
     #if activity found
     if activity != nil  
-       route.activities.delete_at index.to_i
+       route.activities.delete_at index
        return true
     else
       return false

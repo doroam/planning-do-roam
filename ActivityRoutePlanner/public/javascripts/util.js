@@ -90,7 +90,7 @@ function addMark(name,lat,lon,type){
         }    
 }
 function removeMarker(id){
-    //alert(id);
+    alert(id);
     var marker = markerHash[id];
     if(marker!=null){
             layerMarkers.removeMarker(marker);

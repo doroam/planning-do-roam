@@ -1,7 +1,7 @@
-class GenerateRouteController < ApplicationController
+class GeneratePlaceController < ApplicationController
   
   #controller is called on each activity action
-  def updateRoute
+  def update_place
     route = session[:main_route]
     
     #start point was set

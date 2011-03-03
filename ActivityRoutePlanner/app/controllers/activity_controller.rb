@@ -19,8 +19,9 @@ class ActivityController < ApplicationController
         end
       end      
     elsif params[:deleteActivity]
-      params[:deleteActivity] = route.activities[params[:deleteActivity].to_i].get_image_id()
-      if !activity.deleteActivity(route, params[:deleteActivity])
+      index = params[:deleteActivity].to_i
+      params[:deleteActivity] = route.activities[index].get_image_id()
+      if !activity.deleteActivity(route, index)
            flash[:error] = "Activity could not deleted!"
       end
     end
