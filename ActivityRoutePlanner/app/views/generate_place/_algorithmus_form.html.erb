@@ -3,7 +3,13 @@
 <table style="font-size:11px;">
   <tr>
     <td><%= link_to "Reset Route", "/resetMethod" ,:onclick => 'showWall();'%></td>
-    <td align="right"><%= link_to "Create Route", "/check_edge", :remote => true, :onclick => 'showWall();'%></td>
+    <td align="right">
+    <%
+		if route.end_point.lat != nil && route.start_point.lat != nil%>
+			<%= link_to "Create Route", "/check_edge", :remote => true, 
+			:onclick => 'showWall();'%>
+    	<%end %>
+	</td>
   </tr>
 <tr>
 	<td style="width:120px;">	
