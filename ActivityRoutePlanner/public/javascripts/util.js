@@ -15,14 +15,6 @@ function loadMap(){
         map.events.register('click', map, handleMapClick);
 
 }
-function encode( s ){
-    return unescape( encodeURIComponent( s ) )
-    ;
-}
-function decode( s ){
-    return decodeURIComponent( escape( s ) );
-}
-
 
 function handleMapClick(evt)
 {
