@@ -52,10 +52,8 @@ class RouteGenerator
       source = get_nearest_edge(src_point)
       target = get_nearest_edge(point)
 
-      #if a source and target vertice was found
-      
-        #get coordinates of nearest edge to start and end points
-        if src_point!=nil && src_point.label.eql?(route.start_point.label)
+      #get coordinates of nearest edge to start and end points
+      if src_point!=nil && src_point.label.eql?(route.start_point.label)
           source_start = source
         end
         if point!= nil && point.label.eql?(route.end_point.label)
@@ -65,9 +63,13 @@ class RouteGenerator
         #add route from source to target to the kml list
         path = generate_simple_route(source,target,route)
         if path.length>0
-          result.concat(path)
+          line = get_kml_line(src_point.lat,src_point.long, source["start_lat"],source["start_long"])
+          result.push(line)
+          result.concat(path)          
+          line = get_kml_line(point.lat,point.long, target["end_lat"],target["end_long"])
+          result.push(line)
         else
-          errors.push(src_point.label+" -> "+point.label)
+          errors.push(CGI.escape(src_point.label)+" to "+CGI.escape(point.label))
         end
       else
         p "no vertice found"
@@ -140,9 +142,9 @@ class RouteGenerator
     if source!=nil && target!=nil
       edge_src    = source["source"]
       edge_target = target["target"]
-      #highway_src = source["type_name"]
-      #highway_target = target["type_name"]
-      #p "::::::::src="+edge_src+"-"+highway_src+"   target="+edge_target+"-"+highway_target
+      highway_src = source["type_name"]
+      highway_target = target["type_name"]
+      p "::::::::src="+edge_src+"-"+highway_src+"   target="+edge_target+"-"+highway_target
 
       #get path from source to target
       result = get_shortest_path(edge_src,edge_target,route);
@@ -194,4 +196,8 @@ class RouteGenerator
     end
     return result
   end
+  def self.get_kml_line(src_lat,src_lon,target_lat,target_lon)
+    return "<LineString><coordinates>"+src_lon.to_s+","+src_lat.to_s+" "+target_lon.to_s+","+target_lat.to_s+"</coordinates></LineString>"
+  end
+
 end

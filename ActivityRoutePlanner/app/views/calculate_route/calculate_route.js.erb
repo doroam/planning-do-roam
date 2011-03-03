@@ -25,8 +25,7 @@ loadRoute('<%=params[:file_name]%>');
   res.errors.each do |error|
       error_msg += "\\n"+error+"."
   end
-  p "::::::"+error_msg
   if res.errors.length>0%>
-    alert('<%=error_msg%>');
+    alert(decodeURIComponent('<%=error_msg%>'));
  <% end%>
 

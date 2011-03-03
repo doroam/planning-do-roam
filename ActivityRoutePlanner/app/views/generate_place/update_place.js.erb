@@ -1,17 +1,8 @@
-<%route = session[:main_route]
-if params[:end] || (params[:delete_point]!=nil && params[:delete_point].eql?("end"))
-  point = route.end_point
-  type = "end"
-else
-  point = route.start_point
-  type = "start"
-end
-%>
 removeMarks();
-addMark("<%=point.label%>","<%=point.lat%>","<%=point.long%>","<%=type%>");
+<%=session[:main_route].show_markers()%>
 <%if flash[:error_msg]!= nil%>
 alert('<%=flash[:error_msg]%>');
 <%end%>
 var elem = document.getElementById('route_id');
-elem.innerHTML = "<%= escape_javascript(render(:partial => 'init/menu',:locals => {:point => point,:type => type}))%>";
+elem.innerHTML = "<%= escape_javascript(render(:partial => 'init/menu'))%>";
 hideWall();

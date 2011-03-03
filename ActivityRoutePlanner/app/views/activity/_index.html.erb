@@ -5,7 +5,9 @@
   if route.activities != nil
 %><tr><td colspan="2">Activities:</td></tr><%
         list = route.activities
-        sorted = list.sort
+        #if route.sort.eql?"true"
+         # list = route.activities.sort
+        #end
 	list.each.with_index do |elem,index| %>
 		  <% 
 			#elem = route.activities[index]

@@ -21,12 +21,12 @@ class Route
   def show_markers()
     script = ""
     #adds start mark
-    if @start_point != nil && @start_point.label!=nil
-      script = "addMark('"+@start_point.label+"','"+@start_point.lat+"','"+@start_point.long+"','start');"
+    if @start_point != nil && @start_point.label!=nil && !@start_point.label.eql?("")
+      script = "addMark('"+@start_point.label_js+"','"+@start_point.lat+"','"+@start_point.long+"','start');"
     end
     #adds end mark
-    if @end_point != nil && @end_point.label
-      script += "addMark('"+@end_point.label+"','"+@end_point.lat+"','"+@end_point.long+"','end');"
+    if @end_point != nil && @end_point.label != nil && !@end_point.label.eql?("")
+      script += "addMark('"+@end_point.label_js+"','"+@end_point.lat+"','"+@end_point.long+"','end');"
     end
     #adds activities mark
     if @activities != nil
@@ -35,7 +35,7 @@ class Route
           imagePath = activity.get_image_url()
           imageID   = activity.get_image_id()
           result    = activity.result
-                script += "addActivityMark('"+result.label+"','"+result.lat+"','"+result.long+"','"+imagePath+"','"+imageID+"');"          
+                script += "addActivityMark('"+result.label_js+"','"+result.lat+"','"+result.long+"','"+imagePath+"','"+imageID+"');"
         end
       end
     end

@@ -16,13 +16,24 @@ class XmlGenerator < ActionController::Base
   def self.set_segment(folder,segment,index)
     place = folder.add_element("Placemark")
     place.add_attribute("id", index.to_s)
-    place.add_element("styleUrl").add_text("#style1")
+    style = "#style2"
+    if index%2 ==0
+      style = "#style1"
+    end
+    place.add_element("styleUrl").add_text(style)
     place.add(parse(segment))
   end
 
   def hijack_response( out_data )
     send_data( out_data, :type => "text/xml",
     :filename => "sample.xml" )
+  end
+  def self.generate_style(document,name,color)
+    style = document.add_element("Style")
+    style.add_attribute("id", name)
+    lineStyle = style.add_element("LineStyle")
+    lineStyle.add_element("color").add_text(color)
+    lineStyle.add_element("width").add_text("7")
   end
   def self.generate_head(doc)
     kml = doc.add_element("kml")
@@ -32,14 +43,13 @@ class XmlGenerator < ActionController::Base
     name.add_text("testName")
     desc = document.add_element("description")
     desc.add_text("testText")
-    style = document.add_element("Style")
-    style.add_attribute("id", "style1")
-    lineStyle = style.add_element("LineStyle")
-    lineStyle.add_element("color").add_text("7fff0000")
-    lineStyle.add_element("width").add_text("7")
-    document.add_element("PolyStyle").add_element("color").add_text("7FF0000")
+    generate_style(document,"style1","7fff0000")
+    generate_style(document,"style2","7f0000ff")
     return document
   end
+
+  
+
   def self.parse(data)
     doc = REXML::Document.new(data)
     return doc

@@ -15,6 +15,13 @@ function loadMap(){
         map.events.register('click', map, handleMapClick);
 
 }
+function encode( s ){
+    return unescape( encodeURIComponent( s ) )
+    ;
+}
+function decode( s ){
+    return decodeURIComponent( escape( s ) );
+}
 
 
 function handleMapClick(evt)
@@ -124,7 +131,7 @@ function createMarker(tooltip,lon,lat,src){
     var size    = new OpenLayers.Size(21,25);
     var offset  = new OpenLayers.Pixel(-(size.w/2), -size.h+15);
     var icon    = new OpenLayers.Icon(src,size,offset);
-    icon.imageDiv.firstChild.title = tooltip;
+    icon.imageDiv.firstChild.title = decodeURIComponent(tooltip);
     return new OpenLayers.Marker(lonLat,icon);
 }
 
@@ -175,7 +182,6 @@ function init(lat,lon,zoom) {
 	map.setCenter (lonLat, zoom);
 
 }
-
 function removeMarks(){
     layerMarkers.clearMarkers();
     if (markerHash["start"]!=null)

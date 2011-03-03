@@ -1,4 +1,5 @@
 class Point
+  require 'cgi'
   include Comparable
 
   GLOBAL_FIELD_NAME     = Global::GLOBAL_FIELD_NAME
@@ -102,5 +103,9 @@ class Point
       end
     end
     
+  end
+  def label_js
+    return CGI.escape(@label)
+    #return URI.encode(@label,"safe")
   end
 end

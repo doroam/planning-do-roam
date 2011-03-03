@@ -76,7 +76,7 @@ class GeneratePlaceController < ApplicationController
 
   def handle_error(point,label)
     if point.label == nil || point.label.eql?("")
-      flash[:error_msg] = "The place "+label+" could not be found"
+      flash[:error_msg] = "The place "+CGI.escape(label)+" could not be found"
     else
       flash[:error_msg] = nil
     end

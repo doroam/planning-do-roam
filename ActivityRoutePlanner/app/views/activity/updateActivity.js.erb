@@ -1,29 +1,9 @@
-<%route = session[:main_route]
-if params[:deleteActivity]!=nil
-  %>
-  removeMarker("<%=params[:deleteActivity]%>");
-  removeRoute();
-<%elsif flash[:error]%>  
+<%if flash[:error]%>
   alert('<%= flash[:error]%>');
 <%  flash[:error] = false%>
-<%else%>
-  <%if params[:activity] && route.activities.length > 1
-	    id = params[:id]
-	    if id==nil||id.eql?("")
-	      id = route.activities.length-2
-	    end
-	    activity = route.activities[id.to_i]
-	    result = activity.result
-            if result!=nil #.each.with_index do |result, index|
-			
-			imagePath = activity.get_image_url()
-                        image_id  = activity.get_image_id()
-			%>
-		      addActivityMark("<%=result.label%>","<%=result.lat%>","<%=result.long%>",
-			  	"<%=imagePath%>","<%=image_id%>");
-    <%end%>
 <%end%>
-<%end%>
+removeMarks();
+<%=session[:main_route].show_markers()%>
 var elem = document.getElementById('route_id');
 elem.innerHTML = "<%= escape_javascript(render(:partial => 'init/menu'))%>";
 hideWall();
