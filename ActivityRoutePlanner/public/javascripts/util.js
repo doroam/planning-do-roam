@@ -1,8 +1,14 @@
-var map; //complex object of type OpenLayers.Map
-var zoom = 12;
-var markerHash = null;
-var route = null;
-var layerMarkers = null;
+var map;        //complex object of type OpenLayers.Map
+var zoom = 12;  //zoom of the map
+var markerHash = null; //hashmap for markers
+var route = null; //kml layer
+var layerMarkers = null; //marker layer
+
+/**
+ *  Loads the map and registers the listener
+ *  for the onclick event to set points on the map
+ *
+ */
 function loadMap(){
     markerHash = new Array();
 	// Start position for the map (hardcoded here for simplicity,
@@ -16,18 +22,32 @@ function loadMap(){
 
 }
 
+/**
+ *  Shows the pop up to set a point by click on the map
+ *  @param evt event to get coordinates of the mouse pointer
+ *
+ */
 function handleMapClick(evt)
 {
-       var lonlat = map.getLonLatFromViewPortPx(evt.xy);
-       
-       var proj1 = new OpenLayers.Projection("EPSG:4326");
-       var proj2 = new OpenLayers.Projection("EPSG:900913");
-       var trans = lonlat.transform(proj2,proj1);
-       showSetPointMenu(trans,evt);
+    //calculates the longitude and latitude from the position 
+    //of the pointer
+    var lonlat = map.getLonLatFromViewPortPx(evt.xy);
+
+    //transform coordinates to srid
+    var proj1 = new OpenLayers.Projection("EPSG:4326");
+    var proj2 = new OpenLayers.Projection("EPSG:900913");
+    var trans = lonlat.transform(proj2,proj1);
+
+    //show popup. see yuiUtils.js
+    showSetPointMenu(trans,evt);
        
 }
 
-
+/**
+ * Shows the route on the map
+ * @param fileName of the kml with the route
+ *
+ */
 function loadRoute(fileName){
 
     //Delete old route
@@ -39,6 +59,7 @@ function loadRoute(fileName){
     bounds.extend(new OpenLayers.LonLat(start_lon,start_lat));
     bounds.toBBOX();
     alert(bounds);*/
+    //creates new layer with the route
     route = new OpenLayers.Layer.Vector("KML", {
                 projection: map.displayProjection,
                 strategies: [new OpenLayers.Strategy.Fixed()],
@@ -53,21 +74,38 @@ function loadRoute(fileName){
     //var lonLat = new OpenLayers.LonLat(-112.169, 36.099).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject());
     //map.setCenter(lonLat);
     //map.zoomTo(map.getZoomForExtent(bounds)-2);
+
+    //adds the route layer
     map.addLayer(route);
-    
+
+    //wait for the route to be displayed before
+    //hiding the loading panel
     setTimeout ( "hideWall();", 1500 );
 
 }
+
+/**
+ * Adds a start or end mark
+ * @param name label of the point
+ * @param lat latitude
+ * @param lon longitude
+ * @param type start or end
+ *
+ */
 function addMark(name,lat,lon,type){
         //alert(name+"   "+lat+"  "+lon+"  "+type);
+        //gets the icon of the marker
         var src ="javascripts/img/marker-gold.png";
         if(type == "start")
             src = "javascripts/img/marker.png";
         else if(type == "end")
             src = "javascripts/img/marker-blue.png";
 
+        //gets the marker if one has been already created
         var marker = markerHash[type];
-        
+
+        //if there is no marker and there are no coordinates
+        //the marker will be removed
         if(lat=="" && lon =="" && markerHash[type]!=null){
 
             layerMarkers.removeMarker(marker);
@@ -75,19 +113,26 @@ function addMark(name,lat,lon,type){
             marker = null
         }
 
-        
+        //if there is no marker
         if(marker == null){
+            //create a new one and set it to the layer
             marker           = createMarker(type+"-"+name,lon,lat,src);
             markerHash[type] =  marker;
             layerMarkers.addMarker(marker);
         }
         else{
+            //update marker
             marker = markerHash[type];
             layerMarkers.removeMarker(marker);
             updateMarker(type+"-"+name,marker,lon,lat,src);
             layerMarkers.addMarker(marker);
         }    
 }
+/**
+ * Removes a marker with the entered id
+ *
+ * @param id id of the marker
+ */
 function removeMarker(id){
     //alert(id);
     var marker = markerHash[id];
@@ -96,50 +141,91 @@ function removeMarker(id){
             marker = null;
     }
 }
+/**
+ * Creates an activity marker
+ * @param name label
+ * @param lat latitude
+ * @param lon longitude
+ * @param imagePath path to the icon
+ * @param id id of the marker: icon name
+ *
+ */
 function addActivityMark(name,lat,lon,imagePath,id){
     //alert("addActivityMark  "+lat+"  "+lon+"  "+imagePath+"  "+id);
 
     var marker = markerHash[id];
-    
+
+    //if there is no marker
     if(marker == null){
+        //create a marker
         marker           = createMarker(name,lon,lat,imagePath);
         markerHash[id]   =  marker;
-        layerMarkers.addMarker(marker);
-        
+        layerMarkers.addMarker(marker);        
     }
     else{
-        
-        layerMarkers.removeMarker(marker);
-        
+        //update the marker
+        layerMarkers.removeMarker(marker);        
         updateMarker(name,marker,lon,lat,imagePath);
         layerMarkers.addMarker(marker);
     }    
 }
+/**
+ * Creates a marker
+ * @param tooltip tooltip
+ * @param lon longitude
+ * @param lat latitude
+ * @param src icon file path
+ *
+ */
 function createMarker(tooltip,lon,lat,src){
     //alert(tooltip+"  "+lon+"  "+lat+"  "+src)
+    //get new position object
     var lonLat = new OpenLayers.LonLat(lon, lat).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject());
     //map.setCenter (lonLat, zoom);
 
+    //get new icon
     var size    = new OpenLayers.Size(21,25);
     var offset  = new OpenLayers.Pixel(-(size.w/2), -size.h+15);
     var icon    = new OpenLayers.Icon(src,size,offset);
+
+    //set tooltip: workaround: no tooltips from openlayers supported
     icon.imageDiv.firstChild.title = decodeURIComponent(tooltip);
+    //return maker
     return new OpenLayers.Marker(lonLat,icon);
 }
 
+/**
+ * Updates a marker
+ * @param name label
+ * @param marker marker
+ * @param lon longitude
+ * @param lat latitude
+ * @param src icon path
+ *
+ */
 function updateMarker(name,marker,lon,lat,src){
+    //new position
     var lonLat = new OpenLayers.LonLat(lon, lat).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject());
     //map.setCenter (lonLat, zoom);
-
+    //new icon
     var size    = new OpenLayers.Size(21,25);
     var offset  = new OpenLayers.Pixel(-(size.w/2), -size.h+15);
     var icon    = new OpenLayers.Icon(src,size,offset);
+    //set tooltip
     icon.imageDiv.firstChild.title = name;
+    //update position and icon
     marker.lonlat   = lonLat;
     marker.icon     = icon;    
 }
 
-//Initialise the 'map' object
+/**
+ * Initialize the map object and set the middle to the entered parameters
+ * with the entered zoom
+ * @param lat latitude
+ * @param lon longitude
+ * @param zoom zoom
+ *
+ */
 function init(lat,lon,zoom) {
 	map = new OpenLayers.Map ("map", {
 			controls:[
@@ -170,10 +256,15 @@ function init(lat,lon,zoom) {
 	layerMarkers = new OpenLayers.Layer.Markers("Markers");
 	map.addLayer(layerMarkers);
 
+        //sets center point of the map
 	var lonLat = new OpenLayers.LonLat(lon, lat).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject());
 	map.setCenter (lonLat, zoom);
 
 }
+/**
+ * remove all markers and the route excepting the start and end marker
+ *
+ */
 function removeMarks(){
     layerMarkers.clearMarkers();
     if (markerHash["start"]!=null)
@@ -182,6 +273,10 @@ function removeMarks(){
         layerMarkers.addMarker(markerHash["end"]);
     removeRoute();
 }
+/**
+ * Removes the route layer
+ *
+ */
 function removeRoute(){
     
     //remove vertices
@@ -196,6 +291,7 @@ function removeRoute(){
         vertice_t = null;
     }
 
+    //remove the route layer if there is one
     if(route!=null){
         map.removeLayer(route);
         route = null;
