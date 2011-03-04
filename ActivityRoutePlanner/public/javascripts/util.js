@@ -297,7 +297,9 @@ function removeRoute(){
         route = null;
     }
 }
-
+/**
+ * Initializes the objects for the tests
+ */
 function testInit(){
 	markerHash = new Array();
 	
