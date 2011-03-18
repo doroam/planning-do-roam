@@ -7,14 +7,14 @@
   if res.nearest_start!=nil
     point = res.nearest_start
     start_lat = point.lat
-    start_lon = point.long
+    start_lon = point.lon
     type = "nearest_src"%>
     addMark("<%=point.label%>","<%=start_lat%>","<%=start_lon%>","<%=type%>");
   <%end
   if res.nearest_end!=nil
     point = res.nearest_end
     end_lat = point.lat
-    end_lon = point.long
+    end_lon = point.lon
     type = "nearest_target"
   %>
   addMark("<%=point.label%>","<%=end_lat%>","<%=end_lon%>","<%=type%>");

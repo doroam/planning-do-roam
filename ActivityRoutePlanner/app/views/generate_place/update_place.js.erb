@@ -1,5 +1,5 @@
 removeMarks();
-<%=session[:main_route].show_markers()%>
+<%=Route.find(session[:main_route]).show_markers()%>
 <%if flash[:error_msg]!= nil%>
 alert('<%=flash[:error_msg]%>');
 <%end%>

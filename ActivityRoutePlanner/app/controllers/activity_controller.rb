@@ -2,31 +2,29 @@ class ActivityController < ApplicationController
   
   #method is called on a action of each 
   #activity
-  def updateActivity
-    route = session[:main_route] 
-    activity = Activity.new("","")#dummy activity
+  def update_activity
+    route = Route.find(session[:main_route])
+    #activity = Activity.new("","")#dummy activity
     
     #add or update activity  
     if params[:activity]
       id = params[:id].to_i
-      if id < route.activities.length-1
-        if !activity.changeActivity(route, params[:activity], id)
-           flash[:error] = "Activity could not change!"
-        end
+      activity = Activity.find(id)
+      if activity!= nil       
+          activity.update_activity(route, params[:activity])
       else
-        if !activity.addActivity(route, params[:activity])
-           flash[:error] = "Activity was not found!"
-        end
+        @new_activity = Activity.new()
+        splitted = params[:activity].split("$")
+        @new_activity.tag = splitted[0]
+        @new_activity.value = splitted[1]
+        @new_activity.route = route
+        @new_activity.save
       end      
-    elsif params[:deleteActivity]
-      index = params[:deleteActivity].to_i
-      params[:deleteActivity] = route.activities[index].get_image_id()
-      if !activity.deleteActivity(route, index)
-           flash[:error] = "Activity could not deleted!"
-      end
-    end
-     
-    session[:main_route] = route
+    elsif params[:delete_activity]
+      index = params[:delete_activity].to_i
+      activity = Activity.find(index)      
+      activity.destroy
+    end    
       
     respond_to do |format|      
       format.js

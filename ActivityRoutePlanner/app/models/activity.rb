@@ -1,33 +1,41 @@
-class Activity
+class Activity < ActiveRecord::Base
+  has_one :point
+  belongs_to :route
+
   include Comparable
-  attr_accessor :tag,#tag of the activity in the database
-    :value,#value in the db
-    :result#nearest point to start and end point with the selected tag and value
-  def initialize    
+
+  def initialize
+    super
+    self.save()
   end
-  
-  def initialize(tag, value)
-    @tag = tag
-    @value = value
-  end
-  
-  def value
-    return @value
-  end
-  
-  def tag
-    return @tag
-  end
-  
+
   def tag_value
-    return @tag+"$"+@value
+    if self.tag!=nil && self.value!=nil
+      return self.tag+"$"+self.value
+    end
+      return ""
+  end
+
+  def result
+    return self.point
+  end
+
+  def is_empty
+    return self.tag==nil  && self.value==nil
+  end
+
+  def self.set(tag,value)
+    @activity = Activity.new
+    @activity.tag = tag
+    @activity.value = value
+    return @activity
   end
 
   #gets the image url of the activity
   def get_image_url
     icon_path = Global::IMAGE_URL_PREFIX
 		icon_type = Global::IMAGE_URL_SUFFIX
-    icon     = Global::IMAGE_URLS[@tag+"$"+@value]
+    icon      = Global::IMAGE_URLS[self.tag+"$"+self.value]
     if icon == nil
 				icon = ""
 			end
@@ -36,7 +44,7 @@ class Activity
 
   #gets the id of the activity. it is the name of the icon
   def get_image_id
-    icon     = Global::IMAGE_URLS[@tag+"$"+@value]
+    icon     = Global::IMAGE_URLS[self.tag+"$"+self.value]
     if icon == nil
 				icon = "no_image_found"
 			end
@@ -48,7 +56,7 @@ class Activity
   #again
   def get_possible_values(session)
     possible_values = Array.new
-    route = session[:main_route]
+    route = Route.find(session[:main_route])
     Global::ACTIVITIES.each do |a|
       contains = false
       route.activities.each do |b|
@@ -57,7 +65,7 @@ class Activity
           break
         end
       end
-      if !contains || a.value.eql?(@value)
+      if !contains || a.value.eql?(self.value)
         possible_values.push a
       end
     end
@@ -76,7 +84,7 @@ class Activity
     end
 
     result = self.result <=> o.result
-    p ":::"+@tag+@value+"  result="+result.to_s
+    p ":::"+self.tag+self.value+"  result="+result.to_s
     return result
   end
   
@@ -127,17 +135,22 @@ class Activity
   end
 
   #create an activiy object
-  def create_activity(route, act)
+  def update_activity(route, act)
+    set_empty = self.is_empty
     #parse the value to get tag and value
     splitted = act.split("$")
-    activity = Activity.new(splitted[0],splitted[1])
-    Route.get_closest_activity(activity,route.start_point,route.end_point)
+    self.tag = splitted[0]
+    self.value = splitted[1]
+    self.save
+    result = Route.get_closest_activity(self,route.start_point,route.end_point)
+    result.activity = self
+    result.save
     
-    if activity.result == nil
-      return nil
-    end    
-    
-    return activity
+    if set_empty
+      @activity = Activity.new()
+      @activity.route = route
+      @activity.save
+    end
   end
   
 end

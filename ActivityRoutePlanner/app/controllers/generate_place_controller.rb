@@ -2,67 +2,64 @@ class GeneratePlaceController < ApplicationController
   
   #controller is called on each activity action
   def update_place
-    route = session[:main_route]
+    @route = Route.find(session[:main_route])
     
     #start point was set
     if params[:start]!=nil
-      setPoint(route.start_point, params[:start])
-      route.reset()
+      set_point(@route.start_point, params[:start])
+      @route.reset()
     #destination point was set
     elsif params[:end]!=nil
-      setPoint(route.end_point, params[:end])
-      route.reset()
+      set_point(@route.end_point, params[:end])
+      @route.reset()
     #delete a point  
     elsif params[:delete_point] != nil
       if params[:delete_point].eql? "start"
-        removePoint(route.start_point)
+        remove_point(@route.start_point)
       elsif params[:delete_point].eql? "end"  
-        removePoint(route.end_point)
+        remove_point(@route.end_point)
       end 
     end
  
     #activate or deactivate activities to choose
-    activateOrDeactivateActivities(route) 
+    activate_activities(@route)
     
     respond_to do |format|      
       format.js 
     end
   end
   #removes a point
-  def removePoint(point)
+  def remove_point(point)
     point.reset
+    point.save
   end
   #sets a point with the entered label
-  def setPoint(point, label)
+  def set_point(point, label)
       point.label = label
       #parse the input if it is "lat;lon"
       #or searches the input in the db
       point.parse_label
+      point.save()
       handle_error(point,label)
   end
   
   
   #If user has given an start- and endPoint, 
   #so activates activity-list if not done  
-  def activateOrDeactivateActivities(route)
-    if (route.start_point.label != nil) && (route.end_point.label != nil)
-      if (!route.start_point.label.eql? "") && (!route.end_point.label.eql? "")
-        if route.activities == nil
-           route.activities = Array.new
-           route.activities.push(Activity.new("", ""))
-        end
-      else #if labels of points are empty
-        route.activities = nil
-      end     
-    else #if labels of points are nil
-      route.activities = nil
+  def activate_activities(route)
+    if route.start_point.is_setted && route.end_point.is_setted
+           @activity = Activity.new()
+           @activity.route = route
+           @activity.save
+    else #if labels of points are nil      
+      route.activities.delete_all
     end   
   end
 
   #sets the algorithmus and sorting method to use
   def set_algorithmus       
     a     = params[:algo]
-    route = session[:main_route]
+    route = Route.find(session[:main_route])
     sort  = params[:sort]
     
     if a != nil
@@ -70,8 +67,7 @@ class GeneratePlaceController < ApplicationController
     elsif sort != nil
       route.sort = sort
     end
-    
-    session[:main_route] = route    
+    route.save
     respond_to do |format|      
       format.js 
     end

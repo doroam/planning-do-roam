@@ -1,11 +1,10 @@
-<%route = session[:main_route] %>
-
+<%route = Route.find(session[:main_route])%>
 <table style="font-size:11px;">
   <tr>
     <td><%= link_to "Reset Route", "/resetMethod" ,:onclick => 'showWall();'%></td>
     <td align="right">
     <%
-		if route.end_point.lat != nil && route.start_point.lat != nil%>
+		if route.end_point != nil && route.start_point != nil%>
 			<%= link_to "Create Route", "/check_edge", :remote => true, 
 			:onclick => 'showWall();'%>
     	<%end %>
@@ -17,8 +16,8 @@ Select algorithm:
 </td><td>
 <%
 	alg_list = Array.new
-	alg_list.push Activity.new("fast","A*")
-	alg_list.push Activity.new("exact","Dijkstra")
+	alg_list.push Selection.new("fast","A*")
+	alg_list.push Selection.new("exact","Dijkstra")
 %>
 <%= select_tag "setAlgorithmus",
             options_from_collection_for_select(alg_list,"value","tag",route.algorithmus),
@@ -35,9 +34,9 @@ Notice sort:
 <% 
 	sort_list = Array.new
         #yes:to keep the initial sort but false: no sort
-	sort_list.push Activity.new("yes","false")
+	sort_list.push Selection.new("yes","false")
         #no: to not keep the initial sort but true to sort the list
-	sort_list.push Activity.new("no","true")
+	sort_list.push Selection.new("no","true")
 %><%=
 	select_tag "sort",
             options_from_collection_for_select(sort_list,"value","tag",route.sort),

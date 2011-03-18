@@ -8,7 +8,7 @@ class CalculateRouteController < ApplicationController
     file_name     = "public/"+file_name_app
 
     #generates the result for the route see GeoResult
-    route   = session[:main_route]
+    route   = Route.find(session[:main_route])
     result  = RouteGenerator.generate_route(route);
     
     if File.exist?(file_name)

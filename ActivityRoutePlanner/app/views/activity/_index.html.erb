@@ -1,23 +1,13 @@
-<%route = session[:main_route]%>
+<%route = Route.find(session[:main_route])%>
 <span id="activity_id">
   <table>
 <% 
   if route.activities != nil
 %><tr><td colspan="2">Activities:</td></tr><%
-        list = route.activities
-	list.each.with_index do |elem,index| %>
-		  <% 
-			#elem = route.activities[index]
-			show_delete = true						
-
-			if index == route.activities.length-1
-				show_delete = false
-			end
-		  %>
-		  
+        list = route.activities.all(:order => 'created_at ASC')
+	list.each do |elem| %>		  
           <%= render :partial => 'activity/form',
-				:locals => {:activity => elem, :index => index, 
-							:show_delete => show_delete}
+				:locals => {:activity => elem, 	:show_delete => !elem.is_empty}
 		  %>
         <%end%>
   <%end%>

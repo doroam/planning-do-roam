@@ -1,14 +1,19 @@
 class InitController < ApplicationController
   helper_method :get_points_near_to
   def index
+    @route = nil
     #if the session is new
     if session[:main_route] == nil
      # initialize route
-      route = Route.new      
-   
-      session[:main_route] = route
+      @route = Route.new()
+      
+    
+      session[:main_route] = @route.id
+    else
+      route_id = session[:main_route]
+      @route = Route.find(route_id)
     end
-    @route = route
+    
     respond_to do |format|
       format.html
       format.xml  { render :xml }

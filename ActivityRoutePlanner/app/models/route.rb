@@ -1,4 +1,6 @@
-class Route 
+class Route < ActiveRecord::Base
+  has_many :activities
+
   #contains the main information of the application
   GLOBAL_FIELD_NAME     = Global::GLOBAL_FIELD_NAME
   GLOBAL_FIELD_LONG     = Global::GLOBAL_FIELD_LONG
@@ -6,55 +8,77 @@ class Route
   GLOBAL_TABLE_POINT    = Global::GLOBAL_TABLE_POINT
   GLOBAL_TABLE_POLYGON  = Global::GLOBAL_TABLE_POLYGON
   GLOBAL_FIELD_AMENITY  = Global::GLOBAL_FIELD_AMENITY
+  
 
-
-  attr_accessor :start_point,#start point of the route
-    :end_point,#end point of the route
-    :activities,#activities
-    :algorithmus,#algorithmus to calculate the route
-    :sort,#flag to sort the activities
-    :kml_path#path to the kml file to show the route
-
-  #initializes a route
   def initialize
-    @start_point = Point.new
-    @end_point = Point.new
-    @algorithmus = "A*"
-    @sort = "false"
+    super
+    self.sort = "false"
+    self.algorithmus = "A*"
+    point = Point.new()
+    point.save
+    self.start_point_id = point.id
+    point = Point.new()
+    point.save
+    self.end_point_id = point.id
+    self.save
   end
+
+  def end_point
+    point = nil
+    if self.end_point_id!=nil
+      point = Point.find(self.end_point_id)
+    end
+    return point
+  end
+  def start_point
+    point = nil
+    if self.start_point_id!=nil
+      point = Point.find(self.start_point_id)
+    end
+    return point
+  end
+
   #resets a route
   def reset
-    @activities = nil
-    @kml_path = ""
+    self.activities.delete_all
+    self.kml_path = ""
+    self.save
   end
+
   #Creates javascript code to show the Marks of the selected route
   def show_markers()
     script = ""
+    start_point = self.start_point
     #adds start mark
-    if @start_point != nil && @start_point.label!=nil && !@start_point.label.eql?("")
-      script = "addMark('"+@start_point.label_js+"','"+@start_point.lat+"','"+@start_point.long+"','start');"
+    if start_point != nil && start_point.is_setted
+      script = "addMark('"+start_point.label_js+"','"+start_point.lat.to_s+"','"+start_point.lon.to_s+"','start');"
     end
+    end_point = self.end_point
     #adds end mark
-    if @end_point != nil && @end_point.label != nil && !@end_point.label.eql?("")
-      script += "addMark('"+@end_point.label_js+"','"+@end_point.lat+"','"+@end_point.long+"','end');"
+    if end_point != nil && end_point.is_setted
+      script += "addMark('"+end_point.label_js+"','"+end_point.lat.to_s+"','"+end_point.lon.to_s+"','end');"
     end
+
+    activities = self.activities
+    p  "::::::activities="+activities.to_s
     #adds activities mark
-    if @activities != nil
-      @activities.each.with_index do |activity,id|
-        if activity.result != nil
-          imagePath = activity.get_image_url()
-          imageID   = activity.get_image_id()
-          result    = activity.result
-                script += "addActivityMark('"+result.label_js+"','"+result.lat+"','"+result.long+"','"+imagePath+"','"+imageID+"');"
-        end
+    activities.each do |activity|
+      if activity.result != nil
+        imagePath = activity.get_image_url()
+        result    = activity.result
+        p ":::::result="+result.to_s
+        script += "addActivityMark('"+result.label_js+"','"+result.lat.to_s+"','"+result.lon.to_s+"','"+imagePath+"','"+activity.id.to_s+"');"
       end
     end
+
+    kml_path = self.kml_path
+
     #adds the route if there is one
-    if @kml_path != nil && !@kml_path.eql?("")
-      script += "loadRoute('"+@kml_path+"');"
+    if kml_path != nil && !kml_path.eql?("")
+      script += "loadRoute('"+kml_path+"');"
     end
     return script
-  end    
+  end
 
   #gets the closest point to start and endpoint where the activity can be done
   def self.get_closest_activity(activity,pstart,pend)
@@ -69,15 +93,7 @@ class Route
     #unites the results of the point table and the polygon table
     sql     = "("+sql_head_point+where+" union "+sql_head_polygon+where+") "+limit
     result  = execute_sql(sql)
-    activity.result = result
-  end
-
-  def sort
-    return @sort
-  end
-  
-  def algortihmus
-    return @algorithmus
+    return result
   end
 
   private
@@ -85,16 +101,16 @@ class Route
   #and adds them. So we can later sort this distance and find the nearest one
   #TODO: Get path distance, not airline distance
   def self.get_distance_query(pstart,pend)
-    distance_p1 = "distance(GeomFromText('POINT("+pstart.long+" "+pstart.lat+")',4326),st_transform(way,4326)) "
-    distance_p2 = "distance(GeomFromText('POINT("+pend.long+" "+pend.lat+")',4326),st_transform(way,4326)) "
+    distance_p1 = "distance(GeomFromText('POINT("+pstart.lon.to_s+" "+pstart.lat.to_s+")',4326),st_transform(way,4326)) "
+    distance_p2 = "distance(GeomFromText('POINT("+pend.lon.to_s+" "+pend.lat.to_s+")',4326),st_transform(way,4326)) "
     result      = distance_p1+" as dist_source,"+distance_p2+" as dist_target,("+distance_p1+"+"+distance_p2+")as distance"
     return result
   end
 
 
   # executes a sql query and gets the results
-  def self.execute_sql(sql)    
-    ActiveRecord::Base.establish_connection(:osm_data)
+  def self.execute_sql(sql)
+    #ActiveRecord::Base.establish_connection(:osm_data)
     res = ActiveRecord::Base.connection.execute(sql)
     res = get_sql_results(res)
     return res
@@ -111,7 +127,7 @@ class Route
       return point
     else
       return nil
-    end  
+    end
   end
 
 
@@ -132,10 +148,10 @@ class Route
     end
     #set information
     if lat != nil && lon != nil
-      point       = Point.new
+      point       = Point.new      
       point.label = name
-      point.lat   = lat
-      point.long  = lon
+      point.set_coordinates(lat,lon)
+      
       point.distance_source = d_source.to_f
       point.distance_target = d_target.to_f
       return point

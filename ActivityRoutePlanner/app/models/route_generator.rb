@@ -64,11 +64,11 @@ class RouteGenerator
         path = generate_simple_route(source,target,route)
         if path.length>0
           #adds a line from the start point to the nearest source point of the edge
-          line = get_kml_line(src_point.lat,src_point.long, source["start_lat"],source["start_long"])
+          line = get_kml_line(src_point.lat,src_point.lon, source["start_lat"],source["start_long"])
           result.push(line)
           result.concat(path)
           #adds a line form the end point to the nearest end point of the edge
-          line = get_kml_line(point.lat,point.long, target["end_lat"],target["end_long"])
+          line = get_kml_line(point.lat,point.lon, target["end_lat"],target["end_long"])
           result.push(line)
         else
           #error message if the path could not be found
@@ -121,14 +121,14 @@ class RouteGenerator
     if point != nil
       #gets start and end point of the edge and
       start_end_coordinates = GLOBAL_FIELD_END_POINT_LONG+","+GLOBAL_FIELD_END_POINT_LAT+","+GLOBAL_FIELD_START_POINT_LONG+","+GLOBAL_FIELD_START_POINT_LAT
-      sql = "SELECT name,type_name, "+start_end_coordinates+", source, target, distance("+GLOBAL_FIELD_TRANSFORMED_ROAD_GEOM+", GeometryFromText('POINT("+point.long+" "+point.lat+")', 4326)) AS dist FROM "+TABLE
+      sql = "SELECT name,type_name, "+start_end_coordinates+", source, target, distance("+GLOBAL_FIELD_TRANSFORMED_ROAD_GEOM+", GeometryFromText('POINT("+point.lon.to_s+" "+point.lat.to_s+")', 4326)) AS dist FROM "+TABLE
       #data for the bounding box around the point
       #performance!
-      lat_max   = (point.lat.to_d+0.1).to_s
-      long_max  = (point.long.to_d+0.1).to_s
-      lat_min   = (point.lat.to_d-0.1).to_s
-      long_min  = (point.long.to_d-0.1).to_s
-      #sql = "SELECT source,distance(GeomFromText('POINT("+point.lat+" "+point.long+")',4326),st_transform(the_geom,4326))  FROM ways"
+      lat_max   = (point.lat+0.1).to_s
+      long_max  = (point.lon+0.1).to_s
+      lat_min   = (point.lat-0.1).to_s
+      long_min  = (point.lon-0.1).to_s
+      #sql = "SELECT source,distance(GeomFromText('POINT("+point.lat+" "+point.lon+")',4326),st_transform(the_geom,4326))  FROM ways"
       #except_ways = "true"#"(highway='primary' or highway='secondary' or highway='motorway' or highway='trunk')"#"(highway != '' and highway!='cycleway' and highway!='pedestrian' and highway!='footway')"
       where =  " WHERE "+GLOBAL_FIELD_TYPE+"!='pedestrian' "#"("+GLOBAL_FIELD_TRANSFORMED_ROAD_GEOM+" && setsrid('BOX3D("+long_min+" "+lat_min+","+long_max+" "+lat_max+")'::box3d, 4326) )"
       where += " ORDER BY dist LIMIT 1;"
