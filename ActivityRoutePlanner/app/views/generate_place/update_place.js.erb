@@ -1,7 +1,7 @@
 removeMarks();
 <%=Route.find(session[:main_route]).show_markers()%>
 <%if flash[:error_msg]!= nil%>
-alert('<%=flash[:error_msg]%>');
+alert('<%=escape_javascript(flash[:error_msg])%>');
 <%end%>
 var elem = document.getElementById('route_id');
 elem.innerHTML = "<%= escape_javascript(render(:partial => 'init/menu'))%>";

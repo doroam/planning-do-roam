@@ -3,7 +3,7 @@ class GeneratePlaceController < ApplicationController
   #controller is called on each activity action
   def update_place
     @route = Route.find(session[:main_route])
-    
+
     #start point was set
     if params[:start]!=nil
       set_point(@route.start_point, params[:start])
@@ -76,7 +76,7 @@ class GeneratePlaceController < ApplicationController
   #handles errors by parsing lables of a point
   def handle_error(point,label)
     if point.label == nil || point.label.eql?("")
-      flash[:error_msg] = "The place "+CGI.escape(label)+" could not be found"
+      flash[:error_msg] = "The place "+label+" could not be found"
     else
       flash[:error_msg] = nil
     end

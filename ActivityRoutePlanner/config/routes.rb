@@ -17,6 +17,8 @@ ActivityRoutePlanner::Application.routes.draw do
   match "resetMethod" => "init#reset"
   match "check_edge" => "calculate_route#calculate_route"
   match "setAlgorithmus"=>"generate_place#set_algorithmus"
+  match "load_content"=>"content_loader#load_content"
+  match "search"=>"geocoder#search"
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

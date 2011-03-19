@@ -4,6 +4,12 @@ var markerHash = null; //hashmap for markers
 var route = null; //kml layer
 var layerMarkers = null; //marker layer
 
+function initEvents(){
+    resizeMap();
+
+}
+Event.observe(window, "load", resizeMap);
+Event.observe(window, "resize", resizeMap);
 /**
  *  Loads the map and registers the listener
  *  for the onclick event to set points on the map

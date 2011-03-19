@@ -7,17 +7,18 @@
   <%=stylesheet_link_tag("../javascripts/yui/container/assets/container")%>
   <%= javascript_include_tag 'prototype.js',:defaults %>
   <%= csrf_meta_tag %>
-  <script>
+  <script type="text/javascript">
   // this allows jquery to be called along with scriptaculous and YUI without any conflicts
   // the only difference is all jquery functions should be called with $j instead of $
   // e.g. $j('#div_id').stuff instead of $('#div_id').stuff
-  var $j = jQuery.noConflict();
-</script>
-  <%= javascript_include_tag 'OpenLayers.js','http://www.openstreetmap.org/openlayers/OpenStreetMap.js','yui/yahoo-dom-event/yahoo-dom-event.js','yui/container/container-min.js','util.js','yuiUtils.js'%>
+  var $j = jQuery.noConflict();  
+  </script>
+  <script type="text/javascript">
+    window._token = '<%=form_authenticity_token%>';
+  </script>
+  <%= javascript_include_tag 'OpenLayers.js','http://www.openstreetmap.org/openlayers/OpenStreetMap.js','yui/yahoo-dom-event/yahoo-dom-event.js','yui/container/container-min.js','yuiUtils.js','doRoam.js','util.js'%>
 </head>
-<body onload="javascript:loadMap();<%=Route.find(session[:main_route]).show_markers()%>">
-
+<body onload="javascript:loadMap();initEvents();<%=Route.find(session[:main_route]).show_markers()%>">
 <%= yield %>
-
 </body>
 </html>

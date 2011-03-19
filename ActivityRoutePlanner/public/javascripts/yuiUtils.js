@@ -36,8 +36,8 @@ function initLoadingPanel() {
  */
 function showWall(){
     if (!YAHOO.yuiObjectContainer.loading) {
-		initLoadingPanel();
-	}
+        initLoadingPanel();
+    }
     YAHOO.yuiObjectContainer.loading.show();
 }
 /**
@@ -45,8 +45,8 @@ function showWall(){
  */
 function hideWall(){
     if (YAHOO.yuiObjectContainer.loading) {
-		YAHOO.yuiObjectContainer.loading.hide();
-	}
+        YAHOO.yuiObjectContainer.loading.hide();
+    }
 }
 
 /**
@@ -63,24 +63,28 @@ function showSetPointMenu(latLon,e){
     var mY = mouseXY[1];
 
     // Build overlay2 dynamically, at mouse position
-    YAHOO.yuiObjectContainer.pointMenu = new YAHOO.widget.Dialog("setPoint", { xy:[mX,mY],
-                                                                           visible:false,
-                                                                           close:true,
-                                                                           width:"200px",
-                                                                            height:"85px"} );
+    YAHOO.yuiObjectContainer.pointMenu = new YAHOO.widget.Dialog("setPoint", {
+        xy:[mX,mY],
+        visible:false,
+        close:true,
+        width:"200px",
+        height:"85px"
+    } );
 
 
-    //coordinates of point
-    var coordinates = escape(latLon.lat+";"+latLon.lon);
-    //set start point link
-    var linkStart   = "<a onclick=\"hideSetPoint();showWall();\" href=\"/updateRoute?start="+coordinates+"\" data-remote=\"true\">Set start point</a>";
-    //set end point link
-    var linkEnd     = "<a onclick=\"hideSetPoint();showWall();\" href=\"/updateRoute?end="+coordinates+"\" data-remote=\"true\">Set end point</a>";
     //set body
-    YAHOO.yuiObjectContainer.pointMenu.setBody("<div class=\"setPoint\"><b>Coordinates:</b><br/> <b>Latitude:</b> "+latLon.lat+"<br /><b>Longitude:</b> "+latLon.lon+" <br/>"+linkStart+" &nbsp "+linkEnd+"</div>");
+    YAHOO.yuiObjectContainer.pointMenu.setBody("<div id=\"set_point_id\" class=\"setPoint\"></div>");
+
     //render popup
     YAHOO.yuiObjectContainer.pointMenu.render(document.body);
     YAHOO.yuiObjectContainer.pointMenu.show();
+    var params = new Array();
+    params[0]  = ["url","content_loader/point_tooltip"];
+    params[1]  = ["lat",latLon.lat+""];
+    params[2]  = ['lon',latLon.lon+""];
+    var url = buildUrl("/load_content", params);
+    loadContent(url,"set_point_id");
+    
 }
 /**
  * hides the set point popup
@@ -89,4 +93,36 @@ function hideSetPoint(){
     if(YAHOO.yuiObjectContainer.pointMenu){
         YAHOO.yuiObjectContainer.pointMenu.hide();
     }
+}
+
+function loadContent(url,div_id){
+    new Ajax.Updater(div_id, url,{parameters : "authenticity_token="+_token,evalScripts:true});
+}
+function buildUrl(url,params){
+    var result = url+"?";
+    for (var i=0;i<params.length;i++)
+    {
+        var and = "&";
+        if(i==params.length-1)
+            and = "";
+
+        result += params[i][0]+"="+encodeURIComponent(params[i][1])+and;
+    }
+    return result;
+}
+
+function makeDialog(id){
+    // Build overlay2 dynamically, at mouse position
+    YAHOO.yuiObjectContainer.standardDialog = new YAHOO.widget.Dialog(id, {
+        center : true,
+        visible:false,
+        close:true,
+        scrollable: true,
+        zindex:100,
+        width:"260px"
+    } );
+    YAHOO.yuiObjectContainer.standardDialog.setBody("<div id=\""+id+"_div\" class=\"dialog\"></div>");
+    //render popup
+    YAHOO.yuiObjectContainer.standardDialog.render(document.body);
+    return YAHOO.yuiObjectContainer.standardDialog;
 }

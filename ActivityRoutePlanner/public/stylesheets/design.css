@@ -55,10 +55,10 @@ table{
     width:280px;
 }
 #map{
-    position:fixed;
+    position:absolute;
     left:280px;        
-    height: 93%;
-    width: 76%;
+    height: 100%;
+    width: 100%;
     padding: 0;
     margin: 0;
 }
@@ -75,6 +75,15 @@ table{
     border-color: black;
     border-width: 1px;
     margin:10px
+}
+.dialog{
+    border-color: black;
+    border-width: 1px;
+    font-size: 10pt;
+    max-height: 650px;
+    margin: 15px 0px 5px 5px;
+    overflow-y:auto;
+
 }
 
 div.headline{

@@ -84,7 +84,6 @@ class Activity < ActiveRecord::Base
     end
 
     result = self.result <=> o.result
-    p ":::"+self.tag+self.value+"  result="+result.to_s
     return result
   end
   

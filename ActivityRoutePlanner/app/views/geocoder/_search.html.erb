@@ -1,0 +1,7 @@
+<% if @results.empty? %>
+  <p>No results found</p>
+<% else %>
+  <% @results.each do |result| %>
+    <%= render :partial => 'geocoder/result',:locals => {:result=>result} %>
+  <% end %>
+<%end%>

@@ -1,0 +1,7 @@
+<b>Coordinates:</b><br/>
+<b>Latitude:</b> <%=params[:lat]%><br/>
+<b>Longitude:</b><%=params[:lon]%><br/>
+<%coordinates = params[:lat]+":"+params[:lon]%>
+<%= link_to "Set start point", "/updateRoute?start="+coordinates ,:remote => true,:onclick => 'hideSetPoint();showWall();'%>
+&nbsp
+<%= link_to "Set end point", "/updateRoute?end="+coordinates ,:remote => true,:onclick => 'hideSetPoint();showWall();'%>

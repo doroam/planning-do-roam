@@ -23,6 +23,7 @@ class CalculateRouteController < ApplicationController
     #sets the filepath and the result to show errors
     file_path           = file_name_app+"?nocache"+Time.now.to_s
     route.kml_path      = file_path
+    route.save
     params[:file_name]  = file_path
     params[:geo_result] = result
     respond_to do |format|

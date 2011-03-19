@@ -60,13 +60,13 @@ class Route < ActiveRecord::Base
     end
 
     activities = self.activities
-    p  "::::::activities="+activities.to_s
+    
     #adds activities mark
     activities.each do |activity|
       if activity.result != nil
         imagePath = activity.get_image_url()
         result    = activity.result
-        p ":::::result="+result.to_s
+        
         script += "addActivityMark('"+result.label_js+"','"+result.lat.to_s+"','"+result.lon.to_s+"','"+imagePath+"','"+activity.id.to_s+"');"
       end
     end

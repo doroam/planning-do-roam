@@ -2,7 +2,7 @@ class Point < ActiveRecord::Base
   belongs_to :route
   belongs_to :activity
 
-  require 'cgi'
+  require 'uri'
   include Comparable
 
   GLOBAL_FIELD_NAME     = Global::GLOBAL_FIELD_NAME
@@ -48,8 +48,10 @@ class Point < ActiveRecord::Base
 
   #parses input coordinats to lat and long
   def parse_label
-    results = self.label.split(";")
-    if results.size ==2
+    
+    results = self.label.split(":")
+    
+    if results.size == 2
       lat_st  = results[0]
       long_st = results[1]
       
@@ -60,7 +62,7 @@ class Point < ActiveRecord::Base
       self.lat = num_lat
       self.lon = num_lon
 
-      self.label = num_lat.round(8).to_s+";"+num_lon.round(8).to_s
+      self.label = num_lat.round(8).to_s+":"+num_lon.round(8).to_s
       self.save
       #gets the point from the database by name
     else
@@ -124,6 +126,6 @@ class Point < ActiveRecord::Base
   end
   #return the encoded label for javascript messages
   def label_js
-    return CGI.escape(self.label)
+    return URI.escape(self.label.sub("'",""))
   end
 end

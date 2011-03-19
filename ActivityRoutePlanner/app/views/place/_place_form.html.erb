@@ -6,13 +6,24 @@ if point != nil && point.label!=nil && (!point.label.eql? "")
 else
   showDelete = false
 end
+action = action_url
+if action == nil
+  action = '/updateRoute'
+end
 %>
 <span class="pointInput" id="<%=type%>_id">
-<%= form_tag('/updateRoute', :remote => true) do |f| %>
+<%= form_tag(action,
+              :onsubmit => "setBBox();showWall();",
+              :remote => true) do |f| %>
 			<%= text_field_tag type,default, :style=> "width:150px;" %>
 		<%if showDelete%>	
 			<%= # link to remove that activity
 			link_to image_tag("delete.gif", :border=>0,:class => "delete"), "/updateRoute?delete_point="+type,:class=>"delete", :remote => true,:onclick => 'showWall();'%>
-		<% end%>	
+		<% end%>
+        <%= hidden_field_tag :minlon %>
+        <%= hidden_field_tag :minlat %>
+        <%= hidden_field_tag :maxlon %>
+        <%= hidden_field_tag :maxlat %>
+
 	<% end%>
 </span>

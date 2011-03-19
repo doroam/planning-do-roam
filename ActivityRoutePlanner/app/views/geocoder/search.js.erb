@@ -1,0 +1,5 @@
+var d = makeDialog('nominatim');
+var elem = document.getElementById('nominatim_div');
+elem.innerHTML = "<%= escape_javascript(render(:partial => "geocoder/search"))%>";
+d.show();
+hideWall();

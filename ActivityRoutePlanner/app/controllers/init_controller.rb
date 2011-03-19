@@ -5,9 +5,7 @@ class InitController < ApplicationController
     #if the session is new
     if session[:main_route] == nil
      # initialize route
-      @route = Route.new()
-      
-    
+      @route = Route.new()          
       session[:main_route] = @route.id
     else
       route_id = session[:main_route]
@@ -27,4 +25,6 @@ class InitController < ApplicationController
         format.html { redirect_to( root_path) }
     end    
   end
+
+  
 end
