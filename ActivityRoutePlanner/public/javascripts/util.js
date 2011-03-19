@@ -1,8 +1,9 @@
 var map;        //complex object of type OpenLayers.Map
-var zoom = 12;  //zoom of the map
+var zoom = 5;  //zoom of the map
 var markerHash = null; //hashmap for markers
 var route = null; //kml layer
 var layerMarkers = null; //marker layer
+var tmpMarkerHash = null;
 
 function initEvents(){
     resizeMap();
@@ -17,14 +18,15 @@ Event.observe(window, "resize", resizeMap);
  */
 function loadMap(){
     markerHash = new Array();
-	// Start position for the map (hardcoded here for simplicity,
-	// but maybe you want to get from URL params)
-	var lat=53.075878
-	var lon=8.807311
-	//53.075878;8.807311
-	//47.547855" lon="7.589664
-	init(lat,lon,zoom);
-        map.events.register('click', map, handleMapClick);
+    tmpMarkerHash = new Array();
+    // Start position for the map (hardcoded here for simplicity,
+    // but maybe you want to get from URL params)
+    var lat=53.075878
+    var lon=8.807311
+    //53.075878;8.807311
+    //47.547855" lon="7.589664
+    init(lat,lon,zoom);
+    map.events.register('click', map, handleMapClick);
 
 }
 
@@ -67,16 +69,16 @@ function loadRoute(fileName){
     alert(bounds);*/
     //creates new layer with the route
     route = new OpenLayers.Layer.Vector("KML", {
-                projection: map.displayProjection,
-                strategies: [new OpenLayers.Strategy.Fixed()],
-                protocol: new OpenLayers.Protocol.HTTP({
-                    url: fileName,
-                    format: new OpenLayers.Format.KML({
-                        extractStyles: true,
-                        extractAttributes: true
-                    })
-                })
-            });
+        projection: map.displayProjection,
+        strategies: [new OpenLayers.Strategy.Fixed()],
+        protocol: new OpenLayers.Protocol.HTTP({
+            url: fileName,
+            format: new OpenLayers.Format.KML({
+                extractStyles: true,
+                extractAttributes: true
+            })
+        })
+    });
     //var lonLat = new OpenLayers.LonLat(-112.169, 36.099).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject());
     //map.setCenter(lonLat);
     //map.zoomTo(map.getZoomForExtent(bounds)-2);
@@ -89,6 +91,33 @@ function loadRoute(fileName){
     setTimeout ( "hideWall();", 1500 );
 
 }
+function addTempMarker(id,name,lat,lon,type){
+    var src = "javascripts/img/marker-green.png";
+    var marker = createMarker(name,lon,lat,src);
+    tmpMarkerHash[id] = marker;
+    
+    layerMarkers.addMarker(marker);
+}
+function highMarker(id){
+    var marker = tmpMarkerHash[id];
+    marker.icon.size.w += 13;
+    marker.icon.size.h += 13;
+    marker.draw();
+}
+function downMarker(id){
+    var marker = tmpMarkerHash[id];
+    marker.icon.size.w -= 13;
+    marker.icon.size.h -= 13;
+    marker.draw();
+}
+
+function removeTempMarkers(){
+    var elem = tmpMarkerHash.pop();
+    if(elem!=null){
+        layerMarkers.removeMarker(elem);
+        removeTempMarkers();
+    }
+}
 
 /**
  * Adds a start or end mark
@@ -99,40 +128,40 @@ function loadRoute(fileName){
  *
  */
 function addMark(name,lat,lon,type){
-        //alert(name+"   "+lat+"  "+lon+"  "+type);
-        //gets the icon of the marker
-        var src ="javascripts/img/marker-gold.png";
-        if(type == "start")
-            src = "javascripts/img/marker.png";
-        else if(type == "end")
-            src = "javascripts/img/marker-blue.png";
+    //alert(name+"   "+lat+"  "+lon+"  "+type);
+    //gets the icon of the marker
+    var src ="javascripts/img/marker-gold.png";
+    if(type == "start")
+        src = "javascripts/img/marker.png";
+    else if(type == "end")
+        src = "javascripts/img/marker-blue.png";
 
-        //gets the marker if one has been already created
-        var marker = markerHash[type];
+    //gets the marker if one has been already created
+    var marker = markerHash[type];
 
-        //if there is no marker and there are no coordinates
-        //the marker will be removed
-        if(lat=="" && lon =="" && markerHash[type]!=null){
+    //if there is no marker and there are no coordinates
+    //the marker will be removed
+    if(lat=="" && lon =="" && markerHash[type]!=null){
 
-            layerMarkers.removeMarker(marker);
-            //markerHash[type] = null;
-            marker = null
-        }
+        layerMarkers.removeMarker(marker);
+        //markerHash[type] = null;
+        marker = null
+    }
 
-        //if there is no marker
-        if(marker == null){
-            //create a new one and set it to the layer
-            marker           = createMarker(type+"-"+name,lon,lat,src);
-            markerHash[type] =  marker;
-            layerMarkers.addMarker(marker);
-        }
-        else{
-            //update marker
-            marker = markerHash[type];
-            layerMarkers.removeMarker(marker);
-            updateMarker(type+"-"+name,marker,lon,lat,src);
-            layerMarkers.addMarker(marker);
-        }    
+    //if there is no marker
+    if(marker == null){
+        //create a new one and set it to the layer
+        marker           = createMarker(type+"-"+name,lon,lat,src);
+        markerHash[type] =  marker;
+        layerMarkers.addMarker(marker);
+    }
+    else{
+        //update marker
+        marker = markerHash[type];
+        layerMarkers.removeMarker(marker);
+        updateMarker(type+"-"+name,marker,lon,lat,src);
+        layerMarkers.addMarker(marker);
+    }
 }
 /**
  * Removes a marker with the entered id
@@ -143,8 +172,8 @@ function removeMarker(id){
     //alert(id);
     var marker = markerHash[id];
     if(marker!=null){
-            layerMarkers.removeMarker(marker);
-            marker = null;
+        layerMarkers.removeMarker(marker);
+        marker = null;
     }
 }
 /**
@@ -233,38 +262,38 @@ function updateMarker(name,marker,lon,lat,src){
  *
  */
 function init(lat,lon,zoom) {
-	map = new OpenLayers.Map ("map", {
-			controls:[
-				new OpenLayers.Control.Navigation(),
-				new OpenLayers.Control.PanZoomBar(),
-				new OpenLayers.Control.LayerSwitcher(),
-				new OpenLayers.Control.Attribution()],
-			maxExtent: new OpenLayers.Bounds(-20037508.34,-20037508.34,20037508.34,20037508.34),
-			maxResolution: 156543.0399,
-			numZoomLevels: 19,
-			units: 'm',
-			projection: new OpenLayers.Projection("EPSG:900913"),
-			displayProjection: new OpenLayers.Projection("EPSG:4326")
-			} );
+    map = new OpenLayers.Map ("map", {
+        controls:[
+        new OpenLayers.Control.Navigation(),
+        new OpenLayers.Control.PanZoomBar(),
+        new OpenLayers.Control.LayerSwitcher(),
+        new OpenLayers.Control.Attribution()],
+        maxExtent: new OpenLayers.Bounds(-20037508.34,-20037508.34,20037508.34,20037508.34),
+        maxResolution: 156543.0399,
+        numZoomLevels: 19,
+        units: 'm',
+        projection: new OpenLayers.Projection("EPSG:900913"),
+        displayProjection: new OpenLayers.Projection("EPSG:4326")
+    } );
  
-	// Define the map layer
-	// Note that we use a predefined layer that will be
-	// kept up to date with URL changes
-	// Here we define just one layer, but providing a choice
-	// of several layers is also quite simple
-	// Other defined layers are OpenLayers.Layer.OSM.Mapnik, OpenLayers.Layer.OSM.Maplint and OpenLayers.Layer.OSM.CycleMap
-	layerMapnik = new OpenLayers.Layer.OSM.Mapnik("Mapnik");
-	map.addLayer(layerMapnik);
-	layerTilesAtHome = new OpenLayers.Layer.OSM.Osmarender("Osmarender");
-	map.addLayer(layerTilesAtHome);
-	layerCycleMap = new OpenLayers.Layer.OSM.CycleMap("CycleMap");
-	map.addLayer(layerCycleMap);
-	layerMarkers = new OpenLayers.Layer.Markers("Markers");
-	map.addLayer(layerMarkers);
+    // Define the map layer
+    // Note that we use a predefined layer that will be
+    // kept up to date with URL changes
+    // Here we define just one layer, but providing a choice
+    // of several layers is also quite simple
+    // Other defined layers are OpenLayers.Layer.OSM.Mapnik, OpenLayers.Layer.OSM.Maplint and OpenLayers.Layer.OSM.CycleMap
+    layerMapnik = new OpenLayers.Layer.OSM.Mapnik("Mapnik");
+    map.addLayer(layerMapnik);
+    layerTilesAtHome = new OpenLayers.Layer.OSM.Osmarender("Osmarender");
+    map.addLayer(layerTilesAtHome);
+    layerCycleMap = new OpenLayers.Layer.OSM.CycleMap("CycleMap");
+    map.addLayer(layerCycleMap);
+    layerMarkers = new OpenLayers.Layer.Markers("Markers");
+    map.addLayer(layerMarkers);
 
-        //sets center point of the map
-	var lonLat = new OpenLayers.LonLat(lon, lat).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject());
-	map.setCenter (lonLat, zoom);
+    //sets center point of the map
+    var lonLat = new OpenLayers.LonLat(lon, lat).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject());
+    map.setCenter (lonLat, zoom);
 
 }
 /**
@@ -307,21 +336,21 @@ function removeRoute(){
  * Initializes the objects for the tests
  */
 function testInit(){
-	markerHash = new Array();
+    markerHash = new Array();
 	
-	map = new OpenLayers.Map ("map", {
-		controls:[
-			new OpenLayers.Control.Navigation(),
-			new OpenLayers.Control.PanZoomBar(),
-			new OpenLayers.Control.LayerSwitcher(),
-			new OpenLayers.Control.Attribution()],
-		maxExtent: new OpenLayers.Bounds(-20037508.34,-20037508.34,20037508.34,20037508.34),
-		maxResolution: 156543.0399,
-		numZoomLevels: 19,
-		units: 'm',
-		projection: new OpenLayers.Projection("EPSG:900913"),
-		displayProjection: new OpenLayers.Projection("EPSG:4326")
-	} );
-	layerMarkers = new OpenLayers.Layer.Markers("Markers");
-	map.addLayer(layerMarkers);	
+    map = new OpenLayers.Map ("map", {
+        controls:[
+        new OpenLayers.Control.Navigation(),
+        new OpenLayers.Control.PanZoomBar(),
+        new OpenLayers.Control.LayerSwitcher(),
+        new OpenLayers.Control.Attribution()],
+        maxExtent: new OpenLayers.Bounds(-20037508.34,-20037508.34,20037508.34,20037508.34),
+        maxResolution: 156543.0399,
+        numZoomLevels: 19,
+        units: 'm',
+        projection: new OpenLayers.Projection("EPSG:900913"),
+        displayProjection: new OpenLayers.Projection("EPSG:4326")
+    } );
+    layerMarkers = new OpenLayers.Layer.Markers("Markers");
+    map.addLayer(layerMarkers);
 }

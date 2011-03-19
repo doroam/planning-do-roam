@@ -1,3 +1,13 @@
-<p><%= link_to result[:name], "/#", :remote => true,
-			:onclick => 'showWall();'%></p>
-
+<%coordinates = result[:lat]+":"+result[:lon]%>
+<p><%= link_to result[:name],
+            {:controller => :generate_place,
+            :action=> :update_place,
+            type=> "true",
+            :lat => result[:lat],
+            :lon=> result[:lon],
+            :name=> result[:name]},
+            :onmouseover => "highMarker('"+result[:place_id]+"');",
+            :onmouseout => "downMarker('"+result[:place_id]+"');",
+            :remote => true,
+            :onclick => 'showWall();',
+            %></p>

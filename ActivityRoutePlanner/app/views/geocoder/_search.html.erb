@@ -1,7 +1,8 @@
-<% if @results.empty? %>
+<% if @results==nil || @results.empty?  %>
   <p>No results found</p>
-<% else %>
+<% else%>  
   <% @results.each do |result| %>
-    <%= render :partial => 'geocoder/result',:locals => {:result=>result} %>
+    addTempMarker('<%=result[:place_id]%>','<%=escape_javascript(result[:name])%>','<%=result[:lat]%>','<%=result[:lon]%>');
+    <%= render :partial => 'geocoder/result',:locals => {:result=>result,:type=>params[:type]} %>
   <% end %>
 <%end%>

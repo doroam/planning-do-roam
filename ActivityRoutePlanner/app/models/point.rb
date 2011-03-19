@@ -126,6 +126,7 @@ class Point < ActiveRecord::Base
   end
   #return the encoded label for javascript messages
   def label_js
-    return URI.escape(self.label.sub("'",""))
+    return self.label.gsub(/'/, "\\\\'")
+    #return URI.escape(self.label.sub("'",""))
   end
 end

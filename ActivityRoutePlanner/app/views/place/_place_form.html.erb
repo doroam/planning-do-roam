@@ -13,17 +13,18 @@ end
 %>
 <span class="pointInput" id="<%=type%>_id">
 <%= form_tag(action,
-              :onsubmit => "setBBox();showWall();",
+              :onsubmit => "setBBox(this);showWall();",
               :remote => true) do |f| %>
-			<%= text_field_tag type,default, :style=> "width:150px;" %>
-		<%if showDelete%>	
-			<%= # link to remove that activity
-			link_to image_tag("delete.gif", :border=>0,:class => "delete"), "/updateRoute?delete_point="+type,:class=>"delete", :remote => true,:onclick => 'showWall();'%>
-		<% end%>
+			<%= text_field_tag "query",default, :style=> "width:150px;" %>
+        <%= hidden_field_tag :type, type %>
         <%= hidden_field_tag :minlon %>
         <%= hidden_field_tag :minlat %>
         <%= hidden_field_tag :maxlon %>
         <%= hidden_field_tag :maxlat %>
-
+        <%if showDelete%>
+	<%= # link to remove that activity
+          link_to image_tag("delete.gif", :border=>0,:class => "delete"), "/updateRoute?delete_point="+type,:class=>"delete", :remote => true,:onclick => 'showWall();'%>
 	<% end%>
+	<% end%>
+        
 </span>

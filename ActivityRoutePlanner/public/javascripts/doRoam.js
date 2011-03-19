@@ -14,14 +14,13 @@ function setMapExtent(extent) {
 }
 
 function getMapExtent(){
-
    return map.getExtent().clone().transform(map.getProjectionObject(), projection);
 }
-function setBBox(){
+function setBBox(form){
     var extent = getMapExtent();
-
-    $("minlon").value = extent.left;
-    $("minlat").value = extent.bottom;
-    $("maxlon").value = extent.right;
-    $("maxlat").value = extent.top;
+    
+    form.minlon.value = extent.left;
+    form.minlat.value = extent.bottom;
+    form.maxlon.value = extent.right;
+    form.maxlat.value = extent.top;
 }

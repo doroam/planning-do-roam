@@ -49,6 +49,37 @@ function hideWall(){
     }
 }
 
+function showSetTempMenu(name,lat,lon,type,event){
+    var mouseXY = YAHOO.util.Event.getXY(event);
+    var mX = mouseXY[0];
+    var mY = mouseXY[1];
+    // Build overlay2 dynamically, at mouse position
+    YAHOO.yuiObjectContainer.pointMenu = new YAHOO.widget.Dialog("setPoint", {
+        xy:[mX,mY],
+        visible:false,
+        close:true,
+        width:"200px",
+        height:"85px"
+    } );
+
+
+    //set body
+    YAHOO.yuiObjectContainer.pointMenu.setBody("<div id=\"set_point_id\" class=\"setPoint\"></div>");
+
+    //render popup
+    YAHOO.yuiObjectContainer.pointMenu.render(document.body);
+    YAHOO.yuiObjectContainer.pointMenu.show();
+    var params = new Array();
+    params[0]  = ["url","content_loader/tmp_marker_tooltip"];
+    params[1]  = ["lat",lat+""];
+    params[2]  = ['lon',lon+""];
+    params[3]  = ['name',name];
+    params[4]  = ['type',type];
+    var url = buildUrl("/load_content", params);
+    loadContent(url,"set_point_id");
+
+}
+
 /**
  * Displays the popup to set the points by click
  *

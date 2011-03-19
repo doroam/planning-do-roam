@@ -1,10 +1,12 @@
 class GeocoderController < ApplicationController
   NOMINATIM_URL = "http://nominatim.openstreetmap.org/"
+  require 'uri'
+  require 'net/http'
+  require 'rexml/document'
   def search
     #@sources = Array.new
     #@sources.push "osm_nominatim"
-    #@sources.push "geonames"
-    @results = Array.new
+    #@sources.push "geonames"    
     @results = get_results("")
     # @sources.each do |item|
     #  @results.push(get_results(item))
@@ -69,6 +71,7 @@ class GeocoderController < ApplicationController
     return @results
   rescue Exception => ex
     p "Error contacting nominatim.openstreetmap.org: #{ex.to_s}"
+    @results = nil
   end
 
   def fetch_text(url)

@@ -1,4 +1,5 @@
 removeMarks();
+removeTempMarkers();
 <%=Route.find(session[:main_route]).show_markers()%>
 <%if flash[:error_msg]!= nil%>
 alert('<%=escape_javascript(flash[:error_msg])%>');

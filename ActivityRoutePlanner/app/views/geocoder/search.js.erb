@@ -1,5 +1,14 @@
 var d = makeDialog('nominatim');
 var elem = document.getElementById('nominatim_div');
-elem.innerHTML = "<%= escape_javascript(render(:partial => "geocoder/search"))%>";
+var body = "";
+<% if @results==nil || @results.empty?  %>
+  body = "<%=escape_javascript("<p>No results found</p>")%>";
+<% else%>
+  <% @results.each do |result| %>
+    addTempMarker('<%=result[:place_id]%>',unescape('<%=escape_javascript(result[:name])%>'),'<%=result[:lat]%>','<%=result[:lon]%>','<%=result[:type]%>');
+    body = "<%=escape_javascript(render :partial => 'geocoder/result',:locals => {:result=>result,:type=>params[:type]})%>";
+    elem.innerHTML += body;
+  <% end %>
+<%end%>
 d.show();
 hideWall();

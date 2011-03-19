@@ -6,11 +6,11 @@ class GeneratePlaceController < ApplicationController
 
     #start point was set
     if params[:start]!=nil
-      set_point(@route.start_point, params[:start])
+      set_point(@route.start_point)
       @route.reset()
     #destination point was set
     elsif params[:end]!=nil
-      set_point(@route.end_point, params[:end])
+      set_point(@route.end_point)
       @route.reset()
     #delete a point  
     elsif params[:delete_point] != nil
@@ -34,20 +34,17 @@ class GeneratePlaceController < ApplicationController
     point.save
   end
   #sets a point with the entered label
-  def set_point(point, label)
-      point.label = label
-      #parse the input if it is "lat;lon"
-      #or searches the input in the db
-      point.parse_label
-      point.save()
-      handle_error(point,label)
+  def set_point(point)
+      point.label = params[:name]
+      point.set_coordinates(params[:lat],params[:lon])
+      point.save
   end
   
   
   #If user has given an start- and endPoint, 
   #so activates activity-list if not done  
   def activate_activities(route)
-    if route.start_point.is_setted && route.end_point.is_setted
+    if route.start_point.is_setted && route.end_point.is_setted && route.activities.empty?
            @activity = Activity.new()
            @activity.route = route
            @activity.save
@@ -76,7 +73,7 @@ class GeneratePlaceController < ApplicationController
   #handles errors by parsing lables of a point
   def handle_error(point,label)
     if point.label == nil || point.label.eql?("")
-      flash[:error_msg] = "The place "+label+" could not be found"
+      flash[:error_msg] = "The place could not be found"
     else
       flash[:error_msg] = nil
     end
