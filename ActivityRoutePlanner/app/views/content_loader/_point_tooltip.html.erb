@@ -2,6 +2,15 @@
 <b>Latitude:</b> <%=params[:lat]%><br/>
 <b>Longitude:</b><%=params[:lon]%><br/>
 <%coordinates = params[:lat]+":"+params[:lon]%>
-<%= link_to "Set start point", "/updateRoute?start="+coordinates ,:remote => true,:onclick => 'hideSetPoint();showWall();'%>
+<%= link_to "Set start point", {:controller => :generate_place,
+            :action=> :update_place,
+            :start=> "true",
+            :lat => params[:lat],
+            :lon=> params[:lon]},
+             :remote => true,:onclick => 'hideSetPoint();showWall();'%>
 &nbsp
-<%= link_to "Set end point", "/updateRoute?end="+coordinates ,:remote => true,:onclick => 'hideSetPoint();showWall();'%>
+<%= link_to "Set end point", {:controller => :generate_place,
+            :action=> :update_place,
+            :end=> "true",
+            :lat => params[:lat],
+            :lon=> params[:lon]},:remote => true,:onclick => 'hideSetPoint();showWall();'%>
