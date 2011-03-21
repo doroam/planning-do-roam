@@ -4,6 +4,7 @@ var markerHash = null; //hashmap for markers
 var route = null; //kml layer
 var layerMarkers = null; //marker layer
 var tmpMarkerHash = null;
+var tmpMarkerIds = null;
 
 function initEvents(){
     resizeMap();
@@ -19,6 +20,7 @@ Event.observe(window, "resize", resizeMap);
 function loadMap(){
     markerHash = new Array();
     tmpMarkerHash = new Array();
+    tmpMarkerIds = new Array();
     // Start position for the map (hardcoded here for simplicity,
     // but maybe you want to get from URL params)
     var lat=53.075878
@@ -95,26 +97,33 @@ function addTempMarker(id,name,lat,lon,type){
     var src = "javascripts/img/marker-green.png";
     var marker = createMarker(name,lon,lat,src);
     tmpMarkerHash[id] = marker;
-    
+    tmpMarkerIds.push(id);
     layerMarkers.addMarker(marker);
+    
 }
 function highMarker(id){
     var marker = tmpMarkerHash[id];
-    marker.icon.size.w += 13;
-    marker.icon.size.h += 13;
-    marker.draw();
+    if(marker!=null){
+        marker.icon.size.w += 13;
+        marker.icon.size.h += 13;
+        marker.draw();
+    }
 }
 function downMarker(id){
     var marker = tmpMarkerHash[id];
-    marker.icon.size.w -= 13;
-    marker.icon.size.h -= 13;
-    marker.draw();
+    if(marker!=null){
+        marker.icon.size.w -= 13;
+        marker.icon.size.h -= 13;
+        marker.draw();
+    }
 }
 
 function removeTempMarkers(){
-    var elem = tmpMarkerHash.pop();
-    if(elem!=null){
+    var id = tmpMarkerIds.pop();        
+    if(id!=null){
+        var elem = tmpMarkerHash[id];
         layerMarkers.removeMarker(elem);
+        tmpMarkerHash[id] = null;
         removeTempMarkers();
     }
 }

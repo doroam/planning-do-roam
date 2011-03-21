@@ -16,11 +16,12 @@ function setMapExtent(extent) {
 function getMapExtent(){
    return map.getExtent().clone().transform(map.getProjectionObject(), projection);
 }
-function setBBox(form){
+function setBBox(form_id){
+    var form = document.getElementById(form_id);
     var extent = getMapExtent();
-    
     form.minlon.value = extent.left;
     form.minlat.value = extent.bottom;
     form.maxlon.value = extent.right;
     form.maxlat.value = extent.top;
 }
+//Event.observe('start_form_id', 'submit', function(event) { setBBox('start_form_id');});

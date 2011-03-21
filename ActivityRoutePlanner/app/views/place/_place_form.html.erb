@@ -12,8 +12,8 @@ if action == nil
 end
 %>
 <span class="pointInput" id="<%=type%>_id">
-<%= form_tag(action,
-              :onsubmit => "setBBox(this);showWall();",
+<%= form_tag(action,:id => type+"_form_id",
+              :onsubmit => "setBBox('"+type+"_form_id');showWall();",
               :remote => true) do |f| %>
 			<%= text_field_tag "query",default, :style=> "width:150px;" %>
         <%= hidden_field_tag :type, type %>
@@ -26,5 +26,10 @@ end
           link_to image_tag("delete.gif", :border=>0,:class => "delete"), "/updateRoute?delete_point="+type,:class=>"delete", :remote => true,:onclick => 'showWall();'%>
 	<% end%>
 	<% end%>
-        
+
+  <!--script type="text/javascript">
+    var form = document.getElementById('<%=type+"_form_id"%>');
+    
+    Event.observe(form.query, 'onkeypress', function(event) { alert("enter");});
+    </script-->
 </span>

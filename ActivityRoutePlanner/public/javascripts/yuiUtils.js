@@ -143,17 +143,28 @@ function buildUrl(url,params){
 }
 
 function makeDialog(id){
-    // Build overlay2 dynamically, at mouse position
-    YAHOO.yuiObjectContainer.standardDialog = new YAHOO.widget.Dialog(id, {
-        center : true,
-        visible:false,
-        close:true,
-        scrollable: true,
-        zindex:100,
-        width:"260px"
-    } );
+
+    if(YAHOO.yuiObjectContainer.standardDialog){
+        YAHOO.yuiObjectContainer.standardDialog.destroy();
+    }
+        // Build overlay2 dynamically, at mouse position
+        YAHOO.yuiObjectContainer.standardDialog = new YAHOO.widget.Dialog(id, {
+            center : true,
+            visible:false,
+            close:true,
+            scrollable: true,
+            zindex:100,
+            width:"260px"
+        } );
+        
+    
     YAHOO.yuiObjectContainer.standardDialog.setBody("<div id=\""+id+"_div\" class=\"dialog\"></div>");
+    YAHOO.yuiObjectContainer.standardDialog.subscribe( "beforeHide", removeTempMarkers);
     //render popup
     YAHOO.yuiObjectContainer.standardDialog.render(document.body);
+
+
+    
+
     return YAHOO.yuiObjectContainer.standardDialog;
 }
