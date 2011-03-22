@@ -12,6 +12,11 @@ function resizeMap(){
 function setMapExtent(extent) {
    map.zoomToExtent(extent.clone().transform(projection, map.getProjectionObject()));
 }
+function setZoom(minlon,minlat,maxlon,maxlat){
+    var bounds = new OpenLayers.Bounds(minlon,minlat,maxlon,maxlat);
+    bounds.transform(projection,map.getProjectionObject());
+    return map.zoomToExtent(bounds);
+}
 
 function getMapExtent(){
    return map.getExtent().clone().transform(map.getProjectionObject(), projection);
@@ -24,4 +29,3 @@ function setBBox(form_id){
     form.maxlon.value = extent.right;
     form.maxlat.value = extent.top;
 }
-//Event.observe('start_form_id', 'submit', function(event) { setBBox('start_form_id');});

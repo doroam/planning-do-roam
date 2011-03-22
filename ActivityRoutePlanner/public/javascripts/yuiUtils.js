@@ -53,6 +53,10 @@ function showSetTempMenu(name,lat,lon,type,event){
     var mouseXY = YAHOO.util.Event.getXY(event);
     var mX = mouseXY[0];
     var mY = mouseXY[1];
+
+    if(YAHOO.yuiObjectContainer.pointMenu){
+        YAHOO.yuiObjectContainer.pointMenu.destroy();
+    }
     // Build overlay2 dynamically, at mouse position
     YAHOO.yuiObjectContainer.pointMenu = new YAHOO.widget.Dialog("setPoint", {
         xy:[mX,mY],
@@ -93,6 +97,10 @@ function showSetPointMenu(latLon,e){
     var mX = mouseXY[0];
     var mY = mouseXY[1];
 
+
+    if(YAHOO.yuiObjectContainer.pointMenu){
+        YAHOO.yuiObjectContainer.pointMenu.destroy();
+    }
     // Build overlay2 dynamically, at mouse position
     YAHOO.yuiObjectContainer.pointMenu = new YAHOO.widget.Dialog("setPoint", {
         xy:[mX,mY],
@@ -127,7 +135,10 @@ function hideSetPoint(){
 }
 
 function loadContent(url,div_id){
-    new Ajax.Updater(div_id, url,{parameters : "authenticity_token="+_token,evalScripts:true});
+    new Ajax.Updater(div_id, url,{
+        parameters : "authenticity_token="+_token,
+        evalScripts:true
+    });
 }
 function buildUrl(url,params){
     var result = url+"?";
@@ -147,15 +158,15 @@ function makeDialog(id){
     if(YAHOO.yuiObjectContainer.standardDialog){
         YAHOO.yuiObjectContainer.standardDialog.destroy();
     }
-        // Build overlay2 dynamically, at mouse position
-        YAHOO.yuiObjectContainer.standardDialog = new YAHOO.widget.Dialog(id, {
-            center : true,
-            visible:false,
-            close:true,
-            scrollable: true,
-            zindex:100,
-            width:"260px"
-        } );
+    // Build overlay2 dynamically, at mouse position
+    YAHOO.yuiObjectContainer.standardDialog = new YAHOO.widget.Dialog(id, {
+        center : true,
+        visible:false,
+        close:true,
+        scrollable: true,
+        zindex:100,
+        width:"260px"
+    } );
         
     
     YAHOO.yuiObjectContainer.standardDialog.setBody("<div id=\""+id+"_div\" class=\"dialog\"></div>");
@@ -167,4 +178,9 @@ function makeDialog(id){
     
 
     return YAHOO.yuiObjectContainer.standardDialog;
+}
+
+function hideDialog(){
+    if(YAHOO.yuiObjectContainer.standardDialog)
+        YAHOO.yuiObjectContainer.standardDialog.hide();
 }

@@ -178,7 +178,6 @@ function addMark(name,lat,lon,type){
  * @param id id of the marker
  */
 function removeMarker(id){
-    //alert(id);
     var marker = markerHash[id];
     if(marker!=null){
         layerMarkers.removeMarker(marker);
@@ -311,10 +310,10 @@ function init(lat,lon,zoom) {
  */
 function removeMarks(){
     layerMarkers.clearMarkers();
-    if (markerHash["start"]!=null)
+    /*if (markerHash["start"]!=null)
         layerMarkers.addMarker(markerHash["start"]);
     if(markerHash["end"]!=null)
-        layerMarkers.addMarker(markerHash["end"]);
+        layerMarkers.addMarker(markerHash["end"]);*/
     removeRoute();
 }
 /**

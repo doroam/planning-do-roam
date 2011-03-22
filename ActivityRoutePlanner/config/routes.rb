@@ -11,6 +11,7 @@ ActivityRoutePlanner::Application.routes.draw do
   root :to => "init#index"
   
   match "updateRoute" => "generate_place#update_place"
+  match "remove_point" => "generate_place#remove_point"
   match "add_activity" => "activity#update_activity"
   match "delete_activity" => "activity#update_activity"
   match "reset" => "init#index"

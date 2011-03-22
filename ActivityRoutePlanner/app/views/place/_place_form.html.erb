@@ -23,13 +23,12 @@ end
         <%= hidden_field_tag :maxlat %>
         <%if showDelete%>
 	<%= # link to remove that activity
-          link_to image_tag("delete.gif", :border=>0,:class => "delete"), "/updateRoute?delete_point="+type,:class=>"delete", :remote => true,:onclick => 'showWall();'%>
+          link_to image_tag("delete.gif", :border=>0,:class => "delete"),
+                        {:controller => :generate_place,
+                        :action => :remove_point,
+                        :delete_point=>type},
+                        :remote => true,
+                        :onclick => 'showWall();'%>
 	<% end%>
 	<% end%>
-
-  <!--script type="text/javascript">
-    var form = document.getElementById('<%=type+"_form_id"%>');
-    
-    Event.observe(form.query, 'onkeypress', function(event) { alert("enter");});
-    </script-->
 </span>

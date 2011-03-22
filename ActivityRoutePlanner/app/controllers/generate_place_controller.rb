@@ -4,22 +4,20 @@ class GeneratePlaceController < ApplicationController
   def update_place
     @route = Route.find(session[:main_route])
 
+    point = nil
     #start point was set
     if params[:start]!=nil
-      set_point(@route.start_point)
-      @route.reset()
-      #destination point was set
+      point = @route.start_point
     elsif params[:end]!=nil
-      set_point(@route.end_point)
-      @route.reset()
-      #delete a point
-    elsif params[:delete_point] != nil
-      if params[:delete_point].eql? "start"
-        remove_point(@route.start_point)
-      elsif params[:delete_point].eql? "end"
-        remove_point(@route.end_point)
-      end
+      point = @route.end_point
     end
+
+    if params[:result]!= nil
+      set_point_from_result(point)
+    else
+      set_point(point)
+    end
+    @route.reset()
 
     #activate or deactivate activities to choose
     activate_activities(@route)
@@ -28,12 +26,43 @@ class GeneratePlaceController < ApplicationController
       format.js
     end
   end
+
+
   #removes a point
-  def remove_point(point)
-    point.reset
+  def remove_point
+    @route = Route.find(session[:main_route])
+    point = nil
+    if params[:delete_point].eql? "start"
+      point = @route.start_point
+    elsif params[:delete_point].eql? "end"
+      point = @route.end_point
+    end
+    @route.kml_path = nil
+    @route.save
+    if point != nil
+      point.reset
+      point.save
+    end
+    #activate or deactivate activities to choose
+    activate_activities(@route)
+
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  
+  #sets a point with the entered label
+  def set_point_from_result(point)
+    label = params[:result][:name]
+    if label==nil || "".eql?(label)
+      label = params[:result][:lat]+":"+params[:result][:lon]
+    end
+    point.label = label
+    point.set_coordinates(params[:result][:lat],params[:result][:lon])
     point.save
   end
-  #sets a point with the entered label
+
   def set_point(point)
     label = params[:name]
     if label==nil || "".eql?(label)
