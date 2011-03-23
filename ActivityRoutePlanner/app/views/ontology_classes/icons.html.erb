@@ -1,0 +1,11 @@
+<table>
+<% @ontology_classes.each do |ontology_class| %>
+ <% if not ontology_class.iconfile.nil? then %>
+<tr>
+    <td><%=h ontology_class.name %></td>
+    <td><img src = <%= "/images/markers/" + ontology_class.iconfile %>
+             alt=<%=h ontology_class.ontology_id %>></td>
+</tr>
+ <%end%>
+<% end %>
+ </table>

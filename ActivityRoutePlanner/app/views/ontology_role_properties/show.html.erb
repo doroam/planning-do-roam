@@ -1,0 +1,18 @@
+<p>
+  <b>Role:</b>
+  <%=h @ontology_role_property.role %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%=h @ontology_role_property.type %>
+</p>
+
+<p>
+  <b>Term:</b>
+  <%=h @ontology_role_property.term %>
+</p>
+
+
+<%= link_to 'Edit', edit_ontology_role_property_path(@ontology_role_property) %> |
+<%= link_to 'Back', ontology_role_properties_path %>

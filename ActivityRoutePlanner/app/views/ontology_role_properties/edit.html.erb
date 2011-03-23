@@ -1,0 +1,24 @@
+<h1>Editing ontology_role_property</h1>
+
+<% form_for(@ontology_role_property) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :role %><br />
+    <%= f.text_field :role %>
+  </p>
+  <p>
+    <%= f.label :type %><br />
+    <%= f.text_field :type %>
+  </p>
+  <p>
+    <%= f.label :term %><br />
+    <%= f.text_field :term %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @ontology_role_property %> |
+<%= link_to 'Back', ontology_role_properties_path %>

@@ -1,0 +1,24 @@
+<h1>Listing ontology_class_properties</h1>
+
+<table>
+  <tr>
+    <th>Concept</th>
+    <th>Property</th>
+    <th>Term</th>
+  </tr>
+
+<% @ontology_class_properties.each do |ontology_class_property| %>
+  <tr>
+    <td><%=h ontology_class_property.concept %></td>
+    <td><%=h ontology_class_property.property %></td>
+    <td><%=h ontology_class_property.term %></td>
+    <td><%= link_to 'Show', ontology_class_property %></td>
+    <td><%= link_to 'Edit', edit_ontology_class_property_path(ontology_class_property) %></td>
+    <td><%= link_to 'Destroy', ontology_class_property, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New ontology_class_property', new_ontology_class_property_path %>

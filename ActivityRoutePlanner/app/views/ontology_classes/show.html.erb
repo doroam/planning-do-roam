@@ -1,0 +1,13 @@
+<p>
+  <b>Name:</b>
+  <%=h @ontology_class.name %>
+</p>
+
+<p>
+  <b>Ontology:</b>
+  <%=h @ontology_class.ontology_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_ontology_class_path(@ontology_class) %> |
+<%= link_to 'Back', ontology_classes_path %>

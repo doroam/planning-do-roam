@@ -1,0 +1,799 @@
+logic OWL
+
+spec Activities = 
+    
+
+
+
+Class: TouristInfo
+
+    SubClassOf: 
+        Buergerservice
+    
+    
+
+
+
+Class: Erlebnisbad
+
+    SubClassOf: 
+        Schwimmbad
+    
+    
+
+
+
+Class: Museum
+
+    SubClassOf: 
+        Freizeit
+    
+    
+
+
+
+Class: Feinkost
+
+    SubClassOf: 
+        Lebensmittel
+    
+    
+
+
+
+Class: Deutsch
+
+    SubClassOf: 
+        Restaurants
+    
+    
+
+
+
+Class: Cafes
+
+    SubClassOf: 
+        Gastronomie
+    
+    
+
+
+
+Class: Italienisch
+
+    SubClassOf: 
+        Restaurants
+    
+    
+
+
+
+Class: Mall
+
+    SubClassOf: 
+        Shopping
+    
+    
+
+
+
+Class: Moschee
+
+    SubClassOf: 
+        Sehenswuerdigkeiten
+    
+    
+
+
+
+Class: SportAndFitness
+
+    SubClassOf: 
+        Freizeit
+    
+    
+
+
+
+Class: Addresse
+
+    
+
+
+
+Class: Buergerservice
+
+    SubClassOf: 
+        Aktivitaeten
+    
+    
+
+
+
+Class: Elektrotankstelle
+
+    SubClassOf: 
+        Aktivitaeten
+    
+    
+
+
+
+Class: Spanisch
+
+    SubClassOf: 
+        Restaurants
+    
+    
+
+
+
+Class: Sauna
+
+    SubClassOf: 
+        Wellness
+    
+    
+
+
+
+Class: Zahnarzt
+
+    SubClassOf: 
+        Gesundheit
+    
+    
+
+
+
+Class: Meer
+
+    SubClassOf: 
+        Landschaft
+    
+    
+
+
+
+Class: Seen
+
+    SubClassOf: 
+        Landschaft
+    
+    
+
+
+
+Class: Elektronik
+
+    SubClassOf: 
+        Shopping
+    
+    
+
+
+
+Class: Oeffnungszeiten
+
+    
+
+
+
+Class: Franzoesisch
+
+    SubClassOf: 
+        Restaurants
+    
+    
+
+
+
+Class: Krankenhaus
+
+    SubClassOf: 
+        Gesundheit
+    
+    
+
+
+
+Class: Wellness
+
+    SubClassOf: 
+        Freizeit
+    
+    
+
+
+
+Class: Synagoge
+
+    SubClassOf: 
+        Sehenswuerdigkeiten
+    
+    
+
+
+
+Class: Massage
+
+    SubClassOf: 
+        Wellness
+    
+    
+
+
+
+Class: Geldautomat
+
+    SubClassOf: 
+        Finanzen
+    
+    
+
+
+
+Class: Berge
+
+    SubClassOf: 
+        Landschaft
+    
+    
+
+
+
+Class: Schwimmbad
+
+    SubClassOf: 
+        Freizeit
+    
+    
+
+
+
+Class: Baeckerei
+
+    SubClassOf: 
+        Lebensmittel
+    
+    
+
+
+
+Class: Gastronomie
+
+    SubClassOf: 
+        Aktivitaeten
+    
+    
+
+
+
+Class: Drogeriemarkt
+
+    SubClassOf: 
+        Shopping
+    
+    
+
+
+
+Class: Sehenswuerdigkeiten
+
+    SubClassOf: 
+        Aktivitaeten
+    
+    
+
+
+
+Class: Thailaendisch
+
+    SubClassOf: 
+        Restaurants
+    
+    
+
+
+
+Class: Kino
+
+    SubClassOf: 
+        Freizeit
+    
+    
+
+
+
+Class: Ruinen
+
+    SubClassOf: 
+        Sehenswuerdigkeiten
+    
+    
+
+
+
+Class: Strassenbahn
+
+    SubClassOf: 
+        OEPNV
+    
+    
+
+
+
+Class: Metzgerei
+
+    SubClassOf: 
+        Lebensmittel
+    
+    
+
+
+
+Class: Burgen
+
+    SubClassOf: 
+        Sehenswuerdigkeiten
+    
+    
+
+
+
+Class: Moebel
+
+    SubClassOf: 
+        Shopping
+    
+    
+
+
+
+Class: Bahnhof
+
+    SubClassOf: 
+        OEPNV
+    
+    
+
+
+
+Class: Taeler
+
+    SubClassOf: 
+        Landschaft
+    
+    
+
+
+
+Class: Fisch
+
+    SubClassOf: 
+        Lebensmittel
+    
+    
+
+
+
+Class: Landschaft
+
+    SubClassOf: 
+        Aktivitaeten
+    
+    
+
+
+
+Class: Aktivitaeten
+
+    
+
+
+
+Class: Schuhe
+
+    SubClassOf: 
+        Shopping
+    
+    
+
+
+
+Class: Wechselstube
+
+    SubClassOf: 
+        Finanzen
+    
+    
+
+
+
+Class: Bibliothek
+
+    SubClassOf: 
+        Buergerservice
+    
+    
+
+
+
+Class: OEPNV
+
+    SubClassOf: 
+        Aktivitaeten
+    
+    
+
+
+
+Class: Schule
+
+    SubClassOf: 
+        Bildung
+    
+    
+
+
+
+Class: Waelder
+
+    SubClassOf: 
+        Landschaft
+    
+    
+
+
+
+Class: CarSharing
+
+    SubClassOf: 
+        OEPNV
+    
+    
+
+
+
+Class: Post
+
+    SubClassOf: 
+        Buergerservice
+    
+    
+
+
+
+Class: Bank
+
+    SubClassOf: 
+        Finanzen
+    
+    
+
+
+
+Class: Aerzte
+
+    SubClassOf: 
+        Gesundheit
+    
+    
+
+
+
+Class: Fluesse
+
+    SubClassOf: 
+        Landschaft
+    
+    
+
+
+
+Class: Bushaltestelle
+
+    SubClassOf: 
+        OEPNV
+    
+    
+
+
+
+Class: Chinesisch
+
+    SubClassOf: 
+        Restaurants
+    
+    
+
+
+
+Class: Gesundheit
+
+    SubClassOf: 
+        Aktivitaeten
+    
+    
+
+
+
+Class: Indisch
+
+    SubClassOf: 
+        Restaurants
+    
+    
+
+
+
+Class: Griechisch
+
+    SubClassOf: 
+        Restaurants
+    
+    
+
+
+
+Class: Oper
+
+    SubClassOf: 
+        Freizeit
+    
+    
+
+
+
+Class: Schreibwaren
+
+    SubClassOf: 
+        Shopping
+    
+    
+
+
+
+Class: Fahrradverleih
+
+    SubClassOf: 
+        OEPNV
+    
+    
+
+
+
+Class: Arabisch
+
+    SubClassOf: 
+        Restaurants
+    
+    
+
+
+
+Class: Freizeit
+
+    SubClassOf: 
+        Aktivitaeten
+    
+    
+
+
+
+Class: Klettern
+
+    SubClassOf: 
+        SportAndFitness
+    
+    
+
+
+
+Class: Kita
+
+    SubClassOf: 
+        Aktivitaeten
+    
+    
+
+
+
+Class: Oekostrom
+
+    SubClassOf: 
+        Elektrotankstelle
+    
+    
+
+
+
+Class: Fitnessstudio
+
+    SubClassOf: 
+        SportAndFitness
+    
+    
+
+
+
+Class: Friseur
+
+    SubClassOf: 
+        Shopping
+    
+    
+
+
+
+Class: U-Bahn
+
+    SubClassOf: 
+        OEPNV
+    
+    
+
+
+
+Class: Textilien
+
+    SubClassOf: 
+        Shopping
+    
+    
+
+
+
+Class: Polizei
+
+    SubClassOf: 
+        Buergerservice
+    
+    
+
+
+
+Class: Shopping
+
+    SubClassOf: 
+        Aktivitaeten
+    
+    
+
+
+
+Class: Buecher
+
+    SubClassOf: 
+        Shopping
+    
+    
+
+
+
+Class: Parkplatz
+
+    SubClassOf: 
+        Aktivitaeten
+    
+    
+
+
+
+Class: Fastfood
+
+    SubClassOf: 
+        Gastronomie
+    
+    
+
+
+
+Class: Schloesser
+
+    SubClassOf: 
+        Sehenswuerdigkeiten
+    
+    
+
+
+
+Class: Theater
+
+    SubClassOf: 
+        Freizeit
+    
+    
+
+
+
+Class: Lebensmittel
+
+    SubClassOf: 
+        Shopping
+    
+    
+
+
+
+Class: Blumen
+
+    SubClassOf: 
+        Shopping
+    
+    
+
+
+
+Class: Bildung
+
+    SubClassOf: 
+        Aktivitaeten
+    
+    
+
+
+
+Class: Hochschule
+
+    SubClassOf: 
+        Bildung
+    
+    
+
+
+
+Class: Finanzen
+
+    SubClassOf: 
+        Aktivitaeten
+    
+    
+
+
+
+Class: Parkanlage
+
+    SubClassOf: 
+        Freizeit
+    
+    
+
+
+
+Class: Kirchen
+
+    SubClassOf: 
+        Sehenswuerdigkeiten
+    
+    
+
+
+
+Class: Restaurants
+
+    SubClassOf: 
+        Gastronomie
+    
+    
+
+
+
+Class: Apotheke
+
+    SubClassOf: 
+        Gesundheit
+    
+    
+
+
+
+Class: Supermarkt
+
+    SubClassOf: 
+        Shopping
+    
+    
+
+
+

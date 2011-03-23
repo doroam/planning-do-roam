@@ -1,0 +1,20 @@
+<h1>Editing ontology_class</h1>
+
+<% form_for(@ontology_class) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :ontology_id %><br />
+    <%= f.text_field :ontology_id %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @ontology_class %> |
+<%= link_to 'Back', ontology_classes_path %>

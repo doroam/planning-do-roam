@@ -1,0 +1,24 @@
+<h1>Listing ontologyroles</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Domain</th>
+    <th>Range</th>
+  </tr>
+
+<% @ontologyroles.each do |ontologyrole| %>
+  <tr>
+    <td><%=h ontologyrole.name %></td>
+    <td><%=h ontologyrole.domain %></td>
+    <td><%=h ontologyrole.range %></td>
+    <td><%= link_to 'Show', ontologyrole %></td>
+    <td><%= link_to 'Edit', edit_ontologyrole_path(ontologyrole) %></td>
+    <td><%= link_to 'Destroy', ontologyrole, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New ontologyrole', new_ontologyrole_path %>

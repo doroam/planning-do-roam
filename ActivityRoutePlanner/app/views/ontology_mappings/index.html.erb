@@ -1,0 +1,24 @@
+<h1>Listing ontology_mappings</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Source</th>
+    <th>Target</th>
+  </tr>
+
+<% @ontology_mappings.each do |ontology_mapping| %>
+  <tr>
+    <td><%=h ontology_mapping.name %></td>
+    <td><%=h ontology_mapping.source_id %></td>
+    <td><%=h ontology_mapping.target_id %></td>
+    <td><%= link_to 'Show', ontology_mapping %></td>
+    <td><%= link_to 'Edit', edit_ontology_mapping_path(ontology_mapping) %></td>
+    <td><%= link_to 'Destroy', ontology_mapping, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New ontology_mapping', new_ontology_mapping_path %>

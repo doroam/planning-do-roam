@@ -1,0 +1,24 @@
+<h1>Editing ontology_mapping</h1>
+
+<% form_for(@ontology_mapping) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :source_id %><br />
+    <%= f.text_field :source_id %>
+  </p>
+  <p>
+    <%= f.label :target_id %><br />
+    <%= f.text_field :target_id %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @ontology_mapping %> |
+<%= link_to 'Back', ontology_mappings_path %>

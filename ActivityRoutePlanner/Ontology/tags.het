@@ -1,0 +1,3226 @@
+logic OWL 
+
+spec Tags =
+
+ObjectProperty: hasCuisine
+
+    Domain: 
+        Places_to_eat
+    
+    Range: 
+        k_cuisine
+    
+    
+
+
+
+Class: v_beverages
+
+    SubClassOf: 
+        k_shop
+    
+    
+
+
+
+Class: v_doctors
+
+    SubClassOf: 
+        k_amenity
+    
+    
+
+
+
+Class: v_chemist
+
+    SubClassOf: 
+        k_shop
+    
+    
+
+
+
+Class: v_department_store
+
+    SubClassOf: 
+        k_shop
+    
+    
+
+
+
+Class: v_artwork
+
+    SubClassOf: 
+        k_tourism
+    
+    
+
+
+
+Class: v_gymnastics
+
+    SubClassOf: 
+        k_sport
+    
+    
+
+
+
+Class: v_golf_course
+
+    SubClassOf: 
+        k_leisure
+    
+    
+
+
+
+Class: v_fishing
+
+    SubClassOf: 
+        k_leisure
+    
+    
+
+
+
+Class: v_bridleway
+
+    SubClassOf: 
+        k_highway
+    
+    
+
+
+
+Class: v_river
+
+    SubClassOf: 
+        k_waterway
+    
+    
+
+
+
+Class: Landscape
+
+    EquivalentTo: 
+        Forest
+        or v_beach
+        or v_peak
+        or v_river
+        or v_valley
+        or v_water
+    
+    
+
+
+
+Class: Wellness
+
+    EquivalentTo: 
+        v_massage
+        or v_sauna
+    
+    SubClassOf: 
+        owl:Thing
+    
+    
+
+
+
+Class: v_forest
+
+    SubClassOf: 
+        k_landuse
+    
+    
+
+
+
+Class: v_hairdresser
+
+    SubClassOf: 
+        k_shop
+    
+    
+
+
+
+Class: v_table_tennis
+
+    SubClassOf: 
+        k_sport
+    
+    
+
+
+
+Class: k_addr:city
+
+    SubClassOf: 
+        owl:Thing
+    
+    
+
+
+
+Class: v_school
+
+    SubClassOf: 
+        k_amenity
+    
+    
+
+
+
+Class: v_stand_up_comedy
+
+    SubClassOf: 
+        k_theatre:genre
+    
+    
+
+
+
+Class: k_fuel:electricity
+
+    SubClassOf: 
+        owl:Thing
+    
+    
+
+
+
+Class: v_footway
+
+    SubClassOf: 
+        k_highway
+    
+    
+
+
+
+Class: v_common
+
+    SubClassOf: 
+        k_leisure
+    
+    
+
+
+
+Class: v_chinese
+
+    SubClassOf: 
+        k_cuisine
+    
+    
+
+
+
+Class: k_addr:housenumber
+
+    SubClassOf: 
+        owl:Thing
+    
+    
+
+
+
+Class: v_clothes
+
+    SubClassOf: 
+        k_shop
+    
+    
+
+
+
+Class: v_coffee_shop
+
+    SubClassOf: 
+        k_cuisine
+    
+    
+
+
+
+Class: v_car_rental
+
+    SubClassOf: 
+        k_amenity
+    
+    
+
+
+
+Class: v_bar
+
+    SubClassOf: 
+        k_amenity
+    
+    
+
+
+
+Class: v_raceway
+
+    SubClassOf: 
+        k_highway
+    
+    
+
+
+
+Class: k_landuse
+
+    SubClassOf: 
+        owl:Thing
+    
+    
+
+
+
+Class: v_beauty
+
+    SubClassOf: 
+        k_shop
+    
+    
+
+
+
+Class: v_laundry
+
+    SubClassOf: 
+        k_shop
+    
+    
+
+
+
+Class: v_dance
+
+    SubClassOf: 
+        k_leisure
+    
+    
+
+
+
+Class: v_wayside_cross
+
+    SubClassOf: 
+        k_historic
+    
+    
+
+
+
+Class: k_highway
+
+    SubClassOf: 
+        owl:Thing
+    
+    
+
+
+
+Class: v_bench
+
+    SubClassOf: 
+        k_amenity
+    
+    
+
+
+
+Class: v_opera
+
+    SubClassOf: 
+        k_theatre:genre
+    
+    
+
+
+
+Class: v_picnic_table
+
+    SubClassOf: 
+        k_leisure
+    
+    
+
+
+
+Class: IndianRestaurant
+
+    EquivalentTo: 
+        hasCuisine some v_indian
+    
+    SubClassOf: 
+        v_restaurant
+    
+    
+
+
+
+Class: v_recreation_ground
+
+    SubClassOf: 
+        k_leisure
+    
+    
+
+
+
+Class: v_fish
+
+    SubClassOf: 
+        k_cuisine
+    
+    
+
+
+
+Class: v_travel_agency
+
+    SubClassOf: 
+        k_shop
+    
+    
+
+
+
+Class: v_arts_centre
+
+    SubClassOf: 
+        k_amenity
+    
+    
+
+
+
+Class: v_bicycle
+
+    SubClassOf: 
+        k_shop
+    
+    
+
+
+
+Class: v_jewelry
+
+    SubClassOf: 
+        k_shop
+    
+    
+
+
+
+Class: v_pedestrian
+
+    SubClassOf: 
+        k_highway
+    
+    
+
+
+
+Class: k_amenity
+
+    SubClassOf: 
+        owl:Thing
+    
+    
+
+
+
+Class: v_nature_reserve
+
+    SubClassOf: 
+        k_leisure
+    
+    
+
+
+
+Class: Education
+
+    EquivalentTo: 
+        v_school
+        or v_university
+    
+    SubClassOf: 
+        owl:Thing
+    
+    
+
+
+
+Class: v_biergarten
+
+    SubClassOf: 
+        k_amenity
+    
+    
+
+
+
+Class: k_smoking_outside_separated
+
+    SubClassOf: 
+        k_smoking_outside
+    
+    
+
+
+
+Class: v_building
+
+    SubClassOf: 
+        k_bicycle_parking
+    
+    
+
+
+
+Class: v_baseball
+
+    SubClassOf: 
+        k_sport
+    
+    
+
+
+
+Class: v_pub
+
+    SubClassOf: 
+        k_amenity
+    
+    
+
+
+
+Class: v_shelter
+
+    SubClassOf: 
+        k_amenity
+    
+    
+
+
+
+Class: v_theme_park
+
+    SubClassOf: 
+        k_tourism
+    
+    
+
+
+
+Class: v_computer
+
+    SubClassOf: 
+        k_shop
+    
+    
+
+
+
+Class: v_town_hall
+
+    SubClassOf: 
+        k_amenity
+    
+    
+
+
+
+Class: v_football
+
+    SubClassOf: 
+        k_sport
+    
+    
+
+
+
+Class: v_car_wash
+
+    SubClassOf: 
+        k_amenity
+    
+    
+
+
+
+Class: v_trunk
+
+    SubClassOf: 
+        k_highway
+    
+    
+
+
+
+Class: v_chalet
+
+    SubClassOf: 
+        k_tourism
+    
+    
+
+
+
+Class: v_hardware
+
+    SubClassOf: 
+        k_shop
+    
+    
+
+
+
+Class: v_spiritualist
+
+    SubClassOf: 
+        k_religion
+    
+    
+
+
+
+Class: FrenchRestaurant
+
+    EquivalentTo: 
+        hasCuisine some v_french
+    
+    SubClassOf: 
+        v_restaurant
+    
+    
+
+
+
+Class: v_dedicated
+
+    SubClassOf: 
+        k_smoking
+    
+    
+
+
+
+Class: v_basketball
+
+    SubClassOf: 
+        k_sport
+    
+    
+
+
+
+Class: v_vegetarian
+
+    SubClassOf: 
+        k_cuisine
+    
+    
+
+
+
+Class: v_international
+
+    SubClassOf: 
+        k_cuisine
+    
+    
+
+
+
+Class: v_asian
+
+    SubClassOf: 
+        k_cuisine
+    
+    
+
+
+
+Class: v_multi
+
+    SubClassOf: 
+        k_sport
+    
+    
+
+
+
+Class: v_peak
+
+    SubClassOf: 
+        k_natural
+    
+    
+
+
+
+Class: k_smoking_outside_v_no
+
+    SubClassOf: 
+        k_smoking_outside
+    
+    
+
+
+
+Class: v_motorway_link
+
+    SubClassOf: 
+        k_highway
+    
+    
+
+
+
+Class: v_soccer
+
+    SubClassOf: 
+        k_sport
+    
+    
+
+
+
+Class: v_memorial
+
+    SubClassOf: 
+        k_historic
+    
+    
+
+
+
+Class: v_coastline
+
+    SubClassOf: 
+        k_natural
+    
+    
+
+
+
+Class: v_cafe
+
+    SubClassOf: 
+        k_amenity
+    
+    
+
+
+
+Class: v_wall_loops
+
+    SubClassOf: 
+        k_bicycle_parking
+    
+    
+
+
+
+Class: v_airport
+
+    SubClassOf: 
+        k_amenity
+    
+    
+
+
+
+Class: k_name
+
+    SubClassOf: 
+        owl:Thing
+    
+    
+
+
+
+Class: PublicService
+
+    EquivalentTo: 
+        v_information
+        or v_library
+        or v_police
+        or v_post_office
+    
+    
+
+
+
+Class: v_jain
+
+    SubClassOf: 
+        k_religion
+    
+    
+
+
+
+Class: k_smoking
+
+    SubClassOf: 
+        owl:Thing
+    
+    
+
+
+
+Class: v_renewable
+
+    SubClassOf: 
+        k_power_source
+    
+    
+
+
+
+Class: v_taoist
+
+    SubClassOf: 
+        k_religion
+    
+    
+
+
+
+Class: Groceries
+
+    EquivalentTo: 
+        v_bakery
+        or v_beverages
+        or v_butcher
+        or v_convenience
+        or v_deli
+        or v_organic
+        or v_seafood
+        or v_supermarket
+    
+    
+
+
+
+Class: v_police
+
+    SubClassOf: 
+        k_amenity
+    
+    
+
+
+
+Class: v_drinking_water
+
+    SubClassOf: 
+        k_amenity
+    
+    
+
+
+
+Class: v_fast_food
+
+    SubClassOf: 
+        k_amenity
+    
+    
+
+
+
+Class: v_equestrian
+
+    SubClassOf: 
+        k_sport
+    
+    
+
+
+
+Class: v_arena
+
+    SubClassOf: 
+        k_leisure
+    
+    
+
+
+
+Class: v_dog_park
+
+    SubClassOf: 
+        k_leisure
+    
+    
+
+
+
+Class: FreeTimePlaces
+
+    EquivalentTo: 
+        v_cinema
+        or v_museum
+        or v_theatre
+    
+    SubClassOf: 
+        owl:Thing
+    
+    
+
+
+
+Class: v_archaeological_site
+
+    SubClassOf: 
+        k_historic
+    
+    
+
+
+
+Class: v_japanese
+
+    SubClassOf: 
+        k_cuisine
+    
+    
+
+
+
+Class: v_station
+
+    SubClassOf: 
+        k_railway
+    
+    
+
+
+
+Class: v_shoes
+
+    SubClassOf: 
+        k_shop
+    
+    
+
+
+
+Class: v_pet
+
+    SubClassOf: 
+        k_shop
+    
+    
+
+
+
+Class: v_mall
+
+    SubClassOf: 
+        k_shop
+    
+    
+
+
+
+Class: v_outdoor
+
+    SubClassOf: 
+        k_shop
+    
+    
+
+
+
+Class: v_secondary_link
+
+    SubClassOf: 
+        k_highway
+    
+    
+
+
+
+Class: v_electronics
+
+    SubClassOf: 
+        k_shop
+    
+    
+
+
+
+Class: k_addr:street
+
+    SubClassOf: 
+        owl:Thing
+    
+    
+
+
+
+Class: v_cabaret
+
+    SubClassOf: 
+        k_theatre:genre
+    
+    
+
+
+
+Class: v_toilets
+
+    SubClassOf: 
+        k_amenity
+    
+    
+
+
+
+Class: v_tram_stop
+
+    SubClassOf: 
+        k_railway
+    
+    
+
+
+
+Class: v_bay
+
+    SubClassOf: 
+        k_natural
+    
+    
+
+
+
+Class: v_greek
+
+    SubClassOf: 
+        k_cuisine
+    
+    
+
+
+
+Class: v_buddhist
+
+    SubClassOf: 
+        k_religion
+    
+    
+
+
+
+Class: v_fire_station
+
+    SubClassOf: 
+        k_amenity
+    
+    
+
+
+
+Class: v_dry_cleaning
+
+    SubClassOf: 
+        k_shop
+    
+    
+
+
+
+Class: v_video
+
+    SubClassOf: 
+        k_shop
+    
+    
+
+
+
+Class: v_informal
+
+    SubClassOf: 
+        k_bicycle_parking
+    
+    
+
+
+
+Class: v_drama
+
+    SubClassOf: 
+        k_theatre:genre
+    
+    
+
+
+
+Class: v_supermarket
+
+    SubClassOf: 
+        k_shop
+    
+    
+
+
+
+Class: v_bahai
+
+    SubClassOf: 
+        k_religion
+    
+    
+
+
+
+Class: ActivityTags
+
+    EquivalentTo: 
+        Attractions
+        or ChargingStation
+        or Education
+        or Finances
+        or Forest
+        or Groceries
+        or Health
+        or Landscape
+        or Leisure
+        or PublicTransport
+        or Ruins
+        or SwimmingPool
+        or TramStop
+        or Wellness
+        or k_amenity
+        or k_bicycle_parking
+        or k_emergency
+        or k_highway
+        or k_historic
+        or k_landuse
+        or k_natural
+        or k_religion
+        or k_ruins
+        or k_shop
+        or k_sport
+        or k_tourism
+    
+    
+
+
+
+Class: GreekRestaurant
+
+    EquivalentTo: 
+        hasCuisine some v_greek
+    
+    SubClassOf: 
+        v_restaurant
+    
+    
+
+
+
+Class: v_courthouse
+
+    SubClassOf: 
+        k_amenity
+    
+    
+
+
+
+Class: v_thai
+
+    SubClassOf: 
+        k_cuisine
+    
+    
+
+
+
+Class: v_philharmonic
+
+    SubClassOf: 
+        k_theatre:genre
+    
+    
+
+
+
+Class: v_musical
+
+    SubClassOf: 
+        k_theatre:genre
+    
+    
+
+
+
+Class: v_service
+
+    SubClassOf: 
+        k_highway
+    
+    
+
+
+
+Class: Forest
+
+    EquivalentTo: 
+        v_forest
+        or v_wood
+    
+    
+
+
+
+Class: v_jewish
+
+    SubClassOf: 
+        k_religion
+    
+    
+
+
+
+Class: v_unclassified
+
+    SubClassOf: 
+        k_highway
+    
+    
+
+
+
+Class: v_german
+
+    SubClassOf: 
+        k_cuisine
+    
+    
+
+
+
+Class: v_caravan_site
+
+    SubClassOf: 
+        k_tourism
+    
+    
+
+
+
+Class: v_kiosk
+
+    SubClassOf: 
+        k_shop
+    
+    
+
+
+
+Class: ThaiRestaurant
+
+    EquivalentTo: 
+        hasCuisine some v_thai
+    
+    SubClassOf: 
+        v_restaurant
+    
+    
+
+
+
+Class: v_hockey
+
+    SubClassOf: 
+        k_sport
+    
+    
+
+
+
+Class: v_sauna
+
+    SubClassOf: 
+        k_amenity
+    
+    
+
+
+
+Class: v_american
+
+    SubClassOf: 
+        k_cuisine
+    
+    
+
+
+
+Class: v_pharmacy
+
+    SubClassOf: 
+        k_amenity
+    
+    
+
+
+
+Class: v_primary_link
+
+    SubClassOf: 
+        k_highway
+    
+    
+
+
+
+Class: v_shed
+
+    SubClassOf: 
+        k_bicycle_parking
+    
+    
+
+
+
+Class: v_pitch
+
+    SubClassOf: 
+        k_leisure
+    
+    
+
+
+
+Class: k_smoking_v_no
+
+    SubClassOf: 
+        k_smoking
+    
+    
+
+
+
+Class: v_services
+
+    SubClassOf: 
+        k_highway
+    
+    
+
+
+
+Class: v_water_park
+
+    SubClassOf: 
+        k_leisure
+    
+    
+
+
+
+Class: v_varieté
+
+    SubClassOf: 
+        k_theatre:genre
+    
+    
+
+
+
+Class: v_viewpoint
+
+    SubClassOf: 
+        k_tourism
+    
+    
+
+
+
+Class: Address
+
+    SubClassOf: 
+        owl:Thing
+    
+    
+
+
+
+Class: v_arabic
+
+    SubClassOf: 
+        k_cuisine
+    
+    
+
+
+
+Class: k_religion
+
+    SubClassOf: 
+        owl:Thing
+    
+    
+
+
+
+Class: k_bicycle_parking
+
+    SubClassOf: 
+        owl:Thing
+    
+    
+
+
+
+Class: v_fuel
+
+    SubClassOf: 
+        k_amenity
+    
+    
+
+
+
+Class: v_swimming_pool
+
+    SubClassOf: 
+        k_leisure
+    
+    
+
+
+
+Class: Attractions
+
+    EquivalentTo: 
+        Ruins
+        or v_attraction
+        or v_castle
+        or v_christian
+        or v_jewish
+        or v_muslim
+    
+    
+
+
+
+Class: v_community_centre
+
+    SubClassOf: 
+        k_amenity
+    
+    
+
+
+
+Class: v_ice_rink
+
+    SubClassOf: 
+        k_leisure
+    
+    
+
+
+
+Class: v_phone
+
+    SubClassOf: 
+        k_emergency
+    
+    
+
+
+
+Class: v_french
+
+    SubClassOf: 
+        k_cuisine
+    
+    
+
+
+
+Class: v_car
+
+    SubClassOf: 
+        k_shop
+    
+    
+
+
+
+Class: v_zoroastrian
+
+    SubClassOf: 
+        k_religion
+    
+    
+
+
+
+Class: v_post_office
+
+    SubClassOf: 
+        k_amenity
+    
+    
+
+
+
+Class: v_regional
+
+    SubClassOf: 
+        k_cuisine
+    
+    
+
+
+
+Class: v_museum
+
+    SubClassOf: 
+        k_tourism
+    
+    
+
+
+
+Class: v_information
+
+    SubClassOf: 
+        k_tourism
+    
+    
+
+
+
+Class: v_car_repair
+
+    SubClassOf: 
+        k_shop
+    
+    
+
+
+
+Class: v_bicycle_parking
+
+    SubClassOf: 
+        k_amenity
+    
+    
+
+
+
+Class: k_ruins_v_yes
+
+    SubClassOf: 
+        k_ruins
+    
+    
+
+
+
+Class: k_opening_hours
+
+    SubClassOf: 
+        owl:Thing
+    
+    
+
+
+
+Class: v_recycling
+
+    SubClassOf: 
+        k_amenity
+    
+    
+
+
+
+Class: v_lockers
+
+    SubClassOf: 
+        k_bicycle_parking
+    
+    
+
+
+
+Class: v_stationery
+
+    SubClassOf: 
+        k_shop
+    
+    
+
+
+
+Class: v_burger
+
+    SubClassOf: 
+        k_cuisine
+    
+    
+
+
+
+Class: v_pagan
+
+    SubClassOf: 
+        k_religion
+    
+    
+
+
+
+Class: k_route
+
+    SubClassOf: 
+        owl:Thing
+    
+    
+
+
+
+Class: k_tourism
+
+    SubClassOf: 
+        owl:Thing
+    
+    
+
+
+
+Class: v_puppet
+
+    SubClassOf: 
+        k_theatre:genre
+    
+    
+
+
+
+Class: v_hostel
+
+    SubClassOf: 
+        k_tourism
+    
+    
+
+
+
+Class: k_leisure
+
+    SubClassOf: 
+        owl:Thing
+    
+    
+
+
+
+Class: v_organic
+
+    SubClassOf: 
+        k_shop
+    
+    
+
+
+
+Class: v_motel
+
+    SubClassOf: 
+        k_tourism
+    
+    
+
+
+
+Class: k_smoking_v_yes
+
+    SubClassOf: 
+        k_smoking
+    
+    
+
+
+
+Class: v_multifaith
+
+    SubClassOf: 
+        k_religion
+    
+    
+
+
+
+Class: v_optician
+
+    SubClassOf: 
+        k_shop
+    
+    
+
+
+
+Class: v_secondary
+
+    SubClassOf: 
+        k_highway
+    
+    
+
+
+
+Class: k_addr:country
+
+    SubClassOf: 
+        owl:Thing
+    
+    
+
+
+
+Class: v_anchors
+
+    SubClassOf: 
+        k_bicycle_parking
+    
+    
+
+
+
+Class: v_sushi
+
+    SubClassOf: 
+        k_cuisine
+    
+    
+
+
+
+Class: Finances
+
+    EquivalentTo: 
+        v_atm
+        or v_bank
+        or v_bureau_de_change
+    
+    
+
+
+
+Class: v_bowls
+
+    SubClassOf: 
+        k_sport
+    
+    
+
+
+
+Class: v_restaurant
+
+    SubClassOf: 
+        k_amenity
+    
+    
+
+
+
+Class: v_atm
+
+    SubClassOf: 
+        k_amenity
+    
+    
+
+
+
+Class: v_mtb
+
+    SubClassOf: 
+        k_route
+    
+    
+
+
+
+Class: v_separated
+
+    SubClassOf: 
+        k_smoking
+    
+    
+
+
+
+Class: ChineseRestaurant
+
+    EquivalentTo: 
+        hasCuisine some v_chinese
+    
+    SubClassOf: 
+        v_restaurant
+    
+    
+
+
+
+Class: v_track
+
+    SubClassOf: 
+        k_leisure
+    
+    
+
+
+
+Class: v_ferry_terminal
+
+    SubClassOf: 
+        k_amenity
+    
+    
+
+
+
+Class: v_veterinary
+
+    SubClassOf: 
+        k_amenity
+    
+    
+
+
+
+Class: v_marionette
+
+    SubClassOf: 
+        k_theatre:genre
+    
+    
+
+
+
+Class: v_athletics
+
+    SubClassOf: 
+        k_sport
+    
+    
+
+
+
+Class: v_subway
+
+    SubClassOf: 
+        k_station
+    
+    
+
+
+
+Class: v_christian
+
+    SubClassOf: 
+        k_religion
+    
+    
+
+
+
+Class: v_bakery
+
+    SubClassOf: 
+        k_shop
+    
+    
+
+
+
+Class: v_marsh
+
+    SubClassOf: 
+        k_natural
+    
+    
+
+
+
+Class: v_convenience
+
+    SubClassOf: 
+        k_shop
+    
+    
+
+
+
+Class: v_deli
+
+    SubClassOf: 
+        k_shop
+    
+    
+
+
+
+Class: v_swimming
+
+    SubClassOf: 
+        k_sport
+    
+    
+
+
+
+Class: k_emergency
+
+    SubClassOf: 
+        owl:Thing
+    
+    
+
+
+
+Class: AsianRestaurant
+
+    EquivalentTo: 
+        hasCuisine some v_asian
+    
+    SubClassOf: 
+        v_restaurant
+    
+    
+
+
+
+Class: v_charging_station
+
+    SubClassOf: 
+        k_amenity
+    
+    
+
+
+
+Class: v_bicycle_rental
+
+    SubClassOf: 
+        k_amenity
+    
+    
+
+
+
+Class: v_ruins
+
+    SubClassOf: 
+        k_historic
+    
+    
+
+
+
+Class: v_telephone
+
+    SubClassOf: 
+        k_amenity
+    
+    
+
+
+
+Class: v_library
+
+    SubClassOf: 
+        k_amenity
+    
+    
+
+
+
+Class: v_primary
+
+    SubClassOf: 
+        k_highway
+    
+    
+
+
+
+Class: v_spanish
+
+    SubClassOf: 
+        k_cuisine
+    
+    
+
+
+
+Class: v_indian
+
+    SubClassOf: 
+        k_cuisine
+    
+    
+
+
+
+Class: v_motorway
+
+    SubClassOf: 
+        k_highway
+    
+    
+
+
+
+Class: k_theatre:genre
+
+    SubClassOf: 
+        owl:Thing
+    
+    
+
+
+
+Class: v_monument
+
+    SubClassOf: 
+        k_historic
+    
+    
+
+
+
+Class: v_ski
+
+    SubClassOf: 
+        k_route
+    
+    
+
+
+
+Class: v_guest_house
+
+    SubClassOf: 
+        k_tourism
+    
+    
+
+
+
+Class: v_emergency_phone
+
+    SubClassOf: 
+        k_amenity
+    
+    
+
+
+
+Class: v_political
+
+    SubClassOf: 
+        k_theatre:genre
+    
+    
+
+
+
+Class: Leisure
+
+    EquivalentTo: 
+        FreeTimePlaces
+        or SportAndFitness
+        or SwimmingPool
+        or Wellness
+        or k_leisure
+        or v_opera
+    
+    
+
+
+
+Class: v_unitarian
+
+    SubClassOf: 
+        k_religion
+    
+    
+
+
+
+Class: k_smoking_outside_v_yes
+
+    SubClassOf: 
+        k_smoking_outside
+    
+    
+
+
+
+Class: v_books
+
+    SubClassOf: 
+        k_shop
+    
+    
+
+
+
+Class: v_skating
+
+    SubClassOf: 
+        k_sport
+    
+    
+
+
+
+Class: v_toys
+
+    SubClassOf: 
+        k_shop
+    
+    
+
+
+
+Class: v_trunk_link
+
+    SubClassOf: 
+        k_highway
+    
+    
+
+
+
+Class: v_comedy
+
+    SubClassOf: 
+        k_theatre:genre
+    
+    
+
+
+
+Class: v_marina
+
+    SubClassOf: 
+        k_leisure
+    
+    
+
+
+
+Class: v_kindergarten
+
+    SubClassOf: 
+        k_amenity
+    
+    
+
+
+
+Class: v_skiing
+
+    SubClassOf: 
+        k_sport
+    
+    
+
+
+
+Class: Health
+
+    EquivalentTo: 
+        v_dentist
+        or v_doctors
+        or v_hospital
+        or v_pharmacy
+    
+    SubClassOf: 
+        owl:Thing
+    
+    
+
+
+
+Class: k_cuisine_v_seafood
+
+    SubClassOf: 
+        k_cuisine
+    
+    
+
+
+
+Class: v_doityourself
+
+    SubClassOf: 
+        k_shop
+    
+    
+
+
+
+Class: v_valley
+
+    SubClassOf: 
+        k_natural
+    
+    
+
+
+
+Class: v_tertiary
+
+    SubClassOf: 
+        k_highway
+    
+    
+
+
+
+Class: v_food_court
+
+    SubClassOf: 
+        k_amenity
+    
+    
+
+
+
+Class: v_fitness_station
+
+    SubClassOf: 
+        k_leisure
+    
+    
+
+
+
+Class: v_castle
+
+    SubClassOf: 
+        k_historic
+    
+    
+
+
+
+Class: v_post_box
+
+    SubClassOf: 
+        k_amenity
+    
+    
+
+
+
+Class: k_fuel:electricity_v_yes
+
+    SubClassOf: 
+        k_fuel:electricity
+    
+    
+
+
+
+Class: v_college
+
+    SubClassOf: 
+        k_amenity
+    
+    
+
+
+
+Class: SportAndFitness
+
+    EquivalentTo: 
+        v_climbing
+        or v_sports_centre
+    
+    
+
+
+
+Class: v_massage
+
+    SubClassOf: 
+        k_shop
+    
+    
+
+
+
+Class: v_taxi
+
+    SubClassOf: 
+        k_amenity
+    
+    
+
+
+
+Class: v_chamber_music
+
+    SubClassOf: 
+        k_theatre:genre
+    
+    
+
+
+
+Class: v_beach
+
+    SubClassOf: 
+        k_natural
+    
+    
+
+
+
+Class: v_place_of_worship
+
+    SubClassOf: 
+        k_amenity
+    
+    
+
+
+
+Class: v_zoo
+
+    SubClassOf: 
+        k_tourism
+    
+    
+
+
+
+Class: ItalianRestaurant
+
+    EquivalentTo: 
+        hasCuisine some v_italian
+    
+    SubClassOf: 
+        v_restaurant
+    
+    
+
+
+
+Class: k_sport
+
+    SubClassOf: 
+        owl:Thing
+    
+    
+
+
+
+Class: v_butcher
+
+    SubClassOf: 
+        k_shop
+    
+    
+
+
+
+Class: k_smokefree_v_yes
+
+    SubClassOf: 
+        k_smokefree
+    
+    
+
+
+
+Class: k_natural
+
+    SubClassOf: 
+        owl:Thing
+    
+    
+
+
+
+Class: v_pizza
+
+    SubClassOf: 
+        k_cuisine
+    
+    
+
+
+
+Class: v_park
+
+    SubClassOf: 
+        k_leisure
+    
+    
+
+
+
+Class: v_sikh
+
+    SubClassOf: 
+        k_religion
+    
+    
+
+
+
+Class: v_grave_yard
+
+    SubClassOf: 
+        k_amenity
+    
+    
+
+
+
+Class: k_railway
+
+    SubClassOf: 
+        owl:Thing
+    
+    
+
+
+
+Class: v_camp_site
+
+    SubClassOf: 
+        k_tourism
+    
+    
+
+
+
+Class: v_swimming_pool2
+
+    SubClassOf: 
+        k_amenity
+    
+    
+
+
+
+Class: v_bus_station
+
+    SubClassOf: 
+        k_amenity
+    
+    
+
+
+
+Class: TramStop
+
+    SubClassOf: 
+        owl:Thing
+    
+    
+
+
+
+Class: v_stands
+
+    SubClassOf: 
+        k_bicycle_parking
+    
+    
+
+
+
+Class: v_sports
+
+    SubClassOf: 
+        k_shop
+    
+    
+
+
+
+Class: v_figure
+
+    SubClassOf: 
+        k_theatre:genre
+    
+    
+
+
+
+Class: v_marketplace
+
+    SubClassOf: 
+        k_amenity
+    
+    
+
+
+
+Class: v_cinema
+
+    SubClassOf: 
+        k_amenity
+    
+    
+
+
+
+Class: v_ballet
+
+    SubClassOf: 
+        k_theatre:genre
+    
+    
+
+
+
+Class: k_smokefree
+
+    SubClassOf: 
+        owl:Thing
+    
+    
+
+
+
+Class: v_boulevard
+
+    SubClassOf: 
+        k_theatre:genre
+    
+    
+
+
+
+Class: v_theatre
+
+    SubClassOf: 
+        k_amenity
+    
+    
+
+
+
+Class: v_steps
+
+    SubClassOf: 
+        k_highway
+    
+    
+
+
+
+Class: GermanRestaurant
+
+    EquivalentTo: 
+        hasCuisine some v_german
+    
+    SubClassOf: 
+        v_restaurant
+    
+    
+
+
+
+Class: SwimmingPool
+
+    EquivalentTo: 
+        v_swimming_pool
+        or v_swimming_pool2
+        or v_water_park
+    
+    SubClassOf: 
+        owl:Thing
+    
+    
+
+
+
+Class: k_smoking_outside
+
+    SubClassOf: 
+        owl:Thing
+    
+    
+
+
+
+Class: v_turkish
+
+    SubClassOf: 
+        k_cuisine
+    
+    
+
+
+
+Class: ArabicRestaurant
+
+    EquivalentTo: 
+        hasCuisine some v_arabic
+    
+    SubClassOf: 
+        v_restaurant
+    
+    
+
+
+
+Class: v_bank
+
+    SubClassOf: 
+        k_amenity
+    
+    
+
+
+
+Class: v_dentist
+
+    SubClassOf: 
+        k_amenity
+    
+    
+
+
+
+Class: v_boundary_stone
+
+    SubClassOf: 
+        k_historic
+    
+    
+
+
+
+Class: v_wood
+
+    SubClassOf: 
+        k_natural
+    
+    
+
+
+
+Class: k_ruins
+
+    SubClassOf: 
+        owl:Thing
+    
+    
+
+
+
+Class: v_university
+
+    SubClassOf: 
+        k_amenity
+    
+    
+
+
+
+Class: v_water
+
+    SubClassOf: 
+        k_natural
+    
+    
+
+
+
+Class: Places_to_eat
+
+    EquivalentTo: 
+        v_bar
+        or v_biergarten
+        or v_cafe
+        or v_fast_food
+        or v_pub
+        or v_restaurant
+    
+    SubClassOf: 
+        owl:Thing
+    
+    
+
+
+
+Class: SpanishRestaurant
+
+    EquivalentTo: 
+        hasCuisine some v_spanish
+    
+    SubClassOf: 
+        v_restaurant
+    
+    
+
+
+
+Class: v_waste_basket
+
+    SubClassOf: 
+        k_amenity
+    
+    
+
+
+
+Class: Fitness
+
+    EquivalentTo: 
+        k_sport
+        or v_swimming_pool2
+    
+    
+
+
+
+Class: v_garden
+
+    SubClassOf: 
+        k_leisure
+    
+    
+
+
+
+Class: v_scientologist
+
+    SubClassOf: 
+        k_religion
+    
+    
+
+
+
+Class: v_shadow_play
+
+    SubClassOf: 
+        k_theatre:genre
+    
+    
+
+
+
+Class: v_stadium
+
+    SubClassOf: 
+        k_leisure
+    
+    
+
+
+
+Class: v_tennis
+
+    SubClassOf: 
+        k_sport
+    
+    
+
+
+
+Class: k_addr:postcode
+
+    SubClassOf: 
+        owl:Thing
+    
+    
+
+
+
+Class: v_attraction
+
+    SubClassOf: 
+        k_tourism
+    
+    
+
+
+
+Class: v_mexican
+
+    SubClassOf: 
+        k_cuisine
+    
+    
+
+
+
+Class: PublicTransport
+
+    EquivalentTo: 
+        TramStop
+        or v_bicycle_rental
+        or v_bus_stop
+        or v_car_sharing
+        or v_station
+        or v_subway
+        or v_tram_stop
+    
+    
+
+
+
+Class: v_golf
+
+    SubClassOf: 
+        k_sport
+    
+    
+
+
+
+Class: v_wayside_shrine
+
+    SubClassOf: 
+        k_historic
+    
+    
+
+
+
+Class: v_miniature_golf
+
+    SubClassOf: 
+        k_leisure
+    
+    
+
+
+
+Class: k_waterway
+
+    SubClassOf: 
+        owl:Thing
+    
+    
+
+
+
+Class: v_volcano
+
+    SubClassOf: 
+        k_natural
+    
+    
+
+
+
+Class: v_bureau_de_change
+
+    SubClassOf: 
+        k_amenity
+    
+    
+
+
+
+Class: k_shop
+
+    SubClassOf: 
+        owl:Thing
+    
+    
+
+
+
+Class: v_parking
+
+    SubClassOf: 
+        k_amenity
+    
+    
+
+
+
+Class: v_picnic_site
+
+    SubClassOf: 
+        k_tourism
+    
+    
+
+
+
+Class: v_shinto
+
+    SubClassOf: 
+        k_religion
+    
+    
+
+
+
+Class: v_hiking
+
+    SubClassOf: 
+        k_route
+    
+    
+
+
+
+Class: v_ground_slots
+
+    SubClassOf: 
+        k_bicycle_parking
+    
+    
+
+
+
+Class: v_slipway
+
+    SubClassOf: 
+        k_leisure
+    
+    
+
+
+
+Class: v_furniture
+
+    SubClassOf: 
+        k_shop
+    
+    
+
+
+
+Class: v_bus_stop
+
+    SubClassOf: 
+        k_highway
+    
+    
+
+
+
+Class: v_hospital
+
+    SubClassOf: 
+        k_amenity
+    
+    
+
+
+
+Class: v_residential
+
+    SubClassOf: 
+        k_highway
+    
+    
+
+
+
+Class: v_living_street
+
+    SubClassOf: 
+        k_highway
+    
+    
+
+
+
+Class: v_hindu
+
+    SubClassOf: 
+        k_religion
+    
+    
+
+
+
+Class: v_nightclub
+
+    SubClassOf: 
+        k_amenity
+    
+    
+
+
+
+Class: k_power_source
+
+    SubClassOf: 
+        owl:Thing
+    
+    
+
+
+
+Class: k_cuisine
+
+    SubClassOf: 
+        owl:Thing
+    
+    
+
+
+
+Class: v_seafood
+
+    SubClassOf: 
+        k_shop
+    
+    
+
+
+
+Class: v_skateboard
+
+    SubClassOf: 
+        k_sport
+    
+    
+
+
+
+Class: ChargingStation
+
+    EquivalentTo: 
+        k_fuel:electricity_v_yes
+        or v_charging_station
+        or v_renewable
+    
+    SubClassOf: 
+        owl:Thing
+    
+    
+
+
+
+Class: v_italian
+
+    SubClassOf: 
+        k_cuisine
+    
+    
+
+
+
+Class: v_sports_centre
+
+    SubClassOf: 
+        k_leisure
+    
+    
+
+
+
+Class: v_kebap
+
+    SubClassOf: 
+        k_cuisine
+    
+    
+
+
+
+Class: v_alpine_hut
+
+    SubClassOf: 
+        k_tourism
+    
+    
+
+
+
+Class: v_path
+
+    SubClassOf: 
+        k_highway
+    
+    
+
+
+
+Class: v_fountain
+
+    SubClassOf: 
+        k_amenity
+    
+    
+
+
+
+Class: v_isolated
+
+    SubClassOf: 
+        k_smoking
+    
+    
+
+
+
+Class: Ruins
+
+    EquivalentTo: 
+        k_ruins_v_yes
+        or v_ruins
+    
+    
+
+
+
+Class: v_garden_centre
+
+    SubClassOf: 
+        k_shop
+    
+    
+
+
+
+Class: k_historic
+
+    SubClassOf: 
+        owl:Thing
+    
+    
+
+
+
+Class: v_cycleway
+
+    SubClassOf: 
+        k_highway
+    
+    
+
+
+
+Class: owl:Thing
+
+    
+
+
+
+Class: k_station
+
+    
+
+
+
+Class: v_hotel
+
+    SubClassOf: 
+        k_tourism
+    
+    
+
+
+
+Class: v_muslim
+
+    SubClassOf: 
+        k_religion
+    
+    
+
+
+
+Class: v_florist
+
+    SubClassOf: 
+        k_shop
+    
+    
+
+
+
+Class: v_pastafarian
+
+    SubClassOf: 
+        k_religion
+    
+    
+
+
+
+Class: v_climbing
+
+    SubClassOf: 
+        k_sport
+    
+    
+
+
+
+Class: v_car_sharing
+
+    SubClassOf: 
+        k_amenity
+    
+    
+
+
+
+Class: v_casino
+
+    SubClassOf: 
+        k_amenity
+    
+    
+
+
+
+Class: track
+
+    SubClassOf: 
+        k_highway
+    
+    
+
+
+
+Class: v_playground
+
+    SubClassOf: 
+        k_leisure
+    
+    
+
+
+

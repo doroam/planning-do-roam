@@ -1,0 +1,22 @@
+<h1>Listing ontology_classes</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Ontology</th>
+  </tr>
+
+<% @ontology_classes.each do |ontology_class| %>
+  <tr>
+    <td><%=h ontology_class.name %></td>
+    <td><%=h ontology_class.ontology_id %></td>
+    <td><%= link_to 'Show', ontology_class %></td>
+    <td><%= link_to 'Edit', edit_ontology_class_path(ontology_class) %></td>
+    <td><%= link_to 'Destroy', ontology_class, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New ontology_class', new_ontology_class_path %>

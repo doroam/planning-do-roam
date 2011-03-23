@@ -1,0 +1,13 @@
+<p>
+  <b>Name:</b>
+  <%=h @ontology.name %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%=h @ontology.url %>
+</p>
+
+
+<%= link_to 'Edit', edit_ontology_path(@ontology) %> |
+<%= link_to 'Back', ontologies_path %>

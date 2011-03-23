@@ -1,0 +1,10 @@
+<%= tree.name%>
+<ul>
+<% for c in tree.subclasses %>
+  <% if !c.nil? %>
+  <li>
+   <%= render :partial => 'tree', :object => c %>
+  </li>  
+  <% end %>
+<% end %>
+</ul>

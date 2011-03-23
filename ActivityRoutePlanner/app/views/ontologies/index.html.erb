@@ -1,0 +1,27 @@
+<h1>Listing ontologies</h1>
+
+<%= form_tag ("/ontologies/search") %>
+Search: <%= text_field_tag :search, "", :size => 20 %>
+</form>
+<%= link_to 'Make txt', "/ontologies/maketxt" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Url</th>
+  </tr>
+
+<% @ontologies.each do |ontology| %>
+  <tr>
+    <td><%=h ontology.name %></td>
+    <td><%=h ontology.url %></td>
+    <td><%= link_to 'Show', "/ontologies/#{ontology.id}/tree" %></td>
+    <td><%= link_to 'Edit', edit_ontology_path(ontology) %></td>
+    <td><%= link_to 'Destroy', ontology, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New ontology', new_ontology_path %>

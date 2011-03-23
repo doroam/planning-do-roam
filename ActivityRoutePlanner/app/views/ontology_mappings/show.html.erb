@@ -1,0 +1,18 @@
+<p>
+  <b>Name:</b>
+  <%=h @ontology_mapping.name %>
+</p>
+
+<p>
+  <b>Source:</b>
+  <%=h @ontology_mapping.source_id %>
+</p>
+
+<p>
+  <b>Target:</b>
+  <%=h @ontology_mapping.target_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_ontology_mapping_path(@ontology_mapping) %> |
+<%= link_to 'Back', ontology_mappings_path %>

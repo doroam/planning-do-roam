@@ -1,0 +1,24 @@
+<h1>Listing ontology_role_properties</h1>
+
+<table>
+  <tr>
+    <th>Role</th>
+    <th>Type</th>
+    <th>Term</th>
+  </tr>
+
+<% @ontology_role_properties.each do |ontology_role_property| %>
+  <tr>
+    <td><%=h ontology_role_property.role %></td>
+    <td><%=h ontology_role_property.type %></td>
+    <td><%=h ontology_role_property.term %></td>
+    <td><%= link_to 'Show', ontology_role_property %></td>
+    <td><%= link_to 'Edit', edit_ontology_role_property_path(ontology_role_property) %></td>
+    <td><%= link_to 'Destroy', ontology_role_property, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New ontology_role_property', new_ontology_role_property_path %>

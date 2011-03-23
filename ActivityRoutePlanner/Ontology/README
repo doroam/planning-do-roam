@@ -1,0 +1,22 @@
+File descriptions:
+ activity-eng.owl - the ontology of spatially located activities, in OWL
+ tags.owl - the ontology of OSM tags
+ map.view - the mapping from activities to OSM tags
+ 
+ activity.het - the ontology of activities as a Hets theory
+ tags.het - the ontology of tags as a Hets theory
+ mapping.het - the mapping as a theory morphism in Hets
+
+Dependencies:
+ Changes in activity-eng.owl should be reflected in:
+   - mapping to other ontologies 
+    * map.view 
+    * activity.het
+    * mapping.het 
+ 
+   - terms used for displaying the ontology, in various languages
+    * config/locales/en.yml
+    * config/locales/de.yml
+
+   - icon files
+    * lib/tasks/ontology.rake

@@ -1,0 +1,2060 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY my-ecar "http://my-ecar.org#" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://my-ecar.org#"
+     xml:base="http://my-ecar.org"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:my-ecar="http://my-ecar.org#">
+    <owl:Ontology rdf:about=""/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://my-ecar.org#HasOwner -->
+
+    <owl:ObjectProperty rdf:about="#HasOwner">
+        <rdfs:domain rdf:resource="#ATM"/>
+        <rdfs:range rdf:resource="#Bank"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://my-ecar.org#hasCuisine -->
+
+    <owl:ObjectProperty rdf:about="#hasCuisine">
+        <rdfs:range rdf:resource="#Cuisine"/>
+        <rdfs:domain rdf:resource="#Gastronomy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://my-ecar.org#hasCuisineofNationality -->
+
+    <owl:ObjectProperty rdf:about="#hasCuisineofNationality">
+        <rdfs:domain rdf:resource="#Gastronomy"/>
+        <rdfs:range rdf:resource="#Nationality"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://my-ecar.org#hasNationality -->
+
+    <owl:ObjectProperty rdf:about="#hasNationality">
+        <rdfs:domain rdf:resource="#Cuisine"/>
+        <rdfs:range rdf:resource="#Nationality"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://my-ecar.org#has_address -->
+
+    <owl:ObjectProperty rdf:about="#has_address">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#Activity"/>
+        <rdfs:range rdf:resource="#Address"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://my-ecar.org#has_opening_hour -->
+
+    <owl:ObjectProperty rdf:about="#has_opening_hour">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#Activity"/>
+        <rdfs:range rdf:resource="#OpeningHours"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://my-ecar.org#you_have_to_pay -->
+
+    <owl:ObjectProperty rdf:about="#you_have_to_pay">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#Activity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://my-ecar.org#ATM -->
+
+    <owl:Class rdf:about="#ATM">
+        <rdfs:subClassOf rdf:resource="#Finance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Accommodation -->
+
+    <owl:Class rdf:about="#Accommodation">
+        <rdfs:subClassOf rdf:resource="#Tourism"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Activity -->
+
+    <owl:Class rdf:about="#Activity">
+        <rdfs:comment
+            >&quot;activities&quot; are places where one can do some sort of activity</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Address -->
+
+    <owl:Class rdf:about="#Address"/>
+    
+
+
+    <!-- http://my-ecar.org#Albanian -->
+
+    <owl:Class rdf:about="#Albanian">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#American -->
+
+    <owl:Class rdf:about="#American">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Anaesthesiology -->
+
+    <owl:Class rdf:about="#Anaesthesiology">
+        <rdfs:subClassOf rdf:resource="#Doctor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Angiology -->
+
+    <owl:Class rdf:about="#Angiology">
+        <rdfs:subClassOf rdf:resource="#InternalMedicine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Argentinian -->
+
+    <owl:Class rdf:about="#Argentinian">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Armenian -->
+
+    <owl:Class rdf:about="#Armenian">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#ArtGallery -->
+
+    <owl:Class rdf:about="#ArtGallery">
+        <rdfs:subClassOf rdf:resource="#Leisure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Australian -->
+
+    <owl:Class rdf:about="#Australian">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Bakery -->
+
+    <owl:Class rdf:about="#Bakery">
+        <rdfs:subClassOf rdf:resource="#Food"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Ballroom -->
+
+    <owl:Class rdf:about="#Ballroom">
+        <rdfs:subClassOf rdf:resource="#Dance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Bank -->
+
+    <owl:Class rdf:about="#Bank">
+        <rdfs:subClassOf rdf:resource="#Finance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Bar -->
+
+    <owl:Class rdf:about="#Bar">
+        <rdfs:subClassOf rdf:resource="#Gastronomy"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Belgian -->
+
+    <owl:Class rdf:about="#Belgian">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#BicycleRental -->
+
+    <owl:Class rdf:about="#BicycleRental">
+        <rdfs:subClassOf rdf:resource="#PublicTransport"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#BillardsAndPool -->
+
+    <owl:Class rdf:about="#BillardsAndPool">
+        <rdfs:subClassOf rdf:resource="#Pleasure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Biochemistry -->
+
+    <owl:Class rdf:about="#Biochemistry">
+        <rdfs:subClassOf rdf:resource="#Doctor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Bookstore -->
+
+    <owl:Class rdf:about="#Bookstore">
+        <rdfs:subClassOf rdf:resource="#Shopping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Bosnian -->
+
+    <owl:Class rdf:about="#Bosnian">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Bowling -->
+
+    <owl:Class rdf:about="#Bowling">
+        <rdfs:subClassOf rdf:resource="#Pleasure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Brazilian -->
+
+    <owl:Class rdf:about="#Brazilian">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#British -->
+
+    <owl:Class rdf:about="#British">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Bulgarian -->
+
+    <owl:Class rdf:about="#Bulgarian">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Burmese -->
+
+    <owl:Class rdf:about="#Burmese">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#BusStop -->
+
+    <owl:Class rdf:about="#BusStop">
+        <rdfs:subClassOf rdf:resource="#PublicTransport"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Butcher -->
+
+    <owl:Class rdf:about="#Butcher">
+        <rdfs:subClassOf rdf:resource="#Food"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Cafe -->
+
+    <owl:Class rdf:about="#Cafe">
+        <rdfs:subClassOf rdf:resource="#Gastronomy"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Cameroonian -->
+
+    <owl:Class rdf:about="#Cameroonian">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Camping -->
+
+    <owl:Class rdf:about="#Camping">
+        <rdfs:subClassOf rdf:resource="#Accommodation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#CarSharing -->
+
+    <owl:Class rdf:about="#CarSharing">
+        <rdfs:subClassOf rdf:resource="#PublicTransport"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Cardiology -->
+
+    <owl:Class rdf:about="#Cardiology">
+        <rdfs:subClassOf rdf:resource="#InternalMedicine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Castle -->
+
+    <owl:Class rdf:about="#Castle">
+        <rdfs:subClassOf rdf:resource="#PlaceOfInterest"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#ChargingStation -->
+
+    <owl:Class rdf:about="#ChargingStation">
+        <rdfs:subClassOf rdf:resource="#Activity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#ChildrensAndAdolescentMedicine -->
+
+    <owl:Class rdf:about="#ChildrensAndAdolescentMedicine">
+        <rdfs:subClassOf rdf:resource="#Doctor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#ChildrensAndYouthPsychology -->
+
+    <owl:Class rdf:about="#ChildrensAndYouthPsychology">
+        <rdfs:subClassOf rdf:resource="#ChildrensAndAdolescentMedicine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Chilean -->
+
+    <owl:Class rdf:about="#Chilean">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Chinese -->
+
+    <owl:Class rdf:about="#Chinese">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Church -->
+
+    <owl:Class rdf:about="#Church">
+        <rdfs:subClassOf rdf:resource="#PlaceOfWorship"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Cinema -->
+
+    <owl:Class rdf:about="#Cinema">
+        <rdfs:subClassOf rdf:resource="#Leisure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#CivilService -->
+
+    <owl:Class rdf:about="#CivilService">
+        <rdfs:subClassOf rdf:resource="#Activity"/>
+        <rdfs:comment
+            >includes all public and administrative establishments</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Climbing -->
+
+    <owl:Class rdf:about="#Climbing">
+        <rdfs:subClassOf rdf:resource="#SportAndFitness"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#ClinicalPharmacology -->
+
+    <owl:Class rdf:about="#ClinicalPharmacology">
+        <rdfs:subClassOf rdf:resource="#Doctor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Clothing -->
+
+    <owl:Class rdf:about="#Clothing">
+        <rdfs:subClassOf rdf:resource="#Shopping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#College -->
+
+    <owl:Class rdf:about="#College">
+        <rdfs:subClassOf rdf:resource="#Education"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Colombian -->
+
+    <owl:Class rdf:about="#Colombian">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Computer -->
+
+    <owl:Class rdf:about="#Computer">
+        <rdfs:subClassOf rdf:resource="#Electronics"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Cosmetics -->
+
+    <owl:Class rdf:about="#Cosmetics">
+        <rdfs:subClassOf rdf:resource="#Activity"/>
+        <rdfs:comment
+            >generic term for ranges of services of beauty</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Cuban -->
+
+    <owl:Class rdf:about="#Cuban">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Cuisine -->
+
+    <owl:Class rdf:about="#Cuisine"/>
+    
+
+
+    <!-- http://my-ecar.org#Dance -->
+
+    <owl:Class rdf:about="#Dance">
+        <rdfs:subClassOf rdf:resource="#Pleasure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#DanceClasse -->
+
+    <owl:Class rdf:about="#DanceClasse">
+        <rdfs:subClassOf rdf:resource="#Dance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#DanceClub -->
+
+    <owl:Class rdf:about="#DanceClub">
+        <rdfs:subClassOf rdf:resource="#Dance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Danish -->
+
+    <owl:Class rdf:about="#Danish">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Delicatessen -->
+
+    <owl:Class rdf:about="#Delicatessen">
+        <rdfs:subClassOf rdf:resource="#Food"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Dentistry -->
+
+    <owl:Class rdf:about="#Dentistry">
+        <rdfs:subClassOf rdf:resource="#Doctor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#DiagnosticRadiology -->
+
+    <owl:Class rdf:about="#DiagnosticRadiology">
+        <rdfs:subClassOf rdf:resource="#Radiology"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Doctor -->
+
+    <owl:Class rdf:about="#Doctor">
+        <rdfs:subClassOf rdf:resource="#Health"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#DrivingSchool -->
+
+    <owl:Class rdf:about="#DrivingSchool">
+        <rdfs:subClassOf rdf:resource="#Education"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Drugstore -->
+
+    <owl:Class rdf:about="#Drugstore">
+        <rdfs:subClassOf rdf:resource="#Shopping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#EarNoseThroatMedicine -->
+
+    <owl:Class rdf:about="#EarNoseThroatMedicine">
+        <rdfs:subClassOf rdf:resource="#Doctor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Education -->
+
+    <owl:Class rdf:about="#Education">
+        <rdfs:subClassOf rdf:resource="#Activity"/>
+        <rdfs:comment
+            >establishments where one can learn about some facts and methods</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Egyptian -->
+
+    <owl:Class rdf:about="#Egyptian">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Electronics -->
+
+    <owl:Class rdf:about="#Electronics">
+        <rdfs:subClassOf rdf:resource="#Shopping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Endocrinology -->
+
+    <owl:Class rdf:about="#Endocrinology">
+        <rdfs:subClassOf rdf:resource="#InternalMedicine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Ethiopian -->
+
+    <owl:Class rdf:about="#Ethiopian">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Exchange -->
+
+    <owl:Class rdf:about="#Exchange">
+        <rdfs:subClassOf rdf:resource="#Finance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#FastFood -->
+
+    <owl:Class rdf:about="#FastFood">
+        <rdfs:subClassOf rdf:resource="#Gastronomy"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Finance -->
+
+    <owl:Class rdf:about="#Finance">
+        <rdfs:subClassOf rdf:resource="#Activity"/>
+        <rdfs:comment
+            >locations for drawing out, banking, changing and tranfering money</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Finnish -->
+
+    <owl:Class rdf:about="#Finnish">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Fish -->
+
+    <owl:Class rdf:about="#Fish">
+        <rdfs:subClassOf rdf:resource="#Food"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#FitnessStudio -->
+
+    <owl:Class rdf:about="#FitnessStudio">
+        <rdfs:subClassOf rdf:resource="#SportAndFitness"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#FleaMarket -->
+
+    <owl:Class rdf:about="#FleaMarket">
+        <rdfs:subClassOf rdf:resource="#Shopping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Flowers -->
+
+    <owl:Class rdf:about="#Flowers">
+        <rdfs:subClassOf rdf:resource="#Shopping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Food -->
+
+    <owl:Class rdf:about="#Food">
+        <rdfs:subClassOf rdf:resource="#Shopping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Forest -->
+
+    <owl:Class rdf:about="#Forest">
+        <rdfs:subClassOf rdf:resource="#Landscape"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#French -->
+
+    <owl:Class rdf:about="#French">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Furniture -->
+
+    <owl:Class rdf:about="#Furniture">
+        <rdfs:subClassOf rdf:resource="#Shopping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Gastroenterology -->
+
+    <owl:Class rdf:about="#Gastroenterology">
+        <rdfs:subClassOf rdf:resource="#InternalMedicine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Gastronomy -->
+
+    <owl:Class rdf:about="#Gastronomy">
+        <rdfs:subClassOf rdf:resource="#Activity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#GeneralChildrensAndAdolescentMedicine -->
+
+    <owl:Class rdf:about="#GeneralChildrensAndAdolescentMedicine">
+        <rdfs:subClassOf rdf:resource="#ChildrensAndAdolescentMedicine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#GeneralInternalMedicine -->
+
+    <owl:Class rdf:about="#GeneralInternalMedicine">
+        <rdfs:subClassOf rdf:resource="#InternalMedicine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#GeneralMedicine -->
+
+    <owl:Class rdf:about="#GeneralMedicine">
+        <rdfs:subClassOf rdf:resource="#Doctor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#GeneralOrthopedics -->
+
+    <owl:Class rdf:about="#GeneralOrthopedics">
+        <rdfs:subClassOf rdf:resource="#Orthopedics"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#GeneralPathology -->
+
+    <owl:Class rdf:about="#GeneralPathology">
+        <rdfs:subClassOf rdf:resource="#Pathology"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#GeneralRadiology -->
+
+    <owl:Class rdf:about="#GeneralRadiology">
+        <rdfs:subClassOf rdf:resource="#Radiology"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#GeneralSurgery -->
+
+    <owl:Class rdf:about="#GeneralSurgery">
+        <rdfs:subClassOf rdf:resource="#Surgery"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Georgian -->
+
+    <owl:Class rdf:about="#Georgian">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#German -->
+
+    <owl:Class rdf:about="#German">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#GolfCourse -->
+
+    <owl:Class rdf:about="#GolfCourse">
+        <rdfs:subClassOf rdf:resource="#SportAndFitness"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Greek -->
+
+    <owl:Class rdf:about="#Greek">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Guestroom -->
+
+    <owl:Class rdf:about="#Guestroom">
+        <rdfs:subClassOf rdf:resource="#Accommodation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Gynecology -->
+
+    <owl:Class rdf:about="#Gynecology">
+        <rdfs:subClassOf rdf:resource="#WomensHealth"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#HairRemoval -->
+
+    <owl:Class rdf:about="#HairRemoval">
+        <rdfs:subClassOf rdf:resource="#Cosmetics"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Hairdresser -->
+
+    <owl:Class rdf:about="#Hairdresser">
+        <rdfs:subClassOf rdf:resource="#Cosmetics"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Health -->
+
+    <owl:Class rdf:about="#Health">
+        <rdfs:subClassOf rdf:resource="#Activity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#HeartSurgery -->
+
+    <owl:Class rdf:about="#HeartSurgery">
+        <rdfs:subClassOf rdf:resource="#Surgery"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#HematologyAndOncology -->
+
+    <owl:Class rdf:about="#HematologyAndOncology">
+        <rdfs:subClassOf rdf:resource="#InternalMedicine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Hiking -->
+
+    <owl:Class rdf:about="#Hiking">
+        <rdfs:subClassOf rdf:resource="#SportAndFitness"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Homeopathy -->
+
+    <owl:Class rdf:about="#Homeopathy">
+        <rdfs:subClassOf rdf:resource="#Doctor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#HorsebackRiding -->
+
+    <owl:Class rdf:about="#HorsebackRiding">
+        <rdfs:subClassOf rdf:resource="#SportAndFitness"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Hospital -->
+
+    <owl:Class rdf:about="#Hospital">
+        <rdfs:subClassOf rdf:resource="#Health"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Hostel -->
+
+    <owl:Class rdf:about="#Hostel">
+        <rdfs:subClassOf rdf:resource="#Accommodation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Hotel -->
+
+    <owl:Class rdf:about="#Hotel">
+        <rdfs:subClassOf rdf:resource="#Accommodation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#HouseholdGoods -->
+
+    <owl:Class rdf:about="#HouseholdGoods">
+        <rdfs:subClassOf rdf:resource="#Shopping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#HumanGenetics -->
+
+    <owl:Class rdf:about="#HumanGenetics">
+        <rdfs:subClassOf rdf:resource="#Doctor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Indian -->
+
+    <owl:Class rdf:about="#Indian">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#InformationService -->
+
+    <owl:Class rdf:about="#InformationService">
+        <rdfs:subClassOf rdf:resource="#Tourism"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#InternalMedicine -->
+
+    <owl:Class rdf:about="#InternalMedicine">
+        <rdfs:subClassOf rdf:resource="#Doctor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Iraqi -->
+
+    <owl:Class rdf:about="#Iraqi">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Irish -->
+
+    <owl:Class rdf:about="#Irish">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Israeli -->
+
+    <owl:Class rdf:about="#Israeli">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Italian -->
+
+    <owl:Class rdf:about="#Italian">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Japanese -->
+
+    <owl:Class rdf:about="#Japanese">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Karaoke -->
+
+    <owl:Class rdf:about="#Karaoke">
+        <rdfs:subClassOf rdf:resource="#Pleasure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Kindergarten -->
+
+    <owl:Class rdf:about="#Kindergarten">
+        <rdfs:subClassOf rdf:resource="#Education"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Korean -->
+
+    <owl:Class rdf:about="#Korean">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#LaboratoryMedicine -->
+
+    <owl:Class rdf:about="#LaboratoryMedicine">
+        <rdfs:subClassOf rdf:resource="#Doctor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Lake -->
+
+    <owl:Class rdf:about="#Lake">
+        <rdfs:subClassOf rdf:resource="#Landscape"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Landscape -->
+
+    <owl:Class rdf:about="#Landscape">
+        <rdfs:subClassOf rdf:resource="#Activity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Leisure -->
+
+    <owl:Class rdf:about="#Leisure">
+        <rdfs:subClassOf rdf:resource="#Activity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Library -->
+
+    <owl:Class rdf:about="#Library">
+        <rdfs:subClassOf rdf:resource="#CivilService"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Lingerie -->
+
+    <owl:Class rdf:about="#Lingerie">
+        <rdfs:subClassOf rdf:resource="#Clothing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#LiveMusic -->
+
+    <owl:Class rdf:about="#LiveMusic">
+        <rdfs:subClassOf rdf:resource="#Pleasure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Mailbox -->
+
+    <owl:Class rdf:about="#Mailbox">
+        <rdfs:subClassOf rdf:resource="#CivilService"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Mall -->
+
+    <owl:Class rdf:about="#Mall">
+        <rdfs:subClassOf rdf:resource="#Shopping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#ManicureSalon -->
+
+    <owl:Class rdf:about="#ManicureSalon">
+        <rdfs:subClassOf rdf:resource="#Cosmetics"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#MarketForBabiesAndChildren -->
+
+    <owl:Class rdf:about="#MarketForBabiesAndChildren">
+        <rdfs:subClassOf rdf:resource="#Shopping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Massage -->
+
+    <owl:Class rdf:about="#Massage">
+        <rdfs:subClassOf rdf:resource="#Wellness"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Mexican -->
+
+    <owl:Class rdf:about="#Mexican">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#MicrobiologyAndInfectionsEpidemiology -->
+
+    <owl:Class rdf:about="#MicrobiologyAndInfectionsEpidemiology">
+        <rdfs:subClassOf rdf:resource="#Doctor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#MiddleAndUpperSchool -->
+
+    <owl:Class rdf:about="#MiddleAndUpperSchool">
+        <rdfs:subClassOf rdf:resource="#Education"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#MiniGolf -->
+
+    <owl:Class rdf:about="#MiniGolf">
+        <rdfs:subClassOf rdf:resource="#Pleasure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#MobilePhone -->
+
+    <owl:Class rdf:about="#MobilePhone">
+        <rdfs:subClassOf rdf:resource="#Electronics"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Mosque -->
+
+    <owl:Class rdf:about="#Mosque">
+        <rdfs:subClassOf rdf:resource="#PlaceOfWorship"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Motel -->
+
+    <owl:Class rdf:about="#Motel">
+        <rdfs:subClassOf rdf:resource="#Accommodation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Mountain -->
+
+    <owl:Class rdf:about="#Mountain">
+        <rdfs:subClassOf rdf:resource="#Landscape"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Museum -->
+
+    <owl:Class rdf:about="#Museum">
+        <rdfs:subClassOf rdf:resource="#Leisure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Nationality -->
+
+    <owl:Class rdf:about="#Nationality"/>
+    
+
+
+    <!-- http://my-ecar.org#Neonatology -->
+
+    <owl:Class rdf:about="#Neonatology">
+        <rdfs:subClassOf rdf:resource="#ChildrensAndAdolescentMedicine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Nepalese -->
+
+    <owl:Class rdf:about="#Nepalese">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Nephrology -->
+
+    <owl:Class rdf:about="#Nephrology">
+        <rdfs:subClassOf rdf:resource="#InternalMedicine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Neurology -->
+
+    <owl:Class rdf:about="#Neurology">
+        <rdfs:subClassOf rdf:resource="#Doctor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#NeurologyAndPsychiatry -->
+
+    <owl:Class rdf:about="#NeurologyAndPsychiatry">
+        <rdfs:subClassOf rdf:resource="#Neurology"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Neuropaediatrics -->
+
+    <owl:Class rdf:about="#Neuropaediatrics">
+        <rdfs:subClassOf rdf:resource="#ChildrensAndAdolescentMedicine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Neuropathology -->
+
+    <owl:Class rdf:about="#Neuropathology">
+        <rdfs:subClassOf rdf:resource="#Pathology"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Neuroradiology -->
+
+    <owl:Class rdf:about="#Neuroradiology">
+        <rdfs:subClassOf rdf:resource="#Radiology"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Neurosurgery -->
+
+    <owl:Class rdf:about="#Neurosurgery">
+        <rdfs:subClassOf rdf:resource="#Neurology"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#NightClub -->
+
+    <owl:Class rdf:about="#NightClub">
+        <rdfs:subClassOf rdf:resource="#Pleasure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#NightSchool -->
+
+    <owl:Class rdf:about="#NightSchool">
+        <rdfs:subClassOf rdf:resource="#Education"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#NuclearMedicine -->
+
+    <owl:Class rdf:about="#NuclearMedicine">
+        <rdfs:subClassOf rdf:resource="#Doctor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Obstetrics -->
+
+    <owl:Class rdf:about="#Obstetrics">
+        <rdfs:subClassOf rdf:resource="#WomensHealth"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Ocean -->
+
+    <owl:Class rdf:about="#Ocean">
+        <rdfs:subClassOf rdf:resource="#Landscape"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#OpeningHours -->
+
+    <owl:Class rdf:about="#OpeningHours"/>
+    
+
+
+    <!-- http://my-ecar.org#Ophthalmology -->
+
+    <owl:Class rdf:about="#Ophthalmology">
+        <rdfs:subClassOf rdf:resource="#Doctor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Optician -->
+
+    <owl:Class rdf:about="#Optician">
+        <rdfs:subClassOf rdf:resource="#Shopping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#OralAndMaxillofacialSurgery -->
+
+    <owl:Class rdf:about="#OralAndMaxillofacialSurgery">
+        <rdfs:subClassOf rdf:resource="#LaboratoryMedicine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Orthopedics -->
+
+    <owl:Class rdf:about="#Orthopedics">
+        <rdfs:subClassOf rdf:resource="#Doctor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#OrthopedicsAndAccidentSurgery -->
+
+    <owl:Class rdf:about="#OrthopedicsAndAccidentSurgery">
+        <rdfs:subClassOf rdf:resource="#Orthopedics"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Pakistani -->
+
+    <owl:Class rdf:about="#Pakistani">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Park -->
+
+    <owl:Class rdf:about="#Park">
+        <rdfs:subClassOf rdf:resource="#Leisure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Parking -->
+
+    <owl:Class rdf:about="#Parking">
+        <rdfs:subClassOf rdf:resource="#Activity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Pathology -->
+
+    <owl:Class rdf:about="#Pathology">
+        <rdfs:subClassOf rdf:resource="#Doctor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#PediatricCardiology -->
+
+    <owl:Class rdf:about="#PediatricCardiology">
+        <rdfs:subClassOf rdf:resource="#ChildrensAndAdolescentMedicine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#PediatricRadiology -->
+
+    <owl:Class rdf:about="#PediatricRadiology">
+        <rdfs:subClassOf rdf:resource="#ChildrensAndAdolescentMedicine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#PediatricSurgery -->
+
+    <owl:Class rdf:about="#PediatricSurgery">
+        <rdfs:subClassOf rdf:resource="#ChildrensAndAdolescentMedicine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Pharmacy -->
+
+    <owl:Class rdf:about="#Pharmacy">
+        <rdfs:subClassOf rdf:resource="#Health"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#PhoniatryAndAudiology -->
+
+    <owl:Class rdf:about="#PhoniatryAndAudiology">
+        <rdfs:subClassOf rdf:resource="#Doctor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#PhysicalAndRehabilitatveMedicine -->
+
+    <owl:Class rdf:about="#PhysicalAndRehabilitatveMedicine">
+        <rdfs:subClassOf rdf:resource="#Doctor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Pizza -->
+
+    <owl:Class rdf:about="#Pizza">
+        <rdfs:subClassOf rdf:resource="#Cuisine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#PlaceOfInterest -->
+
+    <owl:Class rdf:about="#PlaceOfInterest">
+        <rdfs:subClassOf rdf:resource="#Tourism"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#PlaceOfWorship -->
+
+    <owl:Class rdf:about="#PlaceOfWorship">
+        <rdfs:subClassOf rdf:resource="#Activity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#PlasticSurgery -->
+
+    <owl:Class rdf:about="#PlasticSurgery">
+        <rdfs:subClassOf rdf:resource="#Surgery"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Pleasure -->
+
+    <owl:Class rdf:about="#Pleasure">
+        <rdfs:subClassOf rdf:resource="#Leisure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#PneumologyANDPulmonaryMedicine -->
+
+    <owl:Class rdf:about="#PneumologyANDPulmonaryMedicine">
+        <rdfs:subClassOf rdf:resource="#InternalMedicine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Police -->
+
+    <owl:Class rdf:about="#Police">
+        <rdfs:subClassOf rdf:resource="#CivilService"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#PostOffice -->
+
+    <owl:Class rdf:about="#PostOffice">
+        <rdfs:subClassOf rdf:resource="#CivilService"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#PrimarySchool -->
+
+    <owl:Class rdf:about="#PrimarySchool">
+        <rdfs:subClassOf rdf:resource="#Education"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#PrivateSchool -->
+
+    <owl:Class rdf:about="#PrivateSchool">
+        <rdfs:subClassOf rdf:resource="#Education"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#PsychiatryAndPsychotherapy -->
+
+    <owl:Class rdf:about="#PsychiatryAndPsychotherapy">
+        <rdfs:subClassOf rdf:resource="#Doctor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Pub -->
+
+    <owl:Class rdf:about="#Pub">
+        <rdfs:subClassOf rdf:resource="#Gastronomy"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#PublicTransport -->
+
+    <owl:Class rdf:about="#PublicTransport">
+        <rdfs:subClassOf rdf:resource="#Activity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#RadiationTherapy -->
+
+    <owl:Class rdf:about="#RadiationTherapy">
+        <rdfs:subClassOf rdf:resource="#Doctor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Radiology -->
+
+    <owl:Class rdf:about="#Radiology">
+        <rdfs:subClassOf rdf:resource="#Doctor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#RailStation -->
+
+    <owl:Class rdf:about="#RailStation">
+        <rdfs:subClassOf rdf:resource="#PublicTransport"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Restaurant -->
+
+    <owl:Class rdf:about="#Restaurant">
+        <rdfs:subClassOf rdf:resource="#Gastronomy"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Rheumatology -->
+
+    <owl:Class rdf:about="#Rheumatology">
+        <rdfs:subClassOf rdf:resource="#InternalMedicine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#River -->
+
+    <owl:Class rdf:about="#River">
+        <rdfs:subClassOf rdf:resource="#Landscape"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Romanian -->
+
+    <owl:Class rdf:about="#Romanian">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Ruin -->
+
+    <owl:Class rdf:about="#Ruin">
+        <rdfs:subClassOf rdf:resource="#PlaceOfInterest"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Sandwich -->
+
+    <owl:Class rdf:about="#Sandwich">
+        <rdfs:subClassOf rdf:resource="#Cuisine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Sauna -->
+
+    <owl:Class rdf:about="#Sauna">
+        <rdfs:subClassOf rdf:resource="#Wellness"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#School -->
+
+    <owl:Class rdf:about="#School">
+        <rdfs:subClassOf rdf:resource="#Education"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#SelfDefenseAndCombatantSport -->
+
+    <owl:Class rdf:about="#SelfDefenseAndCombatantSport">
+        <rdfs:subClassOf rdf:resource="#SportAndFitness"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Shoe -->
+
+    <owl:Class rdf:about="#Shoe">
+        <rdfs:subClassOf rdf:resource="#Clothing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Shopping -->
+
+    <owl:Class rdf:about="#Shopping">
+        <rdfs:subClassOf rdf:resource="#Activity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#SkatingRink -->
+
+    <owl:Class rdf:about="#SkatingRink">
+        <rdfs:subClassOf rdf:resource="#SportAndFitness"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#SkiRun -->
+
+    <owl:Class rdf:about="#SkiRun">
+        <rdfs:subClassOf rdf:resource="#SportAndFitness"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#SkinAndVenerealDiseases -->
+
+    <owl:Class rdf:about="#SkinAndVenerealDiseases">
+        <rdfs:subClassOf rdf:resource="#Doctor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Soccer -->
+
+    <owl:Class rdf:about="#Soccer">
+        <rdfs:subClassOf rdf:resource="#SportAndFitness"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Spanish -->
+
+    <owl:Class rdf:about="#Spanish">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#SportAndFitness -->
+
+    <owl:Class rdf:about="#SportAndFitness">
+        <rdfs:subClassOf rdf:resource="#Leisure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#SportGoods -->
+
+    <owl:Class rdf:about="#SportGoods">
+        <rdfs:subClassOf rdf:resource="#Shopping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Squash -->
+
+    <owl:Class rdf:about="#Squash">
+        <rdfs:subClassOf rdf:resource="#SportAndFitness"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Stationery -->
+
+    <owl:Class rdf:about="#Stationery">
+        <rdfs:subClassOf rdf:resource="#Shopping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Steak -->
+
+    <owl:Class rdf:about="#Steak">
+        <rdfs:subClassOf rdf:resource="#Cuisine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Subway -->
+
+    <owl:Class rdf:about="#Subway">
+        <rdfs:subClassOf rdf:resource="#PublicTransport"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Supermarket -->
+
+    <owl:Class rdf:about="#Supermarket">
+        <rdfs:subClassOf rdf:resource="#Shopping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Surgery -->
+
+    <owl:Class rdf:about="#Surgery">
+        <rdfs:subClassOf rdf:resource="#Doctor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Sushi -->
+
+    <owl:Class rdf:about="#Sushi">
+        <rdfs:subClassOf rdf:resource="#Cuisine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#SwimmingPool -->
+
+    <owl:Class rdf:about="#SwimmingPool">
+        <rdfs:subClassOf rdf:resource="#Leisure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Synagogue -->
+
+    <owl:Class rdf:about="#Synagogue">
+        <rdfs:subClassOf rdf:resource="#PlaceOfWorship"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#TV -->
+
+    <owl:Class rdf:about="#TV">
+        <rdfs:subClassOf rdf:resource="#Electronics"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Tapas -->
+
+    <owl:Class rdf:about="#Tapas">
+        <rdfs:subClassOf rdf:resource="#Cuisine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#TextureAndSewingGoods -->
+
+    <owl:Class rdf:about="#TextureAndSewingGoods">
+        <rdfs:subClassOf rdf:resource="#Shopping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Thai -->
+
+    <owl:Class rdf:about="#Thai">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Theatre -->
+
+    <owl:Class rdf:about="#Theatre">
+        <rdfs:subClassOf rdf:resource="#Leisure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#ThoracicSurgery -->
+
+    <owl:Class rdf:about="#ThoracicSurgery">
+        <rdfs:subClassOf rdf:resource="#Surgery"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Tobacco -->
+
+    <owl:Class rdf:about="#Tobacco">
+        <rdfs:subClassOf rdf:resource="#Shopping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Tourism -->
+
+    <owl:Class rdf:about="#Tourism">
+        <rdfs:subClassOf rdf:resource="#Activity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#TouristInfo -->
+
+    <owl:Class rdf:about="#TouristInfo">
+        <rdfs:subClassOf rdf:resource="#InformationService"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Toy -->
+
+    <owl:Class rdf:about="#Toy">
+        <rdfs:subClassOf rdf:resource="#Shopping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Tram -->
+
+    <owl:Class rdf:about="#Tram">
+        <rdfs:subClassOf rdf:resource="#PublicTransport"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#TransfusionMedicine -->
+
+    <owl:Class rdf:about="#TransfusionMedicine">
+        <rdfs:subClassOf rdf:resource="#Doctor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#TraumaSurgery -->
+
+    <owl:Class rdf:about="#TraumaSurgery">
+        <rdfs:subClassOf rdf:resource="#Surgery"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#TravelAgency -->
+
+    <owl:Class rdf:about="#TravelAgency">
+        <rdfs:subClassOf rdf:resource="#InformationService"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Turkish -->
+
+    <owl:Class rdf:about="#Turkish">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#University -->
+
+    <owl:Class rdf:about="#University">
+        <rdfs:subClassOf rdf:resource="#Education"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Urology -->
+
+    <owl:Class rdf:about="#Urology">
+        <rdfs:subClassOf rdf:resource="#Doctor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#VacationApartment -->
+
+    <owl:Class rdf:about="#VacationApartment">
+        <rdfs:subClassOf rdf:resource="#Accommodation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Valley -->
+
+    <owl:Class rdf:about="#Valley">
+        <rdfs:subClassOf rdf:resource="#Landscape"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#VascularSurgery -->
+
+    <owl:Class rdf:about="#VascularSurgery">
+        <rdfs:subClassOf rdf:resource="#Surgery"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Vegan -->
+
+    <owl:Class rdf:about="#Vegan">
+        <rdfs:subClassOf rdf:resource="#Cuisine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Vegetarian -->
+
+    <owl:Class rdf:about="#Vegetarian">
+        <rdfs:subClassOf rdf:resource="#Cuisine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Visceral -->
+
+    <owl:Class rdf:about="#Visceral">
+        <rdfs:subClassOf rdf:resource="#Surgery"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#VocationalSchool -->
+
+    <owl:Class rdf:about="#VocationalSchool">
+        <rdfs:subClassOf rdf:resource="#Education"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Wellness -->
+
+    <owl:Class rdf:about="#Wellness">
+        <rdfs:subClassOf rdf:resource="#Leisure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#WithRenewableEnergy -->
+
+    <owl:Class rdf:about="#WithRenewableEnergy">
+        <rdfs:subClassOf rdf:resource="#ChargingStation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#WomensHealth -->
+
+    <owl:Class rdf:about="#WomensHealth">
+        <rdfs:subClassOf rdf:resource="#Doctor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Yoga -->
+
+    <owl:Class rdf:about="#Yoga">
+        <rdfs:subClassOf rdf:resource="#SportAndFitness"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#YouthHostel -->
+
+    <owl:Class rdf:about="#YouthHostel">
+        <rdfs:subClassOf rdf:resource="#Accommodation"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->
+

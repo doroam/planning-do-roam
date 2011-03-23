@@ -1,0 +1,24 @@
+<h1>Editing ontology_class_property</h1>
+
+<% form_for(@ontology_class_property) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :concept %><br />
+    <%= f.text_field :concept %>
+  </p>
+  <p>
+    <%= f.label :property %><br />
+    <%= f.text_field :property %>
+  </p>
+  <p>
+    <%= f.label :term %><br />
+    <%= f.text_field :term %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @ontology_class_property %> |
+<%= link_to 'Back', ontology_class_properties_path %>

@@ -1,0 +1,18 @@
+<p>
+  <b>Concept:</b>
+  <%=h @ontology_class_property.concept %>
+</p>
+
+<p>
+  <b>Property:</b>
+  <%=h @ontology_class_property.property %>
+</p>
+
+<p>
+  <b>Term:</b>
+  <%=h @ontology_class_property.term %>
+</p>
+
+
+<%= link_to 'Edit', edit_ontology_class_property_path(@ontology_class_property) %> |
+<%= link_to 'Back', ontology_class_properties_path %>

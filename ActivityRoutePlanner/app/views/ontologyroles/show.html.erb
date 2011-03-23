@@ -1,0 +1,18 @@
+<p>
+  <b>Name:</b>
+  <%=h @ontologyrole.name %>
+</p>
+
+<p>
+  <b>Domain:</b>
+  <%=h @ontologyrole.domain %>
+</p>
+
+<p>
+  <b>Range:</b>
+  <%=h @ontologyrole.range %>
+</p>
+
+
+<%= link_to 'Edit', edit_ontologyrole_path(@ontologyrole) %> |
+<%= link_to 'Back', ontologyroles_path %>

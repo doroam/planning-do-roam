@@ -1,0 +1,4091 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY unamed "http://www.dfki.de/sks/hets/ontology/unamed#" >
+    <!ENTITY k_fuel "http://www.dfki.de/sks/hets/ontology/unamed#k_fuel:" >
+    <!ENTITY k_addr "http://www.dfki.de/sks/hets/ontology/unamed#k_addr:" >
+    <!ENTITY k_theatre "http://www.dfki.de/sks/hets/ontology/unamed#k_theatre:" >
+]>
+
+
+<rdf:RDF xmlns="http://www.dfki.de/sks/hets/ontology/unamed#"
+     xml:base="http://www.dfki.de/sks/hets/ontology/unamed"
+     xmlns:k_addr="&unamed;k_addr:"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:k_theatre="&unamed;k_theatre:"
+     xmlns:k_fuel="&unamed;k_fuel:"
+     xmlns:unamed="http://www.dfki.de/sks/hets/ontology/unamed#">
+    <owl:Ontology rdf:about=""/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#hasCuisine -->
+
+    <owl:ObjectProperty rdf:about="#hasCuisine">
+        <rdfs:domain rdf:resource="#Places_to_eat"/>
+        <rdfs:range rdf:resource="#k_cuisine"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#ATM -->
+
+    <owl:Class rdf:about="#ATM">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#k_atm_v_yes"/>
+                    <rdf:Description rdf:about="#v_atm"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#ActivityTags -->
+
+    <owl:Class rdf:about="#ActivityTags">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Attractions"/>
+                    <rdf:Description rdf:about="#ChargingStation"/>
+                    <rdf:Description rdf:about="#Education"/>
+                    <rdf:Description rdf:about="#Finances"/>
+                    <rdf:Description rdf:about="#Forest"/>
+                    <rdf:Description rdf:about="#Groceries"/>
+                    <rdf:Description rdf:about="#Health"/>
+                    <rdf:Description rdf:about="#Landscape"/>
+                    <rdf:Description rdf:about="#Leisure"/>
+                    <rdf:Description rdf:about="#PublicTransport"/>
+                    <rdf:Description rdf:about="#Ruins"/>
+                    <rdf:Description rdf:about="#SwimmingPool"/>
+                    <rdf:Description rdf:about="#TramStop"/>
+                    <rdf:Description rdf:about="#Wellness"/>
+                    <rdf:Description rdf:about="#k_amenity"/>
+                    <rdf:Description rdf:about="#k_bicycle_parking"/>
+                    <rdf:Description rdf:about="#k_emergency"/>
+                    <rdf:Description rdf:about="#k_highway"/>
+                    <rdf:Description rdf:about="#k_historic"/>
+                    <rdf:Description rdf:about="#k_landuse"/>
+                    <rdf:Description rdf:about="#k_natural"/>
+                    <rdf:Description rdf:about="#k_religion"/>
+                    <rdf:Description rdf:about="#k_ruins"/>
+                    <rdf:Description rdf:about="#k_shop"/>
+                    <rdf:Description rdf:about="#k_sport"/>
+                    <rdf:Description rdf:about="#k_tourism"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#Address -->
+
+    <owl:Class rdf:about="#Address">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#ArabicRestaurant -->
+
+    <owl:Class rdf:about="#ArabicRestaurant">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasCuisine"/>
+                <owl:someValuesFrom rdf:resource="#v_arabic"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#v_restaurant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#AsianRestaurant -->
+
+    <owl:Class rdf:about="#AsianRestaurant">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasCuisine"/>
+                <owl:someValuesFrom rdf:resource="#v_asian"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#v_restaurant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#Attractions -->
+
+    <owl:Class rdf:about="#Attractions">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Ruins"/>
+                    <rdf:Description rdf:about="#v_attraction"/>
+                    <rdf:Description rdf:about="#v_castle"/>
+                    <rdf:Description rdf:about="#v_christian"/>
+                    <rdf:Description rdf:about="#v_jewish"/>
+                    <rdf:Description rdf:about="#v_muslim"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#ChargingStation -->
+
+    <owl:Class rdf:about="#ChargingStation">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#k_fuel:electricity_v_yes"/>
+                    <rdf:Description rdf:about="#v_charging_station"/>
+                    <rdf:Description rdf:about="#v_renewable"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#ChineseRestaurant -->
+
+    <owl:Class rdf:about="#ChineseRestaurant">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasCuisine"/>
+                <owl:someValuesFrom rdf:resource="#v_chinese"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#v_restaurant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#Education -->
+
+    <owl:Class rdf:about="#Education">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#v_school"/>
+                    <rdf:Description rdf:about="#v_university"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#Finances -->
+
+    <owl:Class rdf:about="#Finances">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#v_atm"/>
+                    <rdf:Description rdf:about="#v_bank"/>
+                    <rdf:Description rdf:about="#v_bureau_de_change"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#Fitness -->
+
+    <owl:Class rdf:about="#Fitness">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#k_sport"/>
+                    <rdf:Description rdf:about="#v_swimming_pool2"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#Forest -->
+
+    <owl:Class rdf:about="#Forest">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#v_forest"/>
+                    <rdf:Description rdf:about="#v_wood"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#FreeTimePlaces -->
+
+    <owl:Class rdf:about="#FreeTimePlaces">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#v_cinema"/>
+                    <rdf:Description rdf:about="#v_museum"/>
+                    <rdf:Description rdf:about="#v_theatre"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#FrenchRestaurant -->
+
+    <owl:Class rdf:about="#FrenchRestaurant">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasCuisine"/>
+                <owl:someValuesFrom rdf:resource="#v_french"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#v_restaurant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#GermanRestaurant -->
+
+    <owl:Class rdf:about="#GermanRestaurant">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasCuisine"/>
+                <owl:someValuesFrom rdf:resource="#v_german"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#v_restaurant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#GreekRestaurant -->
+
+    <owl:Class rdf:about="#GreekRestaurant">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasCuisine"/>
+                <owl:someValuesFrom rdf:resource="#v_greek"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#v_restaurant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#Groceries -->
+
+    <owl:Class rdf:about="#Groceries">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#v_bakery"/>
+                    <rdf:Description rdf:about="#v_beverages"/>
+                    <rdf:Description rdf:about="#v_butcher"/>
+                    <rdf:Description rdf:about="#v_convenience"/>
+                    <rdf:Description rdf:about="#v_deli"/>
+                    <rdf:Description rdf:about="#v_organic"/>
+                    <rdf:Description rdf:about="#v_seafood"/>
+                    <rdf:Description rdf:about="#v_supermarket"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#Health -->
+
+    <owl:Class rdf:about="#Health">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#v_dentist"/>
+                    <rdf:Description rdf:about="#v_doctors"/>
+                    <rdf:Description rdf:about="#v_hospital"/>
+                    <rdf:Description rdf:about="#v_pharmacy"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#IndianRestaurant -->
+
+    <owl:Class rdf:about="#IndianRestaurant">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasCuisine"/>
+                <owl:someValuesFrom rdf:resource="#v_indian"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#v_restaurant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#ItalianRestaurant -->
+
+    <owl:Class rdf:about="#ItalianRestaurant">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasCuisine"/>
+                <owl:someValuesFrom rdf:resource="#v_italian"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#v_restaurant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#Landscape -->
+
+    <owl:Class rdf:about="#Landscape">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Forest"/>
+                    <rdf:Description rdf:about="#v_beach"/>
+                    <rdf:Description rdf:about="#v_peak"/>
+                    <rdf:Description rdf:about="#v_river"/>
+                    <rdf:Description rdf:about="#v_valley"/>
+                    <rdf:Description rdf:about="#v_water"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#Leisure -->
+
+    <owl:Class rdf:about="#Leisure">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#FreeTimePlaces"/>
+                    <rdf:Description rdf:about="#SportAndFitness"/>
+                    <rdf:Description rdf:about="#SwimmingPool"/>
+                    <rdf:Description rdf:about="#Wellness"/>
+                    <rdf:Description rdf:about="#k_leisure"/>
+                    <rdf:Description rdf:about="#v_opera"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#Places_to_eat -->
+
+    <owl:Class rdf:about="#Places_to_eat">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#v_bar"/>
+                    <rdf:Description rdf:about="#v_biergarten"/>
+                    <rdf:Description rdf:about="#v_cafe"/>
+                    <rdf:Description rdf:about="#v_fast_food"/>
+                    <rdf:Description rdf:about="#v_pub"/>
+                    <rdf:Description rdf:about="#v_restaurant"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#PublicService -->
+
+    <owl:Class rdf:about="#PublicService">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#v_information"/>
+                    <rdf:Description rdf:about="#v_library"/>
+                    <rdf:Description rdf:about="#v_police"/>
+                    <rdf:Description rdf:about="#v_post_office"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#PublicTransport -->
+
+    <owl:Class rdf:about="#PublicTransport">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#TramStop"/>
+                    <rdf:Description rdf:about="#v_bicycle_rental"/>
+                    <rdf:Description rdf:about="#v_bus_stop"/>
+                    <rdf:Description rdf:about="#v_car_sharing"/>
+                    <rdf:Description rdf:about="#v_station"/>
+                    <rdf:Description rdf:about="#v_subway"/>
+                    <rdf:Description rdf:about="#v_tram_stop"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#Ruins -->
+
+    <owl:Class rdf:about="#Ruins">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#k_ruins_v_yes"/>
+                    <rdf:Description rdf:about="#v_ruins"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#SpanishRestaurant -->
+
+    <owl:Class rdf:about="#SpanishRestaurant">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasCuisine"/>
+                <owl:someValuesFrom rdf:resource="#v_spanish"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#v_restaurant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#SportAndFitness -->
+
+    <owl:Class rdf:about="#SportAndFitness">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#v_climbing"/>
+                    <rdf:Description rdf:about="#v_sports_centre"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#SwimmingPool -->
+
+    <owl:Class rdf:about="#SwimmingPool">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#v_swimming_pool"/>
+                    <rdf:Description rdf:about="#v_swimming_pool2"/>
+                    <rdf:Description rdf:about="#v_water_park"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#ThaiRestaurant -->
+
+    <owl:Class rdf:about="#ThaiRestaurant">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasCuisine"/>
+                <owl:someValuesFrom rdf:resource="#v_thai"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#v_restaurant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#TramStop -->
+
+    <owl:Class rdf:about="#TramStop">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#Wellness -->
+
+    <owl:Class rdf:about="#Wellness">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#v_massage"/>
+                    <rdf:Description rdf:about="#v_sauna"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_addr:city -->
+
+    <owl:Class rdf:about="#k_addr:city">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_addr:country -->
+
+    <owl:Class rdf:about="#k_addr:country">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_addr:disctrict -->
+
+    <owl:Class rdf:about="#k_addr:disctrict"/>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_addr:hamlet -->
+
+    <owl:Class rdf:about="#k_addr:hamlet"/>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_addr:housename -->
+
+    <owl:Class rdf:about="#k_addr:housename"/>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_addr:housenumber -->
+
+    <owl:Class rdf:about="#k_addr:housenumber">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_addr:postcode -->
+
+    <owl:Class rdf:about="#k_addr:postcode">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_addr:province -->
+
+    <owl:Class rdf:about="#k_addr:province"/>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_addr:street -->
+
+    <owl:Class rdf:about="#k_addr:street">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_addr:subdistrict -->
+
+    <owl:Class rdf:about="#k_addr:subdistrict"/>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_aerialway -->
+
+    <owl:Class rdf:about="#k_aerialway">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_aerialway_v_station -->
+
+    <owl:Class rdf:about="#k_aerialway_v_station">
+        <rdfs:subClassOf rdf:resource="#k_aerialway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_aeroway -->
+
+    <owl:Class rdf:about="#k_aeroway">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_amenity -->
+
+    <owl:Class rdf:about="#k_amenity">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_atm -->
+
+    <owl:Class rdf:about="#k_atm"/>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_atm_v_yes -->
+
+    <owl:Class rdf:about="#k_atm_v_yes">
+        <rdfs:subClassOf rdf:resource="#k_atm"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_bicycle_parking -->
+
+    <owl:Class rdf:about="#k_bicycle_parking">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_boundary -->
+
+    <owl:Class rdf:about="#k_boundary">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_boundary_v_political -->
+
+    <owl:Class rdf:about="#k_boundary_v_political">
+        <rdfs:subClassOf rdf:resource="#k_boundary"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_cuisine -->
+
+    <owl:Class rdf:about="#k_cuisine">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_cuisine_v_seafood -->
+
+    <owl:Class rdf:about="#k_cuisine_v_seafood">
+        <rdfs:subClassOf rdf:resource="#k_cuisine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_emergency -->
+
+    <owl:Class rdf:about="#k_emergency">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_emergency_v_no -->
+
+    <owl:Class rdf:about="#k_emergency_v_no">
+        <rdfs:subClassOf rdf:resource="#k_emergency"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_emergency_v_yes -->
+
+    <owl:Class rdf:about="#k_emergency_v_yes">
+        <rdfs:subClassOf rdf:resource="#k_emergency"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_fuel:electricity -->
+
+    <owl:Class rdf:about="#k_fuel:electricity">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_fuel:electricity_v_yes -->
+
+    <owl:Class rdf:about="#k_fuel:electricity_v_yes">
+        <rdfs:subClassOf rdf:resource="#k_fuel:electricity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_geological -->
+
+    <owl:Class rdf:about="#k_geological">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_highway -->
+
+    <owl:Class rdf:about="#k_highway">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_historic -->
+
+    <owl:Class rdf:about="#k_historic">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_landuse -->
+
+    <owl:Class rdf:about="#k_landuse">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_leisure -->
+
+    <owl:Class rdf:about="#k_leisure">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_man_made -->
+
+    <owl:Class rdf:about="#k_man_made">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_military -->
+
+    <owl:Class rdf:about="#k_military">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_name -->
+
+    <owl:Class rdf:about="#k_name">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_natural -->
+
+    <owl:Class rdf:about="#k_natural">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_opening_hours -->
+
+    <owl:Class rdf:about="#k_opening_hours">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_power -->
+
+    <owl:Class rdf:about="#k_power">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_power_source -->
+
+    <owl:Class rdf:about="#k_power_source">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_power_source_v_no -->
+
+    <owl:Class rdf:about="#k_power_source_v_no">
+        <rdfs:subClassOf rdf:resource="#k_power_source"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_power_v_station -->
+
+    <owl:Class rdf:about="#k_power_v_station">
+        <rdfs:subClassOf rdf:resource="#k_power"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_power_v_tower -->
+
+    <owl:Class rdf:about="#k_power_v_tower">
+        <rdfs:subClassOf rdf:resource="#k_power"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_railway -->
+
+    <owl:Class rdf:about="#k_railway">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_railway_v_tram -->
+
+    <owl:Class rdf:about="#k_railway_v_tram">
+        <rdfs:subClassOf rdf:resource="#k_railway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_religion -->
+
+    <owl:Class rdf:about="#k_religion">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_route -->
+
+    <owl:Class rdf:about="#k_route">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_route_v_bicycle -->
+
+    <owl:Class rdf:about="#k_route_v_bicycle">
+        <rdfs:subClassOf rdf:resource="#k_route"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_route_v_subway -->
+
+    <owl:Class rdf:about="#k_route_v_subway">
+        <rdfs:subClassOf rdf:resource="#k_route"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_ruins -->
+
+    <owl:Class rdf:about="#k_ruins">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_ruins_v_yes -->
+
+    <owl:Class rdf:about="#k_ruins_v_yes">
+        <rdfs:subClassOf rdf:resource="#k_ruins"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_shop -->
+
+    <owl:Class rdf:about="#k_shop">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_smokefree -->
+
+    <owl:Class rdf:about="#k_smokefree">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_smokefree_v_yes -->
+
+    <owl:Class rdf:about="#k_smokefree_v_yes">
+        <rdfs:subClassOf rdf:resource="#k_smokefree"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_smoking -->
+
+    <owl:Class rdf:about="#k_smoking">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_smoking_outside -->
+
+    <owl:Class rdf:about="#k_smoking_outside">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_smoking_outside_separated -->
+
+    <owl:Class rdf:about="#k_smoking_outside_separated">
+        <rdfs:subClassOf rdf:resource="#k_smoking_outside"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_smoking_outside_v_no -->
+
+    <owl:Class rdf:about="#k_smoking_outside_v_no">
+        <rdfs:subClassOf rdf:resource="#k_smoking_outside"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_smoking_outside_v_yes -->
+
+    <owl:Class rdf:about="#k_smoking_outside_v_yes">
+        <rdfs:subClassOf rdf:resource="#k_smoking_outside"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_smoking_v_no -->
+
+    <owl:Class rdf:about="#k_smoking_v_no">
+        <rdfs:subClassOf rdf:resource="#k_smoking"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_smoking_v_yes -->
+
+    <owl:Class rdf:about="#k_smoking_v_yes">
+        <rdfs:subClassOf rdf:resource="#k_smoking"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_sport -->
+
+    <owl:Class rdf:about="#k_sport">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_station -->
+
+    <owl:Class rdf:about="#k_station">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_theatre:genre -->
+
+    <owl:Class rdf:about="#k_theatre:genre">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_tourism -->
+
+    <owl:Class rdf:about="#k_tourism">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_type -->
+
+    <owl:Class rdf:about="#k_type"/>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_waterway -->
+
+    <owl:Class rdf:about="#k_waterway">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#track -->
+
+    <owl:Class rdf:about="#track">
+        <rdfs:subClassOf rdf:resource="#k_highway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_abandoned -->
+
+    <owl:Class rdf:about="#v_abandoned">
+        <rdfs:subClassOf rdf:resource="#k_railway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_administrative -->
+
+    <owl:Class rdf:about="#v_administrative">
+        <rdfs:subClassOf rdf:resource="#k_boundary"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_aerodrome -->
+
+    <owl:Class rdf:about="#v_aerodrome">
+        <rdfs:subClassOf rdf:resource="#k_aeroway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_airfield -->
+
+    <owl:Class rdf:about="#v_airfield">
+        <rdfs:subClassOf rdf:resource="#k_military"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_airport -->
+
+    <owl:Class rdf:about="#v_airport">
+        <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_alpine_hut -->
+
+    <owl:Class rdf:about="#v_alpine_hut">
+        <rdfs:subClassOf rdf:resource="#k_tourism"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_ambulance_station -->
+
+    <owl:Class rdf:about="#v_ambulance_station">
+        <rdfs:subClassOf rdf:resource="#k_emergency"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_american -->
+
+    <owl:Class rdf:about="#v_american">
+        <rdfs:subClassOf rdf:resource="#k_cuisine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_anchors -->
+
+    <owl:Class rdf:about="#v_anchors">
+        <rdfs:subClassOf rdf:resource="#k_bicycle_parking"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_apron -->
+
+    <owl:Class rdf:about="#v_apron">
+        <rdfs:subClassOf rdf:resource="#k_aeroway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_arabic -->
+
+    <owl:Class rdf:about="#v_arabic">
+        <rdfs:subClassOf rdf:resource="#k_cuisine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_archaeological_site -->
+
+    <owl:Class rdf:about="#v_archaeological_site">
+        <rdfs:subClassOf rdf:resource="#k_historic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_arena -->
+
+    <owl:Class rdf:about="#v_arena">
+        <rdfs:subClassOf rdf:resource="#k_leisure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_arts_centre -->
+
+    <owl:Class rdf:about="#v_arts_centre">
+        <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_artwork -->
+
+    <owl:Class rdf:about="#v_artwork">
+        <rdfs:subClassOf rdf:resource="#k_tourism"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_asian -->
+
+    <owl:Class rdf:about="#v_asian">
+        <rdfs:subClassOf rdf:resource="#k_cuisine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_athletics -->
+
+    <owl:Class rdf:about="#v_athletics">
+        <rdfs:subClassOf rdf:resource="#k_sport"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_atm -->
+
+    <owl:Class rdf:about="#v_atm">
+        <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_attraction -->
+
+    <owl:Class rdf:about="#v_attraction">
+        <rdfs:subClassOf rdf:resource="#k_tourism"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_bahai -->
+
+    <owl:Class rdf:about="#v_bahai">
+        <rdfs:subClassOf rdf:resource="#k_religion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_bakery -->
+
+    <owl:Class rdf:about="#v_bakery">
+        <rdfs:subClassOf rdf:resource="#k_shop"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_ballet -->
+
+    <owl:Class rdf:about="#v_ballet">
+        <rdfs:subClassOf rdf:resource="#k_theatre:genre"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_bank -->
+
+    <owl:Class rdf:about="#v_bank">
+        <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_bar -->
+
+    <owl:Class rdf:about="#v_bar">
+        <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_barracks -->
+
+    <owl:Class rdf:about="#v_barracks">
+        <rdfs:subClassOf rdf:resource="#k_military"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_baseball -->
+
+    <owl:Class rdf:about="#v_baseball">
+        <rdfs:subClassOf rdf:resource="#k_sport"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_basketball -->
+
+    <owl:Class rdf:about="#v_basketball">
+        <rdfs:subClassOf rdf:resource="#k_sport"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_bay -->
+
+    <owl:Class rdf:about="#v_bay">
+        <rdfs:subClassOf rdf:resource="#k_natural"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_beach -->
+
+    <owl:Class rdf:about="#v_beach">
+        <rdfs:subClassOf rdf:resource="#k_natural"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_beauty -->
+
+    <owl:Class rdf:about="#v_beauty">
+        <rdfs:subClassOf rdf:resource="#k_shop"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_bench -->
+
+    <owl:Class rdf:about="#v_bench">
+        <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_beverages -->
+
+    <owl:Class rdf:about="#v_beverages">
+        <rdfs:subClassOf rdf:resource="#k_shop"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_bicycle -->
+
+    <owl:Class rdf:about="#v_bicycle">
+        <rdfs:subClassOf rdf:resource="#k_shop"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_bicycle_parking -->
+
+    <owl:Class rdf:about="#v_bicycle_parking">
+        <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_bicycle_rental -->
+
+    <owl:Class rdf:about="#v_bicycle_rental">
+        <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_biergarten -->
+
+    <owl:Class rdf:about="#v_biergarten">
+        <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_bombcrater -->
+
+    <owl:Class rdf:about="#v_bombcrater">
+        <rdfs:subClassOf rdf:resource="#k_military"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_books -->
+
+    <owl:Class rdf:about="#v_books">
+        <rdfs:subClassOf rdf:resource="#k_shop"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_boulevard -->
+
+    <owl:Class rdf:about="#v_boulevard">
+        <rdfs:subClassOf rdf:resource="#k_theatre:genre"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_boundary -->
+
+    <owl:Class rdf:about="#v_boundary">
+        <rdfs:subClassOf rdf:resource="#k_type"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_boundary_stone -->
+
+    <owl:Class rdf:about="#v_boundary_stone">
+        <rdfs:subClassOf rdf:resource="#k_historic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_bowls -->
+
+    <owl:Class rdf:about="#v_bowls">
+        <rdfs:subClassOf rdf:resource="#k_sport"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_bridleway -->
+
+    <owl:Class rdf:about="#v_bridleway">
+        <rdfs:subClassOf rdf:resource="#k_highway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_buddhist -->
+
+    <owl:Class rdf:about="#v_buddhist">
+        <rdfs:subClassOf rdf:resource="#k_religion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_building -->
+
+    <owl:Class rdf:about="#v_building">
+        <rdfs:subClassOf rdf:resource="#k_bicycle_parking"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_bunker -->
+
+    <owl:Class rdf:about="#v_bunker">
+        <rdfs:subClassOf rdf:resource="#k_military"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_bureau_de_change -->
+
+    <owl:Class rdf:about="#v_bureau_de_change">
+        <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_burger -->
+
+    <owl:Class rdf:about="#v_burger">
+        <rdfs:subClassOf rdf:resource="#k_cuisine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_bus -->
+
+    <owl:Class rdf:about="#v_bus">
+        <rdfs:subClassOf rdf:resource="#k_route"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_bus_station -->
+
+    <owl:Class rdf:about="#v_bus_station">
+        <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_bus_stop -->
+
+    <owl:Class rdf:about="#v_bus_stop">
+        <rdfs:subClassOf rdf:resource="#k_highway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_butcher -->
+
+    <owl:Class rdf:about="#v_butcher">
+        <rdfs:subClassOf rdf:resource="#k_shop"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_cabaret -->
+
+    <owl:Class rdf:about="#v_cabaret">
+        <rdfs:subClassOf rdf:resource="#k_theatre:genre"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_cable_car -->
+
+    <owl:Class rdf:about="#v_cable_car">
+        <rdfs:subClassOf rdf:resource="#k_aerialway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_cafe -->
+
+    <owl:Class rdf:about="#v_cafe">
+        <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_camp_site -->
+
+    <owl:Class rdf:about="#v_camp_site">
+        <rdfs:subClassOf rdf:resource="#k_tourism"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_canal -->
+
+    <owl:Class rdf:about="#v_canal">
+        <rdfs:subClassOf rdf:resource="#k_waterway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_car -->
+
+    <owl:Class rdf:about="#v_car">
+        <rdfs:subClassOf rdf:resource="#k_shop"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_car_rental -->
+
+    <owl:Class rdf:about="#v_car_rental">
+        <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_car_repair -->
+
+    <owl:Class rdf:about="#v_car_repair">
+        <rdfs:subClassOf rdf:resource="#k_shop"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_car_sharing -->
+
+    <owl:Class rdf:about="#v_car_sharing">
+        <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_car_wash -->
+
+    <owl:Class rdf:about="#v_car_wash">
+        <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_caravan_site -->
+
+    <owl:Class rdf:about="#v_caravan_site">
+        <rdfs:subClassOf rdf:resource="#k_tourism"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_casino -->
+
+    <owl:Class rdf:about="#v_casino">
+        <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_castle -->
+
+    <owl:Class rdf:about="#v_castle">
+        <rdfs:subClassOf rdf:resource="#k_historic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_cave_entrance -->
+
+    <owl:Class rdf:about="#v_cave_entrance">
+        <rdfs:subClassOf rdf:resource="#k_natural"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_chair_lift -->
+
+    <owl:Class rdf:about="#v_chair_lift">
+        <rdfs:subClassOf rdf:resource="#k_aerialway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_chalet -->
+
+    <owl:Class rdf:about="#v_chalet">
+        <rdfs:subClassOf rdf:resource="#k_tourism"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_chamber_music -->
+
+    <owl:Class rdf:about="#v_chamber_music">
+        <rdfs:subClassOf rdf:resource="#k_theatre:genre"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_charging_station -->
+
+    <owl:Class rdf:about="#v_charging_station">
+        <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_chemist -->
+
+    <owl:Class rdf:about="#v_chemist">
+        <rdfs:subClassOf rdf:resource="#k_shop"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_chinese -->
+
+    <owl:Class rdf:about="#v_chinese">
+        <rdfs:subClassOf rdf:resource="#k_cuisine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_christian -->
+
+    <owl:Class rdf:about="#v_christian">
+        <rdfs:subClassOf rdf:resource="#k_religion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_cinema -->
+
+    <owl:Class rdf:about="#v_cinema">
+        <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_civil -->
+
+    <owl:Class rdf:about="#v_civil">
+        <rdfs:subClassOf rdf:resource="#k_boundary"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_cliff -->
+
+    <owl:Class rdf:about="#v_cliff">
+        <rdfs:subClassOf rdf:resource="#k_natural"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_climbing -->
+
+    <owl:Class rdf:about="#v_climbing">
+        <rdfs:subClassOf rdf:resource="#k_sport"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_clothes -->
+
+    <owl:Class rdf:about="#v_clothes">
+        <rdfs:subClassOf rdf:resource="#k_shop"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_coal -->
+
+    <owl:Class rdf:about="#v_coal">
+        <rdfs:subClassOf rdf:resource="#k_power_source"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_coastline -->
+
+    <owl:Class rdf:about="#v_coastline">
+        <rdfs:subClassOf rdf:resource="#k_natural"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_coffee_shop -->
+
+    <owl:Class rdf:about="#v_coffee_shop">
+        <rdfs:subClassOf rdf:resource="#k_cuisine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_college -->
+
+    <owl:Class rdf:about="#v_college">
+        <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_comedy -->
+
+    <owl:Class rdf:about="#v_comedy">
+        <rdfs:subClassOf rdf:resource="#k_theatre:genre"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_common -->
+
+    <owl:Class rdf:about="#v_common">
+        <rdfs:subClassOf rdf:resource="#k_leisure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_community_centre -->
+
+    <owl:Class rdf:about="#v_community_centre">
+        <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_computer -->
+
+    <owl:Class rdf:about="#v_computer">
+        <rdfs:subClassOf rdf:resource="#k_shop"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_convenience -->
+
+    <owl:Class rdf:about="#v_convenience">
+        <rdfs:subClassOf rdf:resource="#k_shop"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_courthouse -->
+
+    <owl:Class rdf:about="#v_courthouse">
+        <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_crossing -->
+
+    <owl:Class rdf:about="#v_crossing">
+        <rdfs:subClassOf rdf:resource="#k_railway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_cycleway -->
+
+    <owl:Class rdf:about="#v_cycleway">
+        <rdfs:subClassOf rdf:resource="#k_highway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_dam -->
+
+    <owl:Class rdf:about="#v_dam">
+        <rdfs:subClassOf rdf:resource="#k_waterway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_dance -->
+
+    <owl:Class rdf:about="#v_dance">
+        <rdfs:subClassOf rdf:resource="#k_leisure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_danger_area -->
+
+    <owl:Class rdf:about="#v_danger_area">
+        <rdfs:subClassOf rdf:resource="#k_military"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_dedicated -->
+
+    <owl:Class rdf:about="#v_dedicated">
+        <rdfs:subClassOf rdf:resource="#k_smoking"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_deli -->
+
+    <owl:Class rdf:about="#v_deli">
+        <rdfs:subClassOf rdf:resource="#k_shop"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_dentist -->
+
+    <owl:Class rdf:about="#v_dentist">
+        <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_department_store -->
+
+    <owl:Class rdf:about="#v_department_store">
+        <rdfs:subClassOf rdf:resource="#k_shop"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_detour -->
+
+    <owl:Class rdf:about="#v_detour">
+        <rdfs:subClassOf rdf:resource="#k_route"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_disused -->
+
+    <owl:Class rdf:about="#v_disused">
+        <rdfs:subClassOf rdf:resource="#k_railway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_ditch -->
+
+    <owl:Class rdf:about="#v_ditch">
+        <rdfs:subClassOf rdf:resource="#k_waterway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_doctors -->
+
+    <owl:Class rdf:about="#v_doctors">
+        <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_dog_park -->
+
+    <owl:Class rdf:about="#v_dog_park">
+        <rdfs:subClassOf rdf:resource="#k_leisure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_doityourself -->
+
+    <owl:Class rdf:about="#v_doityourself">
+        <rdfs:subClassOf rdf:resource="#k_shop"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_drag_lift -->
+
+    <owl:Class rdf:about="#v_drag_lift">
+        <rdfs:subClassOf rdf:resource="#k_aerialway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_drain -->
+
+    <owl:Class rdf:about="#v_drain">
+        <rdfs:subClassOf rdf:resource="#k_waterway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_drama -->
+
+    <owl:Class rdf:about="#v_drama">
+        <rdfs:subClassOf rdf:resource="#k_theatre:genre"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_drinking_water -->
+
+    <owl:Class rdf:about="#v_drinking_water">
+        <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_dry_cleaning -->
+
+    <owl:Class rdf:about="#v_dry_cleaning">
+        <rdfs:subClassOf rdf:resource="#k_shop"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_electronics -->
+
+    <owl:Class rdf:about="#v_electronics">
+        <rdfs:subClassOf rdf:resource="#k_shop"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_emergency_phone -->
+
+    <owl:Class rdf:about="#v_emergency_phone">
+        <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_environmental_hazard -->
+
+    <owl:Class rdf:about="#v_environmental_hazard">
+        <rdfs:subClassOf rdf:resource="#k_man_made"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_equestrian -->
+
+    <owl:Class rdf:about="#v_equestrian">
+        <rdfs:subClassOf rdf:resource="#k_sport"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_fast_food -->
+
+    <owl:Class rdf:about="#v_fast_food">
+        <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_fell -->
+
+    <owl:Class rdf:about="#v_fell">
+        <rdfs:subClassOf rdf:resource="#k_natural"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_ferry -->
+
+    <owl:Class rdf:about="#v_ferry">
+        <rdfs:subClassOf rdf:resource="#k_route"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_ferry_terminal -->
+
+    <owl:Class rdf:about="#v_ferry_terminal">
+        <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_figure -->
+
+    <owl:Class rdf:about="#v_figure">
+        <rdfs:subClassOf rdf:resource="#k_theatre:genre"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_fire_hydrant -->
+
+    <owl:Class rdf:about="#v_fire_hydrant">
+        <rdfs:subClassOf rdf:resource="#k_emergency"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_fire_station -->
+
+    <owl:Class rdf:about="#v_fire_station">
+        <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_fish -->
+
+    <owl:Class rdf:about="#v_fish">
+        <rdfs:subClassOf rdf:resource="#k_cuisine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_fishing -->
+
+    <owl:Class rdf:about="#v_fishing">
+        <rdfs:subClassOf rdf:resource="#k_leisure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_fitness_station -->
+
+    <owl:Class rdf:about="#v_fitness_station">
+        <rdfs:subClassOf rdf:resource="#k_leisure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_flightpath -->
+
+    <owl:Class rdf:about="#v_flightpath">
+        <rdfs:subClassOf rdf:resource="#k_route"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_florist -->
+
+    <owl:Class rdf:about="#v_florist">
+        <rdfs:subClassOf rdf:resource="#k_shop"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_food_court -->
+
+    <owl:Class rdf:about="#v_food_court">
+        <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_foot -->
+
+    <owl:Class rdf:about="#v_foot">
+        <rdfs:subClassOf rdf:resource="#k_route"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_football -->
+
+    <owl:Class rdf:about="#v_football">
+        <rdfs:subClassOf rdf:resource="#k_sport"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_footway -->
+
+    <owl:Class rdf:about="#v_footway">
+        <rdfs:subClassOf rdf:resource="#k_highway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_forest -->
+
+    <owl:Class rdf:about="#v_forest">
+        <rdfs:subClassOf rdf:resource="#k_landuse"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_fossil -->
+
+    <owl:Class rdf:about="#v_fossil">
+        <rdfs:subClassOf rdf:resource="#k_power_source"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_fountain -->
+
+    <owl:Class rdf:about="#v_fountain">
+        <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_french -->
+
+    <owl:Class rdf:about="#v_french">
+        <rdfs:subClassOf rdf:resource="#k_cuisine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_fuel -->
+
+    <owl:Class rdf:about="#v_fuel">
+        <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_furniture -->
+
+    <owl:Class rdf:about="#v_furniture">
+        <rdfs:subClassOf rdf:resource="#k_shop"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_garden -->
+
+    <owl:Class rdf:about="#v_garden">
+        <rdfs:subClassOf rdf:resource="#k_leisure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_garden_centre -->
+
+    <owl:Class rdf:about="#v_garden_centre">
+        <rdfs:subClassOf rdf:resource="#k_shop"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_gas -->
+
+    <owl:Class rdf:about="#v_gas">
+        <rdfs:subClassOf rdf:resource="#k_power_source"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_gate -->
+
+    <owl:Class rdf:about="#v_gate">
+        <rdfs:subClassOf rdf:resource="#k_aeroway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_generator -->
+
+    <owl:Class rdf:about="#v_generator">
+        <rdfs:subClassOf rdf:resource="#k_power"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_german -->
+
+    <owl:Class rdf:about="#v_german">
+        <rdfs:subClassOf rdf:resource="#k_cuisine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_glacier -->
+
+    <owl:Class rdf:about="#v_glacier">
+        <rdfs:subClassOf rdf:resource="#k_natural"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_golf -->
+
+    <owl:Class rdf:about="#v_golf">
+        <rdfs:subClassOf rdf:resource="#k_sport"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_golf_course -->
+
+    <owl:Class rdf:about="#v_golf_course">
+        <rdfs:subClassOf rdf:resource="#k_leisure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_gondola -->
+
+    <owl:Class rdf:about="#v_gondola">
+        <rdfs:subClassOf rdf:resource="#k_aerialway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_goods -->
+
+    <owl:Class rdf:about="#v_goods">
+        <rdfs:subClassOf rdf:resource="#k_aerialway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_grassland -->
+
+    <owl:Class rdf:about="#v_grassland">
+        <rdfs:subClassOf rdf:resource="#k_natural"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_grave_yard -->
+
+    <owl:Class rdf:about="#v_grave_yard">
+        <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_greek -->
+
+    <owl:Class rdf:about="#v_greek">
+        <rdfs:subClassOf rdf:resource="#k_cuisine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_ground_slots -->
+
+    <owl:Class rdf:about="#v_ground_slots">
+        <rdfs:subClassOf rdf:resource="#k_bicycle_parking"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_guest_house -->
+
+    <owl:Class rdf:about="#v_guest_house">
+        <rdfs:subClassOf rdf:resource="#k_tourism"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_gymnastics -->
+
+    <owl:Class rdf:about="#v_gymnastics">
+        <rdfs:subClassOf rdf:resource="#k_sport"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_hairdresser -->
+
+    <owl:Class rdf:about="#v_hairdresser">
+        <rdfs:subClassOf rdf:resource="#k_shop"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_halt -->
+
+    <owl:Class rdf:about="#v_halt">
+        <rdfs:subClassOf rdf:resource="#k_railway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_hardware -->
+
+    <owl:Class rdf:about="#v_hardware">
+        <rdfs:subClassOf rdf:resource="#k_shop"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_heath -->
+
+    <owl:Class rdf:about="#v_heath">
+        <rdfs:subClassOf rdf:resource="#k_natural"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_helipad -->
+
+    <owl:Class rdf:about="#v_helipad">
+        <rdfs:subClassOf rdf:resource="#k_aeroway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_hiking -->
+
+    <owl:Class rdf:about="#v_hiking">
+        <rdfs:subClassOf rdf:resource="#k_route"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_hindu -->
+
+    <owl:Class rdf:about="#v_hindu">
+        <rdfs:subClassOf rdf:resource="#k_religion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_hockey -->
+
+    <owl:Class rdf:about="#v_hockey">
+        <rdfs:subClassOf rdf:resource="#k_sport"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_hospital -->
+
+    <owl:Class rdf:about="#v_hospital">
+        <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_hostel -->
+
+    <owl:Class rdf:about="#v_hostel">
+        <rdfs:subClassOf rdf:resource="#k_tourism"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_hotel -->
+
+    <owl:Class rdf:about="#v_hotel">
+        <rdfs:subClassOf rdf:resource="#k_tourism"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_hydro -->
+
+    <owl:Class rdf:about="#v_hydro">
+        <rdfs:subClassOf rdf:resource="#k_power_source"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_ice_rink -->
+
+    <owl:Class rdf:about="#v_ice_rink">
+        <rdfs:subClassOf rdf:resource="#k_leisure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_indian -->
+
+    <owl:Class rdf:about="#v_indian">
+        <rdfs:subClassOf rdf:resource="#k_cuisine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_informal -->
+
+    <owl:Class rdf:about="#v_informal">
+        <rdfs:subClassOf rdf:resource="#k_bicycle_parking"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_information -->
+
+    <owl:Class rdf:about="#v_information">
+        <rdfs:subClassOf rdf:resource="#k_tourism"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_international -->
+
+    <owl:Class rdf:about="#v_international">
+        <rdfs:subClassOf rdf:resource="#k_cuisine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_isolated -->
+
+    <owl:Class rdf:about="#v_isolated">
+        <rdfs:subClassOf rdf:resource="#k_smoking"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_italian -->
+
+    <owl:Class rdf:about="#v_italian">
+        <rdfs:subClassOf rdf:resource="#k_cuisine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_jain -->
+
+    <owl:Class rdf:about="#v_jain">
+        <rdfs:subClassOf rdf:resource="#k_religion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_japanese -->
+
+    <owl:Class rdf:about="#v_japanese">
+        <rdfs:subClassOf rdf:resource="#k_cuisine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_jewelry -->
+
+    <owl:Class rdf:about="#v_jewelry">
+        <rdfs:subClassOf rdf:resource="#k_shop"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_jewish -->
+
+    <owl:Class rdf:about="#v_jewish">
+        <rdfs:subClassOf rdf:resource="#k_religion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_kebap -->
+
+    <owl:Class rdf:about="#v_kebap">
+        <rdfs:subClassOf rdf:resource="#k_cuisine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_kindergarten -->
+
+    <owl:Class rdf:about="#v_kindergarten">
+        <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_kiosk -->
+
+    <owl:Class rdf:about="#v_kiosk">
+        <rdfs:subClassOf rdf:resource="#k_shop"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_land -->
+
+    <owl:Class rdf:about="#v_land">
+        <rdfs:subClassOf rdf:resource="#k_natural"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_laundry -->
+
+    <owl:Class rdf:about="#v_laundry">
+        <rdfs:subClassOf rdf:resource="#k_shop"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_level_crossing -->
+
+    <owl:Class rdf:about="#v_level_crossing">
+        <rdfs:subClassOf rdf:resource="#k_railway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_library -->
+
+    <owl:Class rdf:about="#v_library">
+        <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_line -->
+
+    <owl:Class rdf:about="#v_line">
+        <rdfs:subClassOf rdf:resource="#k_power"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_living_street -->
+
+    <owl:Class rdf:about="#v_living_street">
+        <rdfs:subClassOf rdf:resource="#k_highway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_lockers -->
+
+    <owl:Class rdf:about="#v_lockers">
+        <rdfs:subClassOf rdf:resource="#k_bicycle_parking"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_mall -->
+
+    <owl:Class rdf:about="#v_mall">
+        <rdfs:subClassOf rdf:resource="#k_shop"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_marina -->
+
+    <owl:Class rdf:about="#v_marina">
+        <rdfs:subClassOf rdf:resource="#k_leisure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_marionette -->
+
+    <owl:Class rdf:about="#v_marionette">
+        <rdfs:subClassOf rdf:resource="#k_theatre:genre"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_maritime -->
+
+    <owl:Class rdf:about="#v_maritime">
+        <rdfs:subClassOf rdf:resource="#k_boundary"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_marketplace -->
+
+    <owl:Class rdf:about="#v_marketplace">
+        <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_marsh -->
+
+    <owl:Class rdf:about="#v_marsh">
+        <rdfs:subClassOf rdf:resource="#k_natural"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_massage -->
+
+    <owl:Class rdf:about="#v_massage">
+        <rdfs:subClassOf rdf:resource="#k_shop"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_memorial -->
+
+    <owl:Class rdf:about="#v_memorial">
+        <rdfs:subClassOf rdf:resource="#k_historic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_mexican -->
+
+    <owl:Class rdf:about="#v_mexican">
+        <rdfs:subClassOf rdf:resource="#k_cuisine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_miniature_golf -->
+
+    <owl:Class rdf:about="#v_miniature_golf">
+        <rdfs:subClassOf rdf:resource="#k_leisure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_minor_line -->
+
+    <owl:Class rdf:about="#v_minor_line">
+        <rdfs:subClassOf rdf:resource="#k_power"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_mobile_phone -->
+
+    <owl:Class rdf:about="#v_mobile_phone">
+        <rdfs:subClassOf rdf:resource="#k_shop"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_monitoring_station -->
+
+    <owl:Class rdf:about="#v_monitoring_station">
+        <rdfs:subClassOf rdf:resource="#k_man_made"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_monument -->
+
+    <owl:Class rdf:about="#v_monument">
+        <rdfs:subClassOf rdf:resource="#k_historic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_motel -->
+
+    <owl:Class rdf:about="#v_motel">
+        <rdfs:subClassOf rdf:resource="#k_tourism"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_motorway -->
+
+    <owl:Class rdf:about="#v_motorway">
+        <rdfs:subClassOf rdf:resource="#k_highway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_motorway_link -->
+
+    <owl:Class rdf:about="#v_motorway_link">
+        <rdfs:subClassOf rdf:resource="#k_highway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_mtb -->
+
+    <owl:Class rdf:about="#v_mtb">
+        <rdfs:subClassOf rdf:resource="#k_route"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_mud -->
+
+    <owl:Class rdf:about="#v_mud">
+        <rdfs:subClassOf rdf:resource="#k_natural"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_multi -->
+
+    <owl:Class rdf:about="#v_multi">
+        <rdfs:subClassOf rdf:resource="#k_sport"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_multifaith -->
+
+    <owl:Class rdf:about="#v_multifaith">
+        <rdfs:subClassOf rdf:resource="#k_religion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_multipolygon -->
+
+    <owl:Class rdf:about="#v_multipolygon">
+        <rdfs:subClassOf rdf:resource="#k_type"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_museum -->
+
+    <owl:Class rdf:about="#v_museum">
+        <rdfs:subClassOf rdf:resource="#k_tourism"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_musical -->
+
+    <owl:Class rdf:about="#v_musical">
+        <rdfs:subClassOf rdf:resource="#k_theatre:genre"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_muslim -->
+
+    <owl:Class rdf:about="#v_muslim">
+        <rdfs:subClassOf rdf:resource="#k_religion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_national_park -->
+
+    <owl:Class rdf:about="#v_national_park">
+        <rdfs:subClassOf rdf:resource="#k_boundary"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_nature_reserve -->
+
+    <owl:Class rdf:about="#v_nature_reserve">
+        <rdfs:subClassOf rdf:resource="#k_leisure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_naval_base -->
+
+    <owl:Class rdf:about="#v_naval_base">
+        <rdfs:subClassOf rdf:resource="#k_military"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_nightclub -->
+
+    <owl:Class rdf:about="#v_nightclub">
+        <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_nuclear -->
+
+    <owl:Class rdf:about="#v_nuclear">
+        <rdfs:subClassOf rdf:resource="#k_power_source"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_nuclear_explosion_site -->
+
+    <owl:Class rdf:about="#v_nuclear_explosion_site">
+        <rdfs:subClassOf rdf:resource="#k_military"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_opera -->
+
+    <owl:Class rdf:about="#v_opera">
+        <rdfs:subClassOf rdf:resource="#k_theatre:genre"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_optician -->
+
+    <owl:Class rdf:about="#v_optician">
+        <rdfs:subClassOf rdf:resource="#k_shop"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_organic -->
+
+    <owl:Class rdf:about="#v_organic">
+        <rdfs:subClassOf rdf:resource="#k_shop"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_outdoor -->
+
+    <owl:Class rdf:about="#v_outdoor">
+        <rdfs:subClassOf rdf:resource="#k_shop"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_pagan -->
+
+    <owl:Class rdf:about="#v_pagan">
+        <rdfs:subClassOf rdf:resource="#k_religion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_palaeontological_site -->
+
+    <owl:Class rdf:about="#v_palaeontological_site">
+        <rdfs:subClassOf rdf:resource="#k_geological"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_park -->
+
+    <owl:Class rdf:about="#v_park">
+        <rdfs:subClassOf rdf:resource="#k_leisure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_parking -->
+
+    <owl:Class rdf:about="#v_parking">
+        <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_pastafarian -->
+
+    <owl:Class rdf:about="#v_pastafarian">
+        <rdfs:subClassOf rdf:resource="#k_religion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_path -->
+
+    <owl:Class rdf:about="#v_path">
+        <rdfs:subClassOf rdf:resource="#k_highway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_peak -->
+
+    <owl:Class rdf:about="#v_peak">
+        <rdfs:subClassOf rdf:resource="#k_natural"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_pedestrian -->
+
+    <owl:Class rdf:about="#v_pedestrian">
+        <rdfs:subClassOf rdf:resource="#k_highway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_pet -->
+
+    <owl:Class rdf:about="#v_pet">
+        <rdfs:subClassOf rdf:resource="#k_shop"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_pharmacy -->
+
+    <owl:Class rdf:about="#v_pharmacy">
+        <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_philharmonic -->
+
+    <owl:Class rdf:about="#v_philharmonic">
+        <rdfs:subClassOf rdf:resource="#k_theatre:genre"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_phone -->
+
+    <owl:Class rdf:about="#v_phone">
+        <rdfs:subClassOf rdf:resource="#k_emergency"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_photovoltaic -->
+
+    <owl:Class rdf:about="#v_photovoltaic">
+        <rdfs:subClassOf rdf:resource="#k_power_source"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_picnic_site -->
+
+    <owl:Class rdf:about="#v_picnic_site">
+        <rdfs:subClassOf rdf:resource="#k_tourism"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_picnic_table -->
+
+    <owl:Class rdf:about="#v_picnic_table">
+        <rdfs:subClassOf rdf:resource="#k_leisure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_pier -->
+
+    <owl:Class rdf:about="#v_pier">
+        <rdfs:subClassOf rdf:resource="#k_man_made"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_pipeline -->
+
+    <owl:Class rdf:about="#v_pipeline">
+        <rdfs:subClassOf rdf:resource="#k_man_made"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_piste -->
+
+    <owl:Class rdf:about="#v_piste">
+        <rdfs:subClassOf rdf:resource="#k_route"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_pitch -->
+
+    <owl:Class rdf:about="#v_pitch">
+        <rdfs:subClassOf rdf:resource="#k_leisure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_pizza -->
+
+    <owl:Class rdf:about="#v_pizza">
+        <rdfs:subClassOf rdf:resource="#k_cuisine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_place_of_worship -->
+
+    <owl:Class rdf:about="#v_place_of_worship">
+        <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_platform -->
+
+    <owl:Class rdf:about="#v_platform">
+        <rdfs:subClassOf rdf:resource="#k_railway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_playground -->
+
+    <owl:Class rdf:about="#v_playground">
+        <rdfs:subClassOf rdf:resource="#k_leisure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_pole -->
+
+    <owl:Class rdf:about="#v_pole">
+        <rdfs:subClassOf rdf:resource="#k_power"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_police -->
+
+    <owl:Class rdf:about="#v_police">
+        <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_political -->
+
+    <owl:Class rdf:about="#v_political">
+        <rdfs:subClassOf rdf:resource="#k_theatre:genre"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_post_box -->
+
+    <owl:Class rdf:about="#v_post_box">
+        <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_post_office -->
+
+    <owl:Class rdf:about="#v_post_office">
+        <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_power -->
+
+    <owl:Class rdf:about="#v_power">
+        <rdfs:subClassOf rdf:resource="#k_route"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_primary -->
+
+    <owl:Class rdf:about="#v_primary">
+        <rdfs:subClassOf rdf:resource="#k_highway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_primary_link -->
+
+    <owl:Class rdf:about="#v_primary_link">
+        <rdfs:subClassOf rdf:resource="#k_highway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_protected_area -->
+
+    <owl:Class rdf:about="#v_protected_area">
+        <rdfs:subClassOf rdf:resource="#k_boundary"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_pub -->
+
+    <owl:Class rdf:about="#v_pub">
+        <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_puppet -->
+
+    <owl:Class rdf:about="#v_puppet">
+        <rdfs:subClassOf rdf:resource="#k_theatre:genre"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_pylon -->
+
+    <owl:Class rdf:about="#v_pylon">
+        <rdfs:subClassOf rdf:resource="#k_aerialway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_raceway -->
+
+    <owl:Class rdf:about="#v_raceway">
+        <rdfs:subClassOf rdf:resource="#k_highway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_rail -->
+
+    <owl:Class rdf:about="#v_rail">
+        <rdfs:subClassOf rdf:resource="#k_railway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_railway -->
+
+    <owl:Class rdf:about="#v_railway">
+        <rdfs:subClassOf rdf:resource="#k_route"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_range -->
+
+    <owl:Class rdf:about="#v_range">
+        <rdfs:subClassOf rdf:resource="#k_military"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_recreation_ground -->
+
+    <owl:Class rdf:about="#v_recreation_ground">
+        <rdfs:subClassOf rdf:resource="#k_leisure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_recycling -->
+
+    <owl:Class rdf:about="#v_recycling">
+        <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_reef -->
+
+    <owl:Class rdf:about="#v_reef">
+        <rdfs:subClassOf rdf:resource="#k_natural"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_regional -->
+
+    <owl:Class rdf:about="#v_regional">
+        <rdfs:subClassOf rdf:resource="#k_cuisine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_renewable -->
+
+    <owl:Class rdf:about="#v_renewable">
+        <rdfs:subClassOf rdf:resource="#k_power_source"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_residential -->
+
+    <owl:Class rdf:about="#v_residential">
+        <rdfs:subClassOf rdf:resource="#k_highway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_restaurant -->
+
+    <owl:Class rdf:about="#v_restaurant">
+        <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_restriction -->
+
+    <owl:Class rdf:about="#v_restriction">
+        <rdfs:subClassOf rdf:resource="#k_type"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_river -->
+
+    <owl:Class rdf:about="#v_river">
+        <rdfs:subClassOf rdf:resource="#k_waterway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_riverbank -->
+
+    <owl:Class rdf:about="#v_riverbank">
+        <rdfs:subClassOf rdf:resource="#k_waterway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_road -->
+
+    <owl:Class rdf:about="#v_road">
+        <rdfs:subClassOf rdf:resource="#k_route"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_rock -->
+
+    <owl:Class rdf:about="#v_rock">
+        <rdfs:subClassOf rdf:resource="#k_natural"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_rocks -->
+
+    <owl:Class rdf:about="#v_rocks">
+        <rdfs:subClassOf rdf:resource="#k_natural"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_route -->
+
+    <owl:Class rdf:about="#v_route">
+        <rdfs:subClassOf rdf:resource="#k_type"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_ruins -->
+
+    <owl:Class rdf:about="#v_ruins">
+        <rdfs:subClassOf rdf:resource="#k_historic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_runway -->
+
+    <owl:Class rdf:about="#v_runway">
+        <rdfs:subClassOf rdf:resource="#k_aeroway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_sand -->
+
+    <owl:Class rdf:about="#v_sand">
+        <rdfs:subClassOf rdf:resource="#k_natural"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_sauna -->
+
+    <owl:Class rdf:about="#v_sauna">
+        <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_school -->
+
+    <owl:Class rdf:about="#v_school">
+        <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_scientologist -->
+
+    <owl:Class rdf:about="#v_scientologist">
+        <rdfs:subClassOf rdf:resource="#k_religion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_scrub -->
+
+    <owl:Class rdf:about="#v_scrub">
+        <rdfs:subClassOf rdf:resource="#k_natural"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_seafood -->
+
+    <owl:Class rdf:about="#v_seafood">
+        <rdfs:subClassOf rdf:resource="#k_shop"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_secondary -->
+
+    <owl:Class rdf:about="#v_secondary">
+        <rdfs:subClassOf rdf:resource="#k_highway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_secondary_link -->
+
+    <owl:Class rdf:about="#v_secondary_link">
+        <rdfs:subClassOf rdf:resource="#k_highway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_separated -->
+
+    <owl:Class rdf:about="#v_separated">
+        <rdfs:subClassOf rdf:resource="#k_smoking"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_service -->
+
+    <owl:Class rdf:about="#v_service">
+        <rdfs:subClassOf rdf:resource="#k_highway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_services -->
+
+    <owl:Class rdf:about="#v_services">
+        <rdfs:subClassOf rdf:resource="#k_highway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_shadow_play -->
+
+    <owl:Class rdf:about="#v_shadow_play">
+        <rdfs:subClassOf rdf:resource="#k_theatre:genre"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_shed -->
+
+    <owl:Class rdf:about="#v_shed">
+        <rdfs:subClassOf rdf:resource="#k_bicycle_parking"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_shelter -->
+
+    <owl:Class rdf:about="#v_shelter">
+        <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_shinto -->
+
+    <owl:Class rdf:about="#v_shinto">
+        <rdfs:subClassOf rdf:resource="#k_religion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_shoes -->
+
+    <owl:Class rdf:about="#v_shoes">
+        <rdfs:subClassOf rdf:resource="#k_shop"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_sikh -->
+
+    <owl:Class rdf:about="#v_sikh">
+        <rdfs:subClassOf rdf:resource="#k_religion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_site -->
+
+    <owl:Class rdf:about="#v_site">
+        <rdfs:subClassOf rdf:resource="#k_type"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_skateboard -->
+
+    <owl:Class rdf:about="#v_skateboard">
+        <rdfs:subClassOf rdf:resource="#k_sport"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_skating -->
+
+    <owl:Class rdf:about="#v_skating">
+        <rdfs:subClassOf rdf:resource="#k_sport"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_ski -->
+
+    <owl:Class rdf:about="#v_ski">
+        <rdfs:subClassOf rdf:resource="#k_route"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_skiing -->
+
+    <owl:Class rdf:about="#v_skiing">
+        <rdfs:subClassOf rdf:resource="#k_sport"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_slipway -->
+
+    <owl:Class rdf:about="#v_slipway">
+        <rdfs:subClassOf rdf:resource="#k_leisure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_soccer -->
+
+    <owl:Class rdf:about="#v_soccer">
+        <rdfs:subClassOf rdf:resource="#k_sport"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_spanish -->
+
+    <owl:Class rdf:about="#v_spanish">
+        <rdfs:subClassOf rdf:resource="#k_cuisine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_spiritualist -->
+
+    <owl:Class rdf:about="#v_spiritualist">
+        <rdfs:subClassOf rdf:resource="#k_religion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_sports -->
+
+    <owl:Class rdf:about="#v_sports">
+        <rdfs:subClassOf rdf:resource="#k_shop"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_sports_centre -->
+
+    <owl:Class rdf:about="#v_sports_centre">
+        <rdfs:subClassOf rdf:resource="#k_leisure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_spring -->
+
+    <owl:Class rdf:about="#v_spring">
+        <rdfs:subClassOf rdf:resource="#k_natural"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_spur -->
+
+    <owl:Class rdf:about="#v_spur">
+        <rdfs:subClassOf rdf:resource="#k_railway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_stadium -->
+
+    <owl:Class rdf:about="#v_stadium">
+        <rdfs:subClassOf rdf:resource="#k_leisure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_stand_up_comedy -->
+
+    <owl:Class rdf:about="#v_stand_up_comedy">
+        <rdfs:subClassOf rdf:resource="#k_theatre:genre"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_stands -->
+
+    <owl:Class rdf:about="#v_stands">
+        <rdfs:subClassOf rdf:resource="#k_bicycle_parking"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_station -->
+
+    <owl:Class rdf:about="#v_station">
+        <rdfs:subClassOf rdf:resource="#k_railway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_stationery -->
+
+    <owl:Class rdf:about="#v_stationery">
+        <rdfs:subClassOf rdf:resource="#k_shop"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_steps -->
+
+    <owl:Class rdf:about="#v_steps">
+        <rdfs:subClassOf rdf:resource="#k_highway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_storage_tank -->
+
+    <owl:Class rdf:about="#v_storage_tank">
+        <rdfs:subClassOf rdf:resource="#k_man_made"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_stream -->
+
+    <owl:Class rdf:about="#v_stream">
+        <rdfs:subClassOf rdf:resource="#k_waterway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_sub_station -->
+
+    <owl:Class rdf:about="#v_sub_station">
+        <rdfs:subClassOf rdf:resource="#k_power"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_subway -->
+
+    <owl:Class rdf:about="#v_subway">
+        <rdfs:subClassOf rdf:resource="#k_station"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_supermarket -->
+
+    <owl:Class rdf:about="#v_supermarket">
+        <rdfs:subClassOf rdf:resource="#k_shop"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_survey_point -->
+
+    <owl:Class rdf:about="#v_survey_point">
+        <rdfs:subClassOf rdf:resource="#k_man_made"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_sushi -->
+
+    <owl:Class rdf:about="#v_sushi">
+        <rdfs:subClassOf rdf:resource="#k_cuisine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_swimming -->
+
+    <owl:Class rdf:about="#v_swimming">
+        <rdfs:subClassOf rdf:resource="#k_sport"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_swimming_pool -->
+
+    <owl:Class rdf:about="#v_swimming_pool">
+        <rdfs:subClassOf rdf:resource="#k_leisure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_swimming_pool2 -->
+
+    <owl:Class rdf:about="#v_swimming_pool2">
+        <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_table_tennis -->
+
+    <owl:Class rdf:about="#v_table_tennis">
+        <rdfs:subClassOf rdf:resource="#k_sport"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_taoist -->
+
+    <owl:Class rdf:about="#v_taoist">
+        <rdfs:subClassOf rdf:resource="#k_religion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_taxi -->
+
+    <owl:Class rdf:about="#v_taxi">
+        <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_taxiway -->
+
+    <owl:Class rdf:about="#v_taxiway">
+        <rdfs:subClassOf rdf:resource="#k_aeroway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_telephone -->
+
+    <owl:Class rdf:about="#v_telephone">
+        <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_tennis -->
+
+    <owl:Class rdf:about="#v_tennis">
+        <rdfs:subClassOf rdf:resource="#k_sport"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_terminal -->
+
+    <owl:Class rdf:about="#v_terminal">
+        <rdfs:subClassOf rdf:resource="#k_aeroway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_tertiary -->
+
+    <owl:Class rdf:about="#v_tertiary">
+        <rdfs:subClassOf rdf:resource="#k_highway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_thai -->
+
+    <owl:Class rdf:about="#v_thai">
+        <rdfs:subClassOf rdf:resource="#k_cuisine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_theatre -->
+
+    <owl:Class rdf:about="#v_theatre">
+        <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_theme_park -->
+
+    <owl:Class rdf:about="#v_theme_park">
+        <rdfs:subClassOf rdf:resource="#k_tourism"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_toilets -->
+
+    <owl:Class rdf:about="#v_toilets">
+        <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_tower -->
+
+    <owl:Class rdf:about="#v_tower">
+        <rdfs:subClassOf rdf:resource="#k_man_made"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_town_hall -->
+
+    <owl:Class rdf:about="#v_town_hall">
+        <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_toys -->
+
+    <owl:Class rdf:about="#v_toys">
+        <rdfs:subClassOf rdf:resource="#k_shop"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_track -->
+
+    <owl:Class rdf:about="#v_track">
+        <rdfs:subClassOf rdf:resource="#k_leisure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_train -->
+
+    <owl:Class rdf:about="#v_train">
+        <rdfs:subClassOf rdf:resource="#k_route"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_tram -->
+
+    <owl:Class rdf:about="#v_tram">
+        <rdfs:subClassOf rdf:resource="#k_route"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_tram_stop -->
+
+    <owl:Class rdf:about="#v_tram_stop">
+        <rdfs:subClassOf rdf:resource="#k_railway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_transformer -->
+
+    <owl:Class rdf:about="#v_transformer">
+        <rdfs:subClassOf rdf:resource="#k_power"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_travel_agency -->
+
+    <owl:Class rdf:about="#v_travel_agency">
+        <rdfs:subClassOf rdf:resource="#k_shop"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_tree -->
+
+    <owl:Class rdf:about="#v_tree">
+        <rdfs:subClassOf rdf:resource="#k_natural"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_trolleybus -->
+
+    <owl:Class rdf:about="#v_trolleybus">
+        <rdfs:subClassOf rdf:resource="#k_route"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_truck -->
+
+    <owl:Class rdf:about="#v_truck">
+        <rdfs:subClassOf rdf:resource="#k_route"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_trunk -->
+
+    <owl:Class rdf:about="#v_trunk">
+        <rdfs:subClassOf rdf:resource="#k_highway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_trunk_link -->
+
+    <owl:Class rdf:about="#v_trunk_link">
+        <rdfs:subClassOf rdf:resource="#k_highway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_turkish -->
+
+    <owl:Class rdf:about="#v_turkish">
+        <rdfs:subClassOf rdf:resource="#k_cuisine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_unclassified -->
+
+    <owl:Class rdf:about="#v_unclassified">
+        <rdfs:subClassOf rdf:resource="#k_highway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_unitarian -->
+
+    <owl:Class rdf:about="#v_unitarian">
+        <rdfs:subClassOf rdf:resource="#k_religion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_university -->
+
+    <owl:Class rdf:about="#v_university">
+        <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_valley -->
+
+    <owl:Class rdf:about="#v_valley">
+        <rdfs:subClassOf rdf:resource="#k_natural"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_variet&#233; -->
+
+    <owl:Class rdf:about="#v_variet&#233;">
+        <rdfs:subClassOf rdf:resource="#k_theatre:genre"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_vegetarian -->
+
+    <owl:Class rdf:about="#v_vegetarian">
+        <rdfs:subClassOf rdf:resource="#k_cuisine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_veterinary -->
+
+    <owl:Class rdf:about="#v_veterinary">
+        <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_video -->
+
+    <owl:Class rdf:about="#v_video">
+        <rdfs:subClassOf rdf:resource="#k_shop"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_viewpoint -->
+
+    <owl:Class rdf:about="#v_viewpoint">
+        <rdfs:subClassOf rdf:resource="#k_tourism"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_volcano -->
+
+    <owl:Class rdf:about="#v_volcano">
+        <rdfs:subClassOf rdf:resource="#k_natural"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_walking -->
+
+    <owl:Class rdf:about="#v_walking">
+        <rdfs:subClassOf rdf:resource="#k_route"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_wall_loops -->
+
+    <owl:Class rdf:about="#v_wall_loops">
+        <rdfs:subClassOf rdf:resource="#k_bicycle_parking"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_waste_basket -->
+
+    <owl:Class rdf:about="#v_waste_basket">
+        <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_wastewater_plant -->
+
+    <owl:Class rdf:about="#v_wastewater_plant">
+        <rdfs:subClassOf rdf:resource="#k_man_made"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_water -->
+
+    <owl:Class rdf:about="#v_water">
+        <rdfs:subClassOf rdf:resource="#k_natural"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_water_park -->
+
+    <owl:Class rdf:about="#v_water_park">
+        <rdfs:subClassOf rdf:resource="#k_leisure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_water_tower -->
+
+    <owl:Class rdf:about="#v_water_tower">
+        <rdfs:subClassOf rdf:resource="#k_man_made"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_waterfall -->
+
+    <owl:Class rdf:about="#v_waterfall">
+        <rdfs:subClassOf rdf:resource="#k_waterway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_wayside_cross -->
+
+    <owl:Class rdf:about="#v_wayside_cross">
+        <rdfs:subClassOf rdf:resource="#k_historic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_wayside_shrine -->
+
+    <owl:Class rdf:about="#v_wayside_shrine">
+        <rdfs:subClassOf rdf:resource="#k_historic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_wetland -->
+
+    <owl:Class rdf:about="#v_wetland">
+        <rdfs:subClassOf rdf:resource="#k_natural"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_wind -->
+
+    <owl:Class rdf:about="#v_wind">
+        <rdfs:subClassOf rdf:resource="#k_power_source"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_wood -->
+
+    <owl:Class rdf:about="#v_wood">
+        <rdfs:subClassOf rdf:resource="#k_natural"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_works -->
+
+    <owl:Class rdf:about="#v_works">
+        <rdfs:subClassOf rdf:resource="#k_man_made"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_zoo -->
+
+    <owl:Class rdf:about="#v_zoo">
+        <rdfs:subClassOf rdf:resource="#k_tourism"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_zoroastrian -->
+
+    <owl:Class rdf:about="#v_zoroastrian">
+        <rdfs:subClassOf rdf:resource="#k_religion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->
+
