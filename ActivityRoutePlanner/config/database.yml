@@ -2,7 +2,7 @@
 #   gem install sqlite3
 development:
   adapter: postgresql
-  database: po
+  database: test_osm
   username: postgres
   password: postgres
   host: localhost
@@ -23,12 +23,5 @@ production:
   pool: 5
   timeout: 5000
 
-osm_data:
-  adapter: postgresql
-  database: po
-  username: postgres
-  password: postgres
-  host: localhost
-  encoding: UTF8
 
 

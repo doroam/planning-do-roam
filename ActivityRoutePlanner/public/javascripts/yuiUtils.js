@@ -153,7 +153,7 @@ function buildUrl(url,params){
     return result;
 }
 
-function makeDialog(id){
+function makeDialog(id,beforeHide){
 
     if(YAHOO.yuiObjectContainer.standardDialog){
         YAHOO.yuiObjectContainer.standardDialog.destroy();
@@ -170,7 +170,10 @@ function makeDialog(id){
         
     
     YAHOO.yuiObjectContainer.standardDialog.setBody("<div id=\""+id+"_div\" class=\"dialog\"></div>");
-    YAHOO.yuiObjectContainer.standardDialog.subscribe( "beforeHide", removeTempMarkers);
+
+    if(beforeHide!=null)
+        YAHOO.yuiObjectContainer.standardDialog.subscribe( "beforeHide", beforeHide);
+
     //render popup
     YAHOO.yuiObjectContainer.standardDialog.render(document.body);
 
@@ -183,4 +186,35 @@ function makeDialog(id){
 function hideDialog(){
     if(YAHOO.yuiObjectContainer.standardDialog)
         YAHOO.yuiObjectContainer.standardDialog.hide();
+}
+
+function showOntology(){
+    var id = "ontology";
+    if(YAHOO.yuiObjectContainer.ontology){
+        YAHOO.yuiObjectContainer.ontology.destroy();
+    }
+    // Build overlay2 dynamically, at mouse position
+    YAHOO.yuiObjectContainer.ontology = new YAHOO.widget.Dialog(id, {
+        center : true,
+        visible:false,
+        fixedcenter:true,
+        close:true,
+        scrollable: true,
+        zindex:100,
+        modal: true,
+        width:"500px",
+        height:"600px"
+    } );
+
+
+    YAHOO.yuiObjectContainer.ontology.setBody("<div id=\""+id+"_div\" class=\"setPoint\"></div>");
+    //render popup
+    YAHOO.yuiObjectContainer.ontology.render(document.body);
+
+
+    var params = new Array();
+    params[0]  = ["url","ontology/content"];
+    var url = buildUrl("/load_content", params);
+    loadContent(url,"ontology_div");
+    YAHOO.yuiObjectContainer.ontology.show();
 }

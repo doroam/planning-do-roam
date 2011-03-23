@@ -28,7 +28,8 @@ function loadMap(){
     //53.075878;8.807311
     //47.547855" lon="7.589664
     init(lat,lon,zoom);
-    map.events.register('click', map, handleMapClick);
+    document.oncontextmenu = function noContextMenu(e) {return false;};
+    map.events.register('mousedown', map, handleMapClick);
 
 }
 
@@ -39,17 +40,29 @@ function loadMap(){
  */
 function handleMapClick(evt)
 {
-    //calculates the longitude and latitude from the position 
-    //of the pointer
-    var lonlat = map.getLonLatFromViewPortPx(evt.xy);
+    var rightclick;
+    if (!evt)
+        evt = window.event;
 
-    //transform coordinates to srid
-    var proj1 = new OpenLayers.Projection("EPSG:4326");
-    var proj2 = new OpenLayers.Projection("EPSG:900913");
-    var trans = lonlat.transform(proj2,proj1);
+    if (evt.which)
+        rightclick = (evt.which == 3);
+    else if (evt.button)
+        rightclick = (evt.button == 2);
 
-    //show popup. see yuiUtils.js
-    showSetPointMenu(trans,evt);
+    if(rightclick){
+
+        //calculates the longitude and latitude from the position
+        //of the pointer
+        var lonlat = map.getLonLatFromViewPortPx(evt.xy);
+
+        //transform coordinates to srid
+        var proj1 = new OpenLayers.Projection("EPSG:4326");
+        var proj2 = new OpenLayers.Projection("EPSG:900913");
+        var trans = lonlat.transform(proj2,proj1);
+
+        //show popup. see yuiUtils.js
+        showSetPointMenu(trans,evt);
+    }
        
 }
 
@@ -96,6 +109,7 @@ function loadRoute(fileName){
 function addTempMarker(id,name,lat,lon,type){
     var src = "javascripts/img/marker-green.png";
     var marker = createMarker(name,lon,lat,src);
+    marker.events.register("mousedown", marker, function(){alert(id+"  "+name+"  "+type);});
     tmpMarkerHash[id] = marker;
     tmpMarkerIds.push(id);
     layerMarkers.addMarker(marker);
@@ -156,6 +170,9 @@ function addMark(name,lat,lon,type){
         //markerHash[type] = null;
         marker = null
     }
+
+
+    
 
     //if there is no marker
     if(marker == null){
@@ -233,8 +250,10 @@ function createMarker(tooltip,lon,lat,src){
 
     //set tooltip: workaround: no tooltips from openlayers supported
     icon.imageDiv.firstChild.title = decodeURIComponent(tooltip);
-    //return maker
-    return new OpenLayers.Marker(lonLat,icon);
+    var marker = new OpenLayers.Marker(lonLat,icon);
+    
+
+    return marker;
 }
 
 /**
