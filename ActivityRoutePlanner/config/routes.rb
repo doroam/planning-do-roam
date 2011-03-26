@@ -20,6 +20,7 @@ ActivityRoutePlanner::Application.routes.draw do
   match "setAlgorithmus"=>"generate_place#set_algorithmus"
   match "load_content"=>"content_loader#load_content"
   match "search"=>"geocoder#search"
+  match "ontosearch"=>"ontology_search#ontosearch"
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

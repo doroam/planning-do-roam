@@ -47,18 +47,21 @@ class OntologyMapping < ActiveRecord::Base
   def nodetags_search(c) 
     if c.name=="Thing"
       return nil
-    end  
+    end
     d = self.map_class(c)
+
     if d.nil?
       return nil
-    end  
+    end
+
     name = d.name
     tag = name[2,name.size-2]
+
     search = case name[0]
-      when 107 then {:k=>tag}
-      when 118 then {:v=>tag}
+      when 'k' then {:k=>tag}
+      when 'v' then {:v=>tag}
       else nil
-    end
+    end    
     search
   end
      

@@ -212,10 +212,6 @@ function addMark(name,lat,lon,type){
         //markerHash[type] = null;
         marker = null
     }
-
-
-    
-
     //if there is no marker
     if(marker == null){
         //create a new one and set it to the layer

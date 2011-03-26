@@ -1,0 +1,11 @@
+<%coordinates = point.lat.to_s+":"+point.lon.to_s
+  label = point.label!=nil && !"".eql?(point.label) ? point.label : "no name"%>
+<p><%= link_to label,
+            {:controller => :generate_place,
+            :action=> :update_place,
+            :point => point},
+            :onmouseover => "highMarker('"+point.lat.to_s+":"+point.lon.to_s+"');",
+            :onmouseout => "downMarker('"+point.lat.to_s+":"+point.lon.to_s+"');",
+            :remote => true,
+            :onclick => 'showWall();',
+            %></p>

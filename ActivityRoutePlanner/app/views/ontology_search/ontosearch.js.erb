@@ -1,0 +1,14 @@
+alert('<%=escape_javascript(@result)%>');
+var d = makeDialog('activity_results',removeTempMarkers);
+var elem = document.getElementById('activity_results_div');
+var body = "";
+elem.innerHTML = "";
+removeTempMarkers();
+<%@points.each do |point|
+  label = point.label!=nil && !"".eql?(point.label) ? point.label : "no name"%>
+  addTempMarker('<%=point.lat.to_s+":"+point.lon.to_s%>',unescape('<%=escape_javascript(label)%>'),'<%=point.lat%>','<%=point.lon%>',null);
+  body = "<%=escape_javascript(render :partial => 'activity/result',:locals => {:point=>point})%>";
+  elem.innerHTML += body;
+<%end%>
+d.show();
+hideWall();

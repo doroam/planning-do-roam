@@ -1,3 +1,6 @@
+<%= form_tag(:ontosearch,:id => "ontosearch_form_id",
+              :onsubmit => "setBBox('ontosearch_form_id');showWall();",
+              :remote => true) do |f| %>
 <%@classes = if params[:class].nil? then [] else params[:class].keys end
 @main_class = OntologyClass.find_by_name("Activity")%>
   <table border=0 width="300px">
@@ -37,4 +40,5 @@
   <%= hidden_field_tag :maxlon %>
   <%= hidden_field_tag :maxlat %>
   <%= hidden_field_tag :zoom %>
+<%end%>
 <script type="text/javascript">Menu.init("menu", {"orientation": Menu.VERTICAL});</script>

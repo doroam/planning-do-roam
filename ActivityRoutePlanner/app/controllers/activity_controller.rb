@@ -31,18 +31,5 @@ class ActivityController < ApplicationController
     end
   end
 
-  def show_markers
-    @classes = if params[:class].nil? then [] else params[:class].keys end
-    classes_param = @classes.join(',')
-    url = "/api/0.6/ontosearch?"
-           + "zoom=" + params[:zoom]
-           + "&class=" + classes_param
-           #+ (intStart=="0" && intStop=="0" ? "" : "&start=" + intStart + "&stop=" + intStop)
-           + "&minlon=" + params[:minlon]
-           + "&maxlat=" + params[:maxlat]
-           + "&minlat=" + params[:minlat]
-           + "&maxlon=" + params[:maxlon]
-     doc = REXML::Document.new(Net::HTTP.get(URI.parse(url)))
-  end
 
 end
