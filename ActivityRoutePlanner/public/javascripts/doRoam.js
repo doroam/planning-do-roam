@@ -24,6 +24,7 @@ function getMapExtent(){
 function setBBox(form_id){
     var form = document.getElementById(form_id);
     var extent = getMapExtent();
+    form.zoom.value = map.getZoom();
     form.minlon.value = extent.left;
     form.minlat.value = extent.bottom;
     form.maxlon.value = extent.right;

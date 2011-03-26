@@ -1,10 +1,11 @@
-
 <div class="route" id="route_id">
 	<div class="headline">Route</div><br/>
 	<span style="font-size:12px;">          
 		  <%= render :partial=>"generate_place/algorithmus_form"%>
 	</span>
 <%= render 'init/form' %>
-<%= link_to "show ontology", "#" ,:onclick => 'showOntology();'%>
+<%= link_to "show ontology","#", :onclick => 'showOntology();'%><br/>
+<%= link_to "reset zoom","#", :onclick => 'resetCenter();'%>
 <%= render 'activity/index' %>
 </div>
+<script type="text/javascript">hideWall();</script>

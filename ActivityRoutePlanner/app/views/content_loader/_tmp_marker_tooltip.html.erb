@@ -1,16 +1,29 @@
+<%type = params[:type]%>
+<b>Name:</b><br/>
+<%=params[:name]%><br/>
 <b>Coordinates:</b><br/>
 <b>Latitude:</b> <%=params[:lat]%><br/>
 <b>Longitude:</b> <%=params[:lon]%><br/>
 <%coordinates = params[:lat]+":"+params[:lon]%>
+<%if "start".eql?(type) %>
 <%= link_to "Set start point", {:controller => :generate_place,
             :action=> :update_place,
             :start=> "true",
             :lat => params[:lat],
-            :lon=> params[:lon]},
+            :lon=> params[:lon],
+            :name => params[:name]},
              :remote => true,:onclick => 'hideSetPoint();showWall();'%>
-&nbsp
+<%elsif "end".eql?(type)%>
 <%= link_to "Set end point", {:controller => :generate_place,
             :action=> :update_place,
             :end=> "true",
             :lat => params[:lat],
+            :lon=> params[:lon],
+            :name => params[:name]},:remote => true,:onclick => 'hideSetPoint();showWall();'%>
+<%else%>
+<%= link_to "Set as activity", {:controller => :generate_place,
+            :action=> :update_place,
+            :end=> "true",
+            :lat => params[:lat],
             :lon=> params[:lon]},:remote => true,:onclick => 'hideSetPoint();showWall();'%>
+<%end%>

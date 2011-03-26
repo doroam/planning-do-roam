@@ -12,12 +12,14 @@ class GeneratePlaceController < ApplicationController
       point = @route.end_point
     end
 
-    if params[:result]!= nil
-      set_point_from_result(point)
-    else
-      set_point(point)
+    if point != nil
+      if params[:result]!= nil
+        set_point_from_result(point)
+      else
+        set_point(point)
+      end
+      @route.reset()
     end
-    @route.reset()
 
     #activate or deactivate activities to choose
     activate_activities(@route)

@@ -19,7 +19,6 @@ class RouteGenerator
   #It has also a list with kml code describing the path through all the points
   #start-activities-end
   def self.generate_route(route)
-    ActiveRecord::Base.establish_connection(:osm_data)
     geo_result  = nil
     result      = Array.new
     errors      = Array.new
@@ -72,7 +71,7 @@ class RouteGenerator
           result.push(line)
         else
           #error message if the path could not be found
-          errors.push(CGI.escape(src_point.label)+" to "+CGI.escape(point.label))
+          errors.push(src_point.label+"\nto\n"+point.label)
         end
       else
         p "no vertice found"

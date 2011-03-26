@@ -20,12 +20,11 @@
   addMark("<%=point.label%>","<%=end_lat%>","<%=end_lon%>","<%=type%>");
   <%end%>
 loadRoute('<%=params[:file_name]%>');
-<%
-  error_msg = "The next paths could not be found.";
+<%error_msg = "The next paths could not be found.";
   res.errors.each do |error|
-      error_msg += "\\n"+error+"."
+      error_msg += "\n"+error+"."
   end
   if res.errors.length>0%>
     alert('<%=escape_javascript(error_msg)%>');
- <% end%>
+ <%end%>
 

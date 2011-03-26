@@ -16,7 +16,7 @@
   <script type="text/javascript">
     window._token = '<%=form_authenticity_token%>';
   </script>
-  <%= javascript_include_tag 'OpenLayers.js','http://www.openstreetmap.org/openlayers/OpenStreetMap.js','yui/yahoo-dom-event/yahoo-dom-event.js','yui/container/container-min.js','yuiUtils.js','doRoam.js','util.js'%>
+  <%= javascript_include_tag 'OpenLayers.js','http://www.openstreetmap.org/openlayers/OpenStreetMap.js','yui/yahoo-dom-event/yahoo-dom-event.js','yui/container/container-min.js','yuiUtils.js','doRoam.js','Menu-1.3.1.js','util.js'%>
 </head>
 <body onload="javascript:loadMap();initEvents();<%=Route.find(session[:main_route]).show_markers()%>">
 <%= yield %>

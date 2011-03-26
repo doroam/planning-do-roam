@@ -1,5 +1,5 @@
 class InitController < ApplicationController
-  helper_method :get_points_near_to
+
   def index
     @route = nil    
 
