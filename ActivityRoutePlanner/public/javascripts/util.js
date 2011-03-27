@@ -30,7 +30,9 @@ function loadMap(){
     //53.075878;8.807311
     //47.547855" lon="7.589664
     init(lat,lon,zoom);
-    document.oncontextmenu = function noContextMenu(e) {return false;};
+    document.oncontextmenu = function noContextMenu(e) {
+        return false;
+    };
     map.events.register('mousedown', map, handleMapClick);
 
 }
@@ -76,7 +78,8 @@ function init(lat,lon,zoom) {
     //sets center point of the map
     center = new OpenLayers.LonLat(lon, lat).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject());
     map.setCenter (center, zoom);
-
+    map.events.register("moveend", map, reloadMarkers);
+//map.events.register("changelayer", map, updateLocation);
 }
 function resetCenter(){
     map.setCenter (center, zoom);
@@ -144,14 +147,53 @@ function loadRoute(fileName){
     setTimeout ( "hideWall();", 1500 );
 
     //set route zoom
-    route.events.register("loadend", route, function() {map.zoomToExtent(route.getDataExtent());});
+    route.events.register("loadend", route, function() {
+        map.zoomToExtent(route.getDataExtent());
+    });
+}
+function closeActivityResults(){
+    removeTempMarkers();
+    YAHOO.yuiObjectContainer.standardDialog.setBody("");
+    YAHOO.yuiObjectContainer.standardDialog.render(document.body);
 }
 
+
+function reloadMarkers(){
+    var elem = document.getElementById('activity_results_div');
+    if(elem!=null){
+        elem.innerHTML = loading;
+        var url = "/ontosearch";
+        var extent = getMapExtent();
+        new Ajax.Request(url,{
+            //onSuccess: function(o){showDialog(dialog);},
+            parameters : {
+                authenticity_token:_token,
+                minlon:extent.left,
+                minlat:extent.bottom,
+                maxlon:extent.right,
+                maxlat:extent.top,
+                zoom:map.getZoom(),
+                reload:true
+            },
+
+            evalScripts:true
+        });
+    }
+}
 function addTempMarker(id,name,lat,lon,type){
+    addTempMarker(id,name,lat,lon,type,null);
+}
+
+function addTempMarker(id,name,lat,lon,type,icon){
     var src = "javascripts/img/marker-green.png";
+    if(icon!=null && icon!=""){
+        src = icon;
+    }
+
     var marker = createMarker(name,lon,lat,src);
     marker.events.register("mousedown", marker, function(e){
-        showSetTempMenu(name,lat,lon,type,e);});
+        showSetTempMenu(name,lat,lon,type,e);
+    });
     tmpMarkerHash[id] = marker;
     tmpMarkerIds.push(id);
     layerMarkers.addMarker(marker);

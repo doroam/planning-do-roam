@@ -139,7 +139,7 @@ function buildUrl(url,params){
 }
 
 function makeDialog(id,beforeHide){
-    if(YAHOO.yuiObjectContainer.standardDialog){
+    if(YAHOO.yuiObjectContainer.standardDialog!=null){
         YAHOO.yuiObjectContainer.standardDialog.destroy();
     }
     // Build overlay2 dynamically, at mouse position
@@ -183,9 +183,10 @@ function showOntology(){
         zindex:100,
         modal: true,
         width:"550px",
-        height:"450px"
+        height:"500px"
     } );
 
+    
 
     YAHOO.yuiObjectContainer.ontology.setBody("<div id=\""+id+"_div\" class=\"setPoint\">"+loading+"</div>");
     //render popup
@@ -196,6 +197,10 @@ function showOntology(){
     var url = buildUrl("/load_content", params);
     loadContent(url,"ontology_div");
     YAHOO.yuiObjectContainer.ontology.show();
+}
+function hideOntology(){
+    if(YAHOO.yuiObjectContainer.ontology)
+        YAHOO.yuiObjectContainer.ontology.hide();
 }
 
 function reloadRouteFields(){

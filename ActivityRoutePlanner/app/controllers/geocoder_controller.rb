@@ -71,7 +71,7 @@ class GeocoderController < ApplicationController
     return @results
   rescue Exception => ex
     p "Error contacting nominatim.openstreetmap.org: #{ex.to_s}"
-    @results = nil
+    @results = Array.new
   end
 
   def fetch_text(url)

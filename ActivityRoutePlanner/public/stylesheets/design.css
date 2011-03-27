@@ -81,6 +81,7 @@ table{
     border-width: 1px;
     font-size: 10pt;
     max-height: 650px;
+    min-height: 400px;
     margin: 15px 0px 5px 5px;
     overflow-y:auto;
 

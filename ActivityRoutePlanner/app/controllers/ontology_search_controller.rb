@@ -2,24 +2,22 @@ class OntologySearchController < ApplicationController
   
   def ontosearch
 
-    #doc = XML::Document.new
-    #doc.encoding = XML::Encoding::UTF_8
-    #root = XML::Node.new 'gpx'
-    #root['version'] = '1.1'
-    #root['creator'] = 'OpenDataMap.ca 2.0_beta4'
-    #root['xmlns'] = "http://www.topografix.com/GPX/1/0/"
-
-    #doc.root = root
-    classes = if params[:class].nil? then [] else params[:class].keys end
-
-    @result = classes.to_s+"\n"
+    if !params[:reload].nil? && params[:reload]
+      #get activity->getclasses
+      classes = session[:current_classes]
+    else
+      classes = if params[:class].nil? then [] else params[:class].keys end
+      session[:current_classes] = classes
+    end
+      
+    @result = ""
     @points = Array.new
     cids = classes
     om = OntologyMapping.find_by_name("activities2tags")
 
     cids.each do |cid|
       c = OntologyClass.find_by_id(cid.to_i)
-      @result += c.name+"\n"
+      @result += c.name+"<br/>"
       start = params[:start]
       stop = params[:stop]
       minlon = params[:minlon].to_f
@@ -49,9 +47,9 @@ class OntologySearchController < ApplicationController
           res = ActiveRecord::Base.connection.execute(sql)
           if res.num_tuples>0
             tag = res[0]["k"]
-            @result += "tag="+tag+"   val="+val.to_s+"\n"
+            @result += "tag="+tag+"   val="+val.to_s+"<br/>"
             begin
-              sql = "select name,X(transform(way,4326)),Y(transform(way,4326)) from planet_osm_point where "+tag+"='"+val.to_s+"'"+
+              sql = "select name,X(transform(way,4326)),Y(transform(way,4326)) from planet_osm_point where \""+tag+"\" = '"+val.to_s+"'"+
                 " and Y(transform(way,4326)) BETWEEN "+minlat.to_s+" AND "+maxlat.to_s+" AND X(transform(way,4326)) BETWEEN "+minlon.to_s+" AND "+maxlon.to_s
               res = ActiveRecord::Base.connection.execute(sql)
               res.each do |result|
@@ -60,22 +58,27 @@ class OntologySearchController < ApplicationController
                 lon   = result["x"]
                 point       = Point.new
                 point.label = name
-                point.set_coordinates(lat,lon)
+                point.set_coordinates(lat,lon)                
+                icon      = Global::IMAGE_URLS[tag+"$"+val.to_s]
+                if icon == nil
+                    icon = ""
+                else
+                  icon_path = Global::IMAGE_URL_PREFIX
+                  icon_type = Global::IMAGE_URL_SUFFIX
+                  icon = icon_path+icon+icon_type
+                end
+                point.icon = icon
                 @points.push(point)
               end
 
             rescue Exception => err
-              @result += ":::::::"+err.to_s
+              @result += err.to_s
             end
           else
-            @result += "no tag for "+val.to_s+"\n"
+            @result += "no tag for "+val.to_s+"<br/>"
           end
-          
-
-          
-
         end
-       end
+      end
     end
     respond_to do |format|
       format.js
