@@ -11,5 +11,10 @@
 		  %>
         <%end%>
   <%end%>
+<%if route.is_ready %>
+	<tr><td colspan="2"><%= # link to remove that activity
+	link_to image_tag("add.png", :border=>0,:class => "delete"), "#", :remote => true,:onclick=>'showOntology();'%>
+            </td></tr>
+<%end%>
 </table>
 </span>

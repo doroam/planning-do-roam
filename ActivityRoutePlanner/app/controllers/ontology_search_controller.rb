@@ -58,6 +58,8 @@ class OntologySearchController < ApplicationController
                 lon   = result["x"]
                 point       = Point.new
                 point.label = name
+                point.tag = tag
+                point.value = val.to_s
                 point.set_coordinates(lat,lon)                
                 icon      = Global::IMAGE_URLS[tag+"$"+val.to_s]
                 if icon == nil

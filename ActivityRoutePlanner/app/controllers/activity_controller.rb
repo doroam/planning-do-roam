@@ -4,7 +4,6 @@ class ActivityController < ApplicationController
   #activity
   def update_activity
     route = Route.find(session[:main_route])
-    #activity = Activity.new("","")#dummy activity
     
     #add or update activity  
     if params[:activity]
@@ -27,6 +26,22 @@ class ActivityController < ApplicationController
     end    
       
     respond_to do |format|      
+      format.js
+    end
+  end
+
+  def create
+    route = Route.find(session[:main_route])
+    @activity = Activity.new(params[:activity])
+        
+    @activity.route = route
+    @activity.save
+
+    @point       = Point.new(params[:point])
+    @point.activity = @activity
+    @point.save
+
+    respond_to do |format|
       format.js
     end
   end

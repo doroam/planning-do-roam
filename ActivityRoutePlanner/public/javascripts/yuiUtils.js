@@ -49,8 +49,8 @@ function hideWall(){
     }
 }
 
-function showSetTempMenu(name,lat,lon,type,e){
-    showCursorPopUp("content_loader/tmp_marker_tooltip",lat,lon,name,e,type);
+function showSetTempMenu(name,lat,lon,type,e,tag,value){
+    showCursorPopUp("content_loader/tmp_marker_tooltip",lat,lon,name,e,type,tag,value);
 }
 
 /**
@@ -61,10 +61,10 @@ function showSetTempMenu(name,lat,lon,type,e){
  *
  */
 function showSetPointMenu(latLon,e){
-    showCursorPopUp("content_loader/point_tooltip",latLon.lat,latLon.lon,null,e,null);
+    showCursorPopUp("content_loader/point_tooltip",latLon.lat,latLon.lon,null,e,null,null,null);
 }
 
-function showCursorPopUp(url,lat,lon,name,e,type){
+function showCursorPopUp(url,lat,lon,name,e,type,tag,value){
     var mouseXY = YAHOO.util.Event.getXY(e);
     var mX = mouseXY[0];
     var mY = mouseXY[1];
@@ -91,12 +91,24 @@ function showCursorPopUp(url,lat,lon,name,e,type){
     params[0]  = ["url",url];
     params[1]  = ["lat",lat+""];
     params[2]  = ['lon',lon+""];
+    var i = 3;
     if(name!=null){
-        params[3]  = ['name',name];
+        params[i]  = ['name',name];
+        i++;
     }
     if(type!=null){
-        params[4]  = ['type',type];
+        params[i]  = ['type',type];
+        i++;
     }
+    if(tag!=null){
+        params[i]  = ['tag',tag];
+        i++
+    }
+    if(value!=null){
+        params[i]  = ['value',value];
+        i++;
+    }
+    //alert("params"+params);
     var url_ = buildUrl("/load_content", params);
     loadContent(url_,"set_point_id",YAHOO.yuiObjectContainer.pointMenu);
 }
@@ -135,6 +147,7 @@ function buildUrl(url,params){
 
         result += params[i][0]+"="+encodeURIComponent(params[i][1])+and;
     }
+    //alert("result="+result);
     return result;
 }
 

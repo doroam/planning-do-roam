@@ -21,9 +21,13 @@
             :lon=> params[:lon],
             :name => params[:name]},:remote => true,:onclick => 'hideSetPoint();showWall();'%>
 <%else%>
-<%= link_to "Set as activity", {:controller => :generate_place,
-            :action=> :update_place,
-            :end=> "true",
-            :lat => params[:lat],
-            :lon=> params[:lon]},:remote => true,:onclick => 'hideSetPoint();showWall();'%>
+<%= link_to "Set as activity",
+            {:controller => :activity,
+            :action=> :create,
+            :activity =>{:tag => params[:tag],:value => params[:value]},
+            :point => {:label=>params[:name],:lat => params[:lat],:lon => params[:lon]}
+            },
+            :remote => true,
+            :onclick => 'hideSetPoint();showWall();',
+            %>
 <%end%>

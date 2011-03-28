@@ -12,19 +12,11 @@ class Point < ActiveRecord::Base
   GLOBAL_TABLE_POLYGON  = Global::GLOBAL_TABLE_POLYGON
   GLOBAL_FIELD_AMENITY  = Global::GLOBAL_FIELD_AMENITY
 
-  attr_accessor :icon
-    
-  #constructor for label, lat and long
-  def initialize(label,lat,long)
-    super
-    self.lat = lat
-    self.lon = long
-    self.label = label
-  end
+  attr_accessor :icon,
+                :tag,
+                :value,
+                :distance_source#not setted!
 
-  def initialize
-    super
-  end
 
 
   def reset

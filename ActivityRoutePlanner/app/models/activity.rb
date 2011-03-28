@@ -4,10 +4,6 @@ class Activity < ActiveRecord::Base
 
   include Comparable
 
-  def initialize
-    super
-    self.save()
-  end
 
   def tag_value
     if self.tag!=nil && self.value!=nil

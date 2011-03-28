@@ -1,9 +1,11 @@
 <%coordinates = point.lat.to_s+":"+point.lon.to_s
   label = point.label!=nil && !"".eql?(point.label) ? point.label : "no name"%>
 <p><%= link_to label,
-            {:controller => :generate_place,
-            :action=> :update_place,
-            :point => point},
+            {:controller => :activity,
+            :action=> :create,
+            :activity =>{:tag => point.tag,:value => point.value},
+            :point => {:label=>point.label,:lat => point.lat,:lon => point.lon}
+            },
             :onmouseover => "highMarker('"+point.lat.to_s+":"+point.lon.to_s+"');",
             :onmouseout => "downMarker('"+point.lat.to_s+":"+point.lon.to_s+"');",
             :remote => true,

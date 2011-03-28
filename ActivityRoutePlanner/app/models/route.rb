@@ -23,6 +23,10 @@ class Route < ActiveRecord::Base
     self.save
   end
 
+  def is_ready
+    return self.end_point!= nil  && self.end_point.is_setted && self.start_point!=nil && self.start_point.is_setted
+  end
+
   def end_point
     point = nil
     if self.end_point_id!=nil

@@ -21,8 +21,6 @@ class GeneratePlaceController < ApplicationController
       @route.reset()
     end
 
-    #activate or deactivate activities to choose
-    activate_activities(@route)
 
     respond_to do |format|
       format.js
@@ -73,19 +71,6 @@ class GeneratePlaceController < ApplicationController
     point.label = label
     point.set_coordinates(params[:lat],params[:lon])
     point.save
-  end
-
-
-  #If user has given an start- and endPoint,
-  #so activates activity-list if not done
-  def activate_activities(route)
-    if route.start_point.is_setted && route.end_point.is_setted && route.activities.empty?
-      @activity = Activity.new()
-      @activity.route = route
-      @activity.save
-    else #if labels of points are nil
-      route.activities.delete_all
-    end
   end
 
   #sets the algorithmus and sorting method to use

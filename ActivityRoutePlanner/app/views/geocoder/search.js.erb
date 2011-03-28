@@ -3,7 +3,7 @@ var elem = document.getElementById('nominatim_div');
 var body = "";
 <% if @results.empty?  %>
   elem.innerHTML = "";
-  body = "<%=escape_javascript(render :partial => 'content_loader/no_results_found')%>";
+  body = "<%=escape_javascript(render :partial => 'content_loader/no_results_found',:locals=>{:error=>""})%>";
   elem.innerHTML += body;
 <%else%>
     elem.innerHTML = "";

@@ -30,7 +30,7 @@ class RouteGenerator
     #result_way = result_way.sort
 
     #delete last empty activity (is always the new empty one)
-    result_way.delete_at(result.length-1)
+    #result_way.delete_at(result.length-1)
     
     #get first (closest) activity form the 3 posibilities
     result_way = result_way.collect { |activity|  activity.result}

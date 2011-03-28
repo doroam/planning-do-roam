@@ -141,7 +141,7 @@ function loadRoute(fileName){
 
     //adds the route layer
     map.addLayer(route);
-        
+    map.setLayerIndex(route,0);
     //wait for the route to be displayed before
     //hiding the loading panel
     setTimeout ( "hideWall();", 1500 );
@@ -181,10 +181,10 @@ function reloadMarkers(){
     }
 }
 function addTempMarker(id,name,lat,lon,type){
-    addTempMarker(id,name,lat,lon,type,null);
+    addTempMarker(id,name,lat,lon,type,null,null,null);
 }
 
-function addTempMarker(id,name,lat,lon,type,icon){
+function addTempMarker(id,name,lat,lon,type,icon,tag,value){
     var src = "javascripts/img/marker-green.png";
     if(icon!=null && icon!=""){
         src = icon;
@@ -192,8 +192,8 @@ function addTempMarker(id,name,lat,lon,type,icon){
 
     var marker = createMarker(name,lon,lat,src);
     marker.events.register("mousedown", marker, function(e){
-        showSetTempMenu(name,lat,lon,type,e);
-    });
+        showSetTempMenu(name,lat,lon,type,e,tag,value);
+    });    
     tmpMarkerHash[id] = marker;
     tmpMarkerIds.push(id);
     layerMarkers.addMarker(marker);

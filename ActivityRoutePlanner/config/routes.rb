@@ -12,7 +12,7 @@ ActivityRoutePlanner::Application.routes.draw do
   
   match "updateRoute" => "generate_place#update_place"
   match "remove_point" => "generate_place#remove_point"
-  match "add_activity" => "activity#update_activity"
+  match "add_activity" => "activity#create"
   match "delete_activity" => "activity#update_activity"
   match "reset" => "init#index"
   match "resetMethod" => "init#reset"
