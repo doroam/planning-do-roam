@@ -10,7 +10,7 @@ class OntologySearchController < ApplicationController
       session[:current_classes] = classes
     end
       
-    @result = ""
+    @result = classes.to_s+"<br/>"
     @points = Array.new
     cids = classes
     om = OntologyMapping.find_by_name("activities2tags")
@@ -47,7 +47,7 @@ class OntologySearchController < ApplicationController
           res = ActiveRecord::Base.connection.execute(sql)
           if res.num_tuples>0
             tag = res[0]["k"]
-            @result += "tag="+tag+"   val="+val.to_s+"<br/>"
+            #@result += "tag="+tag+"   val="+val.to_s+"<br/>"
             begin
               sql = "select name,X(transform(way,4326)),Y(transform(way,4326)) from planet_osm_point where \""+tag+"\" = '"+val.to_s+"'"+
                 " and Y(transform(way,4326)) BETWEEN "+minlat.to_s+" AND "+maxlat.to_s+" AND X(transform(way,4326)) BETWEEN "+minlon.to_s+" AND "+maxlon.to_s
@@ -74,7 +74,7 @@ class OntologySearchController < ApplicationController
               end
 
             rescue Exception => err
-              @result += err.to_s
+              @result += "The activity "+val.to_s+" could not be found in our database. It will be fixed soon! <br/>"
             end
           else
             @result += "no tag for "+val.to_s+"<br/>"
