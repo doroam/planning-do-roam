@@ -49,8 +49,9 @@ class OntologySearchController < ApplicationController
             tag = res[0]["k"]
             #@result += "tag="+tag+"   val="+val.to_s+"<br/>"
             begin
-              sql = "select name,X(transform(way,4326)),Y(transform(way,4326)) from planet_osm_point where \""+tag+"\" = '"+val.to_s+"'"+
-                " and Y(transform(way,4326)) BETWEEN "+minlat.to_s+" AND "+maxlat.to_s+" AND X(transform(way,4326)) BETWEEN "+minlon.to_s+" AND "+maxlon.to_s
+              sql = "select distinct on(name)name,X(transform(way,4326)),Y(transform(way,4326)) from planet_osm_point where \""+tag+"\" = '"+val.to_s+"'"+
+                " and Y(transform(way,4326)) BETWEEN "+minlat.to_s+" AND "+maxlat.to_s+
+                " AND X(transform(way,4326)) BETWEEN "+minlon.to_s+" AND "+maxlon.to_s+" LIMIT 35"
               res = ActiveRecord::Base.connection.execute(sql)
               res.each do |result|
                 name  = result["name"]

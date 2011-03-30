@@ -3,7 +3,7 @@ class GeneratePlaceController < ApplicationController
   #controller is called on each activity action
   def update_place
     @route = Route.find(session[:main_route])
-
+    
     point = nil
     #start point was set
     if params[:start]!=nil
@@ -20,8 +20,6 @@ class GeneratePlaceController < ApplicationController
       end
       @route.reset()
     end
-
-
     respond_to do |format|
       format.js
     end

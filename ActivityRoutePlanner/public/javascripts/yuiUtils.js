@@ -128,7 +128,7 @@ function loadContent(url,div_id){
 function loadContent(url,div_id,dialog){
     new Ajax.Updater(div_id, url,{
         onSuccess: function(o){showDialog(dialog);},
-        parameters : "authenticity_token="+_token,
+        parameters : "authenticity_token="+encodeURIComponent(_token),
         evalScripts:true
     });
 }
