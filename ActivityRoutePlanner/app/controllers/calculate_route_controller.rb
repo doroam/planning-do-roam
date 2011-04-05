@@ -35,4 +35,21 @@ class CalculateRouteController < ApplicationController
       format.js
     end
   end
+
+  #sets the algorithmus and sorting method to use
+  def set_algorithmus
+    a     = params[:algo]
+    route = Route.find(session[:main_route])
+    sort  = params[:sort]
+
+    if a != nil
+      route.algorithmus = a
+    elsif sort != nil
+      route.sort = sort
+    end
+    route.save
+    respond_to do |format|
+      format.js
+    end
+  end
 end

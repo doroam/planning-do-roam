@@ -1,7 +1,7 @@
-class GeneratePlaceController < ApplicationController
+class PointController < ApplicationController
 
   #controller is called on each activity action
-  def update_place
+  def update_point
     @route = Route.find(session[:main_route])
     
     point = nil
@@ -35,14 +35,12 @@ class GeneratePlaceController < ApplicationController
     elsif params[:delete_point].eql? "end"
       point = @route.end_point
     end
-    @route.kml_path = nil
-    @route.save
+    @route.reset()
     if point != nil
       point.reset
       point.save
     end
-    #activate or deactivate activities to choose
-    activate_activities(@route)
+    
 
     respond_to do |format|
       format.js
@@ -69,24 +67,7 @@ class GeneratePlaceController < ApplicationController
     point.label = label
     point.set_coordinates(params[:lat],params[:lon])
     point.save
-  end
-
-  #sets the algorithmus and sorting method to use
-  def set_algorithmus
-    a     = params[:algo]
-    route = Route.find(session[:main_route])
-    sort  = params[:sort]
-
-    if a != nil
-      route.algorithmus = a
-    elsif sort != nil
-      route.sort = sort
-    end
-    route.save
-    respond_to do |format|
-      format.js
-    end
-  end
+  end  
 
   #handles errors by parsing lables of a point
   def handle_error(point,label)

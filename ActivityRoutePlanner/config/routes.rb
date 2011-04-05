@@ -10,14 +10,14 @@ ActivityRoutePlanner::Application.routes.draw do
 
   root :to => "init#index"
   
-  match "update_route" => "generate_place#update_place"
-  match "remove_point" => "generate_place#remove_point"
+  match "update_point" => "point#update_point"
+  match "remove_point" => "point#remove_point"
   match "add_activity" => "activity#create"
   match "delete_activity" => "activity#update_activity"
   match "reset" => "init#index"
-  match "resetMethod" => "init#reset"
+  match "reset_method" => "init#reset"
   match "check_edge" => "calculate_route#calculate_route"
-  match "setAlgorithmus"=>"generate_place#set_algorithmus"
+  match "set_algorithmus"=>"calculate_route#set_algorithmus"
   match "load_content"=>"content_loader#load_content"
   match "search"=>"geocoder#search"
   match "ontosearch"=>"ontology_search#ontosearch"

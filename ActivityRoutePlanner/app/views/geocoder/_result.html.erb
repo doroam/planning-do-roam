@@ -1,7 +1,7 @@
 <%coordinates = result[:lat]+":"+result[:lon]%>
 <p><%= link_to result[:name],
-            {:controller => :generate_place,
-            :action=> :update_place,
+            {:controller => :point,
+            :action=> :update_point,
             type=> "true",
             :result => result},
             :onmouseover => "highMarker('"+result[:place_id]+"');",

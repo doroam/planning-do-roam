@@ -11,11 +11,11 @@ route = Route.find(session[:main_route])
 
   <tr><td width="80px">Start:</td><td>
   	 	
-  <%= render :partial => 'place/place_form',:locals => {:point => route.start_point,:type => 'start',:action_url=>"/search"} %>
+  <%= render :partial => 'point/point_form',:locals => {:point => route.start_point,:type => 'start',:action_url=>"/search"} %>
 
 </td></tr>
 <tr><td>Destination:</td><td>
   
-<%= render :partial => 'place/place_form',:locals => {:point => route.end_point,:type => 'end',:action_url=>"/search"}%>
+<%= render :partial => 'point/point_form',:locals => {:point => route.end_point,:type => 'end',:action_url=>"/search"}%>
 </td></tr>
 </table>

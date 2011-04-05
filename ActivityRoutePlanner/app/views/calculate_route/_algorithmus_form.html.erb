@@ -1,7 +1,7 @@
 <%route = Route.find(session[:main_route])%>
 <table style="font-size:11px;">
   <tr>
-    <td><%= link_to "Reset Route", "/resetMethod" ,:onclick => 'showWall();'%></td>
+    <td><%= link_to "Reset Route", "/reset_method" ,:onclick => 'showWall();'%></td>
     <td align="right">
     <%
 		if route.end_point != nil && route.start_point != nil%>
@@ -23,7 +23,7 @@ Select algorithm:
             options_from_collection_for_select(alg_list,"value","tag",route.algorithmus),
 		:style=>"width:117px;",
 	    :onchange => 'showWall();'+remote_function(
-		 	 :url=> "/setAlgorithmus",
+		 	 :url=> "/set_algorithmus",
 			 :with => "'algo=' +document.getElementById('setAlgorithmus').value")
 %>
 </td></tr>
