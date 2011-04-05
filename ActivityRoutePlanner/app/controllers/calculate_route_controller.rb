@@ -1,6 +1,11 @@
-class CalculateRouteController < ApplicationController
+class CalculateRouteController < ApplicationController  
+  include CalculateRouteHelper
+  include RouteHelper
+  
   #generates a route and shows it
   def calculate_route
+    
+    
     #get session_id
     session_id    = request.session_options[:id]
     #creates fileName
@@ -9,14 +14,14 @@ class CalculateRouteController < ApplicationController
 
     #generates the result for the route see GeoResult
     route   = Route.find(session[:main_route])
-    result  = RouteGenerator.generate_route(route);
+    result  = RouteHelper.generate_route(route);
     
     if File.exist?(file_name)
       File.delete(file_name)
     end
 
     #Generates the kml of the result
-    res           = XmlGenerator.generate_route(result.kml_list)
+    res           = CalculateRouteHelper.generate_route(result.kml_list)
     params[:kml]  = res
     File.open(file_name, 'w') {|f| f.write(res) }
 

@@ -1,4 +1,6 @@
 class Route < ActiveRecord::Base
+  include RouteHelper
+
   has_many :activities
 
   #contains the main information of the application
@@ -84,82 +86,4 @@ class Route < ActiveRecord::Base
     return script
   end
 
-  #gets the closest point to start and endpoint where the activity can be done
-  def self.get_closest_activity(activity,pstart,pend)
-    #head of the sql query for the point table
-    sql_head_point    = "select "+GLOBAL_FIELD_NAME+","+GLOBAL_FIELD_LONG+","+GLOBAL_FIELD_LAT+","+get_distance_query(pstart,pend)+" from "+GLOBAL_TABLE_POINT
-    #head of the sql query for the polygon table
-    sql_head_polygon  = "select "+GLOBAL_FIELD_NAME+","+GLOBAL_FIELD_LONG+","+GLOBAL_FIELD_LAT+","+get_distance_query(pstart,pend)+" from "+GLOBAL_TABLE_POLYGON
-    #sort the results and gets the closest one
-    limit   = " order by distance limit 1;"
-    #gets the desired activity
-    where   = " where "+activity.tag+" = '"+activity.value+"' "
-    #unites the results of the point table and the polygon table
-    sql     = "("+sql_head_point+where+" union "+sql_head_polygon+where+") "+limit
-    result  = execute_sql(sql)
-    return result
-  end
-
-  private
-  #Gets the distance from the point to the start point and from the point to the endpoint
-  #and adds them. So we can later sort this distance and find the nearest one
-  #TODO: Get path distance, not airline distance
-  def self.get_distance_query(pstart,pend)
-    distance_p1 = "distance(GeomFromText('POINT("+pstart.lon.to_s+" "+pstart.lat.to_s+")',4326),st_transform(way,4326)) "
-    distance_p2 = "distance(GeomFromText('POINT("+pend.lon.to_s+" "+pend.lat.to_s+")',4326),st_transform(way,4326)) "
-    result      = distance_p1+" as dist_source,"+distance_p2+" as dist_target,("+distance_p1+"+"+distance_p2+")as distance"
-    return result
-  end
-
-
-  # executes a sql query and gets the results
-  def self.execute_sql(sql)
-    #ActiveRecord::Base.establish_connection(:osm_data)
-    res = ActiveRecord::Base.connection.execute(sql)
-    res = get_sql_results(res)
-    return res
-  end
-
-
-  #creates points from the results of a sql query if there are some
-  def self.get_sql_results(res)
-    if res.num_tuples >0
-      row = res[0]
-      if row!= nil
-        point = make_point(row)
-      end
-      return point
-    else
-      return nil
-    end
-  end
-
-
-  #creates a point from a result of the database
-  def self.make_point(row)
-    #fields for the point
-    name  = row["name"]
-    lat   = row["y"]
-    lon   = row["x"]
-    #distance to route's start point
-    #distance to route's end point
-    d_source = row["dist_source"]
-    d_target = row["dist_target"]
-
-    #if no name available
-    if name ==nil
-      name = "no name found"
-    end
-    #set information
-    if lat != nil && lon != nil
-      point       = Point.new      
-      point.label = name
-      point.set_coordinates(lat,lon)
-      
-      point.distance_source = d_source.to_f
-      point.distance_target = d_target.to_f
-      return point
-    end
-    return nil
-  end
 end

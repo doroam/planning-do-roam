@@ -34,20 +34,20 @@ class OntologySearchController < ApplicationController
         @result += ":::::::"+err.to_s
         return
       end
-
+      
       # get all the points
       
       for sub in c.descendants.select{|x| x.safe_iconfile!="question-mark.png"} # .select{|x| x.interesting(om)}
         search = om.nodetags_search(sub) # different queries
         if !search.nil?
           val = search.first[1]
-          
           #map key to tag value
           sql = "select k from current_node_tags where v='"+val.to_s+"' limit 1"
           res = ActiveRecord::Base.connection.execute(sql)
+          @result += res.num_tuples.to_s+"<br/>"
           if res.num_tuples>0
             tag = res[0]["k"]
-            #@result += "tag="+tag+"   val="+val.to_s+"<br/>"
+            @result += "tag="+tag+"   val="+val.to_s+"<br/>"
             begin
               sql = "select distinct on(name)name,X(transform(way,4326)),Y(transform(way,4326)) from planet_osm_point where \""+tag+"\" = '"+val.to_s+"'"+
                 " and Y(transform(way,4326)) BETWEEN "+minlat.to_s+" AND "+maxlat.to_s+
@@ -75,12 +75,14 @@ class OntologySearchController < ApplicationController
               end
 
             rescue Exception => err
+              
               @result += "The activity "+val.to_s+" could not be found in our database. It will be fixed soon! <br/>"
             end
           else
             @result += "no tag for "+val.to_s+"<br/>"
           end
         end
+
       end
     end
     respond_to do |format|
