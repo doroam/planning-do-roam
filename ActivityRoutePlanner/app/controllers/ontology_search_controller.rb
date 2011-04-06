@@ -1,6 +1,8 @@
 class OntologySearchController < ApplicationController
   
   def ontosearch
+    route = Route.find(session[:main_route])
+    start_point = route.start_point
 
     if !params[:reload].nil? && params[:reload]
       #get activity->getclasses
@@ -61,7 +63,8 @@ class OntologySearchController < ApplicationController
                 point.label = name
                 point.tag = tag
                 point.value = val.to_s
-                point.set_coordinates(lat,lon)                
+                point.set_coordinates(lat,lon)
+                point.distance_source = RouteHelper.get_distance(start_point, point)
                 icon      = Global::IMAGE_URLS[tag+"$"+val.to_s]
                 if icon == nil
                     icon = ""

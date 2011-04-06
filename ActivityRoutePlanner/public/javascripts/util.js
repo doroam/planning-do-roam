@@ -78,7 +78,7 @@ function init(lat,lon,zoom) {
     //sets center point of the map
     center = new OpenLayers.LonLat(lon, lat).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject());
     map.setCenter (center, zoom);
-    map.events.register("moveend", map, reloadMarkers);
+    map.events.register("moveend", map, onmoveend);
 //map.events.register("changelayer", map, updateLocation);
 }
 function resetCenter(){
@@ -157,8 +157,12 @@ function closeActivityResults(){
     YAHOO.yuiObjectContainer.standardDialog.render(document.body);
 }
 
+function onmoveend(){
+    hideSetPoint();
+    reloadMarkers();
+}
 
-function reloadMarkers(){
+function reloadMarkers(){    
     var elem = document.getElementById('activity_results_div');
     if(elem!=null){
         elem.innerHTML = loading;

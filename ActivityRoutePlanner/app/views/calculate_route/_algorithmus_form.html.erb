@@ -18,6 +18,7 @@ Select algorithm:
 	alg_list = Array.new
 	alg_list.push Selection.new("fast","A*")
 	alg_list.push Selection.new("exact","Dijkstra")
+        alg_list.push Selection.new("energy saving","energy")
 %>
 <%= select_tag "setAlgorithmus",
             options_from_collection_for_select(alg_list,"value","tag",route.algorithmus),
@@ -27,7 +28,7 @@ Select algorithm:
 			 :with => "'algo=' +document.getElementById('setAlgorithmus').value")
 %>
 </td></tr>
-<!--tr>
+<tr>
 	<td style="width:120px;">	
 Notice sort:
 </td><td>
@@ -42,8 +43,8 @@ Notice sort:
             options_from_collection_for_select(sort_list,"value","tag",route.sort),
 		:style=>"width:117px;",
 	    :onchange => 'showWall();'+remote_function(
-		 	 :url=> "/setAlgorithmus",
+		 	 :url=> "/set_algorithmus",
 			 :with => "'sort=' +document.getElementById('sort').value")
 %>
-</td></tr-->
+</td></tr>
 </table>

@@ -9,8 +9,8 @@ if show_delete
 		title="<%= activity.value%>" 
 		height="20px"/>
 <%end%>
-</td><td>
-<%=label%>
+</td><td width="155px">
+  <b><%=label%></b>
 <!--%= select_tag "activity_"+activity.id.to_s,
             options_from_collection_for_select(#get available activities and sort by value
             activity.get_possible_values(session).sort {|a,b| a.value <=> b.value} ,"tag_value","value",activity.tag_value),

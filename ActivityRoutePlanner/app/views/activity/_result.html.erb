@@ -6,7 +6,7 @@
             :activity =>{:tag => point.tag,:value => point.value},
             :point => {:label=>point.label,:lat => point.lat,:lon => point.lon}
             },
-            :onmouseover => "highMarker('"+point.lat.to_s+":"+point.lon.to_s+"');",
-            :onmouseout => "downMarker('"+point.lat.to_s+":"+point.lon.to_s+"');",
+            :onmouseover => "highMarker('"+coordinates+"');",
+            :onmouseout => "downMarker('"+coordinates+"');",
             :remote => true,
             :onclick => 'showWall();'%></p>

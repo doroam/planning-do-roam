@@ -8,7 +8,9 @@ removeTempMarkers();
   body = "<%=escape_javascript(render :partial => 'content_loader/no_results_found',:locals =>{:error =>@result})%>";
   elem.innerHTML = body;
 <%else%>
-  <%@points.each do |point|
+  body = "<b>The Results are sorted by distance to start point</b><br/><br/>";
+  elem.innerHTML += body;
+  <%@points.sort.each do |point|
     label = point.label!=nil && !"".eql?(point.label) ? point.label : "no name"%>
     addTempMarker('<%=point.lat.to_s+":"+point.lon.to_s%>',unescape('<%=escape_javascript(label)%>'),'<%=point.lat%>','<%=point.lon%>',null,'<%=point.icon%>','<%=point.tag%>','<%=point.value%>');
     body = "<%=escape_javascript(render :partial => 'activity/result',:locals => {:point=>point})%>";

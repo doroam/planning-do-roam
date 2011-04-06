@@ -14,8 +14,7 @@ class Point < ActiveRecord::Base
 
   attr_accessor :icon,
                 :tag,
-                :value,
-                :distance_source#not setted!
+                :value
 
 
 

@@ -3,9 +3,7 @@ class CalculateRouteController < ApplicationController
   include RouteHelper
   
   #generates a route and shows it
-  def calculate_route
-    
-    
+  def calculate_route        
     #get session_id
     session_id    = request.session_options[:id]
     #creates fileName
@@ -51,5 +49,29 @@ class CalculateRouteController < ApplicationController
     respond_to do |format|
       format.js
     end
+  end
+
+  def get_energy_route
+    require 'net/http'
+
+    url = URI.parse("http://greennav.in.tum.de:8192/routing/createRoutingResponseXMLString")
+
+    xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"+
+      "<routingRequest ID=\"11:32:56 STROMOS 234\">"+
+      "<feature>rangePrediction</feature>"+
+      "<startNode>"+
+      "<geoCoords latitude=\"47.733333\" longitude=\"10.316667\"/>"+
+      "</startNode>"+
+      "<vehicleType>STROMOS</vehicleType>"+
+      "<batteryChargeAtStart>95</batteryChargeAtStart>"+
+      "<resultType>geoCoords</resultType>"+
+      "</routingRequest>"
+
+    params = { 'createRoutingResponseXMLString' => xml,"Content-type" => "text/xml" }
+
+    @resp, @data = Net::HTTP.post_form(url, params)
+
+    p "respo="+@resp.to_s+"   data="+@data.to_s
+    
   end
 end

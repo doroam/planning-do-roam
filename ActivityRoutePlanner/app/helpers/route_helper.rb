@@ -22,11 +22,6 @@ module RouteHelper
     result_way = route.activities.clone
     sort_activities = route.sort
 
-    #result_way = result_way.sort
-
-    #delete last empty activity (is always the new empty one)
-    #result_way.delete_at(result.length-1)
-
     #get first (closest) activity form the 3 posibilities
     result_way = result_way.collect { |activity|  activity.result}
 
@@ -41,6 +36,11 @@ module RouteHelper
     target_end    = nil
     src_point = route.start_point
 
+    alg_select = route.algorithmus
+
+    is_energy = alg_select.eql?("energy")
+
+
     result_way.each do |point|
       #get nearest edge to start and end point
       source = get_nearest_edge(src_point)
@@ -54,16 +54,26 @@ module RouteHelper
         target_end = target
       end
       if source != nil && target !=nil
-        #add route from source to target to the kml list
-        path = generate_simple_route(source,target,route)
+        if is_energy
+          path = generate_energy_route(src_point,point)
+        else
+          #add route from source to target to the kml list
+          path = generate_simple_route(source,target,route)
+        end
+
+
         if path.length>0
-          #adds a line from the start point to the nearest source point of the edge
-          line = get_kml_line(src_point.lat,src_point.lon, source["start_lat"],source["start_long"])
-          result.push(line)
-          result.concat(path)
-          #adds a line form the end point to the nearest end point of the edge
-          line = get_kml_line(point.lat,point.lon, target["end_lat"],target["end_long"])
-          result.push(line)
+          if !is_energy
+            #adds a line from the start point to the nearest source point of the edge
+            line = get_kml_line(src_point.lat,src_point.lon, source["start_lat"],source["start_long"])
+            result.push(line)
+            result.concat(path)
+            #adds a line form the end point to the nearest end point of the edge
+            line = get_kml_line(point.lat,point.lon, target["end_lat"],target["end_long"])
+            result.push(line)
+          else
+            result.concat([path])
+          end
         else
           #error message if the path could not be found
           errors.push(src_point.label+"\nto\n"+point.label)
@@ -108,7 +118,25 @@ module RouteHelper
     return geo_result
   end
 
+
+  def self.get_distance(src,target)
+    sql = "select distance(GeometryFromText('POINT("+src.lon.to_s+" "+src.lat.to_s+")', 4326), GeometryFromText('POINT("+target.lon.to_s+" "+target.lat.to_s+")', 4326)) as dist  FROM activities limit 1;"
+    res = ActiveRecord::Base.connection.execute(sql)
+    row = nil
+    res.each do |result|
+      row = result
+      break
+    end
+    return row["dist"]
+  end
+
   private
+
+  def self.generate_energy_route(src_point,point)
+    return get_kml_line(src_point.lat,src_point.lon,point.lat,point.lon)
+  end
+
+
   #Gets the nearest edge to a point
   def self.get_nearest_edge(point)
     #if nothing was found
