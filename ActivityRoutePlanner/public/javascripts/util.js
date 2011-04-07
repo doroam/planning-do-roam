@@ -162,9 +162,12 @@ function onmoveend(){
     reloadMarkers();
 }
 
-function reloadMarkers(){    
+function reloadMarkers(){
+    
     var elem = document.getElementById('activity_results_div');
-    if(elem!=null){
+    if(elem!=null
+        && YAHOO.yuiObjectContainer.standardDialog
+        && YAHOO.yuiObjectContainer.standardDialog.cfg.getProperty('visible')){
         elem.innerHTML = loading;
         var url = "/ontosearch";
         var extent = getMapExtent();
@@ -187,7 +190,9 @@ function reloadMarkers(){
 function addTempMarker(id,name,lat,lon,type){
     addTempMarker(id,name,lat,lon,type,null,null,null);
 }
-
+function zoomToMarkers(){
+    map.zoomToExtent(layerMarkers.getDataExtent());
+}
 function addTempMarker(id,name,lat,lon,type,icon,tag,value){
     var src = "javascripts/img/marker-green.png";
     if(icon!=null && icon!=""){
@@ -333,7 +338,7 @@ function createMarker(tooltip,lon,lat,src){
     var icon    = new OpenLayers.Icon(src,size,offset);
 
     //set tooltip: workaround: no tooltips from openlayers supported
-    icon.imageDiv.firstChild.title = decodeURIComponent(tooltip);
+    icon.imageDiv.firstChild.title = tooltip;
     var marker = new OpenLayers.Marker(lonLat,icon);
     
 

@@ -12,7 +12,7 @@ removeTempMarkers();
   elem.innerHTML += body;
   <%@points.sort.each do |point|
     label = point.label!=nil && !"".eql?(point.label) ? point.label : "no name"%>
-    addTempMarker('<%=point.lat.to_s+":"+point.lon.to_s%>',unescape('<%=escape_javascript(label)%>'),'<%=point.lat%>','<%=point.lon%>',null,'<%=point.icon%>','<%=point.tag%>','<%=point.value%>');
+    addTempMarker('<%=point.lat.to_s+":"+point.lon.to_s%>','<%=escape_javascript(label)%>','<%=point.lat%>','<%=point.lon%>',null,'<%=point.icon%>','<%=point.tag%>','<%=point.value%>');
     body = "<%=escape_javascript(render :partial => 'activity/result',:locals => {:point=>point})%>";
     elem.innerHTML += body;
   <%end%>

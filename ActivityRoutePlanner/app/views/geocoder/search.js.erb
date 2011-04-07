@@ -8,10 +8,11 @@ var body = "";
 <%else%>
     elem.innerHTML = "";
    <%@results.each do |result| %>
-    addTempMarker('<%=result[:place_id]%>',unescape('<%=escape_javascript(result[:name])%>'),'<%=result[:lat]%>','<%=result[:lon]%>','<%=params[:type]%>');
+    addTempMarker('<%=result[:place_id]%>',encodeURIComponent('<%=result[:name]%>'),'<%=result[:lat]%>','<%=result[:lon]%>','<%=params[:type]%>');
     body = "<%=escape_javascript(render :partial => 'geocoder/result',:locals => {:result=>result,:type=>params[:type]})%>";
     elem.innerHTML += body;
   <% end %>
 <%end%>
+zoomToMarkers();
 d.show();
 hideWall();

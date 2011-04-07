@@ -1,4 +1,4 @@
-class CalculateRouteController < ApplicationController  
+class CalculateRouteController < ApplicationController
   include CalculateRouteHelper
   include RouteHelper
   
@@ -52,26 +52,30 @@ class CalculateRouteController < ApplicationController
   end
 
   def get_energy_route
-    require 'net/http'
+    url = "http://greennav.in.tum.de:8192/routing?wsdl"
 
-    url = URI.parse("http://greennav.in.tum.de:8192/routing/createRoutingResponseXMLString")
+    client = Savon::Client.new(url)
 
-    xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"+
-      "<routingRequest ID=\"11:32:56 STROMOS 234\">"+
-      "<feature>rangePrediction</feature>"+
+    xml = "<routingRequest ID=\"test\">"+
+      "<feature>routeCalculation</feature>"+
       "<startNode>"+
       "<geoCoords latitude=\"47.733333\" longitude=\"10.316667\"/>"+
       "</startNode>"+
+      "<targetNode>"+
+      "<geoCoords latitude=\"47.733433\" longitude=\"10.316567\"/>"+
+      "</targetNode>"+
       "<vehicleType>STROMOS</vehicleType>"+
       "<batteryChargeAtStart>95</batteryChargeAtStart>"+
       "<resultType>geoCoords</resultType>"+
       "</routingRequest>"
 
-    params = { 'createRoutingResponseXMLString' => xml,"Content-type" => "text/xml" }
+    xml_doc = REXML::Document.new(xml)
 
-    @resp, @data = Net::HTTP.post_form(url, params)
+    p "xml="+xml_doc.to_s
 
-    p "respo="+@resp.to_s+"   data="+@data.to_s
+    res = client.request :wsdl, :create_routing_response_xml_string, "createRoutingResponseXMLString" => xml_doc
+    
+    p "test="+res.to_s
     
   end
 end

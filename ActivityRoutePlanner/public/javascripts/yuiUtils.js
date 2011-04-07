@@ -177,8 +177,9 @@ function makeDialog(id,beforeHide){
 }
 
 function hideDialog(){
-    if(YAHOO.yuiObjectContainer.standardDialog)
+    if(YAHOO.yuiObjectContainer.standardDialog){
         YAHOO.yuiObjectContainer.standardDialog.hide();
+    }
 }
 
 function showOntology(){
