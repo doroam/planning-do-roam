@@ -120,7 +120,7 @@ module RouteHelper
 
 
   def self.get_distance(src,target)
-    sql = "select distance(GeometryFromText('POINT("+src.lon.to_s+" "+src.lat.to_s+")', 4326), GeometryFromText('POINT("+target.lon.to_s+" "+target.lat.to_s+")', 4326)) as dist  FROM activities limit 1;"
+    sql = "select distance(GeometryFromText('POINT("+src.lon.to_s+" "+src.lat.to_s+")', 4326), GeometryFromText('POINT("+target.lon.to_s+" "+target.lat.to_s+")', 4326)) as dist  FROM "+TABLE+" limit 1;"
     res = ActiveRecord::Base.connection.execute(sql)
     row = nil
     res.each do |result|

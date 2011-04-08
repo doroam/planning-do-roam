@@ -1,6 +1,7 @@
 removeMarks();
 removeTempMarkers();
-<%=Route.find(session[:main_route]).show_markers()%>
+<%route = Route.find(session[:main_route])%>
+<%=route.show_markers()%>
 <%if flash[:error_msg]!= nil%>
 alert('<%=escape_javascript(flash[:error_msg])%>');
 <%end%>
@@ -12,5 +13,7 @@ alert('<%=escape_javascript(flash[:error_msg])%>');
 var elem = document.getElementById('route_id');
 elem.innerHTML = "<%= escape_javascript(render(:partial => 'init/menu'))%>";
 hideDialog();
+<%if route.is_ready%>
 zoomToMarkers();
+<%end%>
 hideWall();

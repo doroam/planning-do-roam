@@ -24,10 +24,13 @@ class Activity < ActiveRecord::Base
     icon_path = Global::IMAGE_URL_PREFIX
 		icon_type = Global::IMAGE_URL_SUFFIX
     icon      = Global::IMAGE_URLS[self.tag+"$"+self.value]
+
     if icon == nil
-				icon = ""
-			end
-		return icon_path+icon+icon_type
+      return "javascripts/img/marker-green.png"
+    else
+      return icon_path+icon+icon_type
+    end
+		
   end
 
   #gets the id of the activity. it is the name of the icon
