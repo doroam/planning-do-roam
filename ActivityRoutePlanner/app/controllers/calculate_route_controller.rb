@@ -54,9 +54,10 @@ class CalculateRouteController < ApplicationController
   def get_energy_route
     url = "http://greennav.in.tum.de:8192/routing?wsdl"
 
-    client = Savon::Client.new(url)
+    #client = Savon::Client.new(url)
 
-    xml = "<routingRequest ID=\"test\">"+
+    xml = 
+      "<routingRequest ID=\"test\">"+
       "<feature>routeCalculation</feature>"+
       "<startNode>"+
       "<geoCoords latitude=\"47.733333\" longitude=\"10.316667\"/>"+
@@ -69,13 +70,32 @@ class CalculateRouteController < ApplicationController
       "<resultType>geoCoords</resultType>"+
       "</routingRequest>"
 
-    xml_doc = REXML::Document.new(xml)
+    @xml_doc = REXML::Document.new(xml)
+    @xml_doc << REXML::XMLDecl.new
 
-    p "xml="+xml_doc.to_s
 
-    res = client.request :wsdl, :create_routing_response_xml_string, "createRoutingResponseXMLString" => xml_doc
-    
-    p "test="+res.to_s
+
+    p "xml="+@xml_doc.to_s
+    @error = ""
+    begin
+      client = Savon::Client.new do
+          wsdl.document = url
+      end
+
+
+
+      #@res = client.request :wsdl, :create_routing_response_xml_string, "khkh" => @xml_doc
+      @actions = client.wsdl.soap_actions
+      @res = client.request :wsdl,:create_routing_response_xml_string do |soap|
+        soap.body = { :create_routing_response_xml_string => @xml_doc}
+      end
+
+
+    rescue Exception => err
+      @error = err.to_s
+      p "error="+err.to_s
+    end
+    p "test="+@res.to_s
     
   end
 end
