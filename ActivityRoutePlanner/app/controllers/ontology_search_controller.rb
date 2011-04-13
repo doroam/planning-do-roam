@@ -1,6 +1,7 @@
 class OntologySearchController < ApplicationController
   
   def ontosearch
+    logger.warn "=================================entering ontosearch========================================"
     route = Route.find(session[:main_route])
     start_point = route.start_point
 
@@ -16,6 +17,8 @@ class OntologySearchController < ApplicationController
     @points = Array.new
     cids = classes
     om = OntologyMapping.find_by_name("activities2tags")
+
+    logger.warn "================================= ontosearch cids========================================"
 
     cids.each do |cid|
       c = OntologyClass.find_by_id(cid.to_i)
@@ -38,6 +41,7 @@ class OntologySearchController < ApplicationController
       end
       
       # get all the points
+      logger.warn "================================= ontosearch subs========================================"
       
       for sub in c.descendants.select{|x| x.safe_iconfile!="question-mark.png"} # .select{|x| x.interesting(om)}
         search = om.nodetags_search(sub) # different queries
@@ -49,13 +53,17 @@ class OntologySearchController < ApplicationController
           @result += res.num_tuples.to_s+"<br/>"
           if res.num_tuples>0
             tag = res[0]["k"]
+            logger.warn "================================= ontosearch tag========================================" + tag.to_s
             @result += "tag="+tag+"   val="+val.to_s+"<br/>"
             begin
               sql = "select distinct on(name)name,X(transform(way,4326)),Y(transform(way,4326)) from planet_osm_point where \""+tag+"\" = '"+val.to_s+"'"+
                 " and Y(transform(way,4326)) BETWEEN "+minlat.to_s+" AND "+maxlat.to_s+
                 " AND X(transform(way,4326)) BETWEEN "+minlon.to_s+" AND "+maxlon.to_s+" LIMIT 35"
+              logger.warn "================================= ontosearch sql========================================" + sql.to_s
               res = ActiveRecord::Base.connection.execute(sql)
+              logger.warn "number of results:" + res.to_s
               res.each do |result|
+                logger.warn "result:" + result.to_s
                 name  = result["name"]
                 lat   = result["y"]
                 lon   = result["x"]
@@ -75,10 +83,11 @@ class OntologySearchController < ApplicationController
                 end
                 point.icon = icon
                 @points.push(point)
+                logger.warn @points.to_s
               end
 
             rescue Exception => err
-              
+              logger.warn "====================== ruby error: "+err.to_s
               @result += "The activity "+val.to_s+" could not be found in our database. It will be fixed soon! <br/>"
             end
           else
