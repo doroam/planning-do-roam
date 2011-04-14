@@ -26,8 +26,10 @@ class Global
     "tourism$hotel" => "hotel",
     "leisure$sports_centre" => "fitness",
     "railway$station" => "trainstation",
+    "religion$christian" => "christian",
     "railway$tram_stop" => "busstop",
     "amenity$library" => "library",
+    "amenity$charging_station" => "battery",
     "amenity$post_office" => "post_office",
     "amenity$nightclub" => "dance",
     "amenity$pharmacy"=>"apotheke",
@@ -47,11 +49,13 @@ class Global
     "amenity$police"=>"police",
     "amenity$restaurant"=>"restaurant",
     "amenity$theatre"=>"theater",
+    "amenity$shop"=>"mall",
     "sport$bowling"=>"bowling",
     "sport$swimming"=>"swimming",
     "sport$soccer"=>"soccer",
     "sport$climbing"=>"climbing",
-    "sport$golf"=>"golfcourse"
+    "sport$golf"=>"golfcourse",
+    "historic$castle"=>"castles"
   } 
 #list of activities with tag and value in the database
 ACTIVITIES = [
