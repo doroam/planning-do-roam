@@ -5,8 +5,8 @@ if show_delete
         imageUrl = activity.get_image_url()
 %>
 	<img src="<%= imageUrl%>"
-		alt="<%= activity.value%>" 
-		title="<%= activity.value%>" 
+		alt="<%= activity.point.label%>"
+		title="<%= activity.point.label%>"
 		height="20px"/>
 <%end%>
 </td><td width="155px">

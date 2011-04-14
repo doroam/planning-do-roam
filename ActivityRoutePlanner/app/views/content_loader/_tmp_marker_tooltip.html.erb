@@ -24,8 +24,7 @@
 <%= link_to "Set as activity",
             {:controller => :activity,
             :action=> :create,
-            :activity =>{:tag => params[:tag],:value => params[:value]},
-            :point => {:label=>params[:name],:lat => params[:lat],:lon => params[:lon]}
+            :point => {:label=>params[:name],:lat => params[:lat],:lon => params[:lon],:icon => params[:icon]}
             },
             :remote => true,
             :onclick => 'hideSetPoint();showWall();',

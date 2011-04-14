@@ -12,8 +12,7 @@ class Point < ActiveRecord::Base
   GLOBAL_TABLE_POLYGON  = Global::GLOBAL_TABLE_POLYGON
   GLOBAL_FIELD_AMENITY  = Global::GLOBAL_FIELD_AMENITY
 
-  attr_accessor :icon,
-                :tag,
+  attr_accessor :tag,
                 :value
 
 

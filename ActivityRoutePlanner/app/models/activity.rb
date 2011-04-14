@@ -9,7 +9,7 @@ class Activity < ActiveRecord::Base
   end
 
   def is_empty
-    return self.tag==nil  && self.value==nil
+    return self.point.icon==nil
   end
 
   #gets the image url of the activity
