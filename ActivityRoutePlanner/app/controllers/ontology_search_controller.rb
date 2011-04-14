@@ -42,56 +42,39 @@ class OntologySearchController < ApplicationController
       for sub in c.descendants.select{|x| x.safe_iconfile!="question-mark.png"} # .select{|x| x.interesting(om)}
         search = om.nodetags_search(sub) # different queries
         if !search.nil?
+          field_name = search.first[0]
           val = search.first[1]
-          #map key to tag value
-          sql = "select k from current_node_tags where v='"+val.to_s+"' limit 1"
-          res = ActiveRecord::Base.connection.execute(sql)
-          @result += res.num_tuples.to_s+"<br/>"
-          if res.num_tuples>0
-            tag = res[0]["k"]
-            @result += "tag="+tag+"   val="+val.to_s+"<br/>"
-            begin
-              sql = "select distinct on(name)name,X(transform(way,4326)),Y(transform(way,4326)) from planet_osm_point where \""+tag+"\" = '"+val.to_s+"'"+
-                " and Y(transform(way,4326)) BETWEEN "+minlat.to_s+" AND "+maxlat.to_s+
-                " AND X(transform(way,4326)) BETWEEN "+minlon.to_s+" AND "+maxlon.to_s+" LIMIT 35"
-              res = ActiveRecord::Base.connection.execute(sql)
-              res.each do |result|
-                name  = result["name"]
-                lat   = result["y"]
-                lon   = result["x"]
-                point       = Point.new
-                point.label = name
-                point.tag = tag
-                point.value = val.to_s
-                point.set_coordinates(lat,lon)
-                point.distance_source = RouteHelper.get_distance(start_point, point)
-                icon      = Global::IMAGE_URLS[tag+"$"+val.to_s]
-                if icon == nil
-                    icon = ""
-                else
-                  icon_path = Global::IMAGE_URL_PREFIX
-                  icon_type = Global::IMAGE_URL_SUFFIX
-                  icon = icon_path+icon+icon_type
-                end
-                point.icon = icon
-                @points.push(point)
-              end
+          
+          nts = NodeTag.find(:all,:conditions=>OSM.sql_for_area(minlat, minlon, maxlat, maxlon,"current_nodes.")+" AND (\"current_node_tags\".\"#{field_name}\" = '#{val}')",:include=>"node")
 
-            rescue Exception => err
-              
-              @result += "The activity "+val.to_s+" could not be found in our database. It will be fixed soon! <br/>"
-            end
-          else
-            @result += "no tag for "+val.to_s+"<br/>"
+          for nt in nts
+            lat = nt.node.lat.to_s
+            lon = nt.node.lon.to_s
+            name = nt.node.tags["name"]
+            icon = sub.safe_iconfile
+            point = make_point(name, icon, lat, lon, start_point)
+            @points.push(point)
           end
         end
-
       end
     end
     respond_to do |format|
       format.js
     end
   end
+
+  def make_point(name,icon,lat,lon,start_point)
+    point       = Point.new
+    point.label = name
+    point.set_coordinates(lat,lon)
+    point.distance_source = RouteHelper.get_distance(start_point, point)
+    if icon == nil
+      icon = ""
+    end
+    point.icon = Global::IMAGE_URL_PREFIX+icon
+    return point
+  end
+
   MAX_REQUEST_AREA = 25
   # Take an array of length 4, and return the min_lon, min_lat, max_lon and
   # max_lat within their respective boundaries.

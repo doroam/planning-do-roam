@@ -3,8 +3,7 @@
 <p><%= link_to label,
             {:controller => :activity,
             :action=> :create,
-            :activity =>{:tag => point.tag,:value => point.value},
-            :point => {:label=>point.label,:lat => point.lat,:lon => point.lon}
+            :point => {:label=>point.label,:lat => point.lat,:lon => point.lon,:icon=>point.icon}
             },
             :onmouseover => "highMarker('"+coordinates+"');",
             :onmouseout => "downMarker('"+coordinates+"');",

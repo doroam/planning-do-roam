@@ -2,7 +2,7 @@
 #   gem install sqlite3
 development:
   adapter: postgresql
-  database: test_osm
+  database: osm
   username: postgres
   password: postgres
   host: localhost
