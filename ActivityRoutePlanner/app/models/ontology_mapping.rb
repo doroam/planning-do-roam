@@ -58,8 +58,8 @@ class OntologyMapping < ActiveRecord::Base
     tag = name[2,name.size-2]
 
     search = case name[0]
-      when 'k' then {:k=>tag}
-      when 'v' then {:v=>tag}
+      when 107 then {:k=>tag}
+      when 118 then {:v=>tag}
       else nil
     end    
     search

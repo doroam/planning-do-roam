@@ -49,8 +49,8 @@ function hideWall(){
     }
 }
 
-function showSetTempMenu(name,lat,lon,type,e,tag,value){
-    showCursorPopUp("content_loader/tmp_marker_tooltip",lat,lon,name,e,type,tag,value);
+function showSetTempMenu(name,lat,lon,type,e,icon){
+    showCursorPopUp("content_loader/tmp_marker_tooltip",lat,lon,name,e,type,icon);
 }
 
 /**
@@ -61,10 +61,10 @@ function showSetTempMenu(name,lat,lon,type,e,tag,value){
  *
  */
 function showSetPointMenu(latLon,e){
-    showCursorPopUp("content_loader/point_tooltip",latLon.lat,latLon.lon,null,e,null,null,null);
+    showCursorPopUp("content_loader/point_tooltip",latLon.lat,latLon.lon,null,e,null,null);
 }
 
-function showCursorPopUp(url,lat,lon,name,e,type,tag,value){
+function showCursorPopUp(url,lat,lon,name,e,type,icon){
     var mouseXY = YAHOO.util.Event.getXY(e);
     var mX = mouseXY[0];
     var mY = mouseXY[1];
@@ -100,13 +100,9 @@ function showCursorPopUp(url,lat,lon,name,e,type,tag,value){
         params[i]  = ['type',type];
         i++;
     }
-    if(tag!=null){
-        params[i]  = ['tag',tag];
+    if(icon!=null){
+        params[i]  = ['icon',icon];
         i++
-    }
-    if(value!=null){
-        params[i]  = ['value',value];
-        i++;
     }
     //alert("params"+params);
     var url_ = buildUrl("/load_content", params);

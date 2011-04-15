@@ -193,7 +193,7 @@ function addTempMarker(id,name,lat,lon,type){
 function zoomToMarkers(){
     map.zoomToExtent(layerMarkers.getDataExtent());
 }
-function addTempMarker(id,name,lat,lon,type,icon,tag,value){
+function addTempMarker(id,name,lat,lon,type,icon){
     var src = "javascripts/img/marker-green.png";
     if(icon!=null && icon!=""){
         src = icon;
@@ -201,7 +201,7 @@ function addTempMarker(id,name,lat,lon,type,icon,tag,value){
 
     var marker = createMarker(name,lon,lat,src);
     marker.events.register("mousedown", marker, function(e){
-        showSetTempMenu(name,lat,lon,type,e,tag,value);
+        showSetTempMenu(name,lat,lon,type,e,icon);
     });    
     tmpMarkerHash[id] = marker;
     tmpMarkerIds.push(id);
