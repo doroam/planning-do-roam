@@ -64,28 +64,17 @@ function showSetPointMenu(latLon,e){
     showCursorPopUp("content_loader/point_tooltip",latLon.lat,latLon.lon,null,e,null,null);
 }
 
+function showActivityInfo(id,e){
+    var dialog = makeDialogAt(e, "activity_info_id");
+    var params = new Array();
+    params[0]  = ["url","activity_info"];
+    params[1]  = ["id",id];
+    var url_ = buildUrl("/load_content", params);
+    loadContent(url_,"activity_info_id",dialog);
+}
+
 function showCursorPopUp(url,lat,lon,name,e,type,icon){
-    var mouseXY = YAHOO.util.Event.getXY(e);
-    var mX = mouseXY[0];
-    var mY = mouseXY[1];
-
-
-    if(YAHOO.yuiObjectContainer.pointMenu){
-        YAHOO.yuiObjectContainer.pointMenu.destroy();
-    }
-    // Build overlay2 dynamically, at mouse position
-    YAHOO.yuiObjectContainer.pointMenu = new YAHOO.widget.Dialog("setPoint", {
-        xy:[mX,mY],
-        visible:false,
-        close:true
-    } );
-
-
-    //set body
-    YAHOO.yuiObjectContainer.pointMenu.setBody("<div id=\"set_point_id\" class=\"setPoint\"></div>");
-
-    //render popup
-    YAHOO.yuiObjectContainer.pointMenu.render(document.body);
+    var dialog = makeDialogAt(e, "set_point_id");
     //YAHOO.yuiObjectContainer.pointMenu.show();
     var params = new Array();
     params[0]  = ["url",url];
@@ -106,7 +95,7 @@ function showCursorPopUp(url,lat,lon,name,e,type,icon){
     }
     //alert("params"+params);
     var url_ = buildUrl("/load_content", params);
-    loadContent(url_,"set_point_id",YAHOO.yuiObjectContainer.pointMenu);
+    loadContent(url_,"set_point_id",dialog);
 }
 
 
@@ -220,4 +209,28 @@ function reloadRouteFields(){
     params[0]  = ["url","init/menu"];
     var url = buildUrl("/load_content", params);
     loadContent(url,"route_id");
+}
+
+function makeDialogAt(e,div_id){
+    var mouseXY = YAHOO.util.Event.getXY(e);
+    var mX = mouseXY[0];
+    var mY = mouseXY[1];
+
+    if(YAHOO.yuiObjectContainer.pointMenu){
+        YAHOO.yuiObjectContainer.pointMenu.destroy();
+    }
+    // Build overlay2 dynamically, at mouse position
+    YAHOO.yuiObjectContainer.pointMenu = new YAHOO.widget.Dialog("setPoint", {
+        xy:[mX,mY],
+        visible:false,
+        close:true
+    } );
+
+    //set body
+    YAHOO.yuiObjectContainer.pointMenu.setBody("<div id=\""+div_id+"\" class=\"setPoint\"></div>");
+    //render popup
+    YAHOO.yuiObjectContainer.pointMenu.render(document.body);
+
+    return YAHOO.yuiObjectContainer.pointMenu;
+
 }

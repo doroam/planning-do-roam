@@ -308,6 +308,9 @@ function addActivityMark(name,lat,lon,imagePath,id){
     if(marker == null){
         //create a marker
         marker           = createMarker(name,lon,lat,imagePath);
+        marker.events.register("mousedown", marker, function(e){
+            showActivityInfo(id,e);
+        });
         markerHash[id]   =  marker;
         layerMarkers.addMarker(marker);        
     }
@@ -315,6 +318,9 @@ function addActivityMark(name,lat,lon,imagePath,id){
         //update the marker
         layerMarkers.removeMarker(marker);        
         updateMarker(name,marker,lon,lat,imagePath);
+        marker.events.register("mousedown", marker, function(e){
+            showActivityInfo(id,e);
+        });
         layerMarkers.addMarker(marker);
     }    
 }
