@@ -10,10 +10,11 @@ removeTempMarkers();
 <%else%>
   body = "<b>The Results are sorted by distance to start point</b><br/><br/>";
   elem.innerHTML += body;
-  <%@points.sort.each do |point|
+  <%@points.sort.each_with_index do |point,index|
     label = point.label!=nil && !"".eql?(point.label) ? point.label : "no name"%>
-    addTempMarker('<%=point.lat.to_s+":"+point.lon.to_s%>','<%=escape_javascript(label)%>','<%=point.lat%>','<%=point.lon%>',null,'<%=point.icon%>','<%=point.tag%>','<%=point.value%>');
-    body = "<%=escape_javascript(render :partial => 'activity/result',:locals => {:point=>point})%>";
+    
+    addTempMarker('<%=point.lat.to_s+":"+point.lon.to_s+":"+index.to_s%>','<%=escape_javascript(label)%>','<%=point.lat%>','<%=point.lon%>',null,'<%=point.icon%>');
+    body = "<%=escape_javascript(render :partial => 'activity/result',:locals => {:point=>point, :index => index})%>";
     elem.innerHTML += body;
   <%end%>
 <%end%>

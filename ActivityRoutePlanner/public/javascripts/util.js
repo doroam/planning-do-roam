@@ -158,8 +158,10 @@ function closeActivityResults(){
 }
 
 function onmoveend(){
+    //alert('moving');
     hideSetPoint();
     reloadMarkers();
+    //alert('end moving');
 }
 
 function reloadMarkers(){
