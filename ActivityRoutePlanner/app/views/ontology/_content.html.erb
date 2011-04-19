@@ -1,3 +1,8 @@
+<%
+    if @day.nil? then @day = Date.today.wday-1 end
+    if @hour.nil? then @hour = Time.now.hour end
+    if @min.nil? then @min = Time.now.min / 10 end
+%>
 <%= form_tag(:ontosearch,:id => "ontosearch_form_id",
               :onsubmit => "setBBox('ontosearch_form_id');showWall();",
               :remote => true) do |f| %>

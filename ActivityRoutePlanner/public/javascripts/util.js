@@ -193,7 +193,9 @@ function addTempMarker(id,name,lat,lon,type){
     addTempMarker(id,name,lat,lon,type,null,null,null);
 }
 function zoomToMarkers(){
-    map.zoomToExtent(layerMarkers.getDataExtent());
+    if(layerMarkers != null && layerMarkers.markers.length>0){
+        map.zoomToExtent(layerMarkers.getDataExtent());
+    }
 }
 function addTempMarker(id,name,lat,lon,type,icon){
     var src = "javascripts/img/marker-green.png";

@@ -57,7 +57,7 @@ class CalculateRouteController < ApplicationController
     #client = Savon::Client.new(url)
 
     xml = 
-      "<routingRequest ID=\"test\">"+
+      "<?xml version=\"1.0\"?><routingRequest ID=\"test\">"+
       "<feature>routeCalculation</feature>"+
       "<startNode>"+
       "<geoCoords latitude=\"47.733333\" longitude=\"10.316667\"/>"+
@@ -69,6 +69,8 @@ class CalculateRouteController < ApplicationController
       "<batteryChargeAtStart>95</batteryChargeAtStart>"+
       "<resultType>geoCoords</resultType>"+
       "</routingRequest>"
+
+    xml = xml.strip
 
     @xml_doc = REXML::Document.new(xml)
     @xml_doc << REXML::XMLDecl.new
