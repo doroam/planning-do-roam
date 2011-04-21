@@ -1,0 +1,97 @@
+#!/bin/bash
+
+# TODO: modify code: user tables pg_nodes and pg_ways
+
+# parameters
+PBF=http://download.geofabrik.de/osm/europe.osm.pbf
+OSM=http://download.geofabrik.de/osm/europe.osm.bz2
+USER=openstreetmap
+DATABASE=db_setup
+PASSWORD=dfkiteam
+PSQL_VERSION=8.4
+RAILS_PORT_FOLDER=$HOME/rails-port # make sure that config/database.yml has a db_setup env with $DATABASE
+PLANNING_DO_ROAM=$HOME/planning-do-roam/ActivityRoutePlanner
+DOWNLOAD_FOLDER=$HOME
+
+# trace, and stop if there are errors
+set -e
+set -x
+
+OSM_FILE=$(basename $OSM)
+
+# 1. set up the OSM database and give the user "$USER" all privileges 
+
+createdb $DATABASE
+psql -d $DATABASE < /usr/share/postgresql/$PSQL_VERSION/contrib/btree_gist.sql
+psql -d $DATABASE -c "GRANT ALL PRIVILEGES ON $DATABASE TO $USER" 
+
+# 2. create the OSM tables
+
+# in the rails port repository folder
+cd $RAILS_PORT_FOLDER
+rake db:migrate RAILS_ENV=db_setup
+
+# 3. run Osmosis
+
+cd $DOWNLOAD_FOLDER
+wget $OSM 
+
+osmosis --read-xml-0.6 file="$OSM_FILE" --write-apidb-0.6 populateCurrentTables=yes host="localhost" database="$DATABASE" user="$USER" password="$PASSWORD" validateSchemaVersion=no' 
+
+# we are done now for the search part (old do-roam tool), so keep what we have so far
+psql -d $DATABASE -c "CREATE DATABASE do_roam_db WITH TEMPLATE $DATABASE;"
+
+# 4. when Osmosis is done, rename the tables nodes and ways:
+
+psql -d $DATABASE -c "ALTER TABLE nodes RENAME TO osm_nodes"
+psql -d $DATABASE -c "ALTER TABLE ways RENAME TO osm_ways" 
+
+# 5. in the planning repository folder run
+
+cd $PLANNING_DO_ROAM
+rake db:migrate RAILS_ENV=db_setup
+rake ontology:read RAILS_ENV=db_setup
+rake intervals:read RAILS_ENV=db_setup
+
+# 6. prepare database for routing:
+
+psql -d $DATABASE -f /usr/share/postgresql/$PSQL_VERSION/contrib/postgis.sql
+psql -d $DATABASE -f /usr/share/postgresql/$PSQL_VERSION/contrib/postgis_comments.sql
+psql -d $DATABASE -f /usr/share/postgresql/$PSQL_VERSION/contrib/spatial_ref_sys.sql 
+
+psql -d $DATABASE -f /usr/share/postlbs/routing_core.sql
+psql -d $DATABASE -f /usr/share/postlbs/routing_core_wrappers.sql
+psql -d $DATABASE -f /usr/share/postlbs/routing_topology.sql 
+
+cd $DOWNLOAD_FOLDER
+osm2pgsql -d $DATABASE -m $OSM_FILE
+
+# 7. run osm2po
+
+cd $DOWNLOAD_FOLDER
+wget http://osm2po.de/download.php?dl=osm2po-core-3.1.0-signed.jar
+java -Xmx256m -jar osm2po-core-3.1.0-signed.jar tileSize=5x5 prefix=db $PBF
+
+# After this is executed, the script generates 2 sql commands that must be run on the database, like:
+
+psql -U postgres -q -1 -c "SELECT DropGeometryTable('hb_topo');" -d $DATABASE
+psql -U postgres -q -1 -f "db/db_p3_topo_0.sql" -d $DATABASE 
+
+# 8. add the following columns and values to the hb_topo table:
+
+psql -d $DATABASE -c "ALTER TABLE hb_topo ADD COLUMN gid integer"
+psql -d $DATABASE -c "UPDATE hb_topo SET gid = id"
+psql -d $DATABASE -c "ALTER TABLE hb_topo ADD COLUMN the_geom geometry"
+psql -d $DATABASE -c "UPDATE hb_topo SET the_geom = geom_way"
+psql -d $DATABASE -c "ALTER TABLE hb_topo ADD COLUMN length double precision"
+psql -d $DATABASE -c "UPDATE hb_topo SET length = length(geom_way)"
+psql -d $DATABASE -c "ALTER TABLE hb_topo ADD COLUMN name varchar"
+psql -d $DATABASE -c "UPDATE hb_topo SET name = osm_name"
+
+# 9. rename back nodes and ways
+
+psql -d $DATABASE -c "ALTER TABLE nodes RENAME TO pg_nodes"
+psql -d $DATABASE -c "ALTER TABLE ways RENAME TO pg_ways" 
+psql -d $DATABASE -c "ALTER TABLE osm_nodes RENAME TO nodes"
+psql -d $DATABASE -c "ALTER TABLE osm_ways RENAME TO ways" 
+ 
