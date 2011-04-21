@@ -21,9 +21,10 @@ OSM_FILE=$(basename $OSM)
 
 # 1. set up the OSM database and give the user "$USER" all privileges 
 
+psql -U postgres "DROP DATABASE $DATABASE;" || true
 createdb -U postgres $DATABASE
 psql -U postgres -d $DATABASE < /usr/share/postgresql/$PSQL_VERSION/contrib/btree_gist.sql
-psql -U postgres -d $DATABASE -c "GRANT ALL PRIVILEGES ON $DATABASE TO $USER" 
+psql -U postgres -d $DATABASE -c "GRANT ALL PRIVILEGES ON DATABASE $DATABASE TO $USER" 
 
 # 2. create the OSM tables
 
