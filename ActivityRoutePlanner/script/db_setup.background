@@ -1,1 +1,1 @@
-nohup script/db_setup > log/db_setup.log 2>&1
+nohup script/db_setup > log/db_setup.log 2>&1 &

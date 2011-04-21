@@ -11,7 +11,7 @@ PASSWORD=dfkiteam
 PSQL_VERSION=8.4
 RAILS_PORT_FOLDER=$HOME/rails-port # make sure that config/database.yml has a db_setup env with $DATABASE
 PLANNING_DO_ROAM=$HOME/planning-do-roam/ActivityRoutePlanner
-DOWNLOAD_FOLDER=$HOME
+DOWNLOAD_FOLDER=/local/isos/emobility/tmp
 
 # trace, and stop if there are errors
 set -e
