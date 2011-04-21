@@ -9,7 +9,10 @@ USER=openstreetmap
 DATABASE=db_setup
 PASSWORD=dfkiteam
 PSQL_VERSION=8.4
-RAILS_PORT_FOLDER=$HOME/rails-port # make sure that config/database.yml has a db_setup env with $DATABASE
+RAILS_PORT_FOLDER=$HOME/rails-port 
+  # make sure that config/database.yml has a db_setup env with $DATABASE
+  # and also enter this env into config/application.yml
+  # and have a link from config/environments/development.rb to config/environments/db_setup.rb
 PLANNING_DO_ROAM=$HOME/planning-do-roam/ActivityRoutePlanner
 DOWNLOAD_FOLDER=/local/isos/emobility/tmp
 
@@ -37,7 +40,7 @@ rake db:migrate RAILS_ENV=db_setup
 cd $DOWNLOAD_FOLDER
 wget $OSM 
 
-osmosis --read-xml-0.6 file="$OSM_FILE" --write-apidb-0.6 populateCurrentTables=yes host="localhost" database="$DATABASE" user="$USER" password="$PASSWORD" validateSchemaVersion=no' 
+osmosis --read-xml-0.6 file="$OSM_FILE" --write-apidb-0.6 populateCurrentTables=yes host="localhost" database="$DATABASE" user="$USER" password="$PASSWORD" validateSchemaVersion=no 
 
 # we are done now for the search part (old do-roam tool), so keep what we have so far
 psql -U postgres -d $DATABASE -c "CREATE DATABASE do_roam_db WITH TEMPLATE $DATABASE;"
