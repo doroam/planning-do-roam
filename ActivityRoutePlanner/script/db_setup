@@ -38,6 +38,7 @@ rake db:migrate RAILS_ENV=db_setup
 # 3. run Osmosis
 
 cd $DOWNLOAD_FOLDER
+rm $OSM || true
 wget $OSM 
 
 osmosis --read-xml-0.6 file="$OSM_FILE" --write-apidb-0.6 populateCurrentTables=yes host="localhost" database="$DATABASE" user="$USER" password="$PASSWORD" validateSchemaVersion=no 
