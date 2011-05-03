@@ -38,8 +38,8 @@ rake db:migrate RAILS_ENV=db_setup
 # 3. run Osmosis
 
 # first drop indexes that cause problems
-psql -U postgres -c "DROP INDEX users_display_name_idx;"
-psql -U postgres -c "DROP INDEX users_email_idx;"
+psql -U postgres -d $DATABASE -c "DROP INDEX users_display_name_idx;"
+psql -U postgres -d $DATABASE -c "DROP INDEX users_email_idx;"
 
 cd $DOWNLOAD_FOLDER
 rm $OSM_FILE || true
