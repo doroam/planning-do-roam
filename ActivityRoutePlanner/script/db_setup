@@ -78,8 +78,8 @@ osm2pgsql -d $DATABASE -m $OSM_FILE
 # 7. run osm2po
 
 cd $DOWNLOAD_FOLDER
-wget http://osm2po.de/download.php?dl=osm2po-core-3.1.0-signed.jar
-java -Xmx256m -jar osm2po-core-3.1.0-signed.jar tileSize=5x5 prefix=db $PBF
+wget http://osm2po.de/download.php?dl=osm2po-core-3.1.0-signed.jar -O osm2po-core.jar 
+java -Xmx256m -jar osm2po-core.jar tileSize=5x5 prefix=db $PBF
 
 # After this is executed, the script generates 2 sql commands that must be run on the database, like:
 
