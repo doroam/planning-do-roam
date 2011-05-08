@@ -26,6 +26,7 @@ OSM_FILE=$(basename $OSM)
 
 psql -U postgres -c "DROP DATABASE $DATABASE;" || true
 createdb -U postgres $DATABASE
+createlang plpgsql $DATABASE
 psql -U postgres -d $DATABASE < /usr/share/postgresql/$PSQL_VERSION/contrib/btree_gist.sql
 psql -U postgres -d $DATABASE -c "GRANT ALL PRIVILEGES ON DATABASE $DATABASE TO $USER" 
 
