@@ -4,7 +4,7 @@ class InitController < ApplicationController
     #if the session is new
     if session[:main_route] == nil
      # initialize route
-      @route = Route.new()
+      @route = Route.create()
       session[:main_route] = @route.id
     else
       route_id = session[:main_route]
