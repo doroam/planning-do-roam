@@ -1,2 +1,0 @@
-<b>No results found in this area.</b><br/>
-<!--small><%=error!=nil ? error.html_safe : "" %></small-->
