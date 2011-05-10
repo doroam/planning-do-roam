@@ -12,8 +12,8 @@ class Route < ActiveRecord::Base
   GLOBAL_FIELD_AMENITY  = Global::GLOBAL_FIELD_AMENITY
   
 
-  def initialize
-    super
+  def initialize(*params)
+    super(*params)
     self.sort = "false"
     self.algorithmus = "A*"
     point = Point.new()
