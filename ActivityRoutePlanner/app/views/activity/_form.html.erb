@@ -1,4 +1,12 @@
-<tr><td width="80px" align="right">
+<tr>
+  <td width="40px"  align="right"/>
+  <!--td width="10px"  align="right">
+    <%= # link to remove that activity
+	link_to image_tag("arrow_up.png", :border=>0,:height=>"10px"),:controller => :activity,:action=>:move,:direction=>"up",:activity=>activity, :remote => true,:onclick=>'showWall();'%>
+    <%= # link to remove that activity
+	link_to image_tag("arrow_down.png", :border=>0,:height=>"10px"),:controller => :activity,:action=>:move,:direction=>"down",:activity=>activity, :remote => true,:onclick=>'showWall();'%>
+  </td-->
+  <td align="right">
 <%
 label = activity.result!=nil && activity.result.label!=nil ? activity.result.label : "no_name"
 if show_delete 

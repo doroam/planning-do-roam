@@ -33,5 +33,13 @@ class ActivityController < ApplicationController
     end
   end
 
+  def move
+    
+
+    respond_to do |format|
+      format.js
+    end
+  end
+
 
 end

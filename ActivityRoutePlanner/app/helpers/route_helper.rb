@@ -72,7 +72,7 @@ module RouteHelper
             line = get_kml_line(point.lat,point.lon, target["end_lat"],target["end_long"])
             result.push(line)
           else
-            result.concat([path])
+            result.concat(path)
           end
         else
           #error message if the path could not be found
@@ -133,7 +133,7 @@ module RouteHelper
   private
 
   def self.generate_energy_route(src_point,point)
-    return get_kml_line(src_point.lat,src_point.lon,point.lat,point.lon)
+    return get_energy_nodes(src_point,point)
   end
 
 
@@ -305,4 +305,82 @@ module RouteHelper
     end
     return nil
   end
+
+  def self.get_energy_nodes(start_point,end_point)
+
+    nodes = Array.new
+
+    url = "http://greennav.in.tum.de:8192/routing?wsdl"
+
+    xml =
+      "<routingRequest ID=\"test\">"+
+      "<feature>routeCalculation</feature>"+
+      "<startNode>"+
+      "<geoCoords latitude=\"47.733333\" longitude=\"10.316667\"/>"+
+      "</startNode>"+
+      "<targetNode>"+
+      "<geoCoords latitude=\"47.733433\" longitude=\"10.316567\"/>"+
+      "</targetNode>"+
+      "<vehicleType>STROMOS</vehicleType>"+
+      "<batteryChargeAtStart>95</batteryChargeAtStart>"+
+      "<resultType>geoCoords</resultType>"+
+      "</routingRequest>"
+
+    xml = "<?xml version=\"1.0\" ?>"+
+      "<S:Envelope xmlns:S=\"http://schemas.xmlsoap.org/soap/envelope/\">"+
+      "<S:Body>"+
+      "<ns2:createRoutingResponseXMLString xmlns:ns2=\"http://server.greennav.in.tum.de/\"><arg0>"+
+        "&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;"+
+        "&lt;routingRequest ID=&quot;11:32:56 STROMOS 234&quot;&gt;"+
+        "&lt;feature&gt;"+"routeCalculation"+"&lt;/feature&gt;"+
+        "&lt;startNode&gt;"+
+        "&lt;geoCoords latitude=&quot;"+start_point.lat.to_s+"&quot; longitude=&quot;"+start_point.lon.to_s+"&quot;/&gt;"+
+        "&lt;/startNode&gt;"+
+        "&lt;targetNode&gt;"+
+        "&lt;geoCoords latitude=&quot;"+end_point.lat.to_s+"&quot; longitude=&quot;"+end_point.lon.to_s+"&quot;/&gt;"+
+        "&lt;/targetNode&gt;"+
+        "&lt;vehicleType&gt;"+"STROMOS"+"&lt;/vehicleType&gt;"+
+        "&lt;batteryChargeAtStart&gt;"+"95"+"&lt;/batteryChargeAtStart&gt;"+
+        "&lt;optimization&gt;"+"ENERGY"+"&lt;/optimization&gt;"+
+        "&lt;resultType&gt;"+"geoCoords"+"&lt;/resultType&gt;"+
+        "&lt;/routingRequest&gt;"+
+      "</arg0></ns2:createRoutingResponseXMLString></S:Body></S:Envelope>"
+
+    @error = ""
+    begin
+      client = Savon::Client.new do
+          wsdl.document = url
+      end
+
+      @actions = client.wsdl.soap_actions
+      @res = client.request :wsdl,:create_routing_response_xml_string do |soap|
+        soap.xml = xml
+      end
+
+      xml_string = @res.to_hash[:create_routing_response_xml_string_response][:return]
+      coords = REXML::Document.new(xml_string)
+      @result = "xml=="+coords.elements["routingResponse/nodes"].size.to_s
+      geocoords = coords.elements["routingResponse/nodes"]
+      start = geocoords[1]
+      geocoords.remove[1]
+      geocoords.each do |node|
+        start_coord = start.elements["geoCoords"]
+        end_coord = node.elements["geoCoords"]
+        nodes.push(get_kml_line(start_coord.attributes["latitude"],start_coord.attributes["longitude"],end_coord.attributes["latitude"],end_coord.attributes["longitude"]))
+        start = node
+      end
+
+
+    rescue Exception => err
+      @error = err.to_s
+      p "error="+err.to_s
+    end
+
+    return nodes
+
+  end
+
+
+
+
 end

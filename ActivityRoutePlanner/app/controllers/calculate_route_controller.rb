@@ -1,6 +1,7 @@
 class CalculateRouteController < ApplicationController
   include CalculateRouteHelper
   include RouteHelper
+  require 'CGI'
   
   #generates a route and shows it
   def calculate_route        
@@ -52,12 +53,13 @@ class CalculateRouteController < ApplicationController
   end
 
   def get_energy_route
+
+    nodes = Array.new
+
     url = "http://greennav.in.tum.de:8192/routing?wsdl"
-
-    #client = Savon::Client.new(url)
-
+    
     xml = 
-      "<?xml version=\"1.0\"?><routingRequest ID=\"test\">"+
+      "<routingRequest ID=\"test\">"+
       "<feature>routeCalculation</feature>"+
       "<startNode>"+
       "<geoCoords latitude=\"47.733333\" longitude=\"10.316667\"/>"+
@@ -70,14 +72,21 @@ class CalculateRouteController < ApplicationController
       "<resultType>geoCoords</resultType>"+
       "</routingRequest>"
 
-    xml = xml.strip
+    xml = "<?xml version=\"1.0\" ?>"+
+      "<S:Envelope xmlns:S=\"http://schemas.xmlsoap.org/soap/envelope/\">"+
+      "<S:Body>"+
+      "<ns2:createRoutingResponseXMLString xmlns:ns2=\"http://server.greennav.in.tum.de/\"><arg0>"+
+        "&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;"+
+        "&lt;routingRequest ID=&quot;11:32:56 STROMOS 234&quot;&gt;"+
+        "&lt;feature&gt;rangePrediction&lt;/feature&gt;"+
+        "&lt;startNode&gt;"+
+        "&lt;geoCoords latitude=&quot;47.733333&quot; longitude=&quot;10.316667&quot;/&gt;"+
+        "&lt;/startNode&gt;"+
+        "&lt;vehicleType&gt;STROMOS&lt;/vehicleType&gt;&lt;batteryChargeAtStart&gt;95&lt;/batteryChargeAtStart&gt;"+
+        "&lt;resultType&gt;geoCoords&lt;/resultType&gt;"+
+        "&lt;/routingRequest&gt;"+
+      "</arg0></ns2:createRoutingResponseXMLString></S:Body></S:Envelope>"
 
-    @xml_doc = REXML::Document.new(xml)
-    @xml_doc << REXML::XMLDecl.new
-
-
-
-    p "xml="+@xml_doc.to_s
     @error = ""
     begin
       client = Savon::Client.new do
@@ -89,15 +98,24 @@ class CalculateRouteController < ApplicationController
       #@res = client.request :wsdl, :create_routing_response_xml_string, "khkh" => @xml_doc
       @actions = client.wsdl.soap_actions
       @res = client.request :wsdl,:create_routing_response_xml_string do |soap|
-        soap.body = { :create_routing_response_xml_string => @xml_doc}
+        soap.xml = xml
       end
 
+      xml_string = @res.to_hash[:create_routing_response_xml_string_response][:return]
+      coords = REXML::Document.new(xml_string)
+      @result = "xml=="+coords.elements["routingResponse/nodes"].size.to_s
+      nodes = get_points(coords.elements["routingResponse/nodes"])
+      
 
     rescue Exception => err
       @error = err.to_s
       p "error="+err.to_s
     end
-    p "test="+@res.to_s
-    
+    p "test="+@res.to_xml.to_s
+
+    return nodes
+
   end
+
+
 end
