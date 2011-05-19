@@ -18,7 +18,7 @@ ActivityRoutePlanner::Application.routes.draw do
   match "reset" => "init#index"
   match "reset_method" => "init#reset"
   match "check_edge" => "calculate_route#calculate_route"
-  match "set_algorithmus"=>"calculate_route#set_algorithmus"
+  match "set_route_parameters"=>"calculate_route#set_route_parameters"
   match "load_content"=>"content_loader#load_content"
   match "search"=>"geocoder#search"
   match "ontosearch"=>"ontology_search#ontosearch"

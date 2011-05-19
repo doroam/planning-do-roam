@@ -16,6 +16,8 @@ class Route < ActiveRecord::Base
     super(*params)
     self.sort = "false"
     self.algorithmus = "A*"
+    self.optimization = "ENERGY"
+    self.car_type = "STROMOS"
     point = Point.new()
     point.save
     self.start_point_id = point.id

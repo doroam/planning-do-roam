@@ -55,7 +55,7 @@ module RouteHelper
       end
       if source != nil && target !=nil
         if is_energy
-          path = generate_energy_route(src_point,point)
+          path = get_energy_nodes(route,src_point,point)
         else
           #add route from source to target to the kml list
           path = generate_simple_route(source,target,route)
@@ -131,10 +131,6 @@ module RouteHelper
   end
 
   private
-
-  def self.generate_energy_route(src_point,point)
-    return get_energy_nodes(src_point,point)
-  end
 
 
   #Gets the nearest edge to a point
@@ -306,7 +302,7 @@ module RouteHelper
     return nil
   end
 
-  def self.get_energy_nodes(start_point,end_point)
+  def self.get_energy_nodes(route,start_point,end_point)
 
     nodes = Array.new
 
@@ -339,9 +335,9 @@ module RouteHelper
         "&lt;targetNode&gt;"+
         "&lt;geoCoords latitude=&quot;"+end_point.lat.to_s+"&quot; longitude=&quot;"+end_point.lon.to_s+"&quot;/&gt;"+
         "&lt;/targetNode&gt;"+
-        "&lt;vehicleType&gt;"+"STROMOS"+"&lt;/vehicleType&gt;"+
+        "&lt;vehicleType&gt;"+route.car_type+"&lt;/vehicleType&gt;"+
         "&lt;batteryChargeAtStart&gt;"+"95"+"&lt;/batteryChargeAtStart&gt;"+
-        "&lt;optimization&gt;"+"ENERGY"+"&lt;/optimization&gt;"+
+        "&lt;optimization&gt;"+route.optimization+"&lt;/optimization&gt;"+
         "&lt;resultType&gt;"+"geoCoords"+"&lt;/resultType&gt;"+
         "&lt;/routingRequest&gt;"+
       "</arg0></ns2:createRoutingResponseXMLString></S:Body></S:Envelope>"

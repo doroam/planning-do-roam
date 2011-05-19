@@ -36,16 +36,26 @@ class CalculateRouteController < ApplicationController
   end
 
   #sets the algorithmus and sorting method to use
-  def set_algorithmus
+  def set_route_parameters
     a     = params[:algo]
     route = Route.find(session[:main_route])
     sort  = params[:sort]
+    optimization = params[:optimization]
+    car_type = params[:car_type]
 
     if a != nil
       route.algorithmus = a
-    elsif sort != nil
+    end
+    if sort != nil
       route.sort = sort
     end
+    if car_type != nil
+      route.car_type = car_type
+    end
+    if optimization != nil
+      route.optimization = optimization
+    end
+
     route.save
     respond_to do |format|
       format.js
