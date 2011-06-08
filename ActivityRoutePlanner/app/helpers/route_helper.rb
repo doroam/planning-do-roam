@@ -42,18 +42,22 @@ module RouteHelper
 
 
     result_way.each do |point|
-      #get nearest edge to start and end point
-      source = get_nearest_edge(src_point)
-      target = get_nearest_edge(point)
+      
+      if !is_energy
+        #get nearest edge to start and end point
+        source = get_nearest_edge(src_point)
+        target = get_nearest_edge(point)
 
-      #get coordinates of nearest edge to start and end points
-      if src_point!=nil && src_point.label.eql?(route.start_point.label)
-        source_start = source
+        #get coordinates of nearest edge to start and end points
+        if src_point!=nil && src_point.label.eql?(route.start_point.label)
+          source_start = source
+        end
+        if point!= nil && point.label.eql?(route.end_point.label)
+          target_end = target
+        end
       end
-      if point!= nil && point.label.eql?(route.end_point.label)
-        target_end = target
-      end
-      if source != nil && target !=nil
+
+      if (source != nil && target !=nil) || is_energy
         if is_energy
           path = get_energy_nodes(route,src_point,point)
         else
@@ -91,10 +95,10 @@ module RouteHelper
 
 
     #coordinates from the nearest source edge and nearest target edge
-    start_lat = 0.0
-    start_lon = 0.0
-    end_lat   = 0.0
-    end_lon   = 0.0
+    start_lat = "0.0"
+    start_lon = "0.0"
+    end_lat   = "0.0"
+    end_lon   = "0.0"
     if source_start != nil
       start_lat = source_start["start_lat"]
       start_lon = source_start["start_long"]
@@ -142,13 +146,14 @@ module RouteHelper
       sql = "SELECT name,type_name, "+start_end_coordinates+", source, target, distance("+GLOBAL_FIELD_TRANSFORMED_ROAD_GEOM+", GeometryFromText('POINT("+point.lon.to_s+" "+point.lat.to_s+")', 4326)) AS dist FROM "+TABLE
       #data for the bounding box around the point
       #performance!
-      lat_max   = (point.lat+0.1).to_s
-      long_max  = (point.lon+0.1).to_s
-      lat_min   = (point.lat-0.1).to_s
-      long_min  = (point.lon-0.1).to_s
+      lat_max   = (point.lat+0.15).to_s
+      long_max  = (point.lon+0.15).to_s
+      lat_min   = (point.lat-0.15).to_s
+      long_min  = (point.lon-0.15).to_s
       #sql = "SELECT source,distance(GeomFromText('POINT("+point.lat+" "+point.lon+")',4326),st_transform(the_geom,4326))  FROM ways"
       #except_ways = "true"#"(highway='primary' or highway='secondary' or highway='motorway' or highway='trunk')"#"(highway != '' and highway!='cycleway' and highway!='pedestrian' and highway!='footway')"
-      where =  " WHERE "+GLOBAL_FIELD_TYPE+"!='pedestrian' "#"("+GLOBAL_FIELD_TRANSFORMED_ROAD_GEOM+" && setsrid('BOX3D("+long_min+" "+lat_min+","+long_max+" "+lat_max+")'::box3d, 4326) )"
+      where =  " WHERE "+GLOBAL_FIELD_TYPE+"!='pedestrian' "
+      where += " and ("+GLOBAL_FIELD_TRANSFORMED_ROAD_GEOM+" && setsrid('BOX3D("+long_min+" "+lat_min+","+long_max+" "+lat_max+")'::box3d, 4326) )"
       where += " ORDER BY dist LIMIT 1;"
       #executes and parses the result as an edge
       return get_edge(sql+where)
