@@ -4,13 +4,13 @@ class Point < ActiveRecord::Base
 
   require 'uri'
   include Comparable
-
-  GLOBAL_FIELD_NAME     = Global::GLOBAL_FIELD_NAME
-  GLOBAL_FIELD_LONG     = Global::GLOBAL_FIELD_LONG
-  GLOBAL_FIELD_LAT      = Global::GLOBAL_FIELD_LAT
-  GLOBAL_TABLE_POINT    = Global::GLOBAL_TABLE_POINT
-  GLOBAL_TABLE_POLYGON  = Global::GLOBAL_TABLE_POLYGON
-  GLOBAL_FIELD_AMENITY  = Global::GLOBAL_FIELD_AMENITY
+  include RouteHelper
+  GLOBAL_FIELD_SOURCE                 = Global::GLOBAL_FIELD_SOURCE
+  GLOBAL_FIELD_TARGET                 = Global::GLOBAL_FIELD_TARGET
+  GLOBAL_ALIAS_END_POINT_LONG   = Global::GLOBAL_ALIAS_END_POINT_LONG
+  GLOBAL_ALIAS_END_POINT_LAT    = Global::GLOBAL_ALIAS_END_POINT_LAT
+  GLOBAL_ALIAS_START_POINT_LONG = Global::GLOBAL_ALIAS_START_POINT_LONG
+  GLOBAL_ALIAS_START_POINT_LAT  = Global::GLOBAL_ALIAS_START_POINT_LAT
 
   attr_accessor :tag,
                 :value
@@ -26,6 +26,18 @@ class Point < ActiveRecord::Base
 
   def is_setted
     return self.label!=nil && !"".eql?(self.label)
+  end
+
+  def set_edge
+    edge = RouteHelper.get_nearest_edge(self)
+    if(edge!=nil)
+      self.edgeID = edge[GLOBAL_FIELD_SOURCE].to_i
+      self.edgeTargetID = edge[GLOBAL_FIELD_TARGET].to_i
+      self.edge_lat = edge[GLOBAL_ALIAS_START_POINT_LAT]
+      self.edge_lon = edge[GLOBAL_ALIAS_START_POINT_LONG]
+      self.edge_end_lat = edge[GLOBAL_ALIAS_END_POINT_LAT]
+      self.edge_end_lon = edge[GLOBAL_ALIAS_END_POINT_LONG]
+    end
   end
 
   def set_coordinates(lat_st,long_st)

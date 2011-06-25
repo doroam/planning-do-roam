@@ -1,5 +1,7 @@
 module RouteHelper
   TABLE = "hb_topo"
+  GLOBAL_FIELD_SOURCE                 = Global::GLOBAL_FIELD_SOURCE
+  GLOBAL_FIELD_TARGET                 = Global::GLOBAL_FIELD_TARGET
   GLOBAL_FIELD_TYPE             = Global::GLOBAL_FIELD_TYPE
   GLOBAL_FIELD_END_POINT_LONG   = Global::GLOBAL_FIELD_END_POINT_LONG
   GLOBAL_FIELD_END_POINT_LAT    = Global::GLOBAL_FIELD_END_POINT_LAT
@@ -31,9 +33,11 @@ module RouteHelper
     end
     result_way.push(route.end_point)
 
-    #initlialize start point
-    source_start  = nil
-    target_end    = nil
+    #coordinates from the nearest source edge and nearest target edge
+    start_lat = "0.0"
+    start_lon = "0.0"
+    end_lat   = "0.0"
+    end_lon   = "0.0"
     src_point = route.start_point
 
     alg_select = route.algorithmus
@@ -45,15 +49,17 @@ module RouteHelper
       
       if !is_energy
         #get nearest edge to start and end point
-        source = get_nearest_edge(src_point)
-        target = get_nearest_edge(point)
+        source = src_point.edgeID#get_nearest_edge(src_point)
+        target = point.edgeTargetID#get_nearest_edge(point)
 
         #get coordinates of nearest edge to start and end points
         if src_point!=nil && src_point.label.eql?(route.start_point.label)
-          source_start = source
+          start_lat = src_point.edge_lat
+          start_lon = src_point.edge_lon
         end
         if point!= nil && point.label.eql?(route.end_point.label)
-          target_end = target
+          end_lat   = point.edge_end_lat
+          end_lon   = point.edge_end_lon
         end
       end
 
@@ -69,11 +75,11 @@ module RouteHelper
         if path.length>0
           if !is_energy
             #adds a line from the start point to the nearest source point of the edge
-            line = get_kml_line(src_point.lat,src_point.lon, source["start_lat"],source["start_long"])
+            line = get_kml_line(src_point.lat,src_point.lon, src_point.edge_lat,src_point.edge_lon)
             result.push(line)
             result.concat(path)
             #adds a line form the end point to the nearest end point of the edge
-            line = get_kml_line(point.lat,point.lon, target["end_lat"],target["end_long"])
+            line = get_kml_line(point.lat,point.lon, point.edge_end_lat,point.edge_end_lon)
             result.push(line)
           else
             result.concat(path)
@@ -91,22 +97,6 @@ module RouteHelper
       if point != nil
         src_point = point
       end
-    end
-
-
-    #coordinates from the nearest source edge and nearest target edge
-    start_lat = "0.0"
-    start_lon = "0.0"
-    end_lat   = "0.0"
-    end_lon   = "0.0"
-    if source_start != nil
-      start_lat = source_start["start_lat"]
-      start_lon = source_start["start_long"]
-    end
-
-    if target_end !=nil
-      end_lat = target_end["end_lat"]
-      end_lon = target_end["end_long"]
     end
 
 
@@ -134,16 +124,14 @@ module RouteHelper
     return row["dist"]
   end
 
-  private
-
-
+  
   #Gets the nearest edge to a point
   def self.get_nearest_edge(point)
     #if nothing was found
     if point != nil
       #gets start and end point of the edge and
       start_end_coordinates = GLOBAL_FIELD_END_POINT_LONG+","+GLOBAL_FIELD_END_POINT_LAT+","+GLOBAL_FIELD_START_POINT_LONG+","+GLOBAL_FIELD_START_POINT_LAT
-      sql = "SELECT name,type_name, "+start_end_coordinates+", source, target, distance("+GLOBAL_FIELD_TRANSFORMED_ROAD_GEOM+", GeometryFromText('POINT("+point.lon.to_s+" "+point.lat.to_s+")', 4326)) AS dist FROM "+TABLE
+      sql = "SELECT name,type_name, "+start_end_coordinates+", "+GLOBAL_FIELD_SOURCE+", "+GLOBAL_FIELD_TARGET+", distance("+GLOBAL_FIELD_TRANSFORMED_ROAD_GEOM+", GeometryFromText('POINT("+point.lon.to_s+" "+point.lat.to_s+")', 4326)) AS dist FROM "+TABLE
       #data for the bounding box around the point
       #performance!
       lat_max   = (point.lat+0.15).to_s
@@ -161,17 +149,15 @@ module RouteHelper
     return nil
   end
 
+  private
 
   #generates a route between 2 points
   def self.generate_simple_route(source,target,route)
     result = Array.new
 
     if source!=nil && target!=nil
-      edge_src    = source["source"]
-      edge_target = target["target"]
-      highway_src = source["type_name"]
-      highway_target = target["type_name"]
-      p "::::::::src="+edge_src+"-"+highway_src+"   target="+edge_target+"-"+highway_target
+      edge_src    = source.to_s
+      edge_target = target.to_s
 
       #get path from source to target
       result = get_shortest_path(edge_src,edge_target,route);

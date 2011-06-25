@@ -12,10 +12,18 @@ class Global
 
   GLOBAL_FIELD_ROAD_GEOM              = 'the_geom'
   GLOBAL_FIELD_TRANSFORMED_ROAD_GEOM  = 'transform('+GLOBAL_FIELD_ROAD_GEOM+',4326)'
-  GLOBAL_FIELD_START_POINT_LONG       = 'x(startpoint('+GLOBAL_FIELD_TRANSFORMED_ROAD_GEOM+')) as start_long'
-  GLOBAL_FIELD_START_POINT_LAT        = 'y(startpoint('+GLOBAL_FIELD_TRANSFORMED_ROAD_GEOM+')) as start_lat'
-  GLOBAL_FIELD_END_POINT_LONG         = 'x(endpoint('+GLOBAL_FIELD_TRANSFORMED_ROAD_GEOM+')) as end_long'
-  GLOBAL_FIELD_END_POINT_LAT          = 'y(endpoint('+GLOBAL_FIELD_TRANSFORMED_ROAD_GEOM+')) as end_lat'
+  GLOBAL_ALIAS_START_POINT_LONG       = 'start_long'
+  GLOBAL_ALIAS_START_POINT_LAT        = 'start_lat'
+  GLOBAL_ALIAS_END_POINT_LONG         = 'end_long'
+  GLOBAL_ALIAS_END_POINT_LAT          = 'end_lat'
+  GLOBAL_FIELD_SOURCE                 = 'source'
+  GLOBAL_FIELD_TARGET                 = 'target'
+  GLOBAL_FIELD_START_POINT_LONG       = 'x(startpoint('+GLOBAL_FIELD_TRANSFORMED_ROAD_GEOM+')) as '+GLOBAL_ALIAS_START_POINT_LONG
+  GLOBAL_FIELD_START_POINT_LAT        = 'y(startpoint('+GLOBAL_FIELD_TRANSFORMED_ROAD_GEOM+')) as '+GLOBAL_ALIAS_START_POINT_LAT
+  GLOBAL_FIELD_END_POINT_LONG         = 'x(endpoint('+GLOBAL_FIELD_TRANSFORMED_ROAD_GEOM+')) as '+GLOBAL_ALIAS_END_POINT_LONG
+  GLOBAL_FIELD_END_POINT_LAT          = 'y(endpoint('+GLOBAL_FIELD_TRANSFORMED_ROAD_GEOM+')) as '+GLOBAL_ALIAS_END_POINT_LAT
+
+
   GLOBAL_FIELD_TYPE                   = 'type_name'
   
   #constants to map the activities to icons

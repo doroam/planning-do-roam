@@ -54,9 +54,7 @@ class PointController < ApplicationController
     if label==nil || "".eql?(label)
       label = params[:result][:lat]+":"+params[:result][:lon]
     end
-    point.label = label
-    point.set_coordinates(params[:result][:lat],params[:result][:lon])
-    point.save
+    set_point_info(point, label, params[:result][:lat],params[:result][:lon])
   end
 
   def set_point(point)
@@ -64,10 +62,16 @@ class PointController < ApplicationController
     if label==nil || "".eql?(label)
       label = params[:lat]+":"+params[:lon]
     end
+    set_point_info(point, label, params[:lat],params[:lon])
+  end
+
+  def set_point_info(point,label,lat,lon)
     point.label = label
-    point.set_coordinates(params[:lat],params[:lon])
+    point.set_coordinates(lat,lon)
+    point.set_edge
     point.save
-  end  
+  end
+  
 
   #handles errors by parsing lables of a point
   def handle_error(point,label)

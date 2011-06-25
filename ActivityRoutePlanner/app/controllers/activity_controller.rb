@@ -26,6 +26,7 @@ class ActivityController < ApplicationController
     @point       = Point.new(params[:point])
     @point.distance_source = RouteHelper.get_distance(route.start_point, @point)
     @point.activity = @activity
+    @point.set_edge
     @point.save
 
     respond_to do |format|
