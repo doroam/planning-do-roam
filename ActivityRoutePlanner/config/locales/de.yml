@@ -1964,8 +1964,25 @@ de:
     Valley: Tal
     Motel: Motel
     Hotel: Hotel
-    InformationService: Information Service
-    FitnessStudio: Fitness Studio
+    InformationService: Information
+    FitnessStudio: Fitnessstudio
     Mailbox: Briefkasten
-
+    School: Schule
+    Bar: Bar
+    Pub: Pub
+    MobilePhone: Handy
+    Taxi: Taxi
+    OrganicFood: Bioladen
+    Zoo: Zoo
+    Playground: Spielplatz
+    Attraction: Attraktion
+    PicnicArea: Rastplatz
+    ViewPoint: Aussichtspunkt
+    Garage: Tankstelle
+    Packstation: Packstation
+    Paketbox: Paketbox
+    Recycling: Recycling
+    MailService: Postverkehr
+    OnATrip: Unterwegs
+    CarWash: Autowaschanlage
     
