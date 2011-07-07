@@ -1,5 +1,5 @@
 module RouteHelper
-  TABLE = "hb_topo"
+  TABLE = "db_topo"
   GLOBAL_FIELD_SOURCE                 = Global::GLOBAL_FIELD_SOURCE
   GLOBAL_FIELD_TARGET                 = Global::GLOBAL_FIELD_TARGET
   GLOBAL_FIELD_TYPE             = Global::GLOBAL_FIELD_TYPE
