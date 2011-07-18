@@ -40,12 +40,222 @@
     
 
 
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#hasCity -->
+
+    <owl:ObjectProperty rdf:about="#hasCity">
+        <rdfs:domain rdf:resource="#Address"/>
+        <rdfs:range rdf:resource="#k_addr:city"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#hasCountry -->
+
+    <owl:ObjectProperty rdf:about="#hasCountry">
+        <rdfs:domain rdf:resource="#Address"/>
+        <rdfs:range rdf:resource="#k_addr:country"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#hasCuisine -->
 
     <owl:ObjectProperty rdf:about="#hasCuisine">
         <rdfs:domain rdf:resource="#Places_to_eat"/>
         <rdfs:range rdf:resource="#k_cuisine"/>
     </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#hasDistrict -->
+
+    <owl:ObjectProperty rdf:about="#hasDistrict">
+        <rdfs:domain rdf:resource="#Address"/>
+        <rdfs:range rdf:resource="#k_addr:disctrict"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#hasGenre -->
+
+    <owl:ObjectProperty rdf:about="#hasGenre">
+        <rdfs:range rdf:resource="#k_theatre:genre"/>
+        <rdfs:domain rdf:resource="#v_theatre"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#hasHamlet -->
+
+    <owl:ObjectProperty rdf:about="#hasHamlet">
+        <rdfs:domain rdf:resource="#Address"/>
+        <rdfs:range rdf:resource="#k_addr:hamlet"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#hasHousename -->
+
+    <owl:ObjectProperty rdf:about="#hasHousename">
+        <rdfs:domain rdf:resource="#Address"/>
+        <rdfs:range rdf:resource="#k_addr:housename"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#hasHousenumber -->
+
+    <owl:ObjectProperty rdf:about="#hasHousenumber">
+        <rdfs:domain rdf:resource="#Address"/>
+        <rdfs:range rdf:resource="#k_addr:housenumber"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#hasPostcode -->
+
+    <owl:ObjectProperty rdf:about="#hasPostcode">
+        <rdfs:domain rdf:resource="#Address"/>
+        <rdfs:range rdf:resource="#k_addr:postcode"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#hasProvince -->
+
+    <owl:ObjectProperty rdf:about="#hasProvince">
+        <rdfs:domain rdf:resource="#Address"/>
+        <rdfs:range rdf:resource="#k_addr:province"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#hasStreet -->
+
+    <owl:ObjectProperty rdf:about="#hasStreet">
+        <rdfs:domain rdf:resource="#Address"/>
+        <rdfs:range rdf:resource="#k_addr:street"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#hasSubdistrict -->
+
+    <owl:ObjectProperty rdf:about="#hasSubdistrict">
+        <rdfs:domain rdf:resource="#Address"/>
+        <rdfs:range rdf:resource="#k_addr:subdistrict"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#cityString -->
+
+    <owl:DatatypeProperty rdf:about="#cityString">
+        <rdfs:domain rdf:resource="#k_addr:city"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#countryString -->
+
+    <owl:DatatypeProperty rdf:about="#countryString">
+        <rdfs:domain rdf:resource="#k_addr:country"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#districtString -->
+
+    <owl:DatatypeProperty rdf:about="#districtString">
+        <rdfs:domain rdf:resource="#k_addr:disctrict"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#hamletString -->
+
+    <owl:DatatypeProperty rdf:about="#hamletString">
+        <rdfs:domain rdf:resource="#k_addr:hamlet"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#housenameString -->
+
+    <owl:DatatypeProperty rdf:about="#housenameString">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#k_addr:housename"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#housenumberString -->
+
+    <owl:DatatypeProperty rdf:about="#housenumberString">
+        <rdfs:domain rdf:resource="#k_addr:housenumber"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#openinghoursString -->
+
+    <owl:DatatypeProperty rdf:about="#openinghoursString">
+        <rdfs:domain rdf:resource="#k_opening_hours"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#postcodeString -->
+
+    <owl:DatatypeProperty rdf:about="#postcodeString">
+        <rdfs:domain rdf:resource="#k_addr:postcode"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#provinceString -->
+
+    <owl:DatatypeProperty rdf:about="#provinceString">
+        <rdfs:domain rdf:resource="#k_addr:province"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#streetString -->
+
+    <owl:DatatypeProperty rdf:about="#streetString">
+        <rdfs:domain rdf:resource="#k_addr:street"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#subdistrictString -->
+
+    <owl:DatatypeProperty rdf:about="#subdistrictString">
+        <rdfs:domain rdf:resource="#k_addr:subdistrict"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
     
 
 
