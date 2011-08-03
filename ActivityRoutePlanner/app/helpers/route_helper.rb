@@ -114,14 +114,22 @@ module RouteHelper
 
 
   def self.get_distance(src,target)
-    sql = "select distance(GeometryFromText('POINT("+src.lon.to_s+" "+src.lat.to_s+")', 4326), GeometryFromText('POINT("+target.lon.to_s+" "+target.lat.to_s+")', 4326)) as dist  FROM "+TABLE+" limit 1;"
-    res = ActiveRecord::Base.connection.execute(sql)
-    row = nil
-    res.each do |result|
-      row = result
-      break
+    
+    distance = 0.0
+    begin
+      sql = "select distance(GeometryFromText('POINT("+src.lon.to_s+" "+src.lat.to_s+")', 4326), GeometryFromText('POINT("+target.lon.to_s+" "+target.lat.to_s+")', 4326)) as dist  FROM "+TABLE+" limit 1;"
+      res = ActiveRecord::Base.connection.execute(sql)
+      row = nil
+      res.each do |result|
+        row = result
+        break
+      end
+      distance = row["dist"]
+    rescue
+      
     end
-    return row["dist"]
+
+    return distance
   end
 
   
@@ -215,7 +223,7 @@ module RouteHelper
     return "<LineString><coordinates>"+src_lon.to_s+","+src_lat.to_s+" "+target_lon.to_s+","+target_lat.to_s+"</coordinates></LineString>"
   end
 
-    #gets the closest point to start and endpoint where the activity can be done
+  #gets the closest point to start and endpoint where the activity can be done
   def self.get_closest_activity(activity,pstart,pend)
     #head of the sql query for the point table
     sql_head_point    = "select "+GLOBAL_FIELD_NAME+","+GLOBAL_FIELD_LONG+","+GLOBAL_FIELD_LAT+","+get_distance_query(pstart,pend)+" from "+GLOBAL_TABLE_POINT
@@ -317,26 +325,26 @@ module RouteHelper
       "<S:Envelope xmlns:S=\"http://schemas.xmlsoap.org/soap/envelope/\">"+
       "<S:Body>"+
       "<ns2:createRoutingResponseXMLString xmlns:ns2=\"http://server.greennav.in.tum.de/\"><arg0>"+
-        "&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;"+
-        "&lt;routingRequest ID=&quot;11:32:56 STROMOS 234&quot;&gt;"+
-        "&lt;feature&gt;"+"routeCalculation"+"&lt;/feature&gt;"+
-        "&lt;startNode&gt;"+
-        "&lt;geoCoords latitude=&quot;"+start_point.lat.to_s+"&quot; longitude=&quot;"+start_point.lon.to_s+"&quot;/&gt;"+
-        "&lt;/startNode&gt;"+
-        "&lt;targetNode&gt;"+
-        "&lt;geoCoords latitude=&quot;"+end_point.lat.to_s+"&quot; longitude=&quot;"+end_point.lon.to_s+"&quot;/&gt;"+
-        "&lt;/targetNode&gt;"+
-        "&lt;vehicleType&gt;"+route.car_type+"&lt;/vehicleType&gt;"+
-        "&lt;batteryChargeAtStart&gt;"+"95"+"&lt;/batteryChargeAtStart&gt;"+
-        "&lt;optimization&gt;"+route.optimization+"&lt;/optimization&gt;"+
-        "&lt;resultType&gt;"+"geoCoords"+"&lt;/resultType&gt;"+
-        "&lt;/routingRequest&gt;"+
+      "&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;"+
+      "&lt;routingRequest ID=&quot;11:32:56 STROMOS 234&quot;&gt;"+
+      "&lt;feature&gt;"+"routeCalculation"+"&lt;/feature&gt;"+
+      "&lt;startNode&gt;"+
+      "&lt;geoCoords latitude=&quot;"+start_point.lat.to_s+"&quot; longitude=&quot;"+start_point.lon.to_s+"&quot;/&gt;"+
+      "&lt;/startNode&gt;"+
+      "&lt;targetNode&gt;"+
+      "&lt;geoCoords latitude=&quot;"+end_point.lat.to_s+"&quot; longitude=&quot;"+end_point.lon.to_s+"&quot;/&gt;"+
+      "&lt;/targetNode&gt;"+
+      "&lt;vehicleType&gt;"+route.car_type+"&lt;/vehicleType&gt;"+
+      "&lt;batteryChargeAtStart&gt;"+"95"+"&lt;/batteryChargeAtStart&gt;"+
+      "&lt;optimization&gt;"+route.optimization+"&lt;/optimization&gt;"+
+      "&lt;resultType&gt;"+"geoCoords"+"&lt;/resultType&gt;"+
+      "&lt;/routingRequest&gt;"+
       "</arg0></ns2:createRoutingResponseXMLString></S:Body></S:Envelope>"
 
     @error = ""
     begin
       client = Savon::Client.new do
-          wsdl.document = url
+        wsdl.document = url
       end
 
       @actions = client.wsdl.soap_actions

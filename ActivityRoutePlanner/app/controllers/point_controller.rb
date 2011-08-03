@@ -18,7 +18,7 @@ class PointController < ApplicationController
       else
         set_point(point)
       end
-      @route.reset()
+      #@route.reset()
     end
     respond_to do |format|
       format.js
@@ -35,7 +35,7 @@ class PointController < ApplicationController
     elsif params[:delete_point].eql? "end"
       point = @route.end_point
     end
-    @route.reset()
+    #@route.reset()
     if point != nil
       point.reset
       point.save
