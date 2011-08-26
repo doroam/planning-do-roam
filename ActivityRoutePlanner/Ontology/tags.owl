@@ -8,23 +8,29 @@
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
     <!ENTITY unamed "http://www.dfki.de/sks/hets/ontology/unamed#" >
+    <!ENTITY yes "http://www.dfki.de/sks/hets/ontology/unamed#yes/" >
     <!ENTITY k_fuel "http://www.dfki.de/sks/hets/ontology/unamed#k_fuel:" >
     <!ENTITY k_addr "http://www.dfki.de/sks/hets/ontology/unamed#k_addr:" >
     <!ENTITY k_theatre "http://www.dfki.de/sks/hets/ontology/unamed#k_theatre:" >
+    <!ENTITY has_k_fuel "http://www.dfki.de/sks/hets/ontology/unamed#has_k_fuel:" >
+    <!ENTITY has_k_theatre "http://www.dfki.de/sks/hets/ontology/unamed#has_k_theatre:" >
 ]>
 
 
 <rdf:RDF xmlns="http://www.dfki.de/sks/hets/ontology/unamed#"
      xml:base="http://www.dfki.de/sks/hets/ontology/unamed"
+     xmlns:has_k_fuel="&unamed;has_k_fuel:"
+     xmlns:k_theatre="&unamed;k_theatre:"
+     xmlns:k_fuel="&unamed;k_fuel:"
+     xmlns:unamed="http://www.dfki.de/sks/hets/ontology/unamed#"
+     xmlns:yes="&unamed;yes/"
      xmlns:k_addr="&unamed;k_addr:"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:has_k_theatre="&unamed;has_k_theatre:"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns:k_theatre="&unamed;k_theatre:"
-     xmlns:k_fuel="&unamed;k_fuel:"
-     xmlns:unamed="http://www.dfki.de/sks/hets/ontology/unamed#">
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
     <owl:Ontology rdf:about=""/>
     
 
@@ -61,7 +67,6 @@
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#hasCuisine -->
 
     <owl:ObjectProperty rdf:about="#hasCuisine">
-        <rdfs:domain rdf:resource="#Places_to_eat"/>
         <rdfs:range rdf:resource="#k_cuisine"/>
     </owl:ObjectProperty>
     
@@ -144,6 +149,193 @@
     <owl:ObjectProperty rdf:about="#hasSubdistrict">
         <rdfs:domain rdf:resource="#Address"/>
         <rdfs:range rdf:resource="#k_addr:subdistrict"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_aeroway -->
+
+    <owl:ObjectProperty rdf:about="#has_k_aeroway">
+        <rdfs:range rdf:resource="#k_aeroway"/>
+        <rdfs:domain rdf:resource="#spatial_location"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_amenity -->
+
+    <owl:ObjectProperty rdf:about="#has_k_amenity">
+        <rdfs:range rdf:resource="#k_amenity"/>
+        <rdfs:domain rdf:resource="#spatial_location"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_bicycle_parking -->
+
+    <owl:ObjectProperty rdf:about="#has_k_bicycle_parking">
+        <rdfs:range rdf:resource="#k_bicycle_parking"/>
+        <rdfs:domain rdf:resource="#v_bicycle_parking"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_cuisine -->
+
+    <owl:ObjectProperty rdf:about="#has_k_cuisine">
+        <rdfs:domain rdf:resource="#can_have_k_cuisine"/>
+        <rdfs:range rdf:resource="#k_cuisine"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_fuel:electricity -->
+
+    <owl:ObjectProperty rdf:about="#has_k_fuel:electricity">
+        <rdfs:domain rdf:resource="#v_fuel"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#v_no"/>
+                    <rdf:Description rdf:about="#v_yes"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_highway -->
+
+    <owl:ObjectProperty rdf:about="#has_k_highway">
+        <rdfs:range rdf:resource="#k_highway"/>
+        <rdfs:domain rdf:resource="#spatial_location"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_historic -->
+
+    <owl:ObjectProperty rdf:about="#has_k_historic">
+        <rdfs:range rdf:resource="#k_historic"/>
+        <rdfs:domain rdf:resource="#spatial_location"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_landuse -->
+
+    <owl:ObjectProperty rdf:about="#has_k_landuse">
+        <rdfs:range rdf:resource="#k_landuse"/>
+        <rdfs:domain rdf:resource="#spatial_location"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_leisure -->
+
+    <owl:ObjectProperty rdf:about="#has_k_leisure">
+        <rdfs:range rdf:resource="#k_leisure"/>
+        <rdfs:domain rdf:resource="#spatial_location"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_military -->
+
+    <owl:ObjectProperty rdf:about="#has_k_military">
+        <rdfs:range rdf:resource="#k_military"/>
+        <rdfs:domain rdf:resource="#spatial_location"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_name -->
+
+    <owl:ObjectProperty rdf:about="#has_k_name">
+        <rdfs:range rdf:resource="#k_name"/>
+        <rdfs:domain rdf:resource="#spatial_location"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_natural -->
+
+    <owl:ObjectProperty rdf:about="#has_k_natural">
+        <rdfs:range rdf:resource="#k_natural"/>
+        <rdfs:domain rdf:resource="#spatial_location"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_power -->
+
+    <owl:ObjectProperty rdf:about="#has_k_power">
+        <rdfs:range rdf:resource="#k_power"/>
+        <rdfs:domain rdf:resource="#spatial_location"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_religion -->
+
+    <owl:ObjectProperty rdf:about="#has_k_religion">
+        <rdfs:range rdf:resource="#k_religion"/>
+        <rdfs:domain rdf:resource="#v_place_of_worship"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_shop -->
+
+    <owl:ObjectProperty rdf:about="#has_k_shop">
+        <rdfs:range rdf:resource="#k_shop"/>
+        <rdfs:domain rdf:resource="#spatial_location"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_smoking -->
+
+    <owl:ObjectProperty rdf:about="#has_k_smoking">
+        <rdfs:domain rdf:resource="#can_have_k_smoking"/>
+        <rdfs:range rdf:resource="#decision"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_sport -->
+
+    <owl:ObjectProperty rdf:about="#has_k_sport">
+        <rdfs:range rdf:resource="#k_sport"/>
+        <rdfs:domain rdf:resource="#spatial_location"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_theatre:genre -->
+
+    <owl:ObjectProperty rdf:about="#has_k_theatre:genre">
+        <rdfs:range rdf:resource="#k_theatre:genre"/>
+        <rdfs:domain rdf:resource="#v_theatre"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_tourism -->
+
+    <owl:ObjectProperty rdf:about="#has_k_tourism">
+        <rdfs:range rdf:resource="#k_tourism"/>
+        <rdfs:domain rdf:resource="#spatial_location"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_waterway -->
+
+    <owl:ObjectProperty rdf:about="#has_k_waterway">
+        <rdfs:range rdf:resource="#k_waterway"/>
+        <rdfs:domain rdf:resource="#spatial_location"/>
     </owl:ObjectProperty>
     
 
@@ -636,26 +828,6 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#Places_to_eat -->
-
-    <owl:Class rdf:about="#Places_to_eat">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="#v_bar"/>
-                    <rdf:Description rdf:about="#v_biergarten"/>
-                    <rdf:Description rdf:about="#v_cafe"/>
-                    <rdf:Description rdf:about="#v_fast_food"/>
-                    <rdf:Description rdf:about="#v_pub"/>
-                    <rdf:Description rdf:about="#v_restaurant"/>
-                </owl:unionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
-    </owl:Class>
-    
-
-
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#PublicService -->
 
     <owl:Class rdf:about="#PublicService">
@@ -789,6 +961,50 @@
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
     </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#can_have_k_cuisine -->
+
+    <owl:Class rdf:about="#can_have_k_cuisine">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#v_bar"/>
+                    <rdf:Description rdf:about="#v_biergarten"/>
+                    <rdf:Description rdf:about="#v_cafe"/>
+                    <rdf:Description rdf:about="#v_fast_food"/>
+                    <rdf:Description rdf:about="#v_pub"/>
+                    <rdf:Description rdf:about="#v_restaurant"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#can_have_k_smoking -->
+
+    <owl:Class rdf:about="#can_have_k_smoking">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#k_amenity"/>
+                    <rdf:Description rdf:about="#k_railway"/>
+                    <rdf:Description rdf:about="#k_sport"/>
+                    <rdf:Description rdf:about="#k_tourism"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#decision -->
+
+    <owl:Class rdf:about="#decision"/>
     
 
 
@@ -1196,62 +1412,6 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_smoking -->
-
-    <owl:Class rdf:about="#k_smoking">
-        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_smoking_outside -->
-
-    <owl:Class rdf:about="#k_smoking_outside">
-        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_smoking_outside_separated -->
-
-    <owl:Class rdf:about="#k_smoking_outside_separated">
-        <rdfs:subClassOf rdf:resource="#k_smoking_outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_smoking_outside_v_no -->
-
-    <owl:Class rdf:about="#k_smoking_outside_v_no">
-        <rdfs:subClassOf rdf:resource="#k_smoking_outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_smoking_outside_v_yes -->
-
-    <owl:Class rdf:about="#k_smoking_outside_v_yes">
-        <rdfs:subClassOf rdf:resource="#k_smoking_outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_smoking_v_no -->
-
-    <owl:Class rdf:about="#k_smoking_v_no">
-        <rdfs:subClassOf rdf:resource="#k_smoking"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_smoking_v_yes -->
-
-    <owl:Class rdf:about="#k_smoking_v_yes">
-        <rdfs:subClassOf rdf:resource="#k_smoking"/>
-    </owl:Class>
-    
-
-
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_sport -->
 
     <owl:Class rdf:about="#k_sport">
@@ -1293,6 +1453,14 @@
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_waterway -->
 
     <owl:Class rdf:about="#k_waterway">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#spatial_location -->
+
+    <owl:Class rdf:about="#spatial_location">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
     </owl:Class>
     
@@ -2053,7 +2221,7 @@
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_dedicated -->
 
     <owl:Class rdf:about="#v_dedicated">
-        <rdfs:subClassOf rdf:resource="#k_smoking"/>
+        <rdfs:subClassOf rdf:resource="#decision"/>
     </owl:Class>
     
 
@@ -2653,7 +2821,7 @@
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_isolated -->
 
     <owl:Class rdf:about="#v_isolated">
-        <rdfs:subClassOf rdf:resource="#k_smoking"/>
+        <rdfs:subClassOf rdf:resource="#decision"/>
     </owl:Class>
     
 
@@ -3006,6 +3174,14 @@
 
     <owl:Class rdf:about="#v_nightclub">
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_no -->
+
+    <owl:Class rdf:about="#v_no">
+        <rdfs:subClassOf rdf:resource="#yes/no"/>
     </owl:Class>
     
 
@@ -3562,10 +3738,10 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_separated -->
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_seperated -->
 
-    <owl:Class rdf:about="#v_separated">
-        <rdfs:subClassOf rdf:resource="#k_smoking"/>
+    <owl:Class rdf:about="#v_seperated">
+        <rdfs:subClassOf rdf:resource="#decision"/>
     </owl:Class>
     
 
@@ -4274,6 +4450,14 @@
     
 
 
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_yes -->
+
+    <owl:Class rdf:about="#v_yes">
+        <rdfs:subClassOf rdf:resource="#yes/no"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_zoo -->
 
     <owl:Class rdf:about="#v_zoo">
@@ -4286,6 +4470,14 @@
 
     <owl:Class rdf:about="#v_zoroastrian">
         <rdfs:subClassOf rdf:resource="#k_religion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#yes/no -->
+
+    <owl:Class rdf:about="#yes/no">
+        <rdfs:subClassOf rdf:resource="#decision"/>
     </owl:Class>
     
 
