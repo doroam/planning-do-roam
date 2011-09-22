@@ -193,14 +193,7 @@
 
     <owl:ObjectProperty rdf:about="#has_k_fuel:electricity">
         <rdfs:domain rdf:resource="#v_fuel"/>
-        <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="#v_no"/>
-                    <rdf:Description rdf:about="#v_yes"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:range>
+        <rdfs:range rdf:resource="#yes/no"/>
     </owl:ObjectProperty>
     
 
@@ -1757,6 +1750,7 @@
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_biergarten -->
 
     <owl:Class rdf:about="#v_biergarten">
+        <rdfs:subClassOf rdf:resource="#can_have_k_cuisine"/>
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
     </owl:Class>
     
