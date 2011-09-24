@@ -11,7 +11,9 @@
     <!ENTITY yes "http://www.dfki.de/sks/hets/ontology/unamed#yes/" >
     <!ENTITY k_fuel "http://www.dfki.de/sks/hets/ontology/unamed#k_fuel:" >
     <!ENTITY k_addr "http://www.dfki.de/sks/hets/ontology/unamed#k_addr:" >
+    <!ENTITY k_contact "http://www.dfki.de/sks/hets/ontology/unamed#k_contact:" >
     <!ENTITY k_theatre "http://www.dfki.de/sks/hets/ontology/unamed#k_theatre:" >
+    <!ENTITY has_k_addr "http://www.dfki.de/sks/hets/ontology/unamed#has_k_addr:" >
     <!ENTITY has_k_fuel "http://www.dfki.de/sks/hets/ontology/unamed#has_k_fuel:" >
     <!ENTITY has_k_theatre "http://www.dfki.de/sks/hets/ontology/unamed#has_k_theatre:" >
 ]>
@@ -21,15 +23,17 @@
      xml:base="http://www.dfki.de/sks/hets/ontology/unamed"
      xmlns:has_k_fuel="&unamed;has_k_fuel:"
      xmlns:k_theatre="&unamed;k_theatre:"
+     xmlns:has_k_addr="&unamed;has_k_addr:"
      xmlns:k_fuel="&unamed;k_fuel:"
      xmlns:unamed="http://www.dfki.de/sks/hets/ontology/unamed#"
-     xmlns:yes="&unamed;yes/"
      xmlns:k_addr="&unamed;k_addr:"
+     xmlns:yes="&unamed;yes/"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:k_contact="&unamed;k_contact:"
      xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
      xmlns:has_k_theatre="&unamed;has_k_theatre:"
-     xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
     <owl:Ontology rdf:about=""/>
     
@@ -171,6 +175,24 @@
     
 
 
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_atm -->
+
+    <owl:ObjectProperty rdf:about="#has_k_atm">
+        <rdfs:domain rdf:resource="#can_have_k_atm"/>
+        <rdfs:range rdf:resource="#yes/no"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_beds -->
+
+    <owl:ObjectProperty rdf:about="#has_k_beds">
+        <rdfs:domain rdf:resource="#can_have_k_beds"/>
+        <rdfs:range rdf:resource="#k_beds"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_bicycle_parking -->
 
     <owl:ObjectProperty rdf:about="#has_k_bicycle_parking">
@@ -180,11 +202,38 @@
     
 
 
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_capacity -->
+
+    <owl:ObjectProperty rdf:about="#has_k_capacity">
+        <rdfs:domain rdf:resource="#can_have_k_capacity"/>
+        <rdfs:range rdf:resource="#k_capacity"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_cuisine -->
 
     <owl:ObjectProperty rdf:about="#has_k_cuisine">
         <rdfs:domain rdf:resource="#can_have_k_cuisine"/>
         <rdfs:range rdf:resource="#k_cuisine"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_currency -->
+
+    <owl:ObjectProperty rdf:about="#has_k_currency">
+        <rdfs:domain rdf:resource="#can_have_k_currency"/>
+        <rdfs:range rdf:resource="#k_currency"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_drive-through -->
+
+    <owl:ObjectProperty rdf:about="#has_k_drive-through">
+        <rdfs:domain rdf:resource="#can_have_k_drive-through"/>
+        <rdfs:range rdf:resource="#yes/no"/>
     </owl:ObjectProperty>
     
 
@@ -261,6 +310,15 @@
     
 
 
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_network -->
+
+    <owl:ObjectProperty rdf:about="#has_k_network">
+        <rdfs:domain rdf:resource="#can_have_k_network"/>
+        <rdfs:range rdf:resource="#k_network"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_power -->
 
     <owl:ObjectProperty rdf:about="#has_k_power">
@@ -275,6 +333,24 @@
     <owl:ObjectProperty rdf:about="#has_k_religion">
         <rdfs:range rdf:resource="#k_religion"/>
         <rdfs:domain rdf:resource="#v_place_of_worship"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_rooms -->
+
+    <owl:ObjectProperty rdf:about="#has_k_rooms">
+        <rdfs:domain rdf:resource="#can_have_k_rooms"/>
+        <rdfs:range rdf:resource="#k_rooms"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_self_service -->
+
+    <owl:ObjectProperty rdf:about="#has_k_self_service">
+        <rdfs:domain rdf:resource="#can_have_k_self_service"/>
+        <rdfs:range rdf:resource="#yes/no"/>
     </owl:ObjectProperty>
     
 
@@ -394,6 +470,69 @@
 
     <owl:DatatypeProperty rdf:about="#housenumberString">
         <rdfs:domain rdf:resource="#k_addr:housenumber"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_beds_integer -->
+
+    <owl:DatatypeProperty rdf:about="#k_beds_integer">
+        <rdfs:domain rdf:resource="#k_beds"/>
+        <rdfs:range rdf:resource="&xsd;positiveInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_capacity_integer -->
+
+    <owl:DatatypeProperty rdf:about="#k_capacity_integer">
+        <rdfs:domain rdf:resource="#k_capacity"/>
+        <rdfs:range rdf:resource="&xsd;positiveInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_currency_string -->
+
+    <owl:DatatypeProperty rdf:about="#k_currency_string">
+        <rdfs:domain rdf:resource="#k_currency"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_name_string -->
+
+    <owl:DatatypeProperty rdf:about="#k_name_string">
+        <rdfs:domain rdf:resource="#k_name"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_network_string -->
+
+    <owl:DatatypeProperty rdf:about="#k_network_string">
+        <rdfs:domain rdf:resource="#k_network"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_rooms_integer -->
+
+    <owl:DatatypeProperty rdf:about="#k_rooms_integer">
+        <rdfs:domain rdf:resource="#k_rooms"/>
+        <rdfs:range rdf:resource="&xsd;positiveInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_service_times_string -->
+
+    <owl:DatatypeProperty rdf:about="#k_service_times_string">
+        <rdfs:domain rdf:resource="#k_service_times"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
@@ -957,21 +1096,151 @@
     
 
 
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#address -->
+
+    <owl:Class rdf:about="#address">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#can_have_address -->
+
+    <owl:Class rdf:about="#can_have_address">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#can_have_contact -->
+
+    <owl:Class rdf:about="#can_have_contact"/>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#can_have_k_atm -->
+
+    <owl:Class rdf:about="#can_have_k_atm">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#can_have_k_beds -->
+
+    <owl:Class rdf:about="#can_have_k_beds">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#can_have_k_bic -->
+
+    <owl:Class rdf:about="#can_have_k_bic">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#can_have_k_capacity -->
+
+    <owl:Class rdf:about="#can_have_k_capacity">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#can_have_k_cuisine -->
 
     <owl:Class rdf:about="#can_have_k_cuisine">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="#v_bar"/>
-                    <rdf:Description rdf:about="#v_biergarten"/>
-                    <rdf:Description rdf:about="#v_cafe"/>
-                    <rdf:Description rdf:about="#v_fast_food"/>
-                    <rdf:Description rdf:about="#v_pub"/>
-                    <rdf:Description rdf:about="#v_restaurant"/>
-                </owl:unionOf>
-            </owl:Class>
-        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#can_have_k_currency -->
+
+    <owl:Class rdf:about="#can_have_k_currency">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#can_have_k_denomination -->
+
+    <owl:Class rdf:about="#can_have_k_denomination">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#can_have_k_drive-through -->
+
+    <owl:Class rdf:about="#can_have_k_drive-through">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#can_have_k_fee -->
+
+    <owl:Class rdf:about="#can_have_k_fee">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#can_have_k_network -->
+
+    <owl:Class rdf:about="#can_have_k_network">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#can_have_k_opening_hours -->
+
+    <owl:Class rdf:about="#can_have_k_opening_hours">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#can_have_k_operator -->
+
+    <owl:Class rdf:about="#can_have_k_operator">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#can_have_k_religion -->
+
+    <owl:Class rdf:about="#can_have_k_religion">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#can_have_k_rooms -->
+
+    <owl:Class rdf:about="#can_have_k_rooms">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#can_have_k_self_service -->
+
+    <owl:Class rdf:about="#can_have_k_self_service">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#can_have_k_service_times -->
+
+    <owl:Class rdf:about="#can_have_k_service_times">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
     </owl:Class>
     
@@ -980,31 +1249,29 @@
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#can_have_k_smoking -->
 
     <owl:Class rdf:about="#can_have_k_smoking">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="#k_amenity"/>
-                    <rdf:Description rdf:about="#k_railway"/>
-                    <rdf:Description rdf:about="#k_sport"/>
-                    <rdf:Description rdf:about="#k_tourism"/>
-                </owl:unionOf>
-            </owl:Class>
-        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
     </owl:Class>
     
 
 
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#contact -->
+
+    <owl:Class rdf:about="#contact"/>
+    
+
+
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#decision -->
 
-    <owl:Class rdf:about="#decision"/>
+    <owl:Class rdf:about="#decision">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
     
 
 
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_addr:city -->
 
     <owl:Class rdf:about="#k_addr:city">
-        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:subClassOf rdf:resource="#address"/>
     </owl:Class>
     
 
@@ -1012,33 +1279,39 @@
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_addr:country -->
 
     <owl:Class rdf:about="#k_addr:country">
-        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:subClassOf rdf:resource="#address"/>
     </owl:Class>
     
 
 
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_addr:disctrict -->
 
-    <owl:Class rdf:about="#k_addr:disctrict"/>
+    <owl:Class rdf:about="#k_addr:disctrict">
+        <rdfs:subClassOf rdf:resource="#address"/>
+    </owl:Class>
     
 
 
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_addr:hamlet -->
 
-    <owl:Class rdf:about="#k_addr:hamlet"/>
+    <owl:Class rdf:about="#k_addr:hamlet">
+        <rdfs:subClassOf rdf:resource="#address"/>
+    </owl:Class>
     
 
 
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_addr:housename -->
 
-    <owl:Class rdf:about="#k_addr:housename"/>
+    <owl:Class rdf:about="#k_addr:housename">
+        <rdfs:subClassOf rdf:resource="#address"/>
+    </owl:Class>
     
 
 
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_addr:housenumber -->
 
     <owl:Class rdf:about="#k_addr:housenumber">
-        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:subClassOf rdf:resource="#address"/>
     </owl:Class>
     
 
@@ -1046,28 +1319,32 @@
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_addr:postcode -->
 
     <owl:Class rdf:about="#k_addr:postcode">
-        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:subClassOf rdf:resource="#address"/>
     </owl:Class>
     
 
 
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_addr:province -->
 
-    <owl:Class rdf:about="#k_addr:province"/>
+    <owl:Class rdf:about="#k_addr:province">
+        <rdfs:subClassOf rdf:resource="#address"/>
+    </owl:Class>
     
 
 
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_addr:street -->
 
     <owl:Class rdf:about="#k_addr:street">
-        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:subClassOf rdf:resource="#address"/>
     </owl:Class>
     
 
 
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_addr:subdistrict -->
 
-    <owl:Class rdf:about="#k_addr:subdistrict"/>
+    <owl:Class rdf:about="#k_addr:subdistrict">
+        <rdfs:subClassOf rdf:resource="#address"/>
+    </owl:Class>
     
 
 
@@ -1105,7 +1382,10 @@
 
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_atm -->
 
-    <owl:Class rdf:about="#k_atm"/>
+    <owl:Class rdf:about="#k_atm">
+        <rdfs:subClassOf rdf:resource="#can_have_k_currency"/>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
     
 
 
@@ -1113,6 +1393,22 @@
 
     <owl:Class rdf:about="#k_atm_v_yes">
         <rdfs:subClassOf rdf:resource="#k_atm"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_beds -->
+
+    <owl:Class rdf:about="#k_beds">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_bic -->
+
+    <owl:Class rdf:about="#k_bic">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
     </owl:Class>
     
 
@@ -1141,6 +1437,54 @@
     
 
 
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_capacity -->
+
+    <owl:Class rdf:about="#k_capacity">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_contact:email -->
+
+    <owl:Class rdf:about="#k_contact:email">
+        <rdfs:subClassOf rdf:resource="#contact"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_contact:fax -->
+
+    <owl:Class rdf:about="#k_contact:fax">
+        <rdfs:subClassOf rdf:resource="#contact"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_contact:phone -->
+
+    <owl:Class rdf:about="#k_contact:phone">
+        <rdfs:subClassOf rdf:resource="#contact"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_contact:webcam -->
+
+    <owl:Class rdf:about="#k_contact:webcam">
+        <rdfs:subClassOf rdf:resource="#contact"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_contact:website -->
+
+    <owl:Class rdf:about="#k_contact:website">
+        <rdfs:subClassOf rdf:resource="#contact"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_cuisine -->
 
     <owl:Class rdf:about="#k_cuisine">
@@ -1154,6 +1498,20 @@
     <owl:Class rdf:about="#k_cuisine_v_seafood">
         <rdfs:subClassOf rdf:resource="#k_cuisine"/>
     </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_currency -->
+
+    <owl:Class rdf:about="#k_currency">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_denomination -->
+
+    <owl:Class rdf:about="#k_denomination"/>
     
 
 
@@ -1177,6 +1535,14 @@
 
     <owl:Class rdf:about="#k_emergency_v_yes">
         <rdfs:subClassOf rdf:resource="#k_emergency"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_fee -->
+
+    <owl:Class rdf:about="#k_fee">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
     </owl:Class>
     
 
@@ -1269,9 +1635,25 @@
     
 
 
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_network -->
+
+    <owl:Class rdf:about="#k_network">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_opening_hours -->
 
     <owl:Class rdf:about="#k_opening_hours">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_operator -->
+
+    <owl:Class rdf:about="#k_operator">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
     </owl:Class>
     
@@ -1341,6 +1723,14 @@
     
 
 
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_rooms -->
+
+    <owl:Class rdf:about="#k_rooms">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_route -->
 
     <owl:Class rdf:about="#k_route">
@@ -1377,6 +1767,14 @@
 
     <owl:Class rdf:about="#k_ruins_v_yes">
         <rdfs:subClassOf rdf:resource="#k_ruins"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_service_times -->
+
+    <owl:Class rdf:about="#k_service_times">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
     </owl:Class>
     
 
@@ -1439,7 +1837,9 @@
 
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_type -->
 
-    <owl:Class rdf:about="#k_type"/>
+    <owl:Class rdf:about="#k_type">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
     
 
 
@@ -1606,6 +2006,9 @@
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_atm -->
 
     <owl:Class rdf:about="#v_atm">
+        <rdfs:subClassOf rdf:resource="#can_have_k_fee"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_network"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_operator"/>
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
     </owl:Class>
     
@@ -1646,6 +2049,12 @@
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_bank -->
 
     <owl:Class rdf:about="#v_bank">
+        <rdfs:subClassOf rdf:resource="#can_have_address"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_atm"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_bic"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_drive-through"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_opening_hours"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_operator"/>
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
     </owl:Class>
     
@@ -1654,6 +2063,11 @@
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_bar -->
 
     <owl:Class rdf:about="#v_bar">
+        <rdfs:subClassOf rdf:resource="#can_have_address"/>
+        <rdfs:subClassOf rdf:resource="#can_have_contact"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_cuisine"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_opening_hours"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_smoking"/>
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
     </owl:Class>
     
@@ -1734,6 +2148,8 @@
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_bicycle_parking -->
 
     <owl:Class rdf:about="#v_bicycle_parking">
+        <rdfs:subClassOf rdf:resource="#can_have_k_capacity"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_fee"/>
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
     </owl:Class>
     
@@ -1750,6 +2166,7 @@
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_biergarten -->
 
     <owl:Class rdf:about="#v_biergarten">
+        <rdfs:subClassOf rdf:resource="#can_have_address"/>
         <rdfs:subClassOf rdf:resource="#can_have_k_cuisine"/>
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
     </owl:Class>
@@ -1863,6 +2280,7 @@
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_bus_station -->
 
     <owl:Class rdf:about="#v_bus_station">
+        <rdfs:subClassOf rdf:resource="#can_have_k_operator"/>
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
     </owl:Class>
     
@@ -1903,6 +2321,10 @@
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_cafe -->
 
     <owl:Class rdf:about="#v_cafe">
+        <rdfs:subClassOf rdf:resource="#can_have_address"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_cuisine"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_opening_hours"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_smoking"/>
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
     </owl:Class>
     
@@ -1959,6 +2381,10 @@
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_car_wash -->
 
     <owl:Class rdf:about="#v_car_wash">
+        <rdfs:subClassOf rdf:resource="#can_have_address"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_opening_hours"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_operator"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_self_service"/>
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
     </owl:Class>
     
@@ -2367,6 +2793,11 @@
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_fast_food -->
 
     <owl:Class rdf:about="#v_fast_food">
+        <rdfs:subClassOf rdf:resource="#can_have_address"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_cuisine"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_drive-through"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_opening_hours"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_smoking"/>
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
     </owl:Class>
     
@@ -2751,6 +3182,11 @@
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_hostel -->
 
     <owl:Class rdf:about="#v_hostel">
+        <rdfs:subClassOf rdf:resource="#can_have_address"/>
+        <rdfs:subClassOf rdf:resource="#can_have_contact"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_beds"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_operator"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_rooms"/>
         <rdfs:subClassOf rdf:resource="#k_tourism"/>
     </owl:Class>
     
@@ -2759,6 +3195,11 @@
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_hotel -->
 
     <owl:Class rdf:about="#v_hotel">
+        <rdfs:subClassOf rdf:resource="#can_have_address"/>
+        <rdfs:subClassOf rdf:resource="#can_have_contact"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_beds"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_operator"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_rooms"/>
         <rdfs:subClassOf rdf:resource="#k_tourism"/>
     </owl:Class>
     
@@ -2911,6 +3352,8 @@
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_library -->
 
     <owl:Class rdf:about="#v_library">
+        <rdfs:subClassOf rdf:resource="#can_have_address"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_opening_hours"/>
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
     </owl:Class>
     
@@ -3055,6 +3498,10 @@
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_motel -->
 
     <owl:Class rdf:about="#v_motel">
+        <rdfs:subClassOf rdf:resource="#can_have_address"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_beds"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_operator"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_rooms"/>
         <rdfs:subClassOf rdf:resource="#k_tourism"/>
     </owl:Class>
     
@@ -3167,6 +3614,9 @@
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_nightclub -->
 
     <owl:Class rdf:about="#v_nightclub">
+        <rdfs:subClassOf rdf:resource="#can_have_address"/>
+        <rdfs:subClassOf rdf:resource="#can_have_contact"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_opening_hours"/>
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
     </owl:Class>
     
@@ -3255,6 +3705,7 @@
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_parking -->
 
     <owl:Class rdf:about="#v_parking">
+        <rdfs:subClassOf rdf:resource="#can_have_k_capacity"/>
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
     </owl:Class>
     
@@ -3303,6 +3754,9 @@
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_pharmacy -->
 
     <owl:Class rdf:about="#v_pharmacy">
+        <rdfs:subClassOf rdf:resource="#can_have_address"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_drive-through"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_opening_hours"/>
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
     </owl:Class>
     
@@ -3391,6 +3845,10 @@
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_place_of_worship -->
 
     <owl:Class rdf:about="#v_place_of_worship">
+        <rdfs:subClassOf rdf:resource="#can_have_k_denomination"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_opening_hours"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_religion"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_service_times"/>
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
     </owl:Class>
     
@@ -3447,6 +3905,10 @@
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_post_office -->
 
     <owl:Class rdf:about="#v_post_office">
+        <rdfs:subClassOf rdf:resource="#can_have_address"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_atm"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_opening_hours"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_operator"/>
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
     </owl:Class>
     
@@ -3487,6 +3949,11 @@
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_pub -->
 
     <owl:Class rdf:about="#v_pub">
+        <rdfs:subClassOf rdf:resource="#can_have_address"/>
+        <rdfs:subClassOf rdf:resource="#can_have_contact"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_cuisine"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_opening_hours"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_smoking"/>
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
     </owl:Class>
     
@@ -3591,6 +4058,12 @@
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_restaurant -->
 
     <owl:Class rdf:about="#v_restaurant">
+        <rdfs:subClassOf rdf:resource="#can_have_address"/>
+        <rdfs:subClassOf rdf:resource="#can_have_contact"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_cuisine"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_opening_hours"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_operator"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_smoking"/>
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
     </owl:Class>
     
@@ -4055,6 +4528,8 @@
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_taxi -->
 
     <owl:Class rdf:about="#v_taxi">
+        <rdfs:subClassOf rdf:resource="#can_have_k_capacity"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_operator"/>
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
     </owl:Class>
     
@@ -4455,6 +4930,9 @@
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_zoo -->
 
     <owl:Class rdf:about="#v_zoo">
+        <rdfs:subClassOf rdf:resource="#can_have_address"/>
+        <rdfs:subClassOf rdf:resource="#can_have_contact"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_opening_hours"/>
         <rdfs:subClassOf rdf:resource="#k_tourism"/>
     </owl:Class>
     
