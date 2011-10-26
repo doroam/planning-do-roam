@@ -193,11 +193,11 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_capacity -->
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_castle_type -->
 
-    <owl:ObjectProperty rdf:about="#has_k_capacity">
-        <rdfs:domain rdf:resource="#can_have_k_capacity"/>
-        <rdfs:range rdf:resource="#k_capacity"/>
+    <owl:ObjectProperty rdf:about="#has_k_castle_type">
+        <rdfs:domain rdf:resource="#can_have_k_castle_type"/>
+        <rdfs:range rdf:resource="#k_castle_type"/>
     </owl:ObjectProperty>
     
 
@@ -215,6 +215,15 @@
 
     <owl:ObjectProperty rdf:about="#has_k_drive-through">
         <rdfs:domain rdf:resource="#can_have_k_drive-through"/>
+        <rdfs:range rdf:resource="#yes/no"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_fee -->
+
+    <owl:ObjectProperty rdf:about="#has_k_fee">
+        <rdfs:domain rdf:resource="#can_have_k_fee"/>
         <rdfs:range rdf:resource="#yes/no"/>
     </owl:ObjectProperty>
     
@@ -274,15 +283,6 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_name -->
-
-    <owl:ObjectProperty rdf:about="#has_k_name">
-        <rdfs:range rdf:resource="#k_name"/>
-        <rdfs:domain rdf:resource="#spatial_location"/>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_natural -->
 
     <owl:ObjectProperty rdf:about="#has_k_natural">
@@ -296,7 +296,6 @@
 
     <owl:ObjectProperty rdf:about="#has_k_network">
         <rdfs:domain rdf:resource="#can_have_k_network"/>
-        <rdfs:range rdf:resource="#k_network"/>
     </owl:ObjectProperty>
     
 
@@ -315,6 +314,15 @@
     <owl:ObjectProperty rdf:about="#has_k_religion">
         <rdfs:range rdf:resource="#k_religion"/>
         <rdfs:domain rdf:resource="#v_place_of_worship"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_ruins -->
+
+    <owl:ObjectProperty rdf:about="#has_k_ruins">
+        <rdfs:domain rdf:resource="#can_have_k_ruins"/>
+        <rdfs:range rdf:resource="#yes/no"/>
     </owl:ObjectProperty>
     
 
@@ -457,11 +465,29 @@
     
 
 
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_bic -->
+
+    <owl:DatatypeProperty rdf:about="#k_bic">
+        <rdfs:domain rdf:resource="#can_have_k_bic"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_capacity -->
 
     <owl:DatatypeProperty rdf:about="#k_capacity">
         <rdfs:domain rdf:resource="#can_have_k_capacity"/>
         <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_collection_times -->
+
+    <owl:DatatypeProperty rdf:about="#k_collection_times">
+        <rdfs:domain rdf:resource="#can_have_k_collection_times"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
 
@@ -475,19 +501,19 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_name_string -->
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_name -->
 
-    <owl:DatatypeProperty rdf:about="#k_name_string">
-        <rdfs:domain rdf:resource="#k_name"/>
+    <owl:DatatypeProperty rdf:about="#k_name">
+        <rdfs:domain rdf:resource="#can_have_k_name"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_network_string -->
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_network -->
 
-    <owl:DatatypeProperty rdf:about="#k_network_string">
-        <rdfs:domain rdf:resource="#k_network"/>
+    <owl:DatatypeProperty rdf:about="#k_network">
+        <rdfs:domain rdf:resource="#can_have_k_network"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
@@ -502,6 +528,24 @@
     
 
 
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_operator -->
+
+    <owl:DatatypeProperty rdf:about="#k_operator">
+        <rdfs:domain rdf:resource="#can_have_k_operator"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_ref -->
+
+    <owl:DatatypeProperty rdf:about="#k_ref">
+        <rdfs:domain rdf:resource="#can_have_k_ref"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_rooms -->
 
     <owl:DatatypeProperty rdf:about="#k_rooms">
@@ -511,10 +555,10 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_service_times_string -->
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_service_times -->
 
-    <owl:DatatypeProperty rdf:about="#k_service_times_string">
-        <rdfs:domain rdf:resource="#k_service_times"/>
+    <owl:DatatypeProperty rdf:about="#k_service_times">
+        <rdfs:domain rdf:resource="#can_have_k_service_times"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
@@ -920,9 +964,33 @@
     
 
 
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#can_have_k_brand -->
+
+    <owl:Class rdf:about="#can_have_k_brand">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#can_have_k_capacity -->
 
     <owl:Class rdf:about="#can_have_k_capacity">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#can_have_k_castle_type -->
+
+    <owl:Class rdf:about="#can_have_k_castle_type">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#can_have_k_collection_times -->
+
+    <owl:Class rdf:about="#can_have_k_collection_times">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
     </owl:Class>
     
@@ -968,6 +1036,14 @@
     
 
 
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#can_have_k_name -->
+
+    <owl:Class rdf:about="#can_have_k_name">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#can_have_k_network -->
 
     <owl:Class rdf:about="#can_have_k_network">
@@ -992,6 +1068,14 @@
     
 
 
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#can_have_k_ref -->
+
+    <owl:Class rdf:about="#can_have_k_ref">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#can_have_k_religion -->
 
     <owl:Class rdf:about="#can_have_k_religion">
@@ -1005,6 +1089,12 @@
     <owl:Class rdf:about="#can_have_k_rooms">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
     </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#can_have_k_ruins -->
+
+    <owl:Class rdf:about="#can_have_k_ruins"/>
     
 
 
@@ -1178,14 +1268,6 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_bic -->
-
-    <owl:Class rdf:about="#k_bic">
-        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
-    </owl:Class>
-    
-
-
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_bicycle_parking -->
 
     <owl:Class rdf:about="#k_bicycle_parking">
@@ -1210,9 +1292,9 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_capacity -->
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_castle_type -->
 
-    <owl:Class rdf:about="#k_capacity">
+    <owl:Class rdf:about="#k_castle_type">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
     </owl:Class>
     
@@ -1304,14 +1386,6 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_fee -->
-
-    <owl:Class rdf:about="#k_fee">
-        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
-    </owl:Class>
-    
-
-
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_fuel:electricity -->
 
     <owl:Class rdf:about="#k_fuel:electricity">
@@ -1386,41 +1460,9 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_name -->
-
-    <owl:Class rdf:about="#k_name">
-        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
-    </owl:Class>
-    
-
-
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_natural -->
 
     <owl:Class rdf:about="#k_natural">
-        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_network -->
-
-    <owl:Class rdf:about="#k_network">
-        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_opening_hours -->
-
-    <owl:Class rdf:about="#k_opening_hours">
-        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_operator -->
-
-    <owl:Class rdf:about="#k_operator">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
     </owl:Class>
     
@@ -1514,27 +1556,10 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_ruins -->
-
-    <owl:Class rdf:about="#k_ruins">
-        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
-    </owl:Class>
-    
-
-
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_ruins_v_yes -->
 
     <owl:Class rdf:about="#k_ruins_v_yes">
         <rdfs:subClassOf rdf:resource="#Ruins"/>
-        <rdfs:subClassOf rdf:resource="#k_ruins"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_service_times -->
-
-    <owl:Class rdf:about="#k_service_times">
-        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
     </owl:Class>
     
 
@@ -1734,6 +1759,7 @@
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_arts_centre -->
 
     <owl:Class rdf:about="#v_arts_centre">
+        <rdfs:subClassOf rdf:resource="#can_have_address"/>
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
     </owl:Class>
     
@@ -1767,6 +1793,7 @@
 
     <owl:Class rdf:about="#v_atm">
         <rdfs:subClassOf rdf:resource="#ATM"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_currency"/>
         <rdfs:subClassOf rdf:resource="#can_have_k_fee"/>
         <rdfs:subClassOf rdf:resource="#can_have_k_network"/>
         <rdfs:subClassOf rdf:resource="#can_have_k_operator"/>
@@ -1796,6 +1823,8 @@
 
     <owl:Class rdf:about="#v_bakery">
         <rdfs:subClassOf rdf:resource="#Groceries"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_name"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_opening_hours"/>
         <rdfs:subClassOf rdf:resource="#k_shop"/>
     </owl:Class>
     
@@ -1820,6 +1849,14 @@
         <rdfs:subClassOf rdf:resource="#can_have_k_opening_hours"/>
         <rdfs:subClassOf rdf:resource="#can_have_k_operator"/>
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_baptist -->
+
+    <owl:Class rdf:about="#v_baptist">
+        <rdfs:subClassOf rdf:resource="#k_denomination"/>
     </owl:Class>
     
 
@@ -1925,6 +1962,7 @@
 
     <owl:Class rdf:about="#v_bicycle_rental">
         <rdfs:subClassOf rdf:resource="#PublicTransport"/>
+        <rdfs:subClassOf rdf:resource="#can_have_address"/>
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
     </owl:Class>
     
@@ -1951,6 +1989,9 @@
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_books -->
 
     <owl:Class rdf:about="#v_books">
+        <rdfs:subClassOf rdf:resource="#can_have_k_name"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_opening_hours"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_operator"/>
         <rdfs:subClassOf rdf:resource="#k_shop"/>
     </owl:Class>
     
@@ -2024,7 +2065,16 @@
 
     <owl:Class rdf:about="#v_bureau_de_change">
         <rdfs:subClassOf rdf:resource="#Finances"/>
+        <rdfs:subClassOf rdf:resource="#can_have_address"/>
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_burg -->
+
+    <owl:Class rdf:about="#v_burg">
+        <rdfs:subClassOf rdf:resource="#k_castle_type"/>
     </owl:Class>
     
 
@@ -2127,6 +2177,7 @@
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_car_rental -->
 
     <owl:Class rdf:about="#v_car_rental">
+        <rdfs:subClassOf rdf:resource="#can_have_address"/>
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
     </owl:Class>
     
@@ -2172,6 +2223,7 @@
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_casino -->
 
     <owl:Class rdf:about="#v_casino">
+        <rdfs:subClassOf rdf:resource="#can_have_address"/>
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
     </owl:Class>
     
@@ -2181,7 +2233,18 @@
 
     <owl:Class rdf:about="#v_castle">
         <rdfs:subClassOf rdf:resource="#Attractions"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_castle_type"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_name"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_ruins"/>
         <rdfs:subClassOf rdf:resource="#k_historic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_catholic -->
+
+    <owl:Class rdf:about="#v_catholic">
+        <rdfs:subClassOf rdf:resource="#k_denomination"/>
     </owl:Class>
     
 
@@ -2256,6 +2319,8 @@
 
     <owl:Class rdf:about="#v_cinema">
         <rdfs:subClassOf rdf:resource="#FreeTimePlaces"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_name"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_operator"/>
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
     </owl:Class>
     
@@ -2418,6 +2483,14 @@
 
     <owl:Class rdf:about="#v_dedicated">
         <rdfs:subClassOf rdf:resource="#decision"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_defensive -->
+
+    <owl:Class rdf:about="#v_defensive">
+        <rdfs:subClassOf rdf:resource="#k_castle_type"/>
     </owl:Class>
     
 
@@ -2625,6 +2698,7 @@
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_fire_station -->
 
     <owl:Class rdf:about="#v_fire_station">
+        <rdfs:subClassOf rdf:resource="#can_have_address"/>
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
     </owl:Class>
     
@@ -2707,6 +2781,14 @@
     <owl:Class rdf:about="#v_forest">
         <rdfs:subClassOf rdf:resource="#Forest"/>
         <rdfs:subClassOf rdf:resource="#k_landuse"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_fortress -->
+
+    <owl:Class rdf:about="#v_fortress">
+        <rdfs:subClassOf rdf:resource="#k_castle_type"/>
     </owl:Class>
     
 
@@ -3167,6 +3249,14 @@
     
 
 
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_lutheran -->
+
+    <owl:Class rdf:about="#v_lutheran">
+        <rdfs:subClassOf rdf:resource="#k_denomination"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_mall -->
 
     <owl:Class rdf:about="#v_mall">
@@ -3228,6 +3318,14 @@
 
     <owl:Class rdf:about="#v_memorial">
         <rdfs:subClassOf rdf:resource="#k_historic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_methodist -->
+
+    <owl:Class rdf:about="#v_methodist">
+        <rdfs:subClassOf rdf:resource="#k_denomination"/>
     </owl:Class>
     
 
@@ -3352,6 +3450,10 @@
 
     <owl:Class rdf:about="#v_museum">
         <rdfs:subClassOf rdf:resource="#FreeTimePlaces"/>
+        <rdfs:subClassOf rdf:resource="#can_have_address"/>
+        <rdfs:subClassOf rdf:resource="#can_have_contact"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_name"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_operator"/>
         <rdfs:subClassOf rdf:resource="#k_tourism"/>
     </owl:Class>
     
@@ -3455,6 +3557,14 @@
     <owl:Class rdf:about="#v_organic">
         <rdfs:subClassOf rdf:resource="#Groceries"/>
         <rdfs:subClassOf rdf:resource="#k_shop"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_orthodox -->
+
+    <owl:Class rdf:about="#v_orthodox">
+        <rdfs:subClassOf rdf:resource="#k_denomination"/>
     </owl:Class>
     
 
@@ -3636,6 +3746,7 @@
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_place_of_worship -->
 
     <owl:Class rdf:about="#v_place_of_worship">
+        <rdfs:subClassOf rdf:resource="#can_have_address"/>
         <rdfs:subClassOf rdf:resource="#can_have_k_denomination"/>
         <rdfs:subClassOf rdf:resource="#can_have_k_opening_hours"/>
         <rdfs:subClassOf rdf:resource="#can_have_k_religion"/>
@@ -3673,6 +3784,7 @@
 
     <owl:Class rdf:about="#v_police">
         <rdfs:subClassOf rdf:resource="#PublicService"/>
+        <rdfs:subClassOf rdf:resource="#can_have_address"/>
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
     </owl:Class>
     
@@ -3689,6 +3801,10 @@
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_post_box -->
 
     <owl:Class rdf:about="#v_post_box">
+        <rdfs:subClassOf rdf:resource="#can_have_k_brand"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_collection_times"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_operator"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_ref"/>
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
     </owl:Class>
     
@@ -3735,6 +3851,14 @@
 
     <owl:Class rdf:about="#v_protected_area">
         <rdfs:subClassOf rdf:resource="#k_boundary"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_protestant -->
+
+    <owl:Class rdf:about="#v_protestant">
+        <rdfs:subClassOf rdf:resource="#k_denomination"/>
     </owl:Class>
     
 
@@ -3948,7 +4072,16 @@
 
     <owl:Class rdf:about="#v_sauna">
         <rdfs:subClassOf rdf:resource="#Wellness"/>
+        <rdfs:subClassOf rdf:resource="#can_have_address"/>
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_schloss -->
+
+    <owl:Class rdf:about="#v_schloss">
+        <rdfs:subClassOf rdf:resource="#k_castle_type"/>
     </owl:Class>
     
 
@@ -3957,6 +4090,7 @@
 
     <owl:Class rdf:about="#v_school">
         <rdfs:subClassOf rdf:resource="#Education"/>
+        <rdfs:subClassOf rdf:resource="#can_have_address"/>
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
     </owl:Class>
     
@@ -4203,6 +4337,14 @@
     
 
 
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_stately -->
+
+    <owl:Class rdf:about="#v_stately">
+        <rdfs:subClassOf rdf:resource="#k_castle_type"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_station -->
 
     <owl:Class rdf:about="#v_station">
@@ -4265,6 +4407,9 @@
 
     <owl:Class rdf:about="#v_supermarket">
         <rdfs:subClassOf rdf:resource="#Groceries"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_name"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_opening_hours"/>
+        <rdfs:subClassOf rdf:resource="#can_have_k_operator"/>
         <rdfs:subClassOf rdf:resource="#k_shop"/>
     </owl:Class>
     
@@ -4298,6 +4443,7 @@
 
     <owl:Class rdf:about="#v_swimming_pool">
         <rdfs:subClassOf rdf:resource="#SwimmingPool"/>
+        <rdfs:subClassOf rdf:resource="#can_have_address"/>
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
         <rdfs:subClassOf rdf:resource="#k_leisure"/>
     </owl:Class>
@@ -4382,6 +4528,7 @@
 
     <owl:Class rdf:about="#v_theatre">
         <rdfs:subClassOf rdf:resource="#FreeTimePlaces"/>
+        <rdfs:subClassOf rdf:resource="#can_have_address"/>
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
     </owl:Class>
     
@@ -4577,6 +4724,7 @@
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_veterinary -->
 
     <owl:Class rdf:about="#v_veterinary">
+        <rdfs:subClassOf rdf:resource="#can_have_address"/>
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
     </owl:Class>
     
