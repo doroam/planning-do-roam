@@ -3,7 +3,7 @@
   <table>
 <% 
   if route.activities != nil
-%><tr ><td colspan="2">t(:activities):</td></tr><%
+%><tr ><td colspan="2">Activities:</td></tr><%
         list = route.activities.all(:order => 'created_at ASC')
 	list.each do |elem| %>		  
           <%= render :partial => 'activity/form',
