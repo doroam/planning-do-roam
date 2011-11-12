@@ -42,11 +42,13 @@ module RouteHelper
 
     alg_select = route.algorithmus
 
+    #algorithmus type
     is_energy = alg_select.eql?("energy")
 
 
     result_way.each do |point|
       
+      #if its not energy
       if !is_energy
         #get nearest edge to start and end point
         source = src_point.edgeID#get_nearest_edge(src_point)
@@ -62,16 +64,18 @@ module RouteHelper
           end_lon   = point.edge_end_lon
         end
       end
-
+      #if there is a start and endpoint
       if (source != nil && target !=nil) || is_energy
+        #energy routing
         if is_energy
+          #get energy route
           path = get_energy_nodes(route,src_point,point)
         else
           #add route from source to target to the kml list
           path = generate_simple_route(source,target,route)
         end
 
-
+        
         if path.length>0
           if !is_energy
             #adds a line from the start point to the nearest source point of the edge
@@ -113,6 +117,7 @@ module RouteHelper
   end
 
 
+  #gets the distance between 2 points
   def self.get_distance(src,target)
     
     distance = 0.0
@@ -301,26 +306,14 @@ module RouteHelper
     return nil
   end
 
+  #gets the route between the entered points
   def self.get_energy_nodes(route,start_point,end_point)
 
     nodes = Array.new
 
     url = "http://greennav.in.tum.de:8192/routing?wsdl"
 
-    xml =
-      "<routingRequest ID=\"test\">"+
-      "<feature>routeCalculation</feature>"+
-      "<startNode>"+
-      "<geoCoords latitude=\"47.733333\" longitude=\"10.316667\"/>"+
-      "</startNode>"+
-      "<targetNode>"+
-      "<geoCoords latitude=\"47.733433\" longitude=\"10.316567\"/>"+
-      "</targetNode>"+
-      "<vehicleType>STROMOS</vehicleType>"+
-      "<batteryChargeAtStart>95</batteryChargeAtStart>"+
-      "<resultType>geoCoords</resultType>"+
-      "</routingRequest>"
-
+    #xml entry with points data
     xml = "<?xml version=\"1.0\" ?>"+
       "<S:Envelope xmlns:S=\"http://schemas.xmlsoap.org/soap/envelope/\">"+
       "<S:Body>"+
@@ -347,14 +340,18 @@ module RouteHelper
         wsdl.document = url
       end
 
+      #call service
       @actions = client.wsdl.soap_actions
       @res = client.request :wsdl,:create_routing_response_xml_string do |soap|
         soap.xml = xml
       end
 
+      #get result as xml
       xml_string = @res.to_hash[:create_routing_response_xml_string_response][:return]
       coords = REXML::Document.new(xml_string)
       @result = "xml=="+coords.elements["routingResponse/nodes"].size.to_s
+      
+      #write result as list of kml entries
       geocoords = coords.elements["routingResponse/nodes"]
       start = geocoords[1]
       geocoords.remove[1]

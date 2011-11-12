@@ -24,10 +24,12 @@ class Point < ActiveRecord::Base
     self.save
   end
 
+  #if the point is empty
   def is_setted
     return self.label!=nil && !"".eql?(self.label)
   end
 
+  #sets the nearest edge to the point
   def set_edge
     edge = RouteHelper.get_nearest_edge(self)
     if(edge!=nil)
@@ -40,6 +42,7 @@ class Point < ActiveRecord::Base
     end
   end
 
+  #sets the entered coordinates to the point
   def set_coordinates(lat_st,long_st)
     num_lat = lat_st.to_f
     num_lat = num_lat
