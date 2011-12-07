@@ -510,6 +510,14 @@
     
 
 
+    <!-- http://my-ecar.org#Cuisine -->
+
+    <owl:Class rdf:about="#Cuisine">
+        <rdfs:subClassOf rdf:resource="#Gastronomy"/>
+    </owl:Class>
+    
+
+
     <!-- http://my-ecar.org#Dance -->
 
     <owl:Class rdf:about="#Dance">
@@ -651,7 +659,7 @@
     <!-- http://my-ecar.org#FastFood -->
 
     <owl:Class rdf:about="#FastFood">
-        <rdfs:subClassOf rdf:resource="#Gastronomy"/>
+        <rdfs:subClassOf rdf:resource="#Cuisine"/>
     </owl:Class>
     
 
@@ -1473,7 +1481,7 @@
     <!-- http://my-ecar.org#Pizza -->
 
     <owl:Class rdf:about="#Pizza">
-        <rdfs:subClassOf rdf:resource="#Gastronomy"/>
+        <rdfs:subClassOf rdf:resource="#Cuisine"/>
     </owl:Class>
     
 
@@ -1649,7 +1657,7 @@
     <!-- http://my-ecar.org#Sandwich -->
 
     <owl:Class rdf:about="#Sandwich">
-        <rdfs:subClassOf rdf:resource="#Gastronomy"/>
+        <rdfs:subClassOf rdf:resource="#Cuisine"/>
     </owl:Class>
     
 
@@ -1666,6 +1674,14 @@
 
     <owl:Class rdf:about="#School">
         <rdfs:subClassOf rdf:resource="#Education"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Seafood -->
+
+    <owl:Class rdf:about="#Seafood">
+        <rdfs:subClassOf rdf:resource="#Cuisine"/>
     </owl:Class>
     
 
@@ -1769,7 +1785,7 @@
     <!-- http://my-ecar.org#Steak -->
 
     <owl:Class rdf:about="#Steak">
-        <rdfs:subClassOf rdf:resource="#Gastronomy"/>
+        <rdfs:subClassOf rdf:resource="#Cuisine"/>
     </owl:Class>
     
 
@@ -1801,7 +1817,7 @@
     <!-- http://my-ecar.org#Sushi -->
 
     <owl:Class rdf:about="#Sushi">
-        <rdfs:subClassOf rdf:resource="#Gastronomy"/>
+        <rdfs:subClassOf rdf:resource="#Cuisine"/>
     </owl:Class>
     
 
@@ -1833,7 +1849,7 @@
     <!-- http://my-ecar.org#Tapas -->
 
     <owl:Class rdf:about="#Tapas">
-        <rdfs:subClassOf rdf:resource="#Gastronomy"/>
+        <rdfs:subClassOf rdf:resource="#Cuisine"/>
     </owl:Class>
     
 
@@ -1985,7 +2001,7 @@
     <!-- http://my-ecar.org#Vegan -->
 
     <owl:Class rdf:about="#Vegan">
-        <rdfs:subClassOf rdf:resource="#Gastronomy"/>
+        <rdfs:subClassOf rdf:resource="#Cuisine"/>
     </owl:Class>
     
 
@@ -1993,7 +2009,7 @@
     <!-- http://my-ecar.org#Vegetarian -->
 
     <owl:Class rdf:about="#Vegetarian">
-        <rdfs:subClassOf rdf:resource="#Gastronomy"/>
+        <rdfs:subClassOf rdf:resource="#Cuisine"/>
     </owl:Class>
     
 
