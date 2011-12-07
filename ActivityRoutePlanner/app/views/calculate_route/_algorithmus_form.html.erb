@@ -1,7 +1,7 @@
 <%route = Route.find(session[:main_route])%>
 <table style="font-size:11px;">
   <tr>
-    <td><%= link_to %=t(:reset_route)%>, "/reset_method" ,:onclick => 'showWall();'%></td>
+    <td><%= link_to t(:reset_route)%>, "/reset_method" ,:onclick => 'showWall();'%></td>
     <td align="right">
     <%if route.is_ready %>
 			<%= link_to "Create Route", "/check_edge", :remote => true, 
