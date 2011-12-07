@@ -46,7 +46,6 @@
     <!-- http://my-ecar.org#hasCuisine -->
 
     <owl:ObjectProperty rdf:about="#hasCuisine">
-        <rdfs:range rdf:resource="#Cuisine"/>
         <rdfs:domain rdf:resource="#Gastronomy"/>
     </owl:ObjectProperty>
     
@@ -64,7 +63,6 @@
     <!-- http://my-ecar.org#hasNationality -->
 
     <owl:ObjectProperty rdf:about="#hasNationality">
-        <rdfs:domain rdf:resource="#Cuisine"/>
         <rdfs:range rdf:resource="#Nationality"/>
     </owl:ObjectProperty>
     
@@ -74,8 +72,8 @@
 
     <owl:ObjectProperty rdf:about="#has_address">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:domain rdf:resource="#Activity"/>
         <rdfs:range rdf:resource="#Address"/>
+        <rdfs:domain rdf:resource="#Places_for_activities"/>
     </owl:ObjectProperty>
     
 
@@ -84,8 +82,8 @@
 
     <owl:ObjectProperty rdf:about="#has_opening_hour">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:domain rdf:resource="#Activity"/>
         <rdfs:range rdf:resource="#OpeningHours"/>
+        <rdfs:domain rdf:resource="#Places_for_activities"/>
     </owl:ObjectProperty>
     
 
@@ -94,7 +92,7 @@
 
     <owl:ObjectProperty rdf:about="#you_have_to_pay">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:domain rdf:resource="#Activity"/>
+        <rdfs:domain rdf:resource="#Places_for_activities"/>
     </owl:ObjectProperty>
     
 
@@ -122,15 +120,6 @@
 
     <owl:Class rdf:about="#Accommodation">
         <rdfs:subClassOf rdf:resource="#Tourism"/>
-    </owl:Class>
-    
-
-
-    <!-- http://my-ecar.org#Activity -->
-
-    <owl:Class rdf:about="#Activity">
-        <rdfs:comment
-            >&quot;activities&quot; are places where one can do some sort of activity</rdfs:comment>
     </owl:Class>
     
 
@@ -392,7 +381,7 @@
     <!-- http://my-ecar.org#ChargingStation -->
 
     <owl:Class rdf:about="#ChargingStation">
-        <rdfs:subClassOf rdf:resource="#Activity"/>
+        <rdfs:subClassOf rdf:resource="#Places_for_activities"/>
     </owl:Class>
     
 
@@ -448,7 +437,7 @@
     <!-- http://my-ecar.org#CivilService -->
 
     <owl:Class rdf:about="#CivilService">
-        <rdfs:subClassOf rdf:resource="#Activity"/>
+        <rdfs:subClassOf rdf:resource="#Places_for_activities"/>
         <rdfs:comment
             >includes all public and administrative establishments</rdfs:comment>
     </owl:Class>
@@ -506,7 +495,7 @@
     <!-- http://my-ecar.org#Cosmetics -->
 
     <owl:Class rdf:about="#Cosmetics">
-        <rdfs:subClassOf rdf:resource="#Activity"/>
+        <rdfs:subClassOf rdf:resource="#Places_for_activities"/>
         <rdfs:comment
             >generic term for ranges of services of beauty</rdfs:comment>
     </owl:Class>
@@ -521,12 +510,6 @@
     
 
 
-    <!-- http://my-ecar.org#Cuisine -->
-
-    <owl:Class rdf:about="#Cuisine"/>
-    
-
-
     <!-- http://my-ecar.org#Dance -->
 
     <owl:Class rdf:about="#Dance">
@@ -535,9 +518,9 @@
     
 
 
-    <!-- http://my-ecar.org#DanceClasse -->
+    <!-- http://my-ecar.org#DanceClass -->
 
-    <owl:Class rdf:about="#DanceClasse">
+    <owl:Class rdf:about="#DanceClass">
         <rdfs:subClassOf rdf:resource="#Dance"/>
     </owl:Class>
     
@@ -618,7 +601,7 @@
     <!-- http://my-ecar.org#Education -->
 
     <owl:Class rdf:about="#Education">
-        <rdfs:subClassOf rdf:resource="#Activity"/>
+        <rdfs:subClassOf rdf:resource="#Places_for_activities"/>
         <rdfs:comment
             >establishments where one can learn about some facts and methods</rdfs:comment>
     </owl:Class>
@@ -676,7 +659,7 @@
     <!-- http://my-ecar.org#Finance -->
 
     <owl:Class rdf:about="#Finance">
-        <rdfs:subClassOf rdf:resource="#Activity"/>
+        <rdfs:subClassOf rdf:resource="#Places_for_activities"/>
         <rdfs:comment
             >locations for drawing out, banking, changing and tranfering money</rdfs:comment>
     </owl:Class>
@@ -766,7 +749,7 @@
     <!-- http://my-ecar.org#Gastronomy -->
 
     <owl:Class rdf:about="#Gastronomy">
-        <rdfs:subClassOf rdf:resource="#Activity"/>
+        <rdfs:subClassOf rdf:resource="#Places_for_activities"/>
     </owl:Class>
     
 
@@ -894,7 +877,7 @@
     <!-- http://my-ecar.org#Health -->
 
     <owl:Class rdf:about="#Health">
-        <rdfs:subClassOf rdf:resource="#Activity"/>
+        <rdfs:subClassOf rdf:resource="#Places_for_activities"/>
     </owl:Class>
     
 
@@ -1086,7 +1069,7 @@
     <!-- http://my-ecar.org#Landscape -->
 
     <owl:Class rdf:about="#Landscape">
-        <rdfs:subClassOf rdf:resource="#Activity"/>
+        <rdfs:subClassOf rdf:resource="#Places_for_activities"/>
     </owl:Class>
     
 
@@ -1094,7 +1077,7 @@
     <!-- http://my-ecar.org#Leisure -->
 
     <owl:Class rdf:about="#Leisure">
-        <rdfs:subClassOf rdf:resource="#Activity"/>
+        <rdfs:subClassOf rdf:resource="#Places_for_activities"/>
     </owl:Class>
     
 
@@ -1231,6 +1214,14 @@
 
     <owl:Class rdf:about="#Museum">
         <rdfs:subClassOf rdf:resource="#Leisure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Musicstore -->
+
+    <owl:Class rdf:about="#Musicstore">
+        <rdfs:subClassOf rdf:resource="#Shopping"/>
     </owl:Class>
     
 
@@ -1418,7 +1409,7 @@
     <!-- http://my-ecar.org#Parking -->
 
     <owl:Class rdf:about="#Parking">
-        <rdfs:subClassOf rdf:resource="#Activity"/>
+        <rdfs:subClassOf rdf:resource="#Places_for_activities"/>
     </owl:Class>
     
 
@@ -1482,7 +1473,7 @@
     <!-- http://my-ecar.org#Pizza -->
 
     <owl:Class rdf:about="#Pizza">
-        <rdfs:subClassOf rdf:resource="#Cuisine"/>
+        <rdfs:subClassOf rdf:resource="#Gastronomy"/>
     </owl:Class>
     
 
@@ -1498,7 +1489,15 @@
     <!-- http://my-ecar.org#PlaceOfWorship -->
 
     <owl:Class rdf:about="#PlaceOfWorship">
-        <rdfs:subClassOf rdf:resource="#Activity"/>
+        <rdfs:subClassOf rdf:resource="#Places_for_activities"/>
+    </owl:Class>
+    
+
+
+    <!-- http://my-ecar.org#Places_for_activities -->
+
+    <owl:Class rdf:about="#Places_for_activities">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
     </owl:Class>
     
 
@@ -1578,7 +1577,7 @@
     <!-- http://my-ecar.org#PublicTransport -->
 
     <owl:Class rdf:about="#PublicTransport">
-        <rdfs:subClassOf rdf:resource="#Activity"/>
+        <rdfs:subClassOf rdf:resource="#Places_for_activities"/>
     </owl:Class>
     
 
@@ -1650,7 +1649,7 @@
     <!-- http://my-ecar.org#Sandwich -->
 
     <owl:Class rdf:about="#Sandwich">
-        <rdfs:subClassOf rdf:resource="#Cuisine"/>
+        <rdfs:subClassOf rdf:resource="#Gastronomy"/>
     </owl:Class>
     
 
@@ -1690,7 +1689,7 @@
     <!-- http://my-ecar.org#Shopping -->
 
     <owl:Class rdf:about="#Shopping">
-        <rdfs:subClassOf rdf:resource="#Activity"/>
+        <rdfs:subClassOf rdf:resource="#Places_for_activities"/>
     </owl:Class>
     
 
@@ -1770,7 +1769,7 @@
     <!-- http://my-ecar.org#Steak -->
 
     <owl:Class rdf:about="#Steak">
-        <rdfs:subClassOf rdf:resource="#Cuisine"/>
+        <rdfs:subClassOf rdf:resource="#Gastronomy"/>
     </owl:Class>
     
 
@@ -1802,7 +1801,7 @@
     <!-- http://my-ecar.org#Sushi -->
 
     <owl:Class rdf:about="#Sushi">
-        <rdfs:subClassOf rdf:resource="#Cuisine"/>
+        <rdfs:subClassOf rdf:resource="#Gastronomy"/>
     </owl:Class>
     
 
@@ -1834,7 +1833,7 @@
     <!-- http://my-ecar.org#Tapas -->
 
     <owl:Class rdf:about="#Tapas">
-        <rdfs:subClassOf rdf:resource="#Cuisine"/>
+        <rdfs:subClassOf rdf:resource="#Gastronomy"/>
     </owl:Class>
     
 
@@ -1882,7 +1881,7 @@
     <!-- http://my-ecar.org#Tourism -->
 
     <owl:Class rdf:about="#Tourism">
-        <rdfs:subClassOf rdf:resource="#Activity"/>
+        <rdfs:subClassOf rdf:resource="#Places_for_activities"/>
     </owl:Class>
     
 
@@ -1986,7 +1985,7 @@
     <!-- http://my-ecar.org#Vegan -->
 
     <owl:Class rdf:about="#Vegan">
-        <rdfs:subClassOf rdf:resource="#Cuisine"/>
+        <rdfs:subClassOf rdf:resource="#Gastronomy"/>
     </owl:Class>
     
 
@@ -1994,7 +1993,7 @@
     <!-- http://my-ecar.org#Vegetarian -->
 
     <owl:Class rdf:about="#Vegetarian">
-        <rdfs:subClassOf rdf:resource="#Cuisine"/>
+        <rdfs:subClassOf rdf:resource="#Gastronomy"/>
     </owl:Class>
     
 
@@ -2052,6 +2051,12 @@
     <owl:Class rdf:about="#YouthHostel">
         <rdfs:subClassOf rdf:resource="#Accommodation"/>
     </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
 </rdf:RDF>
 
 
