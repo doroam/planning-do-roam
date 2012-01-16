@@ -5,6 +5,7 @@ class Selection
   def initialize
   end
   
+  #selection class for the ontology
   def initialize(tag, value)
     @tag = tag
     @value = value

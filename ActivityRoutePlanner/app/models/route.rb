@@ -11,7 +11,7 @@ class Route < ActiveRecord::Base
   GLOBAL_TABLE_POLYGON  = Global::GLOBAL_TABLE_POLYGON
   GLOBAL_FIELD_AMENITY  = Global::GLOBAL_FIELD_AMENITY
   
-
+  #initalizes a route
   def initialize(*params)
     super(*params)
     self.sort = "false"
@@ -27,10 +27,12 @@ class Route < ActiveRecord::Base
     self.save
   end
 
+  #if the route is ready for routing
   def is_ready
     return self.end_point!= nil  && self.end_point.is_setted && self.start_point!=nil && self.start_point.is_setted
   end
 
+  #gets the end point
   def end_point
     point = nil
     if self.end_point_id!=nil
@@ -38,6 +40,7 @@ class Route < ActiveRecord::Base
     end
     return point
   end
+  #gets the start point
   def start_point
     point = nil
     if self.start_point_id!=nil

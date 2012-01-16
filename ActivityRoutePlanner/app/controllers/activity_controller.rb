@@ -16,16 +16,21 @@ class ActivityController < ApplicationController
     end
   end
 
+  #creates an acitivity
   def create
     route = Route.find(session[:main_route])
     @activity = Activity.new(params[:activity])
         
+    #create activity
     @activity.route = route
     @activity.save
 
+    #create point
     @point       = Point.new(params[:point])
+    #get distance to start
     @point.distance_source = RouteHelper.get_distance(route.start_point, @point)
     @point.activity = @activity
+    #set nearest edge to activity
     @point.set_edge
     @point.save
 

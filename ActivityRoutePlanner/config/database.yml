@@ -2,11 +2,21 @@
 #   gem install sqlite3
 development:
   adapter: postgresql
-  database: osm
-  username: postgres
-  password: postgres
+  database: germany
+  username: openstreetmap
+  password: dfkiteam
   host: localhost
+  port: 3333
   encoding: UTF8
+
+#development:
+ # adapter: postgresql
+  #database: osm
+  #username: postgres
+  #password: postgres
+  #host: localhost
+  #port: 5432
+  #encoding: UTF8
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
