@@ -14,6 +14,7 @@ route = Route.find(session[:main_route])
   <%= render :partial => 'point/point_form',:locals => {:point => route.start_point,:type => 'start',:action_url=>"/search"} %>
 
 </td></tr>
+<tr id="waypoint"><td>add Waypoint</td></tr>
 <tr><td>Destination:</td><td>
   
 <%= render :partial => 'point/point_form',:locals => {:point => route.end_point,:type => 'end',:action_url=>"/search"}%>

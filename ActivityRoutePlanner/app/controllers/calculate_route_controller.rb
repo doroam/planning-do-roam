@@ -1,7 +1,7 @@
 class CalculateRouteController < ApplicationController
   include CalculateRouteHelper
   include RouteHelper
-  require 'CGI'
+  require 'cgi'
   
   #generates a route and shows it
   def calculate_route        
@@ -65,6 +65,8 @@ class CalculateRouteController < ApplicationController
       format.js
     end
   end
+  
+
 
   #not in use
   def get_energy_route

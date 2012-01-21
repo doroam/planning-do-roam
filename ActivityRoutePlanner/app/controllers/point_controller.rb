@@ -8,8 +8,12 @@ class PointController < ApplicationController
     #start point was set
     if params[:start]!=nil
       point = @route.start_point
+      @type = 'start'
+      puts "start"
     elsif params[:end]!=nil
       point = @route.end_point
+      @type = 'end'
+      puts "end"
     end
 
     if point != nil
@@ -22,6 +26,7 @@ class PointController < ApplicationController
     end
     respond_to do |format|
       format.js
+#      format.html render :partial => "point_form"
     end
   end
 

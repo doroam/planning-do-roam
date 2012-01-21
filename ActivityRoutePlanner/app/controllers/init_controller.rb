@@ -3,7 +3,7 @@ class InitController < ApplicationController
   def index    
     #if the session is new
     if session[:main_route] == nil
-     # initialize route
+      # initialize route
       @route = Route.create()      
       session[:main_route] = @route.id
     else
@@ -17,7 +17,7 @@ class InitController < ApplicationController
     end
   end
 
-  #reset route an reload page
+  #reset route and reload page
   def reset
     session[:main_route] = nil
     respond_to do |format|
@@ -25,5 +25,21 @@ class InitController < ApplicationController
     end    
   end
 
+  def get_algo_dynamic_content
+    if params[:algo] == "energy"
+      @route = Route.find(session[:main_route])
+      respond_to do |format|
+        format.js{ render :update do |page|
+          page.replace_html "energy_form", :partial => "energy_form"
+        end}
+      end
+    else
+      respond_to do |format|
+        format.js{ render :update do |page|
+          page.replace_html "energy_form"
+        end}
+      end
+    end
+  end
   
 end
