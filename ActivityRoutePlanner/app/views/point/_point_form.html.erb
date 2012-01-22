@@ -15,7 +15,7 @@ end
 <%= form_tag(action,:id => type+"_form_id",
               :onsubmit => "setBBox('"+type+"_form_id');showWall();",
               :remote => true) do |f| %>
-			<%= text_field_tag "query",default, :style=> "width:150px;" %>
+			<%= text_field_tag type+"_query",default, :style=> "width:150px;", :name => "query" %>
         <%= hidden_field_tag :type, type %>
         <%= hidden_field_tag :minlon %>
         <%= hidden_field_tag :minlat %>

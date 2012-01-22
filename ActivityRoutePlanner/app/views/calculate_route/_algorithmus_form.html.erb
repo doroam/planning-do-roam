@@ -1,11 +1,11 @@
 <%route = Route.find(session[:main_route])%>
 <div id="algo_form">
-<%=form_tag "calculate_route" do%>
+<%=form_tag "calculate_route", :remote => true do%>
 <table style="font-size:11px;">
   <tr>
     <td><%= link_to "Reset Route", "/reset_method" ,:onclick => 'showWall();'%></td>
     <td align="right">
-	    <%if route.is_ready %>
+	    <%if true %>
 				<%= link_to "Create Route", "/check_edge", :remote => true, 
 				:onclick => 'showWall();'%>
 	    <%end %>
@@ -56,7 +56,12 @@
 </table>
 <table id="energy_form">
 </table>
-
-<%= submit_tag "Route berechnen", :disabled => true%>
+	<% if route.is_ready %>
+		<%= submit_tag "Route berechnen",:id => "calculate_route", :disabled => false, :remote => true, 
+				:onclick => 'showWall();'%>
+	<%else%>
+		<%= submit_tag "Route berechnen",:id => "calculate_route", :disabled => true, 
+				:onclick => 'showWall();'%>
+	<%end%>
 <%end%>
 </div>

@@ -9,11 +9,9 @@ class PointController < ApplicationController
     if params[:start]!=nil
       point = @route.start_point
       @type = 'start'
-      puts "start"
     elsif params[:end]!=nil
       point = @route.end_point
       @type = 'end'
-      puts "end"
     end
 
     if point != nil
@@ -37,8 +35,10 @@ class PointController < ApplicationController
     point = nil
     if params[:delete_point].eql? "start"
       point = @route.start_point
+      @type = 'start'
     elsif params[:delete_point].eql? "end"
       point = @route.end_point
+      @type = 'end'
     end
     #@route.reset()
     if point != nil
