@@ -1,4 +1,5 @@
 module RouteHelper
+  require "open-uri" #to load files from extern websites
   TABLE = "db_topo"
   GLOBAL_FIELD_SOURCE                 = Global::GLOBAL_FIELD_SOURCE
   GLOBAL_FIELD_TARGET                 = Global::GLOBAL_FIELD_TARGET
@@ -41,7 +42,7 @@ module RouteHelper
     src_point = route.start_point
 
     alg_select = route.algorithmus
-
+    
     #algorithmus type
     is_energy = alg_select.eql?("energy")
 
@@ -64,8 +65,17 @@ module RouteHelper
           end_lon   = point.edge_end_lon
         end
       end
+      
       #if there is a start and endpoint
       if (source != nil && target !=nil) || is_energy
+        
+        if alg_select.eql?("osrm")
+          puts "##########################################################"
+          #http://routingdemo.geofabrik.de/route-via/&start=53.079951,8.898292&dest=53.106218,8.85515&z=15&output=kml 
+          return open("http://routingdemo.geofabrik.de/route-via/&start=#{start_lat},#{start_lon}&dest=#{end_lat},#{end_lon}&z=15&output=kml").read
+        end
+
+        
         #energy routing
         if is_energy
           #get energy route
@@ -373,6 +383,51 @@ module RouteHelper
   end
 
 
+  def self.get_kml(route)
+    errors      = Array.new
+    #if its not energy
+    if !route.algorithmus == "energy"
+      #get nearest edge to start and end point
+      source = src_point.edgeID#get_nearest_edge(src_point)
+      target = point.edgeTargetID#get_nearest_edge(point)
+
+      #get coordinates of nearest edge to start and end points
+      if route.start_point!=nil && src_point.label.eql?(route.start_point.label)
+        start_lat = src_point.edge_lat
+        start_lon = src_point.edge_lon
+      end
+      if point!= nil && point.label.eql?(route.end_point.label)
+        end_lat   = point.edge_end_lat
+        end_lon   = point.edge_end_lon
+      end
+    end
+    
+    case route.algorithmus
+    when "osrm"
+      return open("http://routingdemo.geofabrik.de/route-via/&start=#{start_lat},#{start_lon}&dest=#{end_lat},#{end_lon}&z=15&output=kml").read
+    when "energy"
+      path = get_energy_nodes(route,src_point,point)  
+    else 
+      path = generate_simple_route(source,target,route)
+    end
+    
+    if path.length>0
+        if !is_energy
+          #adds a line from the start point to the nearest source point of the edge
+          line = get_kml_line(src_point.lat,src_point.lon, src_point.edge_lat,src_point.edge_lon)
+          result.push(line)
+          result.concat(path)
+          #adds a line form the end point to the nearest end point of the edge
+          line = get_kml_line(point.lat,point.lon, point.edge_end_lat,point.edge_end_lon)
+          result.push(line)
+        else
+          result.concat(path)
+        end
+      else
+        #error message if the path could not be found
+        errors.push(route.start_point.label+"\nto\n"+point.label)
+      end
+  end
 
 
 end
