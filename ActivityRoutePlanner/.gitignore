@@ -2,7 +2,8 @@
 db/*.sqlite3
 log/*.log
 tmp/
-nbproject
+nbproject/
 *.project
 config/database.yml
+th-zlib/
 

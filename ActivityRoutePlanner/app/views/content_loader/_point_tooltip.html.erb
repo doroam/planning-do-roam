@@ -1,6 +1,6 @@
-<b>Coordinates:</b><br/>
-<b>Latitude:</b> <%=params[:lat]%><br/>
-<b>Longitude:</b> <%=params[:lon]%><br/>
+<b><%=t(:coordinates)%>:</b><br/>
+<b><%=t(:latitude)%>:</b> <%=params[:lat]%><br/>
+<b><%=t(:longitude)%>:</b> <%=params[:lon]%><br/>
 <%coordinates = params[:lat]+":"+params[:lon]%>
 <%= link_to "Set start point", {:controller => :point,
             :action=> :update_point,
