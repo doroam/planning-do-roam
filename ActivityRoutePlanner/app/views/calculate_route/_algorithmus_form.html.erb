@@ -46,15 +46,16 @@
 				<%= select_tag "setAlgorithmus",
             		options_from_collection_for_select(alg_list,"value","tag",route.algorithmus),
 						:style=>"width:117px;",
-	    				:onchange => remote_function(
-	    				:url => "/get_algo_dynamic_content",
+	    				:onchange => "Effect.SlideDown('energy_form', { duration: 3.0 }); return false;"
+	    				#:url => "/get_algo_dynamic_content",
 		 	 			#:url=> "/set_route_parameters",
-			 			:with => "'algo=' +document.getElementById('setAlgorithmus').value")
+			 			#:with => "'algo=' +document.getElementById('setAlgorithmus').value")
 				%>
 			</td>
 		</tr>
 </table>
-<table id="energy_form">
+<table id="energy_form" style="display:none">
+	<%= render "init/energy_form" %>
 </table>
 	<% if route.is_ready %>
 		<%= submit_tag "Route berechnen",:id => "calculate_route", :disabled => false, :remote => true, 
