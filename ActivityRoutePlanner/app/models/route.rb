@@ -2,6 +2,7 @@ class Route < ActiveRecord::Base
   include RouteHelper
 
   has_many :activities
+  has_many :points, :dependent => :destroy
 
   #contains the main information of the application
   GLOBAL_FIELD_NAME     = Global::GLOBAL_FIELD_NAME

@@ -1,7 +1,7 @@
 class CalculateRouteController < ApplicationController
   include CalculateRouteHelper
   include RouteHelper
-  require 'CGI'
+  require 'cgi'
   
   #generates a route and shows it
   def calculate_route        
@@ -13,16 +13,28 @@ class CalculateRouteController < ApplicationController
 
     #generates the result for the route see GeoResult
     route   = Route.find(session[:main_route])
-    result  = RouteHelper.generate_route(route);
+    route.algorithmus = params[:setAlgorithmus]
+    (!params[:Notice_sort].nil? && params[:Notice_sort].eql("true")) ? route.sort = false : route.sort = true
+    if(route.algorithmus != "osrm")
+      result  = RouteHelper.generate_route(route);
+    end
     
     if File.exist?(file_name)
       File.delete(file_name)
     end
+    if(route.algorithmus != "osrm")
+      #Generates the kml of the result
+      res           = CalculateRouteHelper.generate_route(result.kml_list)
+      params[:kml]  = res
+      File.open(file_name, 'w') {|f| f.write(res) }
+    else
+      puts "####################################################################"
+      File.open(file_name, 'wb') do |file|
+        file.write(open("http://routingdemo.geofabrik.de/route-via/&start=#{route.start_point.lat},#{route.start_point.lon}&dest=#{route.end_point.lat},#{route.end_point.lon}&z=15&output=kml").read)
+        #file.write("test");
+      end
+    end
 
-    #Generates the kml of the result
-    res           = CalculateRouteHelper.generate_route(result.kml_list)
-    params[:kml]  = res
-    File.open(file_name, 'w') {|f| f.write(res) }
 
     #sets the filepath and the result to show errors
     file_path           = file_name_app+"?nocache"+Time.now.to_s
@@ -65,6 +77,8 @@ class CalculateRouteController < ApplicationController
       format.js
     end
   end
+  
+
 
   #not in use
   def get_energy_route

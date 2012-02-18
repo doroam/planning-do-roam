@@ -1,6 +1,6 @@
 <%label = ""
 default = ""
-if point != nil && point.label!=nil && (!point.label.eql? "")
+if point != nil && point.label != nil && (!point.label.eql? "")
   showDelete  = true
   default     = point.label
 else
@@ -15,21 +15,21 @@ end
 <%= form_tag(action,:id => type+"_form_id",
               :onsubmit => "setBBox('"+type+"_form_id');showWall();",
               :remote => true) do |f| %>
-			<%= text_field_tag "query",default, :style=> "width:150px;" %>
+			<%= text_field_tag type+"_query",default, :style=> "width:150px;", :name => "query" %>
         <%= hidden_field_tag :type, type %>
         <%= hidden_field_tag :minlon %>
         <%= hidden_field_tag :minlat %>
         <%= hidden_field_tag :maxlon %>
         <%= hidden_field_tag :maxlat %>
         <%= hidden_field_tag :zoom %>
-        <%if showDelete%>
-	<%= # link to remove that activity
+    <%if showDelete%>
+		<%= # link to remove that activity
           link_to image_tag("delete.gif", :border=>0,:class => "delete"),
                         {:controller => :point,
                         :action => :remove_point,
-                        :delete_point=>type},
+                        :delete_point => type},
                         :remote => true,
                         :onclick => 'showWall();'%>
 	<% end%>
-	<% end%>
+<% end%>
 </span>
