@@ -8,10 +8,8 @@ class PointController < ApplicationController
     #start point was set
     if params[:start]!=nil
       point = @route.start_point
-      @type = 'start'
     elsif params[:end]!=nil
       point = @route.end_point
-      @type = 'end'
     end
 
     if point != nil
@@ -24,7 +22,6 @@ class PointController < ApplicationController
     end
     respond_to do |format|
       format.js
-#      format.html render :partial => "point_form"
     end
   end
 
@@ -35,10 +32,8 @@ class PointController < ApplicationController
     point = nil
     if params[:delete_point].eql? "start"
       point = @route.start_point
-      @type = 'start'
     elsif params[:delete_point].eql? "end"
       point = @route.end_point
-      @type = 'end'
     end
     #@route.reset()
     if point != nil

@@ -1,5 +1,4 @@
 <%   #sets the nearest markers
-if params[:setAlgorithmus] != "osrm"
   res =  params[:geo_result]
   start_lat = 0.0
   start_lon = 0.0
@@ -20,15 +19,12 @@ if params[:setAlgorithmus] != "osrm"
   %>
   addMark("<%=point.label%>","<%=end_lat%>","<%=end_lon%>","<%=type%>");
   <%end%>
-<%end%>
 loadRoute('<%=params[:file_name]%>');
 <%error_msg = "The next paths could not be found.";
-if params[:setAlgorithmus] != "osrm"
   res.errors.each do |error|
       error_msg += "\n"+error+"."
   end
   if res.errors.length>0%>
     alert('<%=escape_javascript(error_msg)%>');
  <%end%>
-<%end%>
 

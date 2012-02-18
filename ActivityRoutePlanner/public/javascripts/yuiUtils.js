@@ -203,12 +203,12 @@ function hideOntology(){
 }
 
 function reloadRouteFields(){
-    //showWall();
+    showWall();
     removeTempMarkers();
     var params = new Array();
     params[0]  = ["url","init/menu"];
     var url = buildUrl("/load_content", params);
-    //loadContent(url,"route_id");
+    loadContent(url,"route_id");
 }
 
 function makeDialogAt(e,div_id){

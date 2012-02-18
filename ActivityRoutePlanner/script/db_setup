@@ -3,17 +3,17 @@
 # TODO: modify code: user tables pg_nodes and pg_ways
 
 # parameters
-PBF=http://download.geofabrik.de/osm/bremen.osm.pbf
-OSM=http://download.geofabrik.de/osm/bremen.osm.bz2
+PBF=http://download.geofabrik.de/osm/europe.osm.pbf
+OSM=http://download.geofabrik.de/osm/europe.osm.bz2
 USER=openstreetmap
 DATABASE=db_setup
 PASSWORD=dfkiteam
 PSQL_VERSION=8.4
-RAILS_PORT_FOLDER=$HOME/web/rails-port 
+RAILS_PORT_FOLDER=$HOME/rails-port 
   # make sure that config/database.yml has a db_setup env with $DATABASE
   # and also enter this env into config/application.yml
   # and have a link from config/environments/development.rb to config/environments/db_setup.rb
-PLANNING_DO_ROAM=$HOME/web/planning-do-roam/ActivityRoutePlanner
+PLANNING_DO_ROAM=$HOME/planning-do-roam/ActivityRoutePlanner
 DOWNLOAD_FOLDER=/local/isos/emobility/tmp
 
 # trace, and stop if there are errors
@@ -24,11 +24,11 @@ OSM_FILE=$(basename $OSM)
 
 # 1. set up the OSM database and give the user "$USER" all privileges 
 
-psql -U $USER -c "DROP DATABASE $DATABASE;" || true
-createdb -U $USER $DATABASE
-createlang -U $USER plpgsql $DATABASE
-psql -U $USER -d $DATABASE < /usr/share/postgresql/$PSQL_VERSION/contrib/btree_gist.sql
-psql -U $USER -d $DATABASE -c "GRANT ALL PRIVILEGES ON DATABASE $DATABASE TO $USER" 
+psql -U postgres -c "DROP DATABASE $DATABASE;" || true
+createdb -U postgres $DATABASE
+createlang plpgsql $DATABASE
+psql -U postgres -d $DATABASE < /usr/share/postgresql/$PSQL_VERSION/contrib/btree_gist.sql
+psql -U postgres -d $DATABASE -c "GRANT ALL PRIVILEGES ON DATABASE $DATABASE TO $USER" 
 
 # 2. create the OSM tables
 

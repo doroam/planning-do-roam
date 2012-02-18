@@ -2,11 +2,11 @@
 #   gem install sqlite3
 development:
   adapter: postgresql
-  database: bremen
+  database: germany
   username: openstreetmap
   password: dfkiteam
   host: localhost
-  port: 5432
+  port: 3333
   encoding: UTF8
 
 #development:

@@ -434,11 +434,4 @@ function testInit(){
     map.addLayer(layerMarkers);
 }
 
-function readyToCreateRoute(){
-	//if start and endpoint are set
-	if(document.getElementsByName("start_query").value != "" && document.getElementsByName("end_query").value != ""){
-		document.getElementById("calculate_route").disabled = false;
-	} else {
-		document.getElementById("calculate_route").disabled = true;
-	}
-}
+

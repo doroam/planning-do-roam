@@ -1,14 +1,8 @@
 class Point < ActiveRecord::Base
-  require 'uri'
-  
   belongs_to :route
   belongs_to :activity
-  
-  before_destroy :ensure_not_referenced_by_any_point_or_activity
-  attr_accessor :tag,
-                :value
 
-
+  require 'uri'
   include Comparable
   include RouteHelper
   GLOBAL_FIELD_SOURCE                 = Global::GLOBAL_FIELD_SOURCE
@@ -18,20 +12,10 @@ class Point < ActiveRecord::Base
   GLOBAL_ALIAS_START_POINT_LONG = Global::GLOBAL_ALIAS_START_POINT_LONG
   GLOBAL_ALIAS_START_POINT_LAT  = Global::GLOBAL_ALIAS_START_POINT_LAT
 
+  attr_accessor :tag,
+                :value
 
 
-private
-  # ensure that there are no line items referencing this product
-  def ensure_not_referenced_by_any_point_or_activity
-    #if line_items.empty?
-     # return true
-    #else
-     # errors.add(:base, 'Line Items present')
-     # return false
-   # end
-  end
-
-public
 
   def reset
     self.label = nil
