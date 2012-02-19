@@ -442,3 +442,12 @@ function readyToCreateRoute(){
 		document.getElementById("calculate_route").disabled = true;
 	}
 }
+
+function algoContent(){
+	if($j("#setAlgorithmus").val() == "energy") {
+		$j("#energy_form").slideDown();
+	} else {
+		$j("#energy_form").slideUp();
+	}
+		
+}

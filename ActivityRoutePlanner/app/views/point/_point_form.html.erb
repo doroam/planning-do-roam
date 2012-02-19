@@ -14,7 +14,7 @@ end
 <span class="pointInput" id="<%=type%>_id">
 <%= form_tag(action,:id => type+"_form_id",
               :onsubmit => "setBBox('"+type+"_form_id');showWall();",
-              :remote => true) do |f| %>
+              :remote => true) do %>
 			<%= text_field_tag type+"_query",default, :style=> "width:150px;", :name => "query" %>
         <%= hidden_field_tag :type, type %>
         <%= hidden_field_tag :minlon %>

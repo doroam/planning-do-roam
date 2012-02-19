@@ -3,13 +3,7 @@
 <%=form_tag "calculate_route", :remote => true do%>
 <table style="font-size:11px;">
   <tr>
-    <td><%= link_to "Reset Route", "/reset_method" ,:onclick => 'showWall();'%></td>
-    <td align="right">
-	    <%if false %>
-				<%= link_to "Create Route", "/check_edge", :remote => true, 
-				:onclick => 'showWall();'%>
-	    <%end %>
-	</td>
+    <td><%= link_to "Reset Route", "/reset_method" %></td>
   </tr>
   <tr>
 	<td style="width:120px;">
@@ -17,10 +11,8 @@
 	</td>
 	<td>
 		<%
-			sort_list = Array.new
-		        #yes:to keep the initial sort but false: no sort
-			sort_list.push Selection.new("yes","false")
-		        #no: to not keep the initial sort but true to sort the list
+			sort_list = Array.new #yes:to keep the initial sort but false: no sort
+			sort_list.push Selection.new("yes","false") #no: to not keep the initial sort but true to sort the list
 			sort_list.push Selection.new("no","true")
 		%>
 		<%=
@@ -39,14 +31,14 @@
 				<%
 					alg_list = Array.new
 				    alg_list.push Selection.new("osrm","osrm")
-					alg_list.push Selection.new("fast","A*")
-					alg_list.push Selection.new("exact","Dijkstra")
+					# alg_list.push Selection.new("fast","A*")
+					# alg_list.push Selection.new("exact","Dijkstra")
 				    alg_list.push Selection.new("energy","energy")
 				%>
 				<%= select_tag "setAlgorithmus",
             		options_from_collection_for_select(alg_list,"value","tag",route.algorithmus),
 						:style=>"width:117px;",
-	    				:onchange => "Effect.SlideDown('energy_form', { duration: 3.0 }); return false;"
+	    				:onchange => "algoContent();"
 	    				#:url => "/get_algo_dynamic_content",
 		 	 			#:url=> "/set_route_parameters",
 			 			#:with => "'algo=' +document.getElementById('setAlgorithmus').value")
