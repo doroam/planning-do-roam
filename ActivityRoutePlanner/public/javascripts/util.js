@@ -449,5 +449,8 @@ function algoContent(){
 	} else {
 		$j("#energy_form").slideUp();
 	}
+}
 		
+function toggleStructured(){
+	$j(".structured").slideToggle();
 }

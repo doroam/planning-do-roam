@@ -1,9 +1,8 @@
 <div class="route" id="route_id">
-	<h2>Route</h2>
-	<span style="font-size:12px;">          
-	  	<%= render :partial=>"calculate_route/algorithmus_form"%>
-	</span>
+	<h2>Activity-Routing "DO-ROAM"</h2>
+	<%= render 'init/freetext' %>
 	<%= render 'init/form' %>
+	<br />
 	<%= link_to "reset zoom","#", :onclick => 'resetCenter();'%>
 <!--%= link_to "get_energy","get_energy"%-->
 	<%= render 'activity/index' %>

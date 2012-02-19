@@ -55,13 +55,12 @@ table{
     width:280px;
 }
 #map{
-/*    position:absolute;
-    left:280px;  */      
+    position:absolute;
+    left:290px;        
     height: 100%;
     width: 100%;
-    overflow: hidden;
-/*    padding: 0;
-    margin: 0;*/
+    padding: 0;
+    margin: 0;
 }
 .pointInput{
 	margin-top:25px;

@@ -46,9 +46,9 @@
 			</td>
 		</tr>
 </table>
-<table id="energy_form" width=100% style="display:none">
+<div id="energy_form" width=100% style="display:none">
 	<%= render "init/energy_form" %>
-</table>
+</div>
 	<% if route.is_ready %>
 		<%= submit_tag "Route berechnen",:id => "calculate_route", :disabled => false, :remote => true, 
 				:onclick => 'showWall();'%>

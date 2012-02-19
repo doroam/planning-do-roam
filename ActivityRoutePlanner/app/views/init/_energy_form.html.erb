@@ -12,7 +12,7 @@ car_type.push Selection.new("STROMOS","STROMOS")
         car_type.push Selection.new("MUTE","MUTE")
         car_type.push Selection.new("Karabag Fiat 500E","Karabag Fiat 500E")
         %>
-
+<table style="width:100%">
 <tr><td>Optimization:</td><td align="right"><%=
 		select_tag "optimization",
       	options_from_collection_for_select(optimization_list,"value","tag",@route.optimization),
@@ -31,3 +31,4 @@ car_type.push Selection.new("STROMOS","STROMOS")
 		:with => "'car_type=' +document.getElementById('car_type').value")
 	%>
 </td></tr>
+</table>
