@@ -1,0 +1,45 @@
+<%
+optimization_list = Array.new
+optimization_list.push Selection.new("energy","ENERGY")
+        optimization_list.push Selection.new("distance","DISTANCE")
+        optimization_list.push Selection.new("time","TIME")
+
+        car_type = Array.new
+car_type.push Selection.new("STROMOS","STROMOS")
+        car_type.push Selection.new("Sam","Sam")
+        car_type.push Selection.new("Luis","Luis")
+        car_type.push Selection.new("SmartRoadster","SmartRoadster")
+        car_type.push Selection.new("MUTE","MUTE")
+        car_type.push Selection.new("Karabag Fiat 500E","Karabag Fiat 500E")
+        %>
+
+<tr>
+<td style="width:120px;">
+Optimization:
+</td>
+  <td>
+    <%=
+select_tag "optimization",
+              options_from_collection_for_select(optimization_list,"value","tag",@route.optimization),
+:style=>"width:117px;",
+:onchange => 'showWall();'+remote_function(
+:url=> "/set_route_parameters",
+:with => "'optimization=' +document.getElementById('optimization').value")
+%>
+  </td>
+</tr>
+<tr>
+<td style="width:120px;">
+Car Type:
+</td>
+  <td>
+    <%=
+select_tag "car_type",
+                options_from_collection_for_select(car_type,"value","tag",@route.car_type),
+:style=>"width:117px;",
+:onchange => 'showWall();'+remote_function(
+:url=> "/set_route_parameters",
+:with => "'car_type=' +document.getElementById('car_type').value")
+%>
+  </td>
+</tr>
