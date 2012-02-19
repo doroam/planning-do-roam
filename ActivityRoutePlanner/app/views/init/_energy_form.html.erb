@@ -13,33 +13,21 @@ car_type.push Selection.new("STROMOS","STROMOS")
         car_type.push Selection.new("Karabag Fiat 500E","Karabag Fiat 500E")
         %>
 
-<tr>
-<td style="width:120px;">
-Optimization:
-</td>
-  <td>
-    <%=
-select_tag "optimization",
-              options_from_collection_for_select(optimization_list,"value","tag",@route.optimization),
-:style=>"width:117px;",
-:onchange => 'showWall();'+remote_function(
-:url=> "/set_route_parameters",
-:with => "'optimization=' +document.getElementById('optimization').value")
-%>
-  </td>
-</tr>
-<tr>
-<td style="width:120px;">
-Car Type:
-</td>
-  <td>
-    <%=
-select_tag "car_type",
-                options_from_collection_for_select(car_type,"value","tag",@route.car_type),
-:style=>"width:117px;",
-:onchange => 'showWall();'+remote_function(
-:url=> "/set_route_parameters",
-:with => "'car_type=' +document.getElementById('car_type').value")
-%>
-  </td>
-</tr>
+<tr><td>Optimization:</td><td align="right"><%=
+		select_tag "optimization",
+      	options_from_collection_for_select(optimization_list,"value","tag",@route.optimization),
+		:style=>"width:117px;",
+		:onchange => 'showWall();'+remote_function(
+		:url=> "/set_route_parameters",
+		:with => "'optimization=' +document.getElementById('optimization').value")
+	%>
+</td></tr>
+<tr><td>Car Type:</td><td align="right"><%=
+		select_tag "car_type",
+        options_from_collection_for_select(car_type,"value","tag",@route.car_type),
+		:style=>"width:117px;",
+		:onchange => 'showWall();'+remote_function(
+		:url=> "/set_route_parameters",
+		:with => "'car_type=' +document.getElementById('car_type').value")
+	%>
+</td></tr>

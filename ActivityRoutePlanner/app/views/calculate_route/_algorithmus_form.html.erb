@@ -1,15 +1,15 @@
 <%route = Route.find(session[:main_route])%>
 <div id="algo_form">
 <%=form_tag "calculate_route", :remote => true do%>
-<table style="font-size:11px;">
+<table width=100%>
   <tr>
     <td><%= link_to "Reset Route", "/reset_method" %></td>
   </tr>
   <tr>
-	<td style="width:120px;">
+	<td>
 		Notice sort:
 	</td>
-	<td>
+	<td align="right">
 		<%
 			sort_list = Array.new #yes:to keep the initial sort but false: no sort
 			sort_list.push Selection.new("yes","false") #no: to not keep the initial sort but true to sort the list
@@ -27,7 +27,7 @@
 			<td style="width:120px;">	
 				Select algorithm:
 			</td>
-			<td>
+			<td align="right">
 				<%
 					alg_list = Array.new
 				    alg_list.push Selection.new("osrm","osrm")
@@ -46,7 +46,7 @@
 			</td>
 		</tr>
 </table>
-<table id="energy_form" style="display:none">
+<table id="energy_form" width=100% style="display:none">
 	<%= render "init/energy_form" %>
 </table>
 	<% if route.is_ready %>
