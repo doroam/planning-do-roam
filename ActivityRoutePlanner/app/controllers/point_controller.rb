@@ -1,10 +1,10 @@
 class PointController < ApplicationController
-
+  include point_helper
+  
   #controller is called on each activity action
   def update_point
-    @route = Route.find(session[:main_route])
+    @route = current_route
     
-    point = nil
     #start point was set
     if params[:start]!=nil
       point = @route.start_point
@@ -20,7 +20,6 @@ class PointController < ApplicationController
       else
         set_point(point)
       end
-      #@route.reset()
     end
     respond_to do |format|
       format.js
@@ -45,38 +44,12 @@ class PointController < ApplicationController
       point.reset
       point.save
     end
-    
-
+   
     respond_to do |format|
       format.js
     end
   end
 
-  
-  #sets a point with the entered label
-  def set_point_from_result(point)
-    label = params[:result][:name]
-    if label==nil || "".eql?(label)
-      label = params[:result][:lat]+":"+params[:result][:lon]
-    end
-    set_point_info(point, label, params[:result][:lat],params[:result][:lon])
-  end
-
-  def set_point(point)
-    label = params[:name]
-    if label==nil || "".eql?(label)
-      label = params[:lat]+":"+params[:lon]
-    end
-    set_point_info(point, label, params[:lat],params[:lon])
-  end
-
-  def set_point_info(point,label,lat,lon)
-    point.label = label
-    point.set_coordinates(lat,lon)
-    point.set_edge
-    point.save
-  end
-  
 
   #handles errors by parsing lables of a point
   def handle_error(point,label)

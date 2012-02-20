@@ -1,3 +1,14 @@
+    # t.string   "algorithmus"
+    # t.string   "sort"
+    # t.string   "kml_path"
+    # t.string   "optimization"
+    # t.string   "car_type"
+    # t.float    "charge"
+    # t.integer  "start_point_id"
+    # t.integer  "end_point_id"
+    # t.datetime "created_at"
+    # t.datetime "updated_at"
+
 class Route < ActiveRecord::Base
   include RouteHelper
 

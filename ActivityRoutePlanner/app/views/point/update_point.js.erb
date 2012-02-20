@@ -1,0 +1,18 @@
+removeMarks();
+removeTempMarkers();
+<%=@route.show_markers()%>
+<%if flash[:error_msg]!= nil%>
+alert('<%=escape_javascript(flash[:error_msg])%>');
+<%end%>
+
+<%if params[:result]!= nil%>
+//setZoom(<%= params[:result][:min_lon] %>, <%= params[:result][:min_lat] %>, <%= params[:result][:max_lon] %>, <%= params[:result][:max_lat] %>);
+<%end%>
+
+var elem = document.getElementById('route_id');
+elem.innerHTML = "<%= escape_javascript(render(:partial => 'init/menu'))%>";
+hideDialog();
+<%if route.is_ready%>
+zoomToMarkers();
+<%end%>
+hideWall();

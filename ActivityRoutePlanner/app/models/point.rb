@@ -1,16 +1,32 @@
+    # t.float    "lat"
+    # t.float    "lon"
+    # t.float    "distance_source"
+    # t.float    "distance_target"
+    # t.string   "label"
+    # t.string   "icon"
+    # t.integer  "activity_id"
+    # t.datetime "created_at"
+    # t.datetime "updated_at"
+    # t.integer  "edgeID"
+    # t.string   "edge_lat"
+    # t.string   "edge_lon"
+    # t.string   "edge_end_lat"
+    # t.string   "edge_end_lon"
+    # t.integer  "edgeTargetID"
+
+
 class Point < ActiveRecord::Base
   require 'uri'
+  include Comparable
+  include RouteHelper
   
   belongs_to :route
   belongs_to :activity
   
   before_destroy :ensure_not_referenced_by_any_point_or_activity
-  attr_accessor :tag,
-                :value
+  attr_accessor :tag,:value
 
 
-  include Comparable
-  include RouteHelper
   GLOBAL_FIELD_SOURCE                 = Global::GLOBAL_FIELD_SOURCE
   GLOBAL_FIELD_TARGET                 = Global::GLOBAL_FIELD_TARGET
   GLOBAL_ALIAS_END_POINT_LONG   = Global::GLOBAL_ALIAS_END_POINT_LONG

@@ -6,5 +6,7 @@
             :result => result},
             :onmouseover => "highMarker('"+result[:place_id]+"');",
             :onmouseout => "downMarker('"+result[:place_id]+"');",
-            :remote => true,
-            :onclick => 'showWall();'%></p>
+            :remote => true
+            #:onclick => 'hideResults()'
+            #:onclick => 'showWall();'
+            %></p>

@@ -1,60 +1,28 @@
-<%route = Route.find(session[:main_route])%>
 <div id="algo_form">
-<%=form_tag "calculate_route", :remote => true do%>
-<table width=100%>
-  <tr>
-    <td><%= link_to "Reset Route", "/reset_method" %></td>
-  </tr>
-  <tr>
-	<td>
-		Notice sort:
-	</td>
-	<td align="right">
-		<%
-			sort_list = Array.new #yes:to keep the initial sort but false: no sort
-			sort_list.push Selection.new("yes","false") #no: to not keep the initial sort but true to sort the list
-			sort_list.push Selection.new("no","true")
-		%>
-		<%=
-			check_box_tag "Notice sort"
-			#select_tag "sort",
-            	#options_from_collection_for_select(sort_list,"value","tag",route.sort),
-				#:style=>"width:117px;"
-		%>
-	</td>
-	</tr>
-		<tr>
-			<td style="width:120px;">	
-				Select algorithm:
-			</td>
-			<td align="right">
-				<%
-					alg_list = Array.new
-				    alg_list.push Selection.new("osrm","osrm")
-					# alg_list.push Selection.new("fast","A*")
-					# alg_list.push Selection.new("exact","Dijkstra")
-				    alg_list.push Selection.new("energy","energy")
-				%>
-				<%= select_tag "setAlgorithmus",
-            		options_from_collection_for_select(alg_list,"value","tag",route.algorithmus),
-						:style=>"width:117px;",
-	    				:onchange => "algoContent();"
-	    				#:url => "/get_algo_dynamic_content",
-		 	 			#:url=> "/set_route_parameters",
-			 			#:with => "'algo=' +document.getElementById('setAlgorithmus').value")
-				%>
-			</td>
-		</tr>
-</table>
-<div id="energy_form" width=100% style="display:none">
-	<%= render "init/energy_form" %>
-</div>
-	<% if route.is_ready %>
-		<%= submit_tag "Route berechnen",:id => "calculate_route", :disabled => false, :remote => true, 
-				:onclick => 'showWall();'%>
-	<%else%>
-		<%= submit_tag "Route berechnen",:id => "calculate_route", :disabled => true, 
-				:onclick => 'showWall();'%>
+	<%=form_tag "calculate_route", :remote => true do%>
+		<table width=100%>
+			<tr>
+		    	<td><%= link_to "Reset Route", "/reset_method" %></td>
+		  	</tr>
+		  	<tr>
+				<td>Notice sort (does not work):</td>
+				<td align="right"><%= check_box_tag "Notice sort"%></td>
+			</tr>
+			<tr>
+				<td>Select algorithm:</td>
+				<td align="right">
+						<%= select_tag "setAlgorithmus",
+		            		options_from_collection_for_select(@alg_list,"value","tag",@route.algorithmus),
+								:style=>"width:117px;",
+			    				:onchange => "algoContent();"
+						%>
+				</td>
+			</tr>
+		</table>
+		<div id="energy_form" width=100% style="display:none">
+			<%= render "init/energy_form" %>
+		</div>
+		<%= submit_tag "Route berechnen",:id => "calculate_route", :disabled => @route.is_ready, :remote => true, 
+						:onclick => 'showWall();'%>
 	<%end%>
-<%end%>
 </div>
