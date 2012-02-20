@@ -435,9 +435,11 @@ function testInit(){
 }
 
 function readyToCreateRoute(){
+	alert("anfang");
 	//if start and endpoint are set
-	if(document.getElementsByName("start_query").value != "" && document.getElementsByName("end_query").value != ""){
+	if((document.getElementById("start_query").value != "") && (document.getElementById("end_query").value != "")){
 		document.getElementById("calculate_route").disabled = false;
+		alert("enable");
 	} else {
 		document.getElementById("calculate_route").disabled = true;
 	}

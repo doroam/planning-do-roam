@@ -2,11 +2,9 @@
 <p><%= link_to result[:name],
             {:controller => :point,
             :action=> :update_point,
-            type=> "true",
-            :result => result},
+            :result => result,
+            :type => type},
             :onmouseover => "highMarker('"+result[:place_id]+"');",
             :onmouseout => "downMarker('"+result[:place_id]+"');",
             :remote => true
-            #:onclick => 'hideResults()'
-            #:onclick => 'showWall();'
             %></p>

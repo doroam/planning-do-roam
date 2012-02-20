@@ -1,22 +1,21 @@
 class PointController < ApplicationController
-  include point_helper
   
   #controller is called on each activity action
   def update_point
     @route = current_route
     
     #start point was set
-    if params[:start]!=nil
+    if params[:type]=="start"
       point = @route.start_point
       @type = 'start'
-    elsif params[:end]!=nil
+    else
       point = @route.end_point
       @type = 'end'
     end
 
     if point != nil
       if params[:result]!= nil
-        set_point_from_result(point)
+        point.set_point_from_result(params[:result])
       else
         set_point(point)
       end

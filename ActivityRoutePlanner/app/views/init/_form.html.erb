@@ -1,11 +1,11 @@
 <a href="#" onclick="toggleStructured()">Structured input</a>
 <div style="display:none" class="structured">
 	<table>
-		<tr><td>Start:</td><td align="right">
+		<tr><td>Start:</td><td align="right" id="start">
 	  		<%= render :partial => 'init/point_form',:locals => {:point => @route.start_point,:type => 'start',:action_url=>"/search"} %>
 		</td></tr>
 		<tr id="waypoint"><td>add Waypoint (future)</td></tr>
-		<tr><td>Destination:</td><td align="right">
+		<tr><td>Destination:</td><td align="right" id="end">
 			<%= render :partial => 'init/point_form',:locals => {:point => @route.end_point,:type => 'end',:action_url=>"/search"}%>
 		</td></tr>
 	</table>        

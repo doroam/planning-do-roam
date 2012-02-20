@@ -127,4 +127,43 @@ public
   def label_js
     return self.label.gsub(/'/, "\\\\'")
   end
+  
+  def set_point_from_result(result)
+    if result[:name].nil?
+      self.label = result[:lat] + ":" + result[:lon]
+    else
+      self.label = result[:name]
+    end
+    self.set_coordinates(result[:lat], result[:lon])
+    self.set_edge
+    self.save
+      
+  end
+  
+      # #sets a point with the entered label
+  # def set_point_from_result(point)
+    # label = params[:result][:name]
+    # if label==nil || "".eql?(label)
+      # label = params[:result][:lat]+":"+params[:result][:lon]
+    # end
+    # set_point_info(point, label, params[:result][:lat],params[:result][:lon])
+  # end
+
+  def set_point
+    self.label = params[:name]
+    if label==nil || "".eql?(label)
+      self.label = params[:lat]+":"+params[:lon]
+    end
+    self.set_coordinates(result.lat, result.lon)
+    self.set_edge
+    self.save
+  end
+
+  # def set_point_info(point,label,lat,lon)
+    # point.label = label
+    # point.set_coordinates(lat,lon)
+    # point.set_edge
+    # point.save
+  # end
+  
 end

@@ -12,7 +12,7 @@
 				<td>Select algorithm:</td>
 				<td align="right">
 						<%= select_tag "setAlgorithmus",
-		            		options_from_collection_for_select(@alg_list,"value","tag",@route.algorithmus),
+		            		options_from_collection_for_select(@alg_list, "value","tag",@route.algorithmus),
 								:style=>"width:117px;",
 			    				:onchange => "algoContent();"
 						%>
@@ -25,4 +25,5 @@
 		<%= submit_tag "Route berechnen",:id => "calculate_route", :disabled => @route.is_ready, :remote => true, 
 						:onclick => 'showWall();'%>
 	<%end%>
+	<script type="text/javascript">readyToCreateRoute()</script>
 </div>
