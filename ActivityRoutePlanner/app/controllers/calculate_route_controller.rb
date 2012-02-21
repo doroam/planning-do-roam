@@ -28,7 +28,6 @@ class CalculateRouteController < ApplicationController
       params[:kml]  = res
       File.open(file_name, 'w') {|f| f.write(res) }
     else
-      puts "####################################################################"
       File.open(file_name, 'wb') do |file|
         file.write(open("http://routingdemo.geofabrik.de/route-via/&start=#{route.start_point.lat},#{route.start_point.lon}&dest=#{route.end_point.lat},#{route.end_point.lon}&z=15&output=kml").read)
         #file.write("test");
