@@ -148,13 +148,13 @@ public
     # end
     # set_point_info(point, label, params[:result][:lat],params[:result][:lon])
   # end
-
-  def set_point
-    self.label = params[:name]
+  
+    def set_point(lat, lon, name = nil)
+    self.label =name
     if label==nil || "".eql?(label)
-      self.label = params[:lat]+":"+params[:lon]
+      self.label = lat+":"+lon
     end
-    self.set_coordinates(result.lat, result.lon)
+    self.set_coordinates(lat, lon)
     self.set_edge
     self.save
   end

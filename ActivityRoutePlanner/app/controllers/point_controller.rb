@@ -17,7 +17,7 @@ class PointController < ApplicationController
       if params[:result]!= nil
         point.set_point_from_result(params[:result])
       else
-        set_point(point)
+        point.set_point(params[:lat], params[:lon])
       end
     end
     respond_to do |format|
