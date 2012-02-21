@@ -1,12 +1,9 @@
 ActivityRoutePlanner::Application.routes.draw do
   
-  get "init/header"
-
-  get "init/content"
-
-  get "init/menu"
-
-  get "init/index"
+  #get "init/header"
+  #get "init/content"
+  #get "init/menu"
+  #get "init/index"
 
   root :to => "init#index"
   

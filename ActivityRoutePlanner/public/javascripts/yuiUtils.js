@@ -197,6 +197,7 @@ function showOntology(){
     loadContent(url,"ontology_div");
     YAHOO.yuiObjectContainer.ontology.show();
 }
+
 function hideOntology(){
     if(YAHOO.yuiObjectContainer.ontology)
         YAHOO.yuiObjectContainer.ontology.hide();

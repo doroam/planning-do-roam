@@ -92,9 +92,8 @@ class OntologiesController < ApplicationController
          ["name like ? and ontology_id = ?","%#{params[:search]}%",@ontology.id])    
   end
 
-    def maketxt
-    Ontology.write_js_text_files
-    
+  def maketxt
+    Ontology.write_js_text_files  
   end
 
 end
