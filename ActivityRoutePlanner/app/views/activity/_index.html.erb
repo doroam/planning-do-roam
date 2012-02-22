@@ -1,0 +1,20 @@
+<%route = Route.find(session[:main_route])%>
+<span id="activity_id">
+  <table>
+<% 
+  if route.activities != nil
+%><tr ><td colspan="2"><%=t(:activities)%>:</td></tr><%
+        list = route.activities.all(:order => 'created_at ASC')
+	list.each do |elem| %>		  
+          <%= render :partial => 'activity/form',
+				:locals => {:activity => elem, 	:show_delete => !elem.is_empty}
+		  %>
+        <%end%>
+  <%end%>
+
+	<tr><td colspan="2"><%= # link to remove that activity
+	link_to image_tag("add.png", :border=>0,:class => "delete"), "#", :remote => true,:onclick=>'showOntology();'%>
+            </td></tr>
+
+</table>
+</span>
