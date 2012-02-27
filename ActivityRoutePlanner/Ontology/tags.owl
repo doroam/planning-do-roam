@@ -7,25 +7,25 @@
     <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
-    <!ENTITY unamed "http://www.dfki.de/sks/hets/ontology/unamed#" >
-    <!ENTITY yes "http://www.dfki.de/sks/hets/ontology/unamed#yes/" >
-    <!ENTITY k_fuel "http://www.dfki.de/sks/hets/ontology/unamed#k_fuel:" >
-    <!ENTITY k_addr "http://www.dfki.de/sks/hets/ontology/unamed#k_addr:" >
-    <!ENTITY k_contact "http://www.dfki.de/sks/hets/ontology/unamed#k_contact:" >
-    <!ENTITY k_theatre "http://www.dfki.de/sks/hets/ontology/unamed#k_theatre:" >
-    <!ENTITY has_k_addr "http://www.dfki.de/sks/hets/ontology/unamed#has_k_addr:" >
-    <!ENTITY has_k_fuel "http://www.dfki.de/sks/hets/ontology/unamed#has_k_fuel:" >
-    <!ENTITY has_k_theatre "http://www.dfki.de/sks/hets/ontology/unamed#has_k_theatre:" >
+    <!ENTITY unamed "http://osmonto.do-roam.org/unamed#" >
+    <!ENTITY yes "http://osmonto.do-roam.org/unamed#yes/" >
+    <!ENTITY k_fuel "http://osmonto.do-roam.org/unamed#k_fuel:" >
+    <!ENTITY k_addr "http://osmonto.do-roam.org/unamed#k_addr:" >
+    <!ENTITY k_contact "http://osmonto.do-roam.org/unamed#k_contact:" >
+    <!ENTITY k_theatre "http://osmonto.do-roam.org/unamed#k_theatre:" >
+    <!ENTITY has_k_addr "http://osmonto.do-roam.org/unamed#has_k_addr:" >
+    <!ENTITY has_k_fuel "http://osmonto.do-roam.org/unamed#has_k_fuel:" >
+    <!ENTITY has_k_theatre "http://osmonto.do-roam.org/unamed#has_k_theatre:" >
 ]>
 
 
-<rdf:RDF xmlns="http://www.dfki.de/sks/hets/ontology/unamed#"
-     xml:base="http://www.dfki.de/sks/hets/ontology/unamed"
+<rdf:RDF xmlns="http://osmonto.do-roam.org/unamed#"
+     xml:base="http://osmonto.do-roam.org/unamed"
      xmlns:has_k_fuel="&unamed;has_k_fuel:"
      xmlns:k_theatre="&unamed;k_theatre:"
      xmlns:has_k_addr="&unamed;has_k_addr:"
      xmlns:k_fuel="&unamed;k_fuel:"
-     xmlns:unamed="http://www.dfki.de/sks/hets/ontology/unamed#"
+     xmlns:unamed="http://osmonto.do-roam.org/unamed#"
      xmlns:k_addr="&unamed;k_addr:"
      xmlns:yes="&unamed;yes/"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
@@ -50,7 +50,11 @@
     
 
 
+<<<<<<< HEAD
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_address -->
+=======
+    <!-- http://osmonto.do-roam.org/unamed#has_address -->
+>>>>>>> 17850025be8b291c0db0b53b938b28053c3618e5
 
     <owl:ObjectProperty rdf:about="#has_address">
         <rdfs:range rdf:resource="#address"/>
@@ -59,7 +63,11 @@
     
 
 
+<<<<<<< HEAD
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_contact -->
+=======
+    <!-- http://osmonto.do-roam.org/unamed#has_contact -->
+>>>>>>> 17850025be8b291c0db0b53b938b28053c3618e5
 
     <owl:ObjectProperty rdf:about="#has_contact">
         <rdfs:domain rdf:resource="#can_have_contact"/>
@@ -68,7 +76,11 @@
     
 
 
+<<<<<<< HEAD
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_aeroway -->
+=======
+    <!-- http://osmonto.do-roam.org/unamed#has_k_aeroway -->
+>>>>>>> 17850025be8b291c0db0b53b938b28053c3618e5
 
     <owl:ObjectProperty rdf:about="#has_k_aeroway">
         <rdfs:range rdf:resource="#k_aeroway"/>
@@ -77,7 +89,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_amenity -->
+    <!-- http://osmonto.do-roam.org/unamed#has_k_amenity -->
 
     <owl:ObjectProperty rdf:about="#has_k_amenity">
         <rdfs:range rdf:resource="#k_amenity"/>
@@ -86,7 +98,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_atm -->
+    <!-- http://osmonto.do-roam.org/unamed#has_k_atm -->
 
     <owl:ObjectProperty rdf:about="#has_k_atm">
         <rdfs:domain rdf:resource="#can_have_k_atm"/>
@@ -95,7 +107,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_bicycle_parking -->
+    <!-- http://osmonto.do-roam.org/unamed#has_k_bicycle_parking -->
 
     <owl:ObjectProperty rdf:about="#has_k_bicycle_parking">
         <rdfs:range rdf:resource="#k_bicycle_parking"/>
@@ -104,7 +116,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_castle_type -->
+    <!-- http://osmonto.do-roam.org/unamed#has_k_castle_type -->
 
     <owl:ObjectProperty rdf:about="#has_k_castle_type">
         <rdfs:domain rdf:resource="#can_have_k_castle_type"/>
@@ -113,7 +125,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_cuisine -->
+    <!-- http://osmonto.do-roam.org/unamed#has_k_cuisine -->
 
     <owl:ObjectProperty rdf:about="#has_k_cuisine">
         <rdfs:domain rdf:resource="#can_have_k_cuisine"/>
@@ -122,7 +134,11 @@
     
 
 
+<<<<<<< HEAD
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_denomination -->
+=======
+    <!-- http://osmonto.do-roam.org/unamed#has_k_denomination -->
+>>>>>>> 17850025be8b291c0db0b53b938b28053c3618e5
 
     <owl:ObjectProperty rdf:about="#has_k_denomination">
         <rdfs:range rdf:resource="#k_denomination"/>
@@ -131,7 +147,11 @@
     
 
 
+<<<<<<< HEAD
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_drive-through -->
+=======
+    <!-- http://osmonto.do-roam.org/unamed#has_k_drive-through -->
+>>>>>>> 17850025be8b291c0db0b53b938b28053c3618e5
 
     <owl:ObjectProperty rdf:about="#has_k_drive-through">
         <rdfs:domain rdf:resource="#can_have_k_drive-through"/>
@@ -140,7 +160,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_fee -->
+    <!-- http://osmonto.do-roam.org/unamed#has_k_fee -->
 
     <owl:ObjectProperty rdf:about="#has_k_fee">
         <rdfs:domain rdf:resource="#can_have_k_fee"/>
@@ -149,7 +169,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_fuel:electricity -->
+    <!-- http://osmonto.do-roam.org/unamed#has_k_fuel:electricity -->
 
     <owl:ObjectProperty rdf:about="#has_k_fuel:electricity">
         <rdfs:domain rdf:resource="#v_fuel"/>
@@ -158,7 +178,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_highway -->
+    <!-- http://osmonto.do-roam.org/unamed#has_k_highway -->
 
     <owl:ObjectProperty rdf:about="#has_k_highway">
         <rdfs:range rdf:resource="#k_highway"/>
@@ -167,7 +187,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_historic -->
+    <!-- http://osmonto.do-roam.org/unamed#has_k_historic -->
 
     <owl:ObjectProperty rdf:about="#has_k_historic">
         <rdfs:range rdf:resource="#k_historic"/>
@@ -176,7 +196,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_landuse -->
+    <!-- http://osmonto.do-roam.org/unamed#has_k_landuse -->
 
     <owl:ObjectProperty rdf:about="#has_k_landuse">
         <rdfs:range rdf:resource="#k_landuse"/>
@@ -185,7 +205,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_leisure -->
+    <!-- http://osmonto.do-roam.org/unamed#has_k_leisure -->
 
     <owl:ObjectProperty rdf:about="#has_k_leisure">
         <rdfs:range rdf:resource="#k_leisure"/>
@@ -194,7 +214,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_military -->
+    <!-- http://osmonto.do-roam.org/unamed#has_k_military -->
 
     <owl:ObjectProperty rdf:about="#has_k_military">
         <rdfs:range rdf:resource="#k_military"/>
@@ -203,7 +223,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_natural -->
+    <!-- http://osmonto.do-roam.org/unamed#has_k_natural -->
 
     <owl:ObjectProperty rdf:about="#has_k_natural">
         <rdfs:range rdf:resource="#k_natural"/>
@@ -212,7 +232,11 @@
     
 
 
+<<<<<<< HEAD
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_power -->
+=======
+    <!-- http://osmonto.do-roam.org/unamed#has_k_power -->
+>>>>>>> 17850025be8b291c0db0b53b938b28053c3618e5
 
     <owl:ObjectProperty rdf:about="#has_k_power">
         <rdfs:range rdf:resource="#k_power"/>
@@ -221,7 +245,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_religion -->
+    <!-- http://osmonto.do-roam.org/unamed#has_k_religion -->
 
     <owl:ObjectProperty rdf:about="#has_k_religion">
         <rdfs:range rdf:resource="#k_religion"/>
@@ -230,7 +254,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_ruins -->
+    <!-- http://osmonto.do-roam.org/unamed#has_k_ruins -->
 
     <owl:ObjectProperty rdf:about="#has_k_ruins">
         <rdfs:domain rdf:resource="#can_have_k_ruins"/>
@@ -239,7 +263,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_self_service -->
+    <!-- http://osmonto.do-roam.org/unamed#has_k_self_service -->
 
     <owl:ObjectProperty rdf:about="#has_k_self_service">
         <rdfs:domain rdf:resource="#can_have_k_self_service"/>
@@ -248,7 +272,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_shop -->
+    <!-- http://osmonto.do-roam.org/unamed#has_k_shop -->
 
     <owl:ObjectProperty rdf:about="#has_k_shop">
         <rdfs:range rdf:resource="#k_shop"/>
@@ -257,7 +281,11 @@
     
 
 
+<<<<<<< HEAD
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_smokefree -->
+=======
+    <!-- http://osmonto.do-roam.org/unamed#has_k_smokefree -->
+>>>>>>> 17850025be8b291c0db0b53b938b28053c3618e5
 
     <owl:ObjectProperty rdf:about="#has_k_smokefree">
         <rdfs:domain rdf:resource="#can_have_k_smokefree"/>
@@ -266,7 +294,11 @@
     
 
 
+<<<<<<< HEAD
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_smoking -->
+=======
+    <!-- http://osmonto.do-roam.org/unamed#has_k_smoking -->
+>>>>>>> 17850025be8b291c0db0b53b938b28053c3618e5
 
     <owl:ObjectProperty rdf:about="#has_k_smoking">
         <rdfs:domain rdf:resource="#can_have_k_smoking"/>
@@ -275,7 +307,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_sport -->
+    <!-- http://osmonto.do-roam.org/unamed#has_k_sport -->
 
     <owl:ObjectProperty rdf:about="#has_k_sport">
         <rdfs:range rdf:resource="#k_sport"/>
@@ -284,7 +316,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_theatre:genre -->
+    <!-- http://osmonto.do-roam.org/unamed#has_k_theatre:genre -->
 
     <owl:ObjectProperty rdf:about="#has_k_theatre:genre">
         <rdfs:range rdf:resource="#k_theatre:genre"/>
@@ -293,7 +325,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_tourism -->
+    <!-- http://osmonto.do-roam.org/unamed#has_k_tourism -->
 
     <owl:ObjectProperty rdf:about="#has_k_tourism">
         <rdfs:range rdf:resource="#k_tourism"/>
@@ -302,7 +334,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#has_k_waterway -->
+    <!-- http://osmonto.do-roam.org/unamed#has_k_waterway -->
 
     <owl:ObjectProperty rdf:about="#has_k_waterway">
         <rdfs:range rdf:resource="#k_waterway"/>
@@ -322,7 +354,12 @@
     
 
 
+<<<<<<< HEAD
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_addr:city -->
+
+    <owl:DatatypeProperty rdf:about="#k_addr:city">
+=======
+    <!-- http://osmonto.do-roam.org/unamed#k_addr:city -->
 
     <owl:DatatypeProperty rdf:about="#k_addr:city">
         <rdfs:domain rdf:resource="#address"/>
@@ -331,7 +368,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_addr:country -->
+    <!-- http://osmonto.do-roam.org/unamed#k_addr:country -->
 
     <owl:DatatypeProperty rdf:about="#k_addr:country">
         <rdfs:domain rdf:resource="#address"/>
@@ -340,7 +377,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_addr:district -->
+    <!-- http://osmonto.do-roam.org/unamed#k_addr:district -->
 
     <owl:DatatypeProperty rdf:about="#k_addr:district">
         <rdfs:domain rdf:resource="#address"/>
@@ -349,7 +386,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_addr:hamlet -->
+    <!-- http://osmonto.do-roam.org/unamed#k_addr:hamlet -->
 
     <owl:DatatypeProperty rdf:about="#k_addr:hamlet">
         <rdfs:domain rdf:resource="#address"/>
@@ -358,15 +395,77 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_addr:housename -->
+    <!-- http://osmonto.do-roam.org/unamed#k_addr:housename -->
 
     <owl:DatatypeProperty rdf:about="#k_addr:housename">
+>>>>>>> 17850025be8b291c0db0b53b938b28053c3618e5
         <rdfs:domain rdf:resource="#address"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
 
 
+<<<<<<< HEAD
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_addr:country -->
+
+    <owl:DatatypeProperty rdf:about="#k_addr:country">
+=======
+    <!-- http://osmonto.do-roam.org/unamed#k_addr:housenumber -->
+
+    <owl:DatatypeProperty rdf:about="#k_addr:housenumber">
+>>>>>>> 17850025be8b291c0db0b53b938b28053c3618e5
+        <rdfs:domain rdf:resource="#address"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+<<<<<<< HEAD
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_addr:district -->
+
+    <owl:DatatypeProperty rdf:about="#k_addr:district">
+=======
+    <!-- http://osmonto.do-roam.org/unamed#k_addr:postcode -->
+
+    <owl:DatatypeProperty rdf:about="#k_addr:postcode">
+>>>>>>> 17850025be8b291c0db0b53b938b28053c3618e5
+        <rdfs:domain rdf:resource="#address"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+<<<<<<< HEAD
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_addr:hamlet -->
+
+    <owl:DatatypeProperty rdf:about="#k_addr:hamlet">
+=======
+    <!-- http://osmonto.do-roam.org/unamed#k_addr:province -->
+
+    <owl:DatatypeProperty rdf:about="#k_addr:province">
+>>>>>>> 17850025be8b291c0db0b53b938b28053c3618e5
+        <rdfs:domain rdf:resource="#address"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+<<<<<<< HEAD
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_addr:housename -->
+
+    <owl:DatatypeProperty rdf:about="#k_addr:housename">
+=======
+    <!-- http://osmonto.do-roam.org/unamed#k_addr:street -->
+
+    <owl:DatatypeProperty rdf:about="#k_addr:street">
+>>>>>>> 17850025be8b291c0db0b53b938b28053c3618e5
+        <rdfs:domain rdf:resource="#address"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+<<<<<<< HEAD
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_addr:housenumber -->
 
     <owl:DatatypeProperty rdf:about="#k_addr:housenumber">
@@ -405,6 +504,10 @@
 
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_addr:subdistrict -->
 
+=======
+    <!-- http://osmonto.do-roam.org/unamed#k_addr:subdistrict -->
+
+>>>>>>> 17850025be8b291c0db0b53b938b28053c3618e5
     <owl:DatatypeProperty rdf:about="#k_addr:subdistrict">
         <rdfs:domain rdf:resource="#address"/>
         <rdfs:range rdf:resource="&xsd;string"/>
@@ -412,7 +515,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_beds -->
+    <!-- http://osmonto.do-roam.org/unamed#k_beds -->
 
     <owl:DatatypeProperty rdf:about="#k_beds">
         <rdfs:domain rdf:resource="#can_have_k_beds"/>
@@ -421,7 +524,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_bic -->
+    <!-- http://osmonto.do-roam.org/unamed#k_bic -->
 
     <owl:DatatypeProperty rdf:about="#k_bic">
         <rdfs:domain rdf:resource="#can_have_k_bic"/>
@@ -430,7 +533,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_capacity -->
+    <!-- http://osmonto.do-roam.org/unamed#k_capacity -->
 
     <owl:DatatypeProperty rdf:about="#k_capacity">
         <rdfs:domain rdf:resource="#can_have_k_capacity"/>
@@ -439,7 +542,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_collection_times -->
+    <!-- http://osmonto.do-roam.org/unamed#k_collection_times -->
 
     <owl:DatatypeProperty rdf:about="#k_collection_times">
         <rdfs:domain rdf:resource="#can_have_k_collection_times"/>
@@ -448,6 +551,7 @@
     
 
 
+<<<<<<< HEAD
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_contact:email -->
 
     <owl:DatatypeProperty rdf:about="#k_contact:email">
@@ -494,6 +598,54 @@
 
 
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_currency -->
+=======
+    <!-- http://osmonto.do-roam.org/unamed#k_contact:email -->
+>>>>>>> 17850025be8b291c0db0b53b938b28053c3618e5
+
+    <owl:DatatypeProperty rdf:about="#k_contact:email">
+        <rdfs:domain rdf:resource="#contact"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://osmonto.do-roam.org/unamed#k_contact:fax -->
+
+    <owl:DatatypeProperty rdf:about="#k_contact:fax">
+        <rdfs:domain rdf:resource="#contact"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://osmonto.do-roam.org/unamed#k_contact:phone -->
+
+    <owl:DatatypeProperty rdf:about="#k_contact:phone">
+        <rdfs:domain rdf:resource="#contact"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://osmonto.do-roam.org/unamed#k_contact:webcam -->
+
+    <owl:DatatypeProperty rdf:about="#k_contact:webcam">
+        <rdfs:domain rdf:resource="#contact"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://osmonto.do-roam.org/unamed#k_contact:website -->
+
+    <owl:DatatypeProperty rdf:about="#k_contact:website">
+        <rdfs:domain rdf:resource="#contact"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://osmonto.do-roam.org/unamed#k_currency -->
 
     <owl:DatatypeProperty rdf:about="#k_currency">
         <rdfs:domain rdf:resource="#can_have_k_currency"/>
@@ -502,7 +654,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_name -->
+    <!-- http://osmonto.do-roam.org/unamed#k_name -->
 
     <owl:DatatypeProperty rdf:about="#k_name">
         <rdfs:domain rdf:resource="#can_have_k_name"/>
@@ -511,7 +663,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_network -->
+    <!-- http://osmonto.do-roam.org/unamed#k_network -->
 
     <owl:DatatypeProperty rdf:about="#k_network">
         <rdfs:domain rdf:resource="#can_have_k_network"/>
@@ -520,7 +672,9 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_opening_hours -->
+<<<<<<< HEAD
+=======
+    <!-- http://osmonto.do-roam.org/unamed#k_opening_hours -->
 
     <owl:DatatypeProperty rdf:about="#k_opening_hours">
         <rdfs:domain rdf:resource="#can_have_k_opening_hours"/>
@@ -529,7 +683,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_operator -->
+    <!-- http://osmonto.do-roam.org/unamed#k_operator -->
 
     <owl:DatatypeProperty rdf:about="#k_operator">
         <rdfs:domain rdf:resource="#can_have_k_operator"/>
@@ -538,7 +692,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_ref -->
+    <!-- http://osmonto.do-roam.org/unamed#k_ref -->
 
     <owl:DatatypeProperty rdf:about="#k_ref">
         <rdfs:domain rdf:resource="#can_have_k_ref"/>
@@ -547,7 +701,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_rooms -->
+    <!-- http://osmonto.do-roam.org/unamed#k_rooms -->
 
     <owl:DatatypeProperty rdf:about="#k_rooms">
         <rdfs:domain rdf:resource="#can_have_k_rooms"/>
@@ -556,7 +710,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_service_times -->
+    <!-- http://osmonto.do-roam.org/unamed#k_service_times -->
 
     <owl:DatatypeProperty rdf:about="#k_service_times">
         <rdfs:domain rdf:resource="#can_have_k_service_times"/>
@@ -565,6 +719,7 @@
     
 
 
+>>>>>>> 17850025be8b291c0db0b53b938b28053c3618e5
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -576,7 +731,11 @@
     
 
 
+<<<<<<< HEAD
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#ArabicRestaurant -->
+=======
+    <!-- http://osmonto.do-roam.org/unamed#ArabicRestaurant -->
+>>>>>>> 17850025be8b291c0db0b53b938b28053c3618e5
 
     <owl:Class rdf:about="#ArabicRestaurant">
         <rdfs:subClassOf rdf:resource="#v_restaurant"/>
@@ -584,7 +743,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#AsianRestaurant -->
+    <!-- http://osmonto.do-roam.org/unamed#AsianRestaurant -->
 
     <owl:Class rdf:about="#AsianRestaurant">
         <rdfs:subClassOf rdf:resource="#v_restaurant"/>
@@ -592,7 +751,11 @@
     
 
 
+<<<<<<< HEAD
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#ChineseRestaurant -->
+=======
+    <!-- http://osmonto.do-roam.org/unamed#ChineseRestaurant -->
+>>>>>>> 17850025be8b291c0db0b53b938b28053c3618e5
 
     <owl:Class rdf:about="#ChineseRestaurant">
         <rdfs:subClassOf rdf:resource="#v_restaurant"/>
@@ -600,7 +763,11 @@
     
 
 
+<<<<<<< HEAD
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#FrenchRestaurant -->
+=======
+    <!-- http://osmonto.do-roam.org/unamed#FrenchRestaurant -->
+>>>>>>> 17850025be8b291c0db0b53b938b28053c3618e5
 
     <owl:Class rdf:about="#FrenchRestaurant">
         <rdfs:subClassOf rdf:resource="#v_restaurant"/>
@@ -608,7 +775,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#GermanRestaurant -->
+    <!-- http://osmonto.do-roam.org/unamed#GermanRestaurant -->
 
     <owl:Class rdf:about="#GermanRestaurant">
         <rdfs:subClassOf rdf:resource="#v_restaurant"/>
@@ -616,7 +783,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#GreekRestaurant -->
+    <!-- http://osmonto.do-roam.org/unamed#GreekRestaurant -->
 
     <owl:Class rdf:about="#GreekRestaurant">
         <rdfs:subClassOf rdf:resource="#v_restaurant"/>
@@ -624,7 +791,11 @@
     
 
 
+<<<<<<< HEAD
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#IndianRestaurant -->
+=======
+    <!-- http://osmonto.do-roam.org/unamed#IndianRestaurant -->
+>>>>>>> 17850025be8b291c0db0b53b938b28053c3618e5
 
     <owl:Class rdf:about="#IndianRestaurant">
         <rdfs:subClassOf rdf:resource="#v_restaurant"/>
@@ -632,7 +803,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#ItalianRestaurant -->
+    <!-- http://osmonto.do-roam.org/unamed#ItalianRestaurant -->
 
     <owl:Class rdf:about="#ItalianRestaurant">
         <rdfs:subClassOf rdf:resource="#v_restaurant"/>
@@ -640,7 +811,11 @@
     
 
 
+<<<<<<< HEAD
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#SpanishRestaurant -->
+=======
+    <!-- http://osmonto.do-roam.org/unamed#SpanishRestaurant -->
+>>>>>>> 17850025be8b291c0db0b53b938b28053c3618e5
 
     <owl:Class rdf:about="#SpanishRestaurant">
         <rdfs:subClassOf rdf:resource="#v_restaurant"/>
@@ -648,7 +823,11 @@
     
 
 
+<<<<<<< HEAD
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#ThaiRestaurant -->
+=======
+    <!-- http://osmonto.do-roam.org/unamed#ThaiRestaurant -->
+>>>>>>> 17850025be8b291c0db0b53b938b28053c3618e5
 
     <owl:Class rdf:about="#ThaiRestaurant">
         <rdfs:subClassOf rdf:resource="#v_restaurant"/>
@@ -656,7 +835,11 @@
     
 
 
+<<<<<<< HEAD
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#address -->
+=======
+    <!-- http://osmonto.do-roam.org/unamed#address -->
+>>>>>>> 17850025be8b291c0db0b53b938b28053c3618e5
 
     <owl:Class rdf:about="#address">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -664,7 +847,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#can_have_address -->
+    <!-- http://osmonto.do-roam.org/unamed#can_have_address -->
 
     <owl:Class rdf:about="#can_have_address">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -672,7 +855,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#can_have_contact -->
+    <!-- http://osmonto.do-roam.org/unamed#can_have_contact -->
 
     <owl:Class rdf:about="#can_have_contact">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -680,7 +863,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#can_have_k_atm -->
+    <!-- http://osmonto.do-roam.org/unamed#can_have_k_atm -->
 
     <owl:Class rdf:about="#can_have_k_atm">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -688,7 +871,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#can_have_k_beds -->
+    <!-- http://osmonto.do-roam.org/unamed#can_have_k_beds -->
 
     <owl:Class rdf:about="#can_have_k_beds">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -696,7 +879,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#can_have_k_bic -->
+    <!-- http://osmonto.do-roam.org/unamed#can_have_k_bic -->
 
     <owl:Class rdf:about="#can_have_k_bic">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -704,7 +887,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#can_have_k_brand -->
+    <!-- http://osmonto.do-roam.org/unamed#can_have_k_brand -->
 
     <owl:Class rdf:about="#can_have_k_brand">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -712,7 +895,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#can_have_k_capacity -->
+    <!-- http://osmonto.do-roam.org/unamed#can_have_k_capacity -->
 
     <owl:Class rdf:about="#can_have_k_capacity">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -720,7 +903,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#can_have_k_castle_type -->
+    <!-- http://osmonto.do-roam.org/unamed#can_have_k_castle_type -->
 
     <owl:Class rdf:about="#can_have_k_castle_type">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -728,7 +911,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#can_have_k_collection_times -->
+    <!-- http://osmonto.do-roam.org/unamed#can_have_k_collection_times -->
 
     <owl:Class rdf:about="#can_have_k_collection_times">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -736,7 +919,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#can_have_k_cuisine -->
+    <!-- http://osmonto.do-roam.org/unamed#can_have_k_cuisine -->
 
     <owl:Class rdf:about="#can_have_k_cuisine">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -744,7 +927,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#can_have_k_currency -->
+    <!-- http://osmonto.do-roam.org/unamed#can_have_k_currency -->
 
     <owl:Class rdf:about="#can_have_k_currency">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -752,7 +935,11 @@
     
 
 
+<<<<<<< HEAD
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#can_have_k_drive-through -->
+=======
+    <!-- http://osmonto.do-roam.org/unamed#can_have_k_drive-through -->
+>>>>>>> 17850025be8b291c0db0b53b938b28053c3618e5
 
     <owl:Class rdf:about="#can_have_k_drive-through">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -760,7 +947,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#can_have_k_fee -->
+    <!-- http://osmonto.do-roam.org/unamed#can_have_k_fee -->
 
     <owl:Class rdf:about="#can_have_k_fee">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -768,7 +955,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#can_have_k_name -->
+    <!-- http://osmonto.do-roam.org/unamed#can_have_k_name -->
 
     <owl:Class rdf:about="#can_have_k_name">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -776,7 +963,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#can_have_k_network -->
+    <!-- http://osmonto.do-roam.org/unamed#can_have_k_network -->
 
     <owl:Class rdf:about="#can_have_k_network">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -784,7 +971,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#can_have_k_opening_hours -->
+    <!-- http://osmonto.do-roam.org/unamed#can_have_k_opening_hours -->
 
     <owl:Class rdf:about="#can_have_k_opening_hours">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -792,7 +979,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#can_have_k_operator -->
+    <!-- http://osmonto.do-roam.org/unamed#can_have_k_operator -->
 
     <owl:Class rdf:about="#can_have_k_operator">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -800,7 +987,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#can_have_k_ref -->
+    <!-- http://osmonto.do-roam.org/unamed#can_have_k_ref -->
 
     <owl:Class rdf:about="#can_have_k_ref">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -808,7 +995,10 @@
     
 
 
+<<<<<<< HEAD
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#can_have_k_rooms -->
+=======
+    <!-- http://osmonto.do-roam.org/unamed#can_have_k_rooms -->
 
     <owl:Class rdf:about="#can_have_k_rooms">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -816,6 +1006,16 @@
     
 
 
+    <!-- http://osmonto.do-roam.org/unamed#can_have_k_ruins -->
+>>>>>>> 17850025be8b291c0db0b53b938b28053c3618e5
+
+    <owl:Class rdf:about="#can_have_k_ruins">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+<<<<<<< HEAD
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#can_have_k_ruins -->
 
     <owl:Class rdf:about="#can_have_k_ruins">
@@ -825,6 +1025,9 @@
 
 
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#can_have_k_self_service -->
+=======
+    <!-- http://osmonto.do-roam.org/unamed#can_have_k_self_service -->
+>>>>>>> 17850025be8b291c0db0b53b938b28053c3618e5
 
     <owl:Class rdf:about="#can_have_k_self_service">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -832,7 +1035,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#can_have_k_service_times -->
+    <!-- http://osmonto.do-roam.org/unamed#can_have_k_service_times -->
 
     <owl:Class rdf:about="#can_have_k_service_times">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -840,6 +1043,7 @@
     
 
 
+<<<<<<< HEAD
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#can_have_k_smokefree -->
 
     <owl:Class rdf:about="#can_have_k_smokefree">
@@ -849,6 +1053,17 @@
 
 
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#can_have_k_smoking -->
+=======
+    <!-- http://osmonto.do-roam.org/unamed#can_have_k_smokefree -->
+>>>>>>> 17850025be8b291c0db0b53b938b28053c3618e5
+
+    <owl:Class rdf:about="#can_have_k_smokefree">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://osmonto.do-roam.org/unamed#can_have_k_smoking -->
 
     <owl:Class rdf:about="#can_have_k_smoking">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -856,7 +1071,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#contact -->
+    <!-- http://osmonto.do-roam.org/unamed#contact -->
 
     <owl:Class rdf:about="#contact">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -864,7 +1079,10 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#decision -->
+<<<<<<< HEAD
+    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_aerialway -->
+=======
+    <!-- http://osmonto.do-roam.org/unamed#decision -->
 
     <owl:Class rdf:about="#decision">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -872,7 +1090,8 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_aerialway -->
+    <!-- http://osmonto.do-roam.org/unamed#k_aerialway -->
+>>>>>>> 17850025be8b291c0db0b53b938b28053c3618e5
 
     <owl:Class rdf:about="#k_aerialway">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -880,7 +1099,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_aerialway_v_station -->
+    <!-- http://osmonto.do-roam.org/unamed#k_aerialway_v_station -->
 
     <owl:Class rdf:about="#k_aerialway_v_station">
         <rdfs:subClassOf rdf:resource="#k_aerialway"/>
@@ -888,7 +1107,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_aeroway -->
+    <!-- http://osmonto.do-roam.org/unamed#k_aeroway -->
 
     <owl:Class rdf:about="#k_aeroway">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -896,7 +1115,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_amenity -->
+    <!-- http://osmonto.do-roam.org/unamed#k_amenity -->
 
     <owl:Class rdf:about="#k_amenity">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -904,7 +1123,11 @@
     
 
 
+<<<<<<< HEAD
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_bicycle_parking -->
+=======
+    <!-- http://osmonto.do-roam.org/unamed#k_bicycle_parking -->
+>>>>>>> 17850025be8b291c0db0b53b938b28053c3618e5
 
     <owl:Class rdf:about="#k_bicycle_parking">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -912,7 +1135,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_boundary -->
+    <!-- http://osmonto.do-roam.org/unamed#k_boundary -->
 
     <owl:Class rdf:about="#k_boundary">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -920,7 +1143,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_boundary_v_political -->
+    <!-- http://osmonto.do-roam.org/unamed#k_boundary_v_political -->
 
     <owl:Class rdf:about="#k_boundary_v_political">
         <rdfs:subClassOf rdf:resource="#k_boundary"/>
@@ -928,7 +1151,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_castle_type -->
+    <!-- http://osmonto.do-roam.org/unamed#k_castle_type -->
 
     <owl:Class rdf:about="#k_castle_type">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -936,7 +1159,11 @@
     
 
 
+<<<<<<< HEAD
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_cuisine -->
+=======
+    <!-- http://osmonto.do-roam.org/unamed#k_cuisine -->
+>>>>>>> 17850025be8b291c0db0b53b938b28053c3618e5
 
     <owl:Class rdf:about="#k_cuisine">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -944,7 +1171,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_cuisine_v_seafood -->
+    <!-- http://osmonto.do-roam.org/unamed#k_cuisine_v_seafood -->
 
     <owl:Class rdf:about="#k_cuisine_v_seafood">
         <rdfs:subClassOf rdf:resource="#k_cuisine"/>
@@ -952,7 +1179,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_denomination -->
+    <!-- http://osmonto.do-roam.org/unamed#k_denomination -->
 
     <owl:Class rdf:about="#k_denomination">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -960,7 +1187,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_emergency -->
+    <!-- http://osmonto.do-roam.org/unamed#k_emergency -->
 
     <owl:Class rdf:about="#k_emergency">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -968,7 +1195,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_emergency_v_no -->
+    <!-- http://osmonto.do-roam.org/unamed#k_emergency_v_no -->
 
     <owl:Class rdf:about="#k_emergency_v_no">
         <rdfs:subClassOf rdf:resource="#k_emergency"/>
@@ -976,7 +1203,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_emergency_v_yes -->
+    <!-- http://osmonto.do-roam.org/unamed#k_emergency_v_yes -->
 
     <owl:Class rdf:about="#k_emergency_v_yes">
         <rdfs:subClassOf rdf:resource="#k_emergency"/>
@@ -984,7 +1211,11 @@
     
 
 
+<<<<<<< HEAD
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_geological -->
+=======
+    <!-- http://osmonto.do-roam.org/unamed#k_geological -->
+>>>>>>> 17850025be8b291c0db0b53b938b28053c3618e5
 
     <owl:Class rdf:about="#k_geological">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -992,7 +1223,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_highway -->
+    <!-- http://osmonto.do-roam.org/unamed#k_highway -->
 
     <owl:Class rdf:about="#k_highway">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -1000,7 +1231,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_historic -->
+    <!-- http://osmonto.do-roam.org/unamed#k_historic -->
 
     <owl:Class rdf:about="#k_historic">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -1008,7 +1239,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_landuse -->
+    <!-- http://osmonto.do-roam.org/unamed#k_landuse -->
 
     <owl:Class rdf:about="#k_landuse">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -1016,7 +1247,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_leisure -->
+    <!-- http://osmonto.do-roam.org/unamed#k_leisure -->
 
     <owl:Class rdf:about="#k_leisure">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -1024,7 +1255,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_man_made -->
+    <!-- http://osmonto.do-roam.org/unamed#k_man_made -->
 
     <owl:Class rdf:about="#k_man_made">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -1032,7 +1263,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_military -->
+    <!-- http://osmonto.do-roam.org/unamed#k_military -->
 
     <owl:Class rdf:about="#k_military">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -1040,7 +1271,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_natural -->
+    <!-- http://osmonto.do-roam.org/unamed#k_natural -->
 
     <owl:Class rdf:about="#k_natural">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -1048,7 +1279,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_power -->
+    <!-- http://osmonto.do-roam.org/unamed#k_power -->
 
     <owl:Class rdf:about="#k_power">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -1056,7 +1287,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_power_source -->
+    <!-- http://osmonto.do-roam.org/unamed#k_power_source -->
 
     <owl:Class rdf:about="#k_power_source">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -1064,7 +1295,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_power_source_v_no -->
+    <!-- http://osmonto.do-roam.org/unamed#k_power_source_v_no -->
 
     <owl:Class rdf:about="#k_power_source_v_no">
         <rdfs:subClassOf rdf:resource="#k_power_source"/>
@@ -1072,7 +1303,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_power_v_station -->
+    <!-- http://osmonto.do-roam.org/unamed#k_power_v_station -->
 
     <owl:Class rdf:about="#k_power_v_station">
         <rdfs:subClassOf rdf:resource="#k_power"/>
@@ -1080,7 +1311,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_power_v_tower -->
+    <!-- http://osmonto.do-roam.org/unamed#k_power_v_tower -->
 
     <owl:Class rdf:about="#k_power_v_tower">
         <rdfs:subClassOf rdf:resource="#k_power"/>
@@ -1088,7 +1319,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_railway -->
+    <!-- http://osmonto.do-roam.org/unamed#k_railway -->
 
     <owl:Class rdf:about="#k_railway">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -1096,7 +1327,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_railway_v_tram -->
+    <!-- http://osmonto.do-roam.org/unamed#k_railway_v_tram -->
 
     <owl:Class rdf:about="#k_railway_v_tram">
         <rdfs:subClassOf rdf:resource="#k_railway"/>
@@ -1104,7 +1335,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_religion -->
+    <!-- http://osmonto.do-roam.org/unamed#k_religion -->
 
     <owl:Class rdf:about="#k_religion">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -1112,7 +1343,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_route -->
+    <!-- http://osmonto.do-roam.org/unamed#k_route -->
 
     <owl:Class rdf:about="#k_route">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -1120,7 +1351,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_route_v_bicycle -->
+    <!-- http://osmonto.do-roam.org/unamed#k_route_v_bicycle -->
 
     <owl:Class rdf:about="#k_route_v_bicycle">
         <rdfs:subClassOf rdf:resource="#k_route"/>
@@ -1128,7 +1359,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_route_v_subway -->
+    <!-- http://osmonto.do-roam.org/unamed#k_route_v_subway -->
 
     <owl:Class rdf:about="#k_route_v_subway">
         <rdfs:subClassOf rdf:resource="#k_route"/>
@@ -1136,7 +1367,11 @@
     
 
 
+<<<<<<< HEAD
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_shop -->
+=======
+    <!-- http://osmonto.do-roam.org/unamed#k_shop -->
+>>>>>>> 17850025be8b291c0db0b53b938b28053c3618e5
 
     <owl:Class rdf:about="#k_shop">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -1144,7 +1379,11 @@
     
 
 
+<<<<<<< HEAD
     <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_sport -->
+=======
+    <!-- http://osmonto.do-roam.org/unamed#k_sport -->
+>>>>>>> 17850025be8b291c0db0b53b938b28053c3618e5
 
     <owl:Class rdf:about="#k_sport">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -1152,7 +1391,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_station -->
+    <!-- http://osmonto.do-roam.org/unamed#k_station -->
 
     <owl:Class rdf:about="#k_station">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -1160,7 +1399,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_theatre:genre -->
+    <!-- http://osmonto.do-roam.org/unamed#k_theatre:genre -->
 
     <owl:Class rdf:about="#k_theatre:genre">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -1168,7 +1407,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_tourism -->
+    <!-- http://osmonto.do-roam.org/unamed#k_tourism -->
 
     <owl:Class rdf:about="#k_tourism">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -1176,7 +1415,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_type -->
+    <!-- http://osmonto.do-roam.org/unamed#k_type -->
 
     <owl:Class rdf:about="#k_type">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -1184,7 +1423,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#k_waterway -->
+    <!-- http://osmonto.do-roam.org/unamed#k_waterway -->
 
     <owl:Class rdf:about="#k_waterway">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -1192,7 +1431,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#spatial_location -->
+    <!-- http://osmonto.do-roam.org/unamed#spatial_location -->
 
     <owl:Class rdf:about="#spatial_location">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -1200,7 +1439,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#track -->
+    <!-- http://osmonto.do-roam.org/unamed#track -->
 
     <owl:Class rdf:about="#track">
         <rdfs:subClassOf rdf:resource="#k_highway"/>
@@ -1208,7 +1447,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_abandoned -->
+    <!-- http://osmonto.do-roam.org/unamed#v_abandoned -->
 
     <owl:Class rdf:about="#v_abandoned">
         <rdfs:subClassOf rdf:resource="#k_railway"/>
@@ -1216,7 +1455,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_administrative -->
+    <!-- http://osmonto.do-roam.org/unamed#v_administrative -->
 
     <owl:Class rdf:about="#v_administrative">
         <rdfs:subClassOf rdf:resource="#k_boundary"/>
@@ -1224,7 +1463,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_aerodrome -->
+    <!-- http://osmonto.do-roam.org/unamed#v_aerodrome -->
 
     <owl:Class rdf:about="#v_aerodrome">
         <rdfs:subClassOf rdf:resource="#k_aeroway"/>
@@ -1232,7 +1471,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_airfield -->
+    <!-- http://osmonto.do-roam.org/unamed#v_airfield -->
 
     <owl:Class rdf:about="#v_airfield">
         <rdfs:subClassOf rdf:resource="#k_military"/>
@@ -1240,7 +1479,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_airport -->
+    <!-- http://osmonto.do-roam.org/unamed#v_airport -->
 
     <owl:Class rdf:about="#v_airport">
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
@@ -1248,7 +1487,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_alpine_hut -->
+    <!-- http://osmonto.do-roam.org/unamed#v_alpine_hut -->
 
     <owl:Class rdf:about="#v_alpine_hut">
         <rdfs:subClassOf rdf:resource="#k_tourism"/>
@@ -1256,7 +1495,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_ambulance_station -->
+    <!-- http://osmonto.do-roam.org/unamed#v_ambulance_station -->
 
     <owl:Class rdf:about="#v_ambulance_station">
         <rdfs:subClassOf rdf:resource="#k_emergency"/>
@@ -1264,7 +1503,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_american -->
+    <!-- http://osmonto.do-roam.org/unamed#v_american -->
 
     <owl:Class rdf:about="#v_american">
         <rdfs:subClassOf rdf:resource="#k_cuisine"/>
@@ -1272,7 +1511,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_anchors -->
+    <!-- http://osmonto.do-roam.org/unamed#v_anchors -->
 
     <owl:Class rdf:about="#v_anchors">
         <rdfs:subClassOf rdf:resource="#k_bicycle_parking"/>
@@ -1280,7 +1519,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_apron -->
+    <!-- http://osmonto.do-roam.org/unamed#v_apron -->
 
     <owl:Class rdf:about="#v_apron">
         <rdfs:subClassOf rdf:resource="#k_aeroway"/>
@@ -1288,7 +1527,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_arabic -->
+    <!-- http://osmonto.do-roam.org/unamed#v_arabic -->
 
     <owl:Class rdf:about="#v_arabic">
         <rdfs:subClassOf rdf:resource="#k_cuisine"/>
@@ -1296,7 +1535,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_archaeological_site -->
+    <!-- http://osmonto.do-roam.org/unamed#v_archaeological_site -->
 
     <owl:Class rdf:about="#v_archaeological_site">
         <rdfs:subClassOf rdf:resource="#k_historic"/>
@@ -1304,7 +1543,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_arena -->
+    <!-- http://osmonto.do-roam.org/unamed#v_arena -->
 
     <owl:Class rdf:about="#v_arena">
         <rdfs:subClassOf rdf:resource="#k_leisure"/>
@@ -1312,7 +1551,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_arts_centre -->
+    <!-- http://osmonto.do-roam.org/unamed#v_arts_centre -->
 
     <owl:Class rdf:about="#v_arts_centre">
         <rdfs:subClassOf rdf:resource="#can_have_address"/>
@@ -1321,7 +1560,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_artwork -->
+    <!-- http://osmonto.do-roam.org/unamed#v_artwork -->
 
     <owl:Class rdf:about="#v_artwork">
         <rdfs:subClassOf rdf:resource="#k_tourism"/>
@@ -1329,7 +1568,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_asian -->
+    <!-- http://osmonto.do-roam.org/unamed#v_asian -->
 
     <owl:Class rdf:about="#v_asian">
         <rdfs:subClassOf rdf:resource="#k_cuisine"/>
@@ -1337,7 +1576,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_athletics -->
+    <!-- http://osmonto.do-roam.org/unamed#v_athletics -->
 
     <owl:Class rdf:about="#v_athletics">
         <rdfs:subClassOf rdf:resource="#k_sport"/>
@@ -1345,7 +1584,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_atm -->
+    <!-- http://osmonto.do-roam.org/unamed#v_atm -->
 
     <owl:Class rdf:about="#v_atm">
         <rdfs:subClassOf rdf:resource="#can_have_k_currency"/>
@@ -1357,7 +1596,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_attraction -->
+    <!-- http://osmonto.do-roam.org/unamed#v_attraction -->
 
     <owl:Class rdf:about="#v_attraction">
         <rdfs:subClassOf rdf:resource="#k_tourism"/>
@@ -1365,7 +1604,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_bahai -->
+    <!-- http://osmonto.do-roam.org/unamed#v_bahai -->
 
     <owl:Class rdf:about="#v_bahai">
         <rdfs:subClassOf rdf:resource="#k_religion"/>
@@ -1373,7 +1612,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_bakery -->
+    <!-- http://osmonto.do-roam.org/unamed#v_bakery -->
 
     <owl:Class rdf:about="#v_bakery">
         <rdfs:subClassOf rdf:resource="#can_have_k_name"/>
@@ -1383,7 +1622,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_ballet -->
+    <!-- http://osmonto.do-roam.org/unamed#v_ballet -->
 
     <owl:Class rdf:about="#v_ballet">
         <rdfs:subClassOf rdf:resource="#k_theatre:genre"/>
@@ -1391,7 +1630,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_bank -->
+    <!-- http://osmonto.do-roam.org/unamed#v_bank -->
 
     <owl:Class rdf:about="#v_bank">
         <rdfs:subClassOf rdf:resource="#can_have_address"/>
@@ -1405,7 +1644,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_baptist -->
+    <!-- http://osmonto.do-roam.org/unamed#v_baptist -->
 
     <owl:Class rdf:about="#v_baptist">
         <rdfs:subClassOf rdf:resource="#k_denomination"/>
@@ -1413,7 +1652,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_bar -->
+    <!-- http://osmonto.do-roam.org/unamed#v_bar -->
 
     <owl:Class rdf:about="#v_bar">
         <rdfs:subClassOf rdf:resource="#can_have_address"/>
@@ -1427,7 +1666,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_barracks -->
+    <!-- http://osmonto.do-roam.org/unamed#v_barracks -->
 
     <owl:Class rdf:about="#v_barracks">
         <rdfs:subClassOf rdf:resource="#k_military"/>
@@ -1435,7 +1674,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_baseball -->
+    <!-- http://osmonto.do-roam.org/unamed#v_baseball -->
 
     <owl:Class rdf:about="#v_baseball">
         <rdfs:subClassOf rdf:resource="#k_sport"/>
@@ -1443,7 +1682,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_basketball -->
+    <!-- http://osmonto.do-roam.org/unamed#v_basketball -->
 
     <owl:Class rdf:about="#v_basketball">
         <rdfs:subClassOf rdf:resource="#k_sport"/>
@@ -1451,7 +1690,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_bay -->
+    <!-- http://osmonto.do-roam.org/unamed#v_bay -->
 
     <owl:Class rdf:about="#v_bay">
         <rdfs:subClassOf rdf:resource="#k_natural"/>
@@ -1459,7 +1698,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_beach -->
+    <!-- http://osmonto.do-roam.org/unamed#v_beach -->
 
     <owl:Class rdf:about="#v_beach">
         <rdfs:subClassOf rdf:resource="#k_natural"/>
@@ -1467,7 +1706,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_beauty -->
+    <!-- http://osmonto.do-roam.org/unamed#v_beauty -->
 
     <owl:Class rdf:about="#v_beauty">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -1475,7 +1714,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_bench -->
+    <!-- http://osmonto.do-roam.org/unamed#v_bench -->
 
     <owl:Class rdf:about="#v_bench">
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
@@ -1483,7 +1722,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_beverages -->
+    <!-- http://osmonto.do-roam.org/unamed#v_beverages -->
 
     <owl:Class rdf:about="#v_beverages">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -1491,7 +1730,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_bicycle -->
+    <!-- http://osmonto.do-roam.org/unamed#v_bicycle -->
 
     <owl:Class rdf:about="#v_bicycle">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -1499,7 +1738,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_bicycle_parking -->
+    <!-- http://osmonto.do-roam.org/unamed#v_bicycle_parking -->
 
     <owl:Class rdf:about="#v_bicycle_parking">
         <rdfs:subClassOf rdf:resource="#can_have_k_capacity"/>
@@ -1509,7 +1748,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_bicycle_rental -->
+    <!-- http://osmonto.do-roam.org/unamed#v_bicycle_rental -->
 
     <owl:Class rdf:about="#v_bicycle_rental">
         <rdfs:subClassOf rdf:resource="#can_have_address"/>
@@ -1518,7 +1757,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_biergarten -->
+    <!-- http://osmonto.do-roam.org/unamed#v_biergarten -->
 
     <owl:Class rdf:about="#v_biergarten">
         <rdfs:subClassOf rdf:resource="#can_have_address"/>
@@ -1528,7 +1767,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_bombcrater -->
+    <!-- http://osmonto.do-roam.org/unamed#v_bombcrater -->
 
     <owl:Class rdf:about="#v_bombcrater">
         <rdfs:subClassOf rdf:resource="#k_military"/>
@@ -1536,7 +1775,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_books -->
+    <!-- http://osmonto.do-roam.org/unamed#v_books -->
 
     <owl:Class rdf:about="#v_books">
         <rdfs:subClassOf rdf:resource="#can_have_k_name"/>
@@ -1547,7 +1786,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_boulevard -->
+    <!-- http://osmonto.do-roam.org/unamed#v_boulevard -->
 
     <owl:Class rdf:about="#v_boulevard">
         <rdfs:subClassOf rdf:resource="#k_theatre:genre"/>
@@ -1555,7 +1794,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_boundary -->
+    <!-- http://osmonto.do-roam.org/unamed#v_boundary -->
 
     <owl:Class rdf:about="#v_boundary">
         <rdfs:subClassOf rdf:resource="#k_type"/>
@@ -1563,7 +1802,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_boundary_stone -->
+    <!-- http://osmonto.do-roam.org/unamed#v_boundary_stone -->
 
     <owl:Class rdf:about="#v_boundary_stone">
         <rdfs:subClassOf rdf:resource="#k_historic"/>
@@ -1571,7 +1810,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_bowls -->
+    <!-- http://osmonto.do-roam.org/unamed#v_bowls -->
 
     <owl:Class rdf:about="#v_bowls">
         <rdfs:subClassOf rdf:resource="#k_sport"/>
@@ -1579,7 +1818,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_bridleway -->
+    <!-- http://osmonto.do-roam.org/unamed#v_bridleway -->
 
     <owl:Class rdf:about="#v_bridleway">
         <rdfs:subClassOf rdf:resource="#k_highway"/>
@@ -1587,7 +1826,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_buddhist -->
+    <!-- http://osmonto.do-roam.org/unamed#v_buddhist -->
 
     <owl:Class rdf:about="#v_buddhist">
         <rdfs:subClassOf rdf:resource="#k_religion"/>
@@ -1595,7 +1834,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_building -->
+    <!-- http://osmonto.do-roam.org/unamed#v_building -->
 
     <owl:Class rdf:about="#v_building">
         <rdfs:subClassOf rdf:resource="#k_bicycle_parking"/>
@@ -1603,7 +1842,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_bunker -->
+    <!-- http://osmonto.do-roam.org/unamed#v_bunker -->
 
     <owl:Class rdf:about="#v_bunker">
         <rdfs:subClassOf rdf:resource="#k_military"/>
@@ -1611,7 +1850,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_bureau_de_change -->
+    <!-- http://osmonto.do-roam.org/unamed#v_bureau_de_change -->
 
     <owl:Class rdf:about="#v_bureau_de_change">
         <rdfs:subClassOf rdf:resource="#can_have_address"/>
@@ -1620,7 +1859,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_burg -->
+    <!-- http://osmonto.do-roam.org/unamed#v_burg -->
 
     <owl:Class rdf:about="#v_burg">
         <rdfs:subClassOf rdf:resource="#k_castle_type"/>
@@ -1628,7 +1867,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_burger -->
+    <!-- http://osmonto.do-roam.org/unamed#v_burger -->
 
     <owl:Class rdf:about="#v_burger">
         <rdfs:subClassOf rdf:resource="#k_cuisine"/>
@@ -1636,7 +1875,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_bus -->
+    <!-- http://osmonto.do-roam.org/unamed#v_bus -->
 
     <owl:Class rdf:about="#v_bus">
         <rdfs:subClassOf rdf:resource="#k_route"/>
@@ -1644,7 +1883,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_bus_station -->
+    <!-- http://osmonto.do-roam.org/unamed#v_bus_station -->
 
     <owl:Class rdf:about="#v_bus_station">
         <rdfs:subClassOf rdf:resource="#can_have_k_operator"/>
@@ -1653,7 +1892,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_bus_stop -->
+    <!-- http://osmonto.do-roam.org/unamed#v_bus_stop -->
 
     <owl:Class rdf:about="#v_bus_stop">
         <rdfs:subClassOf rdf:resource="#k_highway"/>
@@ -1661,7 +1900,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_butcher -->
+    <!-- http://osmonto.do-roam.org/unamed#v_butcher -->
 
     <owl:Class rdf:about="#v_butcher">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -1669,7 +1908,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_cabaret -->
+    <!-- http://osmonto.do-roam.org/unamed#v_cabaret -->
 
     <owl:Class rdf:about="#v_cabaret">
         <rdfs:subClassOf rdf:resource="#k_theatre:genre"/>
@@ -1677,7 +1916,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_cable_car -->
+    <!-- http://osmonto.do-roam.org/unamed#v_cable_car -->
 
     <owl:Class rdf:about="#v_cable_car">
         <rdfs:subClassOf rdf:resource="#k_aerialway"/>
@@ -1685,7 +1924,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_cafe -->
+    <!-- http://osmonto.do-roam.org/unamed#v_cafe -->
 
     <owl:Class rdf:about="#v_cafe">
         <rdfs:subClassOf rdf:resource="#can_have_address"/>
@@ -1698,7 +1937,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_camp_site -->
+    <!-- http://osmonto.do-roam.org/unamed#v_camp_site -->
 
     <owl:Class rdf:about="#v_camp_site">
         <rdfs:subClassOf rdf:resource="#k_tourism"/>
@@ -1706,7 +1945,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_canal -->
+    <!-- http://osmonto.do-roam.org/unamed#v_canal -->
 
     <owl:Class rdf:about="#v_canal">
         <rdfs:subClassOf rdf:resource="#k_waterway"/>
@@ -1714,7 +1953,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_car -->
+    <!-- http://osmonto.do-roam.org/unamed#v_car -->
 
     <owl:Class rdf:about="#v_car">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -1722,7 +1961,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_car_rental -->
+    <!-- http://osmonto.do-roam.org/unamed#v_car_rental -->
 
     <owl:Class rdf:about="#v_car_rental">
         <rdfs:subClassOf rdf:resource="#can_have_address"/>
@@ -1731,7 +1970,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_car_repair -->
+    <!-- http://osmonto.do-roam.org/unamed#v_car_repair -->
 
     <owl:Class rdf:about="#v_car_repair">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -1739,7 +1978,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_car_sharing -->
+    <!-- http://osmonto.do-roam.org/unamed#v_car_sharing -->
 
     <owl:Class rdf:about="#v_car_sharing">
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
@@ -1747,7 +1986,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_car_wash -->
+    <!-- http://osmonto.do-roam.org/unamed#v_car_wash -->
 
     <owl:Class rdf:about="#v_car_wash">
         <rdfs:subClassOf rdf:resource="#can_have_address"/>
@@ -1759,7 +1998,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_caravan_site -->
+    <!-- http://osmonto.do-roam.org/unamed#v_caravan_site -->
 
     <owl:Class rdf:about="#v_caravan_site">
         <rdfs:subClassOf rdf:resource="#k_tourism"/>
@@ -1767,7 +2006,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_casino -->
+    <!-- http://osmonto.do-roam.org/unamed#v_casino -->
 
     <owl:Class rdf:about="#v_casino">
         <rdfs:subClassOf rdf:resource="#can_have_address"/>
@@ -1776,7 +2015,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_castle -->
+    <!-- http://osmonto.do-roam.org/unamed#v_castle -->
 
     <owl:Class rdf:about="#v_castle">
         <rdfs:subClassOf rdf:resource="#can_have_k_castle_type"/>
@@ -1787,7 +2026,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_catholic -->
+    <!-- http://osmonto.do-roam.org/unamed#v_catholic -->
 
     <owl:Class rdf:about="#v_catholic">
         <rdfs:subClassOf rdf:resource="#k_denomination"/>
@@ -1795,7 +2034,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_cave_entrance -->
+    <!-- http://osmonto.do-roam.org/unamed#v_cave_entrance -->
 
     <owl:Class rdf:about="#v_cave_entrance">
         <rdfs:subClassOf rdf:resource="#k_natural"/>
@@ -1803,7 +2042,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_chair_lift -->
+    <!-- http://osmonto.do-roam.org/unamed#v_chair_lift -->
 
     <owl:Class rdf:about="#v_chair_lift">
         <rdfs:subClassOf rdf:resource="#k_aerialway"/>
@@ -1811,7 +2050,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_chalet -->
+    <!-- http://osmonto.do-roam.org/unamed#v_chalet -->
 
     <owl:Class rdf:about="#v_chalet">
         <rdfs:subClassOf rdf:resource="#k_tourism"/>
@@ -1819,7 +2058,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_chamber_music -->
+    <!-- http://osmonto.do-roam.org/unamed#v_chamber_music -->
 
     <owl:Class rdf:about="#v_chamber_music">
         <rdfs:subClassOf rdf:resource="#k_theatre:genre"/>
@@ -1827,7 +2066,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_charging_station -->
+    <!-- http://osmonto.do-roam.org/unamed#v_charging_station -->
 
     <owl:Class rdf:about="#v_charging_station">
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
@@ -1835,7 +2074,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_chemist -->
+    <!-- http://osmonto.do-roam.org/unamed#v_chemist -->
 
     <owl:Class rdf:about="#v_chemist">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -1843,7 +2082,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_chinese -->
+    <!-- http://osmonto.do-roam.org/unamed#v_chinese -->
 
     <owl:Class rdf:about="#v_chinese">
         <rdfs:subClassOf rdf:resource="#k_cuisine"/>
@@ -1851,7 +2090,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_christian -->
+    <!-- http://osmonto.do-roam.org/unamed#v_christian -->
 
     <owl:Class rdf:about="#v_christian">
         <rdfs:subClassOf rdf:resource="#k_religion"/>
@@ -1859,7 +2098,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_cinema -->
+    <!-- http://osmonto.do-roam.org/unamed#v_cinema -->
 
     <owl:Class rdf:about="#v_cinema">
         <rdfs:subClassOf rdf:resource="#can_have_k_name"/>
@@ -1869,7 +2108,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_civil -->
+    <!-- http://osmonto.do-roam.org/unamed#v_civil -->
 
     <owl:Class rdf:about="#v_civil">
         <rdfs:subClassOf rdf:resource="#k_boundary"/>
@@ -1877,7 +2116,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_cliff -->
+    <!-- http://osmonto.do-roam.org/unamed#v_cliff -->
 
     <owl:Class rdf:about="#v_cliff">
         <rdfs:subClassOf rdf:resource="#k_natural"/>
@@ -1885,7 +2124,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_climbing -->
+    <!-- http://osmonto.do-roam.org/unamed#v_climbing -->
 
     <owl:Class rdf:about="#v_climbing">
         <rdfs:subClassOf rdf:resource="#k_sport"/>
@@ -1893,7 +2132,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_clothes -->
+    <!-- http://osmonto.do-roam.org/unamed#v_clothes -->
 
     <owl:Class rdf:about="#v_clothes">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -1901,7 +2140,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_coal -->
+    <!-- http://osmonto.do-roam.org/unamed#v_coal -->
 
     <owl:Class rdf:about="#v_coal">
         <rdfs:subClassOf rdf:resource="#k_power_source"/>
@@ -1909,7 +2148,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_coastline -->
+    <!-- http://osmonto.do-roam.org/unamed#v_coastline -->
 
     <owl:Class rdf:about="#v_coastline">
         <rdfs:subClassOf rdf:resource="#k_natural"/>
@@ -1917,7 +2156,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_coffee_shop -->
+    <!-- http://osmonto.do-roam.org/unamed#v_coffee_shop -->
 
     <owl:Class rdf:about="#v_coffee_shop">
         <rdfs:subClassOf rdf:resource="#k_cuisine"/>
@@ -1925,7 +2164,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_college -->
+    <!-- http://osmonto.do-roam.org/unamed#v_college -->
 
     <owl:Class rdf:about="#v_college">
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
@@ -1933,7 +2172,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_comedy -->
+    <!-- http://osmonto.do-roam.org/unamed#v_comedy -->
 
     <owl:Class rdf:about="#v_comedy">
         <rdfs:subClassOf rdf:resource="#k_theatre:genre"/>
@@ -1941,7 +2180,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_common -->
+    <!-- http://osmonto.do-roam.org/unamed#v_common -->
 
     <owl:Class rdf:about="#v_common">
         <rdfs:subClassOf rdf:resource="#k_leisure"/>
@@ -1949,7 +2188,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_community_centre -->
+    <!-- http://osmonto.do-roam.org/unamed#v_community_centre -->
 
     <owl:Class rdf:about="#v_community_centre">
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
@@ -1957,7 +2196,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_computer -->
+    <!-- http://osmonto.do-roam.org/unamed#v_computer -->
 
     <owl:Class rdf:about="#v_computer">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -1965,7 +2204,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_convenience -->
+    <!-- http://osmonto.do-roam.org/unamed#v_convenience -->
 
     <owl:Class rdf:about="#v_convenience">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -1973,7 +2212,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_courthouse -->
+    <!-- http://osmonto.do-roam.org/unamed#v_courthouse -->
 
     <owl:Class rdf:about="#v_courthouse">
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
@@ -1981,7 +2220,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_crossing -->
+    <!-- http://osmonto.do-roam.org/unamed#v_crossing -->
 
     <owl:Class rdf:about="#v_crossing">
         <rdfs:subClassOf rdf:resource="#k_railway"/>
@@ -1989,7 +2228,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_cycleway -->
+    <!-- http://osmonto.do-roam.org/unamed#v_cycleway -->
 
     <owl:Class rdf:about="#v_cycleway">
         <rdfs:subClassOf rdf:resource="#k_highway"/>
@@ -1997,7 +2236,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_dam -->
+    <!-- http://osmonto.do-roam.org/unamed#v_dam -->
 
     <owl:Class rdf:about="#v_dam">
         <rdfs:subClassOf rdf:resource="#k_waterway"/>
@@ -2005,7 +2244,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_dance -->
+    <!-- http://osmonto.do-roam.org/unamed#v_dance -->
 
     <owl:Class rdf:about="#v_dance">
         <rdfs:subClassOf rdf:resource="#k_leisure"/>
@@ -2013,7 +2252,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_danger_area -->
+    <!-- http://osmonto.do-roam.org/unamed#v_danger_area -->
 
     <owl:Class rdf:about="#v_danger_area">
         <rdfs:subClassOf rdf:resource="#k_military"/>
@@ -2021,7 +2260,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_dedicated -->
+    <!-- http://osmonto.do-roam.org/unamed#v_dedicated -->
 
     <owl:Class rdf:about="#v_dedicated">
         <rdfs:subClassOf rdf:resource="#decision"/>
@@ -2029,7 +2268,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_defensive -->
+    <!-- http://osmonto.do-roam.org/unamed#v_defensive -->
 
     <owl:Class rdf:about="#v_defensive">
         <rdfs:subClassOf rdf:resource="#k_castle_type"/>
@@ -2037,7 +2276,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_deli -->
+    <!-- http://osmonto.do-roam.org/unamed#v_deli -->
 
     <owl:Class rdf:about="#v_deli">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -2045,7 +2284,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_dentist -->
+    <!-- http://osmonto.do-roam.org/unamed#v_dentist -->
 
     <owl:Class rdf:about="#v_dentist">
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
@@ -2053,7 +2292,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_department_store -->
+    <!-- http://osmonto.do-roam.org/unamed#v_department_store -->
 
     <owl:Class rdf:about="#v_department_store">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -2061,7 +2300,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_detour -->
+    <!-- http://osmonto.do-roam.org/unamed#v_detour -->
 
     <owl:Class rdf:about="#v_detour">
         <rdfs:subClassOf rdf:resource="#k_route"/>
@@ -2069,7 +2308,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_disused -->
+    <!-- http://osmonto.do-roam.org/unamed#v_disused -->
 
     <owl:Class rdf:about="#v_disused">
         <rdfs:subClassOf rdf:resource="#k_railway"/>
@@ -2077,7 +2316,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_ditch -->
+    <!-- http://osmonto.do-roam.org/unamed#v_ditch -->
 
     <owl:Class rdf:about="#v_ditch">
         <rdfs:subClassOf rdf:resource="#k_waterway"/>
@@ -2085,7 +2324,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_doctors -->
+    <!-- http://osmonto.do-roam.org/unamed#v_doctors -->
 
     <owl:Class rdf:about="#v_doctors">
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
@@ -2093,7 +2332,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_dog_park -->
+    <!-- http://osmonto.do-roam.org/unamed#v_dog_park -->
 
     <owl:Class rdf:about="#v_dog_park">
         <rdfs:subClassOf rdf:resource="#k_leisure"/>
@@ -2101,7 +2340,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_doityourself -->
+    <!-- http://osmonto.do-roam.org/unamed#v_doityourself -->
 
     <owl:Class rdf:about="#v_doityourself">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -2109,7 +2348,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_drag_lift -->
+    <!-- http://osmonto.do-roam.org/unamed#v_drag_lift -->
 
     <owl:Class rdf:about="#v_drag_lift">
         <rdfs:subClassOf rdf:resource="#k_aerialway"/>
@@ -2117,7 +2356,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_drain -->
+    <!-- http://osmonto.do-roam.org/unamed#v_drain -->
 
     <owl:Class rdf:about="#v_drain">
         <rdfs:subClassOf rdf:resource="#k_waterway"/>
@@ -2125,7 +2364,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_drama -->
+    <!-- http://osmonto.do-roam.org/unamed#v_drama -->
 
     <owl:Class rdf:about="#v_drama">
         <rdfs:subClassOf rdf:resource="#k_theatre:genre"/>
@@ -2133,7 +2372,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_drinking_water -->
+    <!-- http://osmonto.do-roam.org/unamed#v_drinking_water -->
 
     <owl:Class rdf:about="#v_drinking_water">
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
@@ -2141,7 +2380,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_dry_cleaning -->
+    <!-- http://osmonto.do-roam.org/unamed#v_dry_cleaning -->
 
     <owl:Class rdf:about="#v_dry_cleaning">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -2149,7 +2388,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_electronics -->
+    <!-- http://osmonto.do-roam.org/unamed#v_electronics -->
 
     <owl:Class rdf:about="#v_electronics">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -2157,7 +2396,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_emergency_phone -->
+    <!-- http://osmonto.do-roam.org/unamed#v_emergency_phone -->
 
     <owl:Class rdf:about="#v_emergency_phone">
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
@@ -2165,7 +2404,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_environmental_hazard -->
+    <!-- http://osmonto.do-roam.org/unamed#v_environmental_hazard -->
 
     <owl:Class rdf:about="#v_environmental_hazard">
         <rdfs:subClassOf rdf:resource="#k_man_made"/>
@@ -2173,7 +2412,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_equestrian -->
+    <!-- http://osmonto.do-roam.org/unamed#v_equestrian -->
 
     <owl:Class rdf:about="#v_equestrian">
         <rdfs:subClassOf rdf:resource="#k_sport"/>
@@ -2181,7 +2420,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_fast_food -->
+    <!-- http://osmonto.do-roam.org/unamed#v_fast_food -->
 
     <owl:Class rdf:about="#v_fast_food">
         <rdfs:subClassOf rdf:resource="#can_have_address"/>
@@ -2195,7 +2434,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_fell -->
+    <!-- http://osmonto.do-roam.org/unamed#v_fell -->
 
     <owl:Class rdf:about="#v_fell">
         <rdfs:subClassOf rdf:resource="#k_natural"/>
@@ -2203,7 +2442,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_ferry -->
+    <!-- http://osmonto.do-roam.org/unamed#v_ferry -->
 
     <owl:Class rdf:about="#v_ferry">
         <rdfs:subClassOf rdf:resource="#k_route"/>
@@ -2211,7 +2450,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_ferry_terminal -->
+    <!-- http://osmonto.do-roam.org/unamed#v_ferry_terminal -->
 
     <owl:Class rdf:about="#v_ferry_terminal">
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
@@ -2219,7 +2458,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_figure -->
+    <!-- http://osmonto.do-roam.org/unamed#v_figure -->
 
     <owl:Class rdf:about="#v_figure">
         <rdfs:subClassOf rdf:resource="#k_theatre:genre"/>
@@ -2227,7 +2466,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_fire_hydrant -->
+    <!-- http://osmonto.do-roam.org/unamed#v_fire_hydrant -->
 
     <owl:Class rdf:about="#v_fire_hydrant">
         <rdfs:subClassOf rdf:resource="#k_emergency"/>
@@ -2235,7 +2474,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_fire_station -->
+    <!-- http://osmonto.do-roam.org/unamed#v_fire_station -->
 
     <owl:Class rdf:about="#v_fire_station">
         <rdfs:subClassOf rdf:resource="#can_have_address"/>
@@ -2244,7 +2483,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_fish -->
+    <!-- http://osmonto.do-roam.org/unamed#v_fish -->
 
     <owl:Class rdf:about="#v_fish">
         <rdfs:subClassOf rdf:resource="#k_cuisine"/>
@@ -2252,7 +2491,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_fishing -->
+    <!-- http://osmonto.do-roam.org/unamed#v_fishing -->
 
     <owl:Class rdf:about="#v_fishing">
         <rdfs:subClassOf rdf:resource="#k_leisure"/>
@@ -2260,7 +2499,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_fitness_station -->
+    <!-- http://osmonto.do-roam.org/unamed#v_fitness_station -->
 
     <owl:Class rdf:about="#v_fitness_station">
         <rdfs:subClassOf rdf:resource="#k_leisure"/>
@@ -2268,7 +2507,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_flightpath -->
+    <!-- http://osmonto.do-roam.org/unamed#v_flightpath -->
 
     <owl:Class rdf:about="#v_flightpath">
         <rdfs:subClassOf rdf:resource="#k_route"/>
@@ -2276,7 +2515,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_florist -->
+    <!-- http://osmonto.do-roam.org/unamed#v_florist -->
 
     <owl:Class rdf:about="#v_florist">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -2284,7 +2523,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_food_court -->
+    <!-- http://osmonto.do-roam.org/unamed#v_food_court -->
 
     <owl:Class rdf:about="#v_food_court">
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
@@ -2292,7 +2531,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_foot -->
+    <!-- http://osmonto.do-roam.org/unamed#v_foot -->
 
     <owl:Class rdf:about="#v_foot">
         <rdfs:subClassOf rdf:resource="#k_route"/>
@@ -2300,7 +2539,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_football -->
+    <!-- http://osmonto.do-roam.org/unamed#v_football -->
 
     <owl:Class rdf:about="#v_football">
         <rdfs:subClassOf rdf:resource="#k_sport"/>
@@ -2308,7 +2547,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_footway -->
+    <!-- http://osmonto.do-roam.org/unamed#v_footway -->
 
     <owl:Class rdf:about="#v_footway">
         <rdfs:subClassOf rdf:resource="#k_highway"/>
@@ -2316,7 +2555,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_forest -->
+    <!-- http://osmonto.do-roam.org/unamed#v_forest -->
 
     <owl:Class rdf:about="#v_forest">
         <rdfs:subClassOf rdf:resource="#k_landuse"/>
@@ -2324,7 +2563,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_fortress -->
+    <!-- http://osmonto.do-roam.org/unamed#v_fortress -->
 
     <owl:Class rdf:about="#v_fortress">
         <rdfs:subClassOf rdf:resource="#k_castle_type"/>
@@ -2332,7 +2571,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_fossil -->
+    <!-- http://osmonto.do-roam.org/unamed#v_fossil -->
 
     <owl:Class rdf:about="#v_fossil">
         <rdfs:subClassOf rdf:resource="#k_power_source"/>
@@ -2340,7 +2579,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_fountain -->
+    <!-- http://osmonto.do-roam.org/unamed#v_fountain -->
 
     <owl:Class rdf:about="#v_fountain">
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
@@ -2348,7 +2587,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_french -->
+    <!-- http://osmonto.do-roam.org/unamed#v_french -->
 
     <owl:Class rdf:about="#v_french">
         <rdfs:subClassOf rdf:resource="#k_cuisine"/>
@@ -2356,7 +2595,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_fuel -->
+    <!-- http://osmonto.do-roam.org/unamed#v_fuel -->
 
     <owl:Class rdf:about="#v_fuel">
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
@@ -2364,7 +2603,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_furniture -->
+    <!-- http://osmonto.do-roam.org/unamed#v_furniture -->
 
     <owl:Class rdf:about="#v_furniture">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -2372,7 +2611,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_garden -->
+    <!-- http://osmonto.do-roam.org/unamed#v_garden -->
 
     <owl:Class rdf:about="#v_garden">
         <rdfs:subClassOf rdf:resource="#k_leisure"/>
@@ -2380,7 +2619,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_garden_centre -->
+    <!-- http://osmonto.do-roam.org/unamed#v_garden_centre -->
 
     <owl:Class rdf:about="#v_garden_centre">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -2388,7 +2627,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_gas -->
+    <!-- http://osmonto.do-roam.org/unamed#v_gas -->
 
     <owl:Class rdf:about="#v_gas">
         <rdfs:subClassOf rdf:resource="#k_power_source"/>
@@ -2396,7 +2635,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_gate -->
+    <!-- http://osmonto.do-roam.org/unamed#v_gate -->
 
     <owl:Class rdf:about="#v_gate">
         <rdfs:subClassOf rdf:resource="#k_aeroway"/>
@@ -2404,7 +2643,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_generator -->
+    <!-- http://osmonto.do-roam.org/unamed#v_generator -->
 
     <owl:Class rdf:about="#v_generator">
         <rdfs:subClassOf rdf:resource="#k_power"/>
@@ -2412,7 +2651,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_german -->
+    <!-- http://osmonto.do-roam.org/unamed#v_german -->
 
     <owl:Class rdf:about="#v_german">
         <rdfs:subClassOf rdf:resource="#k_cuisine"/>
@@ -2420,7 +2659,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_glacier -->
+    <!-- http://osmonto.do-roam.org/unamed#v_glacier -->
 
     <owl:Class rdf:about="#v_glacier">
         <rdfs:subClassOf rdf:resource="#k_natural"/>
@@ -2428,7 +2667,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_golf -->
+    <!-- http://osmonto.do-roam.org/unamed#v_golf -->
 
     <owl:Class rdf:about="#v_golf">
         <rdfs:subClassOf rdf:resource="#k_sport"/>
@@ -2436,7 +2675,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_golf_course -->
+    <!-- http://osmonto.do-roam.org/unamed#v_golf_course -->
 
     <owl:Class rdf:about="#v_golf_course">
         <rdfs:subClassOf rdf:resource="#k_leisure"/>
@@ -2444,7 +2683,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_gondola -->
+    <!-- http://osmonto.do-roam.org/unamed#v_gondola -->
 
     <owl:Class rdf:about="#v_gondola">
         <rdfs:subClassOf rdf:resource="#k_aerialway"/>
@@ -2452,7 +2691,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_goods -->
+    <!-- http://osmonto.do-roam.org/unamed#v_goods -->
 
     <owl:Class rdf:about="#v_goods">
         <rdfs:subClassOf rdf:resource="#k_aerialway"/>
@@ -2460,7 +2699,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_grassland -->
+    <!-- http://osmonto.do-roam.org/unamed#v_grassland -->
 
     <owl:Class rdf:about="#v_grassland">
         <rdfs:subClassOf rdf:resource="#k_natural"/>
@@ -2468,7 +2707,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_grave_yard -->
+    <!-- http://osmonto.do-roam.org/unamed#v_grave_yard -->
 
     <owl:Class rdf:about="#v_grave_yard">
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
@@ -2476,7 +2715,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_greek -->
+    <!-- http://osmonto.do-roam.org/unamed#v_greek -->
 
     <owl:Class rdf:about="#v_greek">
         <rdfs:subClassOf rdf:resource="#k_cuisine"/>
@@ -2484,7 +2723,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_ground_slots -->
+    <!-- http://osmonto.do-roam.org/unamed#v_ground_slots -->
 
     <owl:Class rdf:about="#v_ground_slots">
         <rdfs:subClassOf rdf:resource="#k_bicycle_parking"/>
@@ -2492,7 +2731,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_guest_house -->
+    <!-- http://osmonto.do-roam.org/unamed#v_guest_house -->
 
     <owl:Class rdf:about="#v_guest_house">
         <rdfs:subClassOf rdf:resource="#k_tourism"/>
@@ -2500,7 +2739,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_gymnastics -->
+    <!-- http://osmonto.do-roam.org/unamed#v_gymnastics -->
 
     <owl:Class rdf:about="#v_gymnastics">
         <rdfs:subClassOf rdf:resource="#k_sport"/>
@@ -2508,7 +2747,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_hairdresser -->
+    <!-- http://osmonto.do-roam.org/unamed#v_hairdresser -->
 
     <owl:Class rdf:about="#v_hairdresser">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -2516,7 +2755,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_halt -->
+    <!-- http://osmonto.do-roam.org/unamed#v_halt -->
 
     <owl:Class rdf:about="#v_halt">
         <rdfs:subClassOf rdf:resource="#k_railway"/>
@@ -2524,7 +2763,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_hardware -->
+    <!-- http://osmonto.do-roam.org/unamed#v_hardware -->
 
     <owl:Class rdf:about="#v_hardware">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -2532,7 +2771,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_heath -->
+    <!-- http://osmonto.do-roam.org/unamed#v_heath -->
 
     <owl:Class rdf:about="#v_heath">
         <rdfs:subClassOf rdf:resource="#k_natural"/>
@@ -2540,7 +2779,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_helipad -->
+    <!-- http://osmonto.do-roam.org/unamed#v_helipad -->
 
     <owl:Class rdf:about="#v_helipad">
         <rdfs:subClassOf rdf:resource="#k_aeroway"/>
@@ -2548,7 +2787,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_hiking -->
+    <!-- http://osmonto.do-roam.org/unamed#v_hiking -->
 
     <owl:Class rdf:about="#v_hiking">
         <rdfs:subClassOf rdf:resource="#k_route"/>
@@ -2556,7 +2795,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_hindu -->
+    <!-- http://osmonto.do-roam.org/unamed#v_hindu -->
 
     <owl:Class rdf:about="#v_hindu">
         <rdfs:subClassOf rdf:resource="#k_religion"/>
@@ -2564,7 +2803,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_hockey -->
+    <!-- http://osmonto.do-roam.org/unamed#v_hockey -->
 
     <owl:Class rdf:about="#v_hockey">
         <rdfs:subClassOf rdf:resource="#k_sport"/>
@@ -2572,7 +2811,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_hospital -->
+    <!-- http://osmonto.do-roam.org/unamed#v_hospital -->
 
     <owl:Class rdf:about="#v_hospital">
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
@@ -2580,7 +2819,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_hostel -->
+    <!-- http://osmonto.do-roam.org/unamed#v_hostel -->
 
     <owl:Class rdf:about="#v_hostel">
         <rdfs:subClassOf rdf:resource="#can_have_address"/>
@@ -2593,7 +2832,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_hotel -->
+    <!-- http://osmonto.do-roam.org/unamed#v_hotel -->
 
     <owl:Class rdf:about="#v_hotel">
         <rdfs:subClassOf rdf:resource="#can_have_address"/>
@@ -2606,7 +2845,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_hydro -->
+    <!-- http://osmonto.do-roam.org/unamed#v_hydro -->
 
     <owl:Class rdf:about="#v_hydro">
         <rdfs:subClassOf rdf:resource="#k_power_source"/>
@@ -2614,7 +2853,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_ice_rink -->
+    <!-- http://osmonto.do-roam.org/unamed#v_ice_rink -->
 
     <owl:Class rdf:about="#v_ice_rink">
         <rdfs:subClassOf rdf:resource="#k_leisure"/>
@@ -2622,7 +2861,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_indian -->
+    <!-- http://osmonto.do-roam.org/unamed#v_indian -->
 
     <owl:Class rdf:about="#v_indian">
         <rdfs:subClassOf rdf:resource="#k_cuisine"/>
@@ -2630,7 +2869,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_informal -->
+    <!-- http://osmonto.do-roam.org/unamed#v_informal -->
 
     <owl:Class rdf:about="#v_informal">
         <rdfs:subClassOf rdf:resource="#k_bicycle_parking"/>
@@ -2638,7 +2877,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_information -->
+    <!-- http://osmonto.do-roam.org/unamed#v_information -->
 
     <owl:Class rdf:about="#v_information">
         <rdfs:subClassOf rdf:resource="#k_tourism"/>
@@ -2646,7 +2885,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_international -->
+    <!-- http://osmonto.do-roam.org/unamed#v_international -->
 
     <owl:Class rdf:about="#v_international">
         <rdfs:subClassOf rdf:resource="#k_cuisine"/>
@@ -2654,7 +2893,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_isolated -->
+    <!-- http://osmonto.do-roam.org/unamed#v_isolated -->
 
     <owl:Class rdf:about="#v_isolated">
         <rdfs:subClassOf rdf:resource="#decision"/>
@@ -2662,7 +2901,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_italian -->
+    <!-- http://osmonto.do-roam.org/unamed#v_italian -->
 
     <owl:Class rdf:about="#v_italian">
         <rdfs:subClassOf rdf:resource="#k_cuisine"/>
@@ -2670,7 +2909,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_jain -->
+    <!-- http://osmonto.do-roam.org/unamed#v_jain -->
 
     <owl:Class rdf:about="#v_jain">
         <rdfs:subClassOf rdf:resource="#k_religion"/>
@@ -2678,7 +2917,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_japanese -->
+    <!-- http://osmonto.do-roam.org/unamed#v_japanese -->
 
     <owl:Class rdf:about="#v_japanese">
         <rdfs:subClassOf rdf:resource="#k_cuisine"/>
@@ -2686,7 +2925,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_jewelry -->
+    <!-- http://osmonto.do-roam.org/unamed#v_jewelry -->
 
     <owl:Class rdf:about="#v_jewelry">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -2694,7 +2933,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_jewish -->
+    <!-- http://osmonto.do-roam.org/unamed#v_jewish -->
 
     <owl:Class rdf:about="#v_jewish">
         <rdfs:subClassOf rdf:resource="#k_religion"/>
@@ -2702,7 +2941,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_kebap -->
+    <!-- http://osmonto.do-roam.org/unamed#v_kebap -->
 
     <owl:Class rdf:about="#v_kebap">
         <rdfs:subClassOf rdf:resource="#k_cuisine"/>
@@ -2710,7 +2949,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_kindergarten -->
+    <!-- http://osmonto.do-roam.org/unamed#v_kindergarten -->
 
     <owl:Class rdf:about="#v_kindergarten">
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
@@ -2718,7 +2957,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_kiosk -->
+    <!-- http://osmonto.do-roam.org/unamed#v_kiosk -->
 
     <owl:Class rdf:about="#v_kiosk">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -2726,7 +2965,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_land -->
+    <!-- http://osmonto.do-roam.org/unamed#v_land -->
 
     <owl:Class rdf:about="#v_land">
         <rdfs:subClassOf rdf:resource="#k_natural"/>
@@ -2734,7 +2973,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_laundry -->
+    <!-- http://osmonto.do-roam.org/unamed#v_laundry -->
 
     <owl:Class rdf:about="#v_laundry">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -2742,7 +2981,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_level_crossing -->
+    <!-- http://osmonto.do-roam.org/unamed#v_level_crossing -->
 
     <owl:Class rdf:about="#v_level_crossing">
         <rdfs:subClassOf rdf:resource="#k_railway"/>
@@ -2750,7 +2989,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_library -->
+    <!-- http://osmonto.do-roam.org/unamed#v_library -->
 
     <owl:Class rdf:about="#v_library">
         <rdfs:subClassOf rdf:resource="#can_have_address"/>
@@ -2760,7 +2999,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_line -->
+    <!-- http://osmonto.do-roam.org/unamed#v_line -->
 
     <owl:Class rdf:about="#v_line">
         <rdfs:subClassOf rdf:resource="#k_power"/>
@@ -2768,7 +3007,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_living_street -->
+    <!-- http://osmonto.do-roam.org/unamed#v_living_street -->
 
     <owl:Class rdf:about="#v_living_street">
         <rdfs:subClassOf rdf:resource="#k_highway"/>
@@ -2776,7 +3015,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_lockers -->
+    <!-- http://osmonto.do-roam.org/unamed#v_lockers -->
 
     <owl:Class rdf:about="#v_lockers">
         <rdfs:subClassOf rdf:resource="#k_bicycle_parking"/>
@@ -2784,7 +3023,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_lutheran -->
+    <!-- http://osmonto.do-roam.org/unamed#v_lutheran -->
 
     <owl:Class rdf:about="#v_lutheran">
         <rdfs:subClassOf rdf:resource="#k_denomination"/>
@@ -2792,7 +3031,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_mall -->
+    <!-- http://osmonto.do-roam.org/unamed#v_mall -->
 
     <owl:Class rdf:about="#v_mall">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -2800,7 +3039,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_marina -->
+    <!-- http://osmonto.do-roam.org/unamed#v_marina -->
 
     <owl:Class rdf:about="#v_marina">
         <rdfs:subClassOf rdf:resource="#k_leisure"/>
@@ -2808,7 +3047,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_marionette -->
+    <!-- http://osmonto.do-roam.org/unamed#v_marionette -->
 
     <owl:Class rdf:about="#v_marionette">
         <rdfs:subClassOf rdf:resource="#k_theatre:genre"/>
@@ -2816,7 +3055,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_maritime -->
+    <!-- http://osmonto.do-roam.org/unamed#v_maritime -->
 
     <owl:Class rdf:about="#v_maritime">
         <rdfs:subClassOf rdf:resource="#k_boundary"/>
@@ -2824,7 +3063,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_marketplace -->
+    <!-- http://osmonto.do-roam.org/unamed#v_marketplace -->
 
     <owl:Class rdf:about="#v_marketplace">
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
@@ -2832,7 +3071,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_marsh -->
+    <!-- http://osmonto.do-roam.org/unamed#v_marsh -->
 
     <owl:Class rdf:about="#v_marsh">
         <rdfs:subClassOf rdf:resource="#k_natural"/>
@@ -2840,7 +3079,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_massage -->
+    <!-- http://osmonto.do-roam.org/unamed#v_massage -->
 
     <owl:Class rdf:about="#v_massage">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -2848,7 +3087,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_memorial -->
+    <!-- http://osmonto.do-roam.org/unamed#v_memorial -->
 
     <owl:Class rdf:about="#v_memorial">
         <rdfs:subClassOf rdf:resource="#k_historic"/>
@@ -2856,7 +3095,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_methodist -->
+    <!-- http://osmonto.do-roam.org/unamed#v_methodist -->
 
     <owl:Class rdf:about="#v_methodist">
         <rdfs:subClassOf rdf:resource="#k_denomination"/>
@@ -2864,7 +3103,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_mexican -->
+    <!-- http://osmonto.do-roam.org/unamed#v_mexican -->
 
     <owl:Class rdf:about="#v_mexican">
         <rdfs:subClassOf rdf:resource="#k_cuisine"/>
@@ -2872,7 +3111,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_miniature_golf -->
+    <!-- http://osmonto.do-roam.org/unamed#v_miniature_golf -->
 
     <owl:Class rdf:about="#v_miniature_golf">
         <rdfs:subClassOf rdf:resource="#k_leisure"/>
@@ -2880,7 +3119,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_minor_line -->
+    <!-- http://osmonto.do-roam.org/unamed#v_minor_line -->
 
     <owl:Class rdf:about="#v_minor_line">
         <rdfs:subClassOf rdf:resource="#k_power"/>
@@ -2888,7 +3127,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_mobile_phone -->
+    <!-- http://osmonto.do-roam.org/unamed#v_mobile_phone -->
 
     <owl:Class rdf:about="#v_mobile_phone">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -2896,7 +3135,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_monitoring_station -->
+    <!-- http://osmonto.do-roam.org/unamed#v_monitoring_station -->
 
     <owl:Class rdf:about="#v_monitoring_station">
         <rdfs:subClassOf rdf:resource="#k_man_made"/>
@@ -2904,7 +3143,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_monument -->
+    <!-- http://osmonto.do-roam.org/unamed#v_monument -->
 
     <owl:Class rdf:about="#v_monument">
         <rdfs:subClassOf rdf:resource="#k_historic"/>
@@ -2912,7 +3151,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_motel -->
+    <!-- http://osmonto.do-roam.org/unamed#v_motel -->
 
     <owl:Class rdf:about="#v_motel">
         <rdfs:subClassOf rdf:resource="#can_have_address"/>
@@ -2924,7 +3163,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_motorway -->
+    <!-- http://osmonto.do-roam.org/unamed#v_motorway -->
 
     <owl:Class rdf:about="#v_motorway">
         <rdfs:subClassOf rdf:resource="#k_highway"/>
@@ -2932,7 +3171,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_motorway_link -->
+    <!-- http://osmonto.do-roam.org/unamed#v_motorway_link -->
 
     <owl:Class rdf:about="#v_motorway_link">
         <rdfs:subClassOf rdf:resource="#k_highway"/>
@@ -2940,7 +3179,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_mtb -->
+    <!-- http://osmonto.do-roam.org/unamed#v_mtb -->
 
     <owl:Class rdf:about="#v_mtb">
         <rdfs:subClassOf rdf:resource="#k_route"/>
@@ -2948,7 +3187,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_mud -->
+    <!-- http://osmonto.do-roam.org/unamed#v_mud -->
 
     <owl:Class rdf:about="#v_mud">
         <rdfs:subClassOf rdf:resource="#k_natural"/>
@@ -2956,7 +3195,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_multi -->
+    <!-- http://osmonto.do-roam.org/unamed#v_multi -->
 
     <owl:Class rdf:about="#v_multi">
         <rdfs:subClassOf rdf:resource="#k_sport"/>
@@ -2964,7 +3203,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_multifaith -->
+    <!-- http://osmonto.do-roam.org/unamed#v_multifaith -->
 
     <owl:Class rdf:about="#v_multifaith">
         <rdfs:subClassOf rdf:resource="#k_religion"/>
@@ -2972,7 +3211,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_multipolygon -->
+    <!-- http://osmonto.do-roam.org/unamed#v_multipolygon -->
 
     <owl:Class rdf:about="#v_multipolygon">
         <rdfs:subClassOf rdf:resource="#k_type"/>
@@ -2980,7 +3219,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_museum -->
+    <!-- http://osmonto.do-roam.org/unamed#v_museum -->
 
     <owl:Class rdf:about="#v_museum">
         <rdfs:subClassOf rdf:resource="#can_have_address"/>
@@ -2992,7 +3231,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_musical -->
+    <!-- http://osmonto.do-roam.org/unamed#v_musical -->
 
     <owl:Class rdf:about="#v_musical">
         <rdfs:subClassOf rdf:resource="#k_theatre:genre"/>
@@ -3000,7 +3239,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_muslim -->
+    <!-- http://osmonto.do-roam.org/unamed#v_muslim -->
 
     <owl:Class rdf:about="#v_muslim">
         <rdfs:subClassOf rdf:resource="#k_religion"/>
@@ -3008,7 +3247,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_national_park -->
+    <!-- http://osmonto.do-roam.org/unamed#v_national_park -->
 
     <owl:Class rdf:about="#v_national_park">
         <rdfs:subClassOf rdf:resource="#k_boundary"/>
@@ -3016,7 +3255,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_nature_reserve -->
+    <!-- http://osmonto.do-roam.org/unamed#v_nature_reserve -->
 
     <owl:Class rdf:about="#v_nature_reserve">
         <rdfs:subClassOf rdf:resource="#k_leisure"/>
@@ -3024,7 +3263,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_naval_base -->
+    <!-- http://osmonto.do-roam.org/unamed#v_naval_base -->
 
     <owl:Class rdf:about="#v_naval_base">
         <rdfs:subClassOf rdf:resource="#k_military"/>
@@ -3032,7 +3271,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_nightclub -->
+    <!-- http://osmonto.do-roam.org/unamed#v_nightclub -->
 
     <owl:Class rdf:about="#v_nightclub">
         <rdfs:subClassOf rdf:resource="#can_have_address"/>
@@ -3043,7 +3282,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_no -->
+    <!-- http://osmonto.do-roam.org/unamed#v_no -->
 
     <owl:Class rdf:about="#v_no">
         <rdfs:subClassOf rdf:resource="#yes/no"/>
@@ -3051,7 +3290,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_nuclear -->
+    <!-- http://osmonto.do-roam.org/unamed#v_nuclear -->
 
     <owl:Class rdf:about="#v_nuclear">
         <rdfs:subClassOf rdf:resource="#k_power_source"/>
@@ -3059,7 +3298,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_nuclear_explosion_site -->
+    <!-- http://osmonto.do-roam.org/unamed#v_nuclear_explosion_site -->
 
     <owl:Class rdf:about="#v_nuclear_explosion_site">
         <rdfs:subClassOf rdf:resource="#k_military"/>
@@ -3067,7 +3306,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_opera -->
+    <!-- http://osmonto.do-roam.org/unamed#v_opera -->
 
     <owl:Class rdf:about="#v_opera">
         <rdfs:subClassOf rdf:resource="#k_theatre:genre"/>
@@ -3075,7 +3314,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_optician -->
+    <!-- http://osmonto.do-roam.org/unamed#v_optician -->
 
     <owl:Class rdf:about="#v_optician">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -3083,7 +3322,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_organic -->
+    <!-- http://osmonto.do-roam.org/unamed#v_organic -->
 
     <owl:Class rdf:about="#v_organic">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -3091,7 +3330,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_orthodox -->
+    <!-- http://osmonto.do-roam.org/unamed#v_orthodox -->
 
     <owl:Class rdf:about="#v_orthodox">
         <rdfs:subClassOf rdf:resource="#k_denomination"/>
@@ -3099,7 +3338,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_outdoor -->
+    <!-- http://osmonto.do-roam.org/unamed#v_outdoor -->
 
     <owl:Class rdf:about="#v_outdoor">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -3107,7 +3346,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_pagan -->
+    <!-- http://osmonto.do-roam.org/unamed#v_pagan -->
 
     <owl:Class rdf:about="#v_pagan">
         <rdfs:subClassOf rdf:resource="#k_religion"/>
@@ -3115,7 +3354,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_palaeontological_site -->
+    <!-- http://osmonto.do-roam.org/unamed#v_palaeontological_site -->
 
     <owl:Class rdf:about="#v_palaeontological_site">
         <rdfs:subClassOf rdf:resource="#k_geological"/>
@@ -3123,7 +3362,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_park -->
+    <!-- http://osmonto.do-roam.org/unamed#v_park -->
 
     <owl:Class rdf:about="#v_park">
         <rdfs:subClassOf rdf:resource="#k_leisure"/>
@@ -3131,7 +3370,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_parking -->
+    <!-- http://osmonto.do-roam.org/unamed#v_parking -->
 
     <owl:Class rdf:about="#v_parking">
         <rdfs:subClassOf rdf:resource="#can_have_k_capacity"/>
@@ -3140,7 +3379,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_pastafarian -->
+    <!-- http://osmonto.do-roam.org/unamed#v_pastafarian -->
 
     <owl:Class rdf:about="#v_pastafarian">
         <rdfs:subClassOf rdf:resource="#k_religion"/>
@@ -3148,7 +3387,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_path -->
+    <!-- http://osmonto.do-roam.org/unamed#v_path -->
 
     <owl:Class rdf:about="#v_path">
         <rdfs:subClassOf rdf:resource="#k_highway"/>
@@ -3156,7 +3395,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_peak -->
+    <!-- http://osmonto.do-roam.org/unamed#v_peak -->
 
     <owl:Class rdf:about="#v_peak">
         <rdfs:subClassOf rdf:resource="#k_natural"/>
@@ -3164,7 +3403,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_pedestrian -->
+    <!-- http://osmonto.do-roam.org/unamed#v_pedestrian -->
 
     <owl:Class rdf:about="#v_pedestrian">
         <rdfs:subClassOf rdf:resource="#k_highway"/>
@@ -3172,7 +3411,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_pet -->
+    <!-- http://osmonto.do-roam.org/unamed#v_pet -->
 
     <owl:Class rdf:about="#v_pet">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -3180,7 +3419,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_pharmacy -->
+    <!-- http://osmonto.do-roam.org/unamed#v_pharmacy -->
 
     <owl:Class rdf:about="#v_pharmacy">
         <rdfs:subClassOf rdf:resource="#can_have_address"/>
@@ -3191,7 +3430,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_philharmonic -->
+    <!-- http://osmonto.do-roam.org/unamed#v_philharmonic -->
 
     <owl:Class rdf:about="#v_philharmonic">
         <rdfs:subClassOf rdf:resource="#k_theatre:genre"/>
@@ -3199,7 +3438,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_phone -->
+    <!-- http://osmonto.do-roam.org/unamed#v_phone -->
 
     <owl:Class rdf:about="#v_phone">
         <rdfs:subClassOf rdf:resource="#k_emergency"/>
@@ -3207,7 +3446,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_photovoltaic -->
+    <!-- http://osmonto.do-roam.org/unamed#v_photovoltaic -->
 
     <owl:Class rdf:about="#v_photovoltaic">
         <rdfs:subClassOf rdf:resource="#k_power_source"/>
@@ -3215,7 +3454,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_picnic_site -->
+    <!-- http://osmonto.do-roam.org/unamed#v_picnic_site -->
 
     <owl:Class rdf:about="#v_picnic_site">
         <rdfs:subClassOf rdf:resource="#k_tourism"/>
@@ -3223,7 +3462,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_picnic_table -->
+    <!-- http://osmonto.do-roam.org/unamed#v_picnic_table -->
 
     <owl:Class rdf:about="#v_picnic_table">
         <rdfs:subClassOf rdf:resource="#k_leisure"/>
@@ -3231,7 +3470,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_pier -->
+    <!-- http://osmonto.do-roam.org/unamed#v_pier -->
 
     <owl:Class rdf:about="#v_pier">
         <rdfs:subClassOf rdf:resource="#k_man_made"/>
@@ -3239,7 +3478,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_pipeline -->
+    <!-- http://osmonto.do-roam.org/unamed#v_pipeline -->
 
     <owl:Class rdf:about="#v_pipeline">
         <rdfs:subClassOf rdf:resource="#k_man_made"/>
@@ -3247,7 +3486,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_piste -->
+    <!-- http://osmonto.do-roam.org/unamed#v_piste -->
 
     <owl:Class rdf:about="#v_piste">
         <rdfs:subClassOf rdf:resource="#k_route"/>
@@ -3255,7 +3494,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_pitch -->
+    <!-- http://osmonto.do-roam.org/unamed#v_pitch -->
 
     <owl:Class rdf:about="#v_pitch">
         <rdfs:subClassOf rdf:resource="#k_leisure"/>
@@ -3263,7 +3502,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_pizza -->
+    <!-- http://osmonto.do-roam.org/unamed#v_pizza -->
 
     <owl:Class rdf:about="#v_pizza">
         <rdfs:subClassOf rdf:resource="#k_cuisine"/>
@@ -3271,7 +3510,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_place_of_worship -->
+    <!-- http://osmonto.do-roam.org/unamed#v_place_of_worship -->
 
     <owl:Class rdf:about="#v_place_of_worship">
         <rdfs:subClassOf rdf:resource="#can_have_address"/>
@@ -3282,7 +3521,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_platform -->
+    <!-- http://osmonto.do-roam.org/unamed#v_platform -->
 
     <owl:Class rdf:about="#v_platform">
         <rdfs:subClassOf rdf:resource="#k_railway"/>
@@ -3290,7 +3529,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_playground -->
+    <!-- http://osmonto.do-roam.org/unamed#v_playground -->
 
     <owl:Class rdf:about="#v_playground">
         <rdfs:subClassOf rdf:resource="#k_leisure"/>
@@ -3298,7 +3537,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_pole -->
+    <!-- http://osmonto.do-roam.org/unamed#v_pole -->
 
     <owl:Class rdf:about="#v_pole">
         <rdfs:subClassOf rdf:resource="#k_power"/>
@@ -3306,7 +3545,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_police -->
+    <!-- http://osmonto.do-roam.org/unamed#v_police -->
 
     <owl:Class rdf:about="#v_police">
         <rdfs:subClassOf rdf:resource="#can_have_address"/>
@@ -3315,7 +3554,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_political -->
+    <!-- http://osmonto.do-roam.org/unamed#v_political -->
 
     <owl:Class rdf:about="#v_political">
         <rdfs:subClassOf rdf:resource="#k_theatre:genre"/>
@@ -3323,7 +3562,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_post_box -->
+    <!-- http://osmonto.do-roam.org/unamed#v_post_box -->
 
     <owl:Class rdf:about="#v_post_box">
         <rdfs:subClassOf rdf:resource="#can_have_k_brand"/>
@@ -3335,7 +3574,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_post_office -->
+    <!-- http://osmonto.do-roam.org/unamed#v_post_office -->
 
     <owl:Class rdf:about="#v_post_office">
         <rdfs:subClassOf rdf:resource="#can_have_address"/>
@@ -3347,7 +3586,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_power -->
+    <!-- http://osmonto.do-roam.org/unamed#v_power -->
 
     <owl:Class rdf:about="#v_power">
         <rdfs:subClassOf rdf:resource="#k_route"/>
@@ -3355,7 +3594,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_primary -->
+    <!-- http://osmonto.do-roam.org/unamed#v_primary -->
 
     <owl:Class rdf:about="#v_primary">
         <rdfs:subClassOf rdf:resource="#k_highway"/>
@@ -3363,7 +3602,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_primary_link -->
+    <!-- http://osmonto.do-roam.org/unamed#v_primary_link -->
 
     <owl:Class rdf:about="#v_primary_link">
         <rdfs:subClassOf rdf:resource="#k_highway"/>
@@ -3371,7 +3610,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_protected_area -->
+    <!-- http://osmonto.do-roam.org/unamed#v_protected_area -->
 
     <owl:Class rdf:about="#v_protected_area">
         <rdfs:subClassOf rdf:resource="#k_boundary"/>
@@ -3379,7 +3618,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_protestant -->
+    <!-- http://osmonto.do-roam.org/unamed#v_protestant -->
 
     <owl:Class rdf:about="#v_protestant">
         <rdfs:subClassOf rdf:resource="#k_denomination"/>
@@ -3387,7 +3626,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_pub -->
+    <!-- http://osmonto.do-roam.org/unamed#v_pub -->
 
     <owl:Class rdf:about="#v_pub">
         <rdfs:subClassOf rdf:resource="#can_have_address"/>
@@ -3401,7 +3640,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_puppet -->
+    <!-- http://osmonto.do-roam.org/unamed#v_puppet -->
 
     <owl:Class rdf:about="#v_puppet">
         <rdfs:subClassOf rdf:resource="#k_theatre:genre"/>
@@ -3409,7 +3648,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_pylon -->
+    <!-- http://osmonto.do-roam.org/unamed#v_pylon -->
 
     <owl:Class rdf:about="#v_pylon">
         <rdfs:subClassOf rdf:resource="#k_aerialway"/>
@@ -3417,7 +3656,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_raceway -->
+    <!-- http://osmonto.do-roam.org/unamed#v_raceway -->
 
     <owl:Class rdf:about="#v_raceway">
         <rdfs:subClassOf rdf:resource="#k_highway"/>
@@ -3425,7 +3664,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_rail -->
+    <!-- http://osmonto.do-roam.org/unamed#v_rail -->
 
     <owl:Class rdf:about="#v_rail">
         <rdfs:subClassOf rdf:resource="#k_railway"/>
@@ -3433,7 +3672,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_railway -->
+    <!-- http://osmonto.do-roam.org/unamed#v_railway -->
 
     <owl:Class rdf:about="#v_railway">
         <rdfs:subClassOf rdf:resource="#k_route"/>
@@ -3441,7 +3680,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_range -->
+    <!-- http://osmonto.do-roam.org/unamed#v_range -->
 
     <owl:Class rdf:about="#v_range">
         <rdfs:subClassOf rdf:resource="#k_military"/>
@@ -3449,7 +3688,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_recreation_ground -->
+    <!-- http://osmonto.do-roam.org/unamed#v_recreation_ground -->
 
     <owl:Class rdf:about="#v_recreation_ground">
         <rdfs:subClassOf rdf:resource="#k_leisure"/>
@@ -3457,7 +3696,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_recycling -->
+    <!-- http://osmonto.do-roam.org/unamed#v_recycling -->
 
     <owl:Class rdf:about="#v_recycling">
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
@@ -3465,7 +3704,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_reef -->
+    <!-- http://osmonto.do-roam.org/unamed#v_reef -->
 
     <owl:Class rdf:about="#v_reef">
         <rdfs:subClassOf rdf:resource="#k_natural"/>
@@ -3473,7 +3712,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_regional -->
+    <!-- http://osmonto.do-roam.org/unamed#v_regional -->
 
     <owl:Class rdf:about="#v_regional">
         <rdfs:subClassOf rdf:resource="#k_cuisine"/>
@@ -3481,7 +3720,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_renewable -->
+    <!-- http://osmonto.do-roam.org/unamed#v_renewable -->
 
     <owl:Class rdf:about="#v_renewable">
         <rdfs:subClassOf rdf:resource="#k_power_source"/>
@@ -3489,7 +3728,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_residential -->
+    <!-- http://osmonto.do-roam.org/unamed#v_residential -->
 
     <owl:Class rdf:about="#v_residential">
         <rdfs:subClassOf rdf:resource="#k_highway"/>
@@ -3497,7 +3736,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_restaurant -->
+    <!-- http://osmonto.do-roam.org/unamed#v_restaurant -->
 
     <owl:Class rdf:about="#v_restaurant">
         <rdfs:subClassOf rdf:resource="#can_have_address"/>
@@ -3512,7 +3751,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_restriction -->
+    <!-- http://osmonto.do-roam.org/unamed#v_restriction -->
 
     <owl:Class rdf:about="#v_restriction">
         <rdfs:subClassOf rdf:resource="#k_type"/>
@@ -3520,7 +3759,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_river -->
+    <!-- http://osmonto.do-roam.org/unamed#v_river -->
 
     <owl:Class rdf:about="#v_river">
         <rdfs:subClassOf rdf:resource="#k_waterway"/>
@@ -3528,7 +3767,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_riverbank -->
+    <!-- http://osmonto.do-roam.org/unamed#v_riverbank -->
 
     <owl:Class rdf:about="#v_riverbank">
         <rdfs:subClassOf rdf:resource="#k_waterway"/>
@@ -3536,7 +3775,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_road -->
+    <!-- http://osmonto.do-roam.org/unamed#v_road -->
 
     <owl:Class rdf:about="#v_road">
         <rdfs:subClassOf rdf:resource="#k_route"/>
@@ -3544,7 +3783,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_rock -->
+    <!-- http://osmonto.do-roam.org/unamed#v_rock -->
 
     <owl:Class rdf:about="#v_rock">
         <rdfs:subClassOf rdf:resource="#k_natural"/>
@@ -3552,7 +3791,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_rocks -->
+    <!-- http://osmonto.do-roam.org/unamed#v_rocks -->
 
     <owl:Class rdf:about="#v_rocks">
         <rdfs:subClassOf rdf:resource="#k_natural"/>
@@ -3560,7 +3799,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_route -->
+    <!-- http://osmonto.do-roam.org/unamed#v_route -->
 
     <owl:Class rdf:about="#v_route">
         <rdfs:subClassOf rdf:resource="#k_type"/>
@@ -3568,7 +3807,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_ruins -->
+    <!-- http://osmonto.do-roam.org/unamed#v_ruins -->
 
     <owl:Class rdf:about="#v_ruins">
         <rdfs:subClassOf rdf:resource="#k_historic"/>
@@ -3576,7 +3815,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_runway -->
+    <!-- http://osmonto.do-roam.org/unamed#v_runway -->
 
     <owl:Class rdf:about="#v_runway">
         <rdfs:subClassOf rdf:resource="#k_aeroway"/>
@@ -3584,7 +3823,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_sand -->
+    <!-- http://osmonto.do-roam.org/unamed#v_sand -->
 
     <owl:Class rdf:about="#v_sand">
         <rdfs:subClassOf rdf:resource="#k_natural"/>
@@ -3592,7 +3831,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_sauna -->
+    <!-- http://osmonto.do-roam.org/unamed#v_sauna -->
 
     <owl:Class rdf:about="#v_sauna">
         <rdfs:subClassOf rdf:resource="#can_have_address"/>
@@ -3601,7 +3840,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_schloss -->
+    <!-- http://osmonto.do-roam.org/unamed#v_schloss -->
 
     <owl:Class rdf:about="#v_schloss">
         <rdfs:subClassOf rdf:resource="#k_castle_type"/>
@@ -3609,7 +3848,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_school -->
+    <!-- http://osmonto.do-roam.org/unamed#v_school -->
 
     <owl:Class rdf:about="#v_school">
         <rdfs:subClassOf rdf:resource="#can_have_address"/>
@@ -3618,7 +3857,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_scientologist -->
+    <!-- http://osmonto.do-roam.org/unamed#v_scientologist -->
 
     <owl:Class rdf:about="#v_scientologist">
         <rdfs:subClassOf rdf:resource="#k_religion"/>
@@ -3626,7 +3865,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_scrub -->
+    <!-- http://osmonto.do-roam.org/unamed#v_scrub -->
 
     <owl:Class rdf:about="#v_scrub">
         <rdfs:subClassOf rdf:resource="#k_natural"/>
@@ -3634,7 +3873,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_seafood -->
+    <!-- http://osmonto.do-roam.org/unamed#v_seafood -->
 
     <owl:Class rdf:about="#v_seafood">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -3642,7 +3881,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_secondary -->
+    <!-- http://osmonto.do-roam.org/unamed#v_secondary -->
 
     <owl:Class rdf:about="#v_secondary">
         <rdfs:subClassOf rdf:resource="#k_highway"/>
@@ -3650,7 +3889,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_secondary_link -->
+    <!-- http://osmonto.do-roam.org/unamed#v_secondary_link -->
 
     <owl:Class rdf:about="#v_secondary_link">
         <rdfs:subClassOf rdf:resource="#k_highway"/>
@@ -3658,7 +3897,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_seperated -->
+    <!-- http://osmonto.do-roam.org/unamed#v_seperated -->
 
     <owl:Class rdf:about="#v_seperated">
         <rdfs:subClassOf rdf:resource="#decision"/>
@@ -3666,7 +3905,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_service -->
+    <!-- http://osmonto.do-roam.org/unamed#v_service -->
 
     <owl:Class rdf:about="#v_service">
         <rdfs:subClassOf rdf:resource="#k_highway"/>
@@ -3674,7 +3913,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_services -->
+    <!-- http://osmonto.do-roam.org/unamed#v_services -->
 
     <owl:Class rdf:about="#v_services">
         <rdfs:subClassOf rdf:resource="#k_highway"/>
@@ -3682,7 +3921,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_shadow_play -->
+    <!-- http://osmonto.do-roam.org/unamed#v_shadow_play -->
 
     <owl:Class rdf:about="#v_shadow_play">
         <rdfs:subClassOf rdf:resource="#k_theatre:genre"/>
@@ -3690,7 +3929,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_shed -->
+    <!-- http://osmonto.do-roam.org/unamed#v_shed -->
 
     <owl:Class rdf:about="#v_shed">
         <rdfs:subClassOf rdf:resource="#k_bicycle_parking"/>
@@ -3698,7 +3937,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_shelter -->
+    <!-- http://osmonto.do-roam.org/unamed#v_shelter -->
 
     <owl:Class rdf:about="#v_shelter">
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
@@ -3706,7 +3945,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_shinto -->
+    <!-- http://osmonto.do-roam.org/unamed#v_shinto -->
 
     <owl:Class rdf:about="#v_shinto">
         <rdfs:subClassOf rdf:resource="#k_religion"/>
@@ -3714,7 +3953,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_shoes -->
+    <!-- http://osmonto.do-roam.org/unamed#v_shoes -->
 
     <owl:Class rdf:about="#v_shoes">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -3722,7 +3961,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_sikh -->
+    <!-- http://osmonto.do-roam.org/unamed#v_sikh -->
 
     <owl:Class rdf:about="#v_sikh">
         <rdfs:subClassOf rdf:resource="#k_religion"/>
@@ -3730,7 +3969,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_site -->
+    <!-- http://osmonto.do-roam.org/unamed#v_site -->
 
     <owl:Class rdf:about="#v_site">
         <rdfs:subClassOf rdf:resource="#k_type"/>
@@ -3738,7 +3977,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_skateboard -->
+    <!-- http://osmonto.do-roam.org/unamed#v_skateboard -->
 
     <owl:Class rdf:about="#v_skateboard">
         <rdfs:subClassOf rdf:resource="#k_sport"/>
@@ -3746,7 +3985,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_skating -->
+    <!-- http://osmonto.do-roam.org/unamed#v_skating -->
 
     <owl:Class rdf:about="#v_skating">
         <rdfs:subClassOf rdf:resource="#k_sport"/>
@@ -3754,7 +3993,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_ski -->
+    <!-- http://osmonto.do-roam.org/unamed#v_ski -->
 
     <owl:Class rdf:about="#v_ski">
         <rdfs:subClassOf rdf:resource="#k_route"/>
@@ -3762,7 +4001,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_skiing -->
+    <!-- http://osmonto.do-roam.org/unamed#v_skiing -->
 
     <owl:Class rdf:about="#v_skiing">
         <rdfs:subClassOf rdf:resource="#k_sport"/>
@@ -3770,7 +4009,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_slipway -->
+    <!-- http://osmonto.do-roam.org/unamed#v_slipway -->
 
     <owl:Class rdf:about="#v_slipway">
         <rdfs:subClassOf rdf:resource="#k_leisure"/>
@@ -3778,7 +4017,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_soccer -->
+    <!-- http://osmonto.do-roam.org/unamed#v_soccer -->
 
     <owl:Class rdf:about="#v_soccer">
         <rdfs:subClassOf rdf:resource="#k_sport"/>
@@ -3786,7 +4025,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_spanish -->
+    <!-- http://osmonto.do-roam.org/unamed#v_spanish -->
 
     <owl:Class rdf:about="#v_spanish">
         <rdfs:subClassOf rdf:resource="#k_cuisine"/>
@@ -3794,7 +4033,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_spiritualist -->
+    <!-- http://osmonto.do-roam.org/unamed#v_spiritualist -->
 
     <owl:Class rdf:about="#v_spiritualist">
         <rdfs:subClassOf rdf:resource="#k_religion"/>
@@ -3802,7 +4041,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_sports -->
+    <!-- http://osmonto.do-roam.org/unamed#v_sports -->
 
     <owl:Class rdf:about="#v_sports">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -3810,7 +4049,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_sports_centre -->
+    <!-- http://osmonto.do-roam.org/unamed#v_sports_centre -->
 
     <owl:Class rdf:about="#v_sports_centre">
         <rdfs:subClassOf rdf:resource="#k_leisure"/>
@@ -3818,7 +4057,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_spring -->
+    <!-- http://osmonto.do-roam.org/unamed#v_spring -->
 
     <owl:Class rdf:about="#v_spring">
         <rdfs:subClassOf rdf:resource="#k_natural"/>
@@ -3826,7 +4065,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_spur -->
+    <!-- http://osmonto.do-roam.org/unamed#v_spur -->
 
     <owl:Class rdf:about="#v_spur">
         <rdfs:subClassOf rdf:resource="#k_railway"/>
@@ -3834,7 +4073,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_stadium -->
+    <!-- http://osmonto.do-roam.org/unamed#v_stadium -->
 
     <owl:Class rdf:about="#v_stadium">
         <rdfs:subClassOf rdf:resource="#k_leisure"/>
@@ -3842,7 +4081,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_stand_up_comedy -->
+    <!-- http://osmonto.do-roam.org/unamed#v_stand_up_comedy -->
 
     <owl:Class rdf:about="#v_stand_up_comedy">
         <rdfs:subClassOf rdf:resource="#k_theatre:genre"/>
@@ -3850,7 +4089,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_stands -->
+    <!-- http://osmonto.do-roam.org/unamed#v_stands -->
 
     <owl:Class rdf:about="#v_stands">
         <rdfs:subClassOf rdf:resource="#k_bicycle_parking"/>
@@ -3858,7 +4097,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_stately -->
+    <!-- http://osmonto.do-roam.org/unamed#v_stately -->
 
     <owl:Class rdf:about="#v_stately">
         <rdfs:subClassOf rdf:resource="#k_castle_type"/>
@@ -3866,7 +4105,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_station -->
+    <!-- http://osmonto.do-roam.org/unamed#v_station -->
 
     <owl:Class rdf:about="#v_station">
         <rdfs:subClassOf rdf:resource="#k_railway"/>
@@ -3874,7 +4113,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_stationery -->
+    <!-- http://osmonto.do-roam.org/unamed#v_stationery -->
 
     <owl:Class rdf:about="#v_stationery">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -3882,7 +4121,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_steps -->
+    <!-- http://osmonto.do-roam.org/unamed#v_steps -->
 
     <owl:Class rdf:about="#v_steps">
         <rdfs:subClassOf rdf:resource="#k_highway"/>
@@ -3890,7 +4129,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_storage_tank -->
+    <!-- http://osmonto.do-roam.org/unamed#v_storage_tank -->
 
     <owl:Class rdf:about="#v_storage_tank">
         <rdfs:subClassOf rdf:resource="#k_man_made"/>
@@ -3898,7 +4137,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_stream -->
+    <!-- http://osmonto.do-roam.org/unamed#v_stream -->
 
     <owl:Class rdf:about="#v_stream">
         <rdfs:subClassOf rdf:resource="#k_waterway"/>
@@ -3906,7 +4145,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_sub_station -->
+    <!-- http://osmonto.do-roam.org/unamed#v_sub_station -->
 
     <owl:Class rdf:about="#v_sub_station">
         <rdfs:subClassOf rdf:resource="#k_power"/>
@@ -3914,7 +4153,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_subway -->
+    <!-- http://osmonto.do-roam.org/unamed#v_subway -->
 
     <owl:Class rdf:about="#v_subway">
         <rdfs:subClassOf rdf:resource="#k_station"/>
@@ -3922,7 +4161,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_supermarket -->
+    <!-- http://osmonto.do-roam.org/unamed#v_supermarket -->
 
     <owl:Class rdf:about="#v_supermarket">
         <rdfs:subClassOf rdf:resource="#can_have_k_name"/>
@@ -3933,7 +4172,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_survey_point -->
+    <!-- http://osmonto.do-roam.org/unamed#v_survey_point -->
 
     <owl:Class rdf:about="#v_survey_point">
         <rdfs:subClassOf rdf:resource="#k_man_made"/>
@@ -3941,7 +4180,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_sushi -->
+    <!-- http://osmonto.do-roam.org/unamed#v_sushi -->
 
     <owl:Class rdf:about="#v_sushi">
         <rdfs:subClassOf rdf:resource="#k_cuisine"/>
@@ -3949,7 +4188,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_swimming -->
+    <!-- http://osmonto.do-roam.org/unamed#v_swimming -->
 
     <owl:Class rdf:about="#v_swimming">
         <rdfs:subClassOf rdf:resource="#k_sport"/>
@@ -3957,7 +4196,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_swimming_pool -->
+    <!-- http://osmonto.do-roam.org/unamed#v_swimming_pool -->
 
     <owl:Class rdf:about="#v_swimming_pool">
         <rdfs:subClassOf rdf:resource="#can_have_address"/>
@@ -3967,7 +4206,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_table_tennis -->
+    <!-- http://osmonto.do-roam.org/unamed#v_table_tennis -->
 
     <owl:Class rdf:about="#v_table_tennis">
         <rdfs:subClassOf rdf:resource="#k_sport"/>
@@ -3975,7 +4214,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_taoist -->
+    <!-- http://osmonto.do-roam.org/unamed#v_taoist -->
 
     <owl:Class rdf:about="#v_taoist">
         <rdfs:subClassOf rdf:resource="#k_religion"/>
@@ -3983,7 +4222,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_taxi -->
+    <!-- http://osmonto.do-roam.org/unamed#v_taxi -->
 
     <owl:Class rdf:about="#v_taxi">
         <rdfs:subClassOf rdf:resource="#can_have_k_capacity"/>
@@ -3993,7 +4232,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_taxiway -->
+    <!-- http://osmonto.do-roam.org/unamed#v_taxiway -->
 
     <owl:Class rdf:about="#v_taxiway">
         <rdfs:subClassOf rdf:resource="#k_aeroway"/>
@@ -4001,7 +4240,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_telephone -->
+    <!-- http://osmonto.do-roam.org/unamed#v_telephone -->
 
     <owl:Class rdf:about="#v_telephone">
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
@@ -4009,7 +4248,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_tennis -->
+    <!-- http://osmonto.do-roam.org/unamed#v_tennis -->
 
     <owl:Class rdf:about="#v_tennis">
         <rdfs:subClassOf rdf:resource="#k_sport"/>
@@ -4017,7 +4256,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_terminal -->
+    <!-- http://osmonto.do-roam.org/unamed#v_terminal -->
 
     <owl:Class rdf:about="#v_terminal">
         <rdfs:subClassOf rdf:resource="#k_aeroway"/>
@@ -4025,7 +4264,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_tertiary -->
+    <!-- http://osmonto.do-roam.org/unamed#v_tertiary -->
 
     <owl:Class rdf:about="#v_tertiary">
         <rdfs:subClassOf rdf:resource="#k_highway"/>
@@ -4033,7 +4272,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_thai -->
+    <!-- http://osmonto.do-roam.org/unamed#v_thai -->
 
     <owl:Class rdf:about="#v_thai">
         <rdfs:subClassOf rdf:resource="#k_cuisine"/>
@@ -4041,7 +4280,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_theatre -->
+    <!-- http://osmonto.do-roam.org/unamed#v_theatre -->
 
     <owl:Class rdf:about="#v_theatre">
         <rdfs:subClassOf rdf:resource="#can_have_address"/>
@@ -4050,7 +4289,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_theme_park -->
+    <!-- http://osmonto.do-roam.org/unamed#v_theme_park -->
 
     <owl:Class rdf:about="#v_theme_park">
         <rdfs:subClassOf rdf:resource="#k_tourism"/>
@@ -4058,7 +4297,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_toilets -->
+    <!-- http://osmonto.do-roam.org/unamed#v_toilets -->
 
     <owl:Class rdf:about="#v_toilets">
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
@@ -4066,7 +4305,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_tower -->
+    <!-- http://osmonto.do-roam.org/unamed#v_tower -->
 
     <owl:Class rdf:about="#v_tower">
         <rdfs:subClassOf rdf:resource="#k_man_made"/>
@@ -4074,7 +4313,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_town_hall -->
+    <!-- http://osmonto.do-roam.org/unamed#v_town_hall -->
 
     <owl:Class rdf:about="#v_town_hall">
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
@@ -4082,7 +4321,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_toys -->
+    <!-- http://osmonto.do-roam.org/unamed#v_toys -->
 
     <owl:Class rdf:about="#v_toys">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -4090,7 +4329,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_track -->
+    <!-- http://osmonto.do-roam.org/unamed#v_track -->
 
     <owl:Class rdf:about="#v_track">
         <rdfs:subClassOf rdf:resource="#k_leisure"/>
@@ -4098,7 +4337,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_train -->
+    <!-- http://osmonto.do-roam.org/unamed#v_train -->
 
     <owl:Class rdf:about="#v_train">
         <rdfs:subClassOf rdf:resource="#k_route"/>
@@ -4106,7 +4345,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_tram -->
+    <!-- http://osmonto.do-roam.org/unamed#v_tram -->
 
     <owl:Class rdf:about="#v_tram">
         <rdfs:subClassOf rdf:resource="#k_route"/>
@@ -4114,7 +4353,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_tram_stop -->
+    <!-- http://osmonto.do-roam.org/unamed#v_tram_stop -->
 
     <owl:Class rdf:about="#v_tram_stop">
         <rdfs:subClassOf rdf:resource="#k_railway"/>
@@ -4122,7 +4361,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_transformer -->
+    <!-- http://osmonto.do-roam.org/unamed#v_transformer -->
 
     <owl:Class rdf:about="#v_transformer">
         <rdfs:subClassOf rdf:resource="#k_power"/>
@@ -4130,7 +4369,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_travel_agency -->
+    <!-- http://osmonto.do-roam.org/unamed#v_travel_agency -->
 
     <owl:Class rdf:about="#v_travel_agency">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -4138,7 +4377,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_tree -->
+    <!-- http://osmonto.do-roam.org/unamed#v_tree -->
 
     <owl:Class rdf:about="#v_tree">
         <rdfs:subClassOf rdf:resource="#k_natural"/>
@@ -4146,7 +4385,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_trolleybus -->
+    <!-- http://osmonto.do-roam.org/unamed#v_trolleybus -->
 
     <owl:Class rdf:about="#v_trolleybus">
         <rdfs:subClassOf rdf:resource="#k_route"/>
@@ -4154,7 +4393,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_truck -->
+    <!-- http://osmonto.do-roam.org/unamed#v_truck -->
 
     <owl:Class rdf:about="#v_truck">
         <rdfs:subClassOf rdf:resource="#k_route"/>
@@ -4162,7 +4401,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_trunk -->
+    <!-- http://osmonto.do-roam.org/unamed#v_trunk -->
 
     <owl:Class rdf:about="#v_trunk">
         <rdfs:subClassOf rdf:resource="#k_highway"/>
@@ -4170,7 +4409,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_trunk_link -->
+    <!-- http://osmonto.do-roam.org/unamed#v_trunk_link -->
 
     <owl:Class rdf:about="#v_trunk_link">
         <rdfs:subClassOf rdf:resource="#k_highway"/>
@@ -4178,7 +4417,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_turkish -->
+    <!-- http://osmonto.do-roam.org/unamed#v_turkish -->
 
     <owl:Class rdf:about="#v_turkish">
         <rdfs:subClassOf rdf:resource="#k_cuisine"/>
@@ -4186,7 +4425,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_unclassified -->
+    <!-- http://osmonto.do-roam.org/unamed#v_unclassified -->
 
     <owl:Class rdf:about="#v_unclassified">
         <rdfs:subClassOf rdf:resource="#k_highway"/>
@@ -4194,7 +4433,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_unitarian -->
+    <!-- http://osmonto.do-roam.org/unamed#v_unitarian -->
 
     <owl:Class rdf:about="#v_unitarian">
         <rdfs:subClassOf rdf:resource="#k_religion"/>
@@ -4202,7 +4441,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_university -->
+    <!-- http://osmonto.do-roam.org/unamed#v_university -->
 
     <owl:Class rdf:about="#v_university">
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
@@ -4210,7 +4449,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_valley -->
+    <!-- http://osmonto.do-roam.org/unamed#v_valley -->
 
     <owl:Class rdf:about="#v_valley">
         <rdfs:subClassOf rdf:resource="#k_natural"/>
@@ -4218,7 +4457,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_variet&#233; -->
+    <!-- http://osmonto.do-roam.org/unamed#v_variet&#233; -->
 
     <owl:Class rdf:about="#v_variet&#233;">
         <rdfs:subClassOf rdf:resource="#k_theatre:genre"/>
@@ -4226,7 +4465,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_vegetarian -->
+    <!-- http://osmonto.do-roam.org/unamed#v_vegetarian -->
 
     <owl:Class rdf:about="#v_vegetarian">
         <rdfs:subClassOf rdf:resource="#k_cuisine"/>
@@ -4234,7 +4473,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_veterinary -->
+    <!-- http://osmonto.do-roam.org/unamed#v_veterinary -->
 
     <owl:Class rdf:about="#v_veterinary">
         <rdfs:subClassOf rdf:resource="#can_have_address"/>
@@ -4243,7 +4482,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_video -->
+    <!-- http://osmonto.do-roam.org/unamed#v_video -->
 
     <owl:Class rdf:about="#v_video">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -4251,7 +4490,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_viewpoint -->
+    <!-- http://osmonto.do-roam.org/unamed#v_viewpoint -->
 
     <owl:Class rdf:about="#v_viewpoint">
         <rdfs:subClassOf rdf:resource="#k_tourism"/>
@@ -4259,7 +4498,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_volcano -->
+    <!-- http://osmonto.do-roam.org/unamed#v_volcano -->
 
     <owl:Class rdf:about="#v_volcano">
         <rdfs:subClassOf rdf:resource="#k_natural"/>
@@ -4267,7 +4506,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_walking -->
+    <!-- http://osmonto.do-roam.org/unamed#v_walking -->
 
     <owl:Class rdf:about="#v_walking">
         <rdfs:subClassOf rdf:resource="#k_route"/>
@@ -4275,7 +4514,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_wall_loops -->
+    <!-- http://osmonto.do-roam.org/unamed#v_wall_loops -->
 
     <owl:Class rdf:about="#v_wall_loops">
         <rdfs:subClassOf rdf:resource="#k_bicycle_parking"/>
@@ -4283,7 +4522,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_waste_basket -->
+    <!-- http://osmonto.do-roam.org/unamed#v_waste_basket -->
 
     <owl:Class rdf:about="#v_waste_basket">
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
@@ -4291,7 +4530,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_wastewater_plant -->
+    <!-- http://osmonto.do-roam.org/unamed#v_wastewater_plant -->
 
     <owl:Class rdf:about="#v_wastewater_plant">
         <rdfs:subClassOf rdf:resource="#k_man_made"/>
@@ -4299,7 +4538,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_water -->
+    <!-- http://osmonto.do-roam.org/unamed#v_water -->
 
     <owl:Class rdf:about="#v_water">
         <rdfs:subClassOf rdf:resource="#k_natural"/>
@@ -4307,7 +4546,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_water_park -->
+    <!-- http://osmonto.do-roam.org/unamed#v_water_park -->
 
     <owl:Class rdf:about="#v_water_park">
         <rdfs:subClassOf rdf:resource="#k_leisure"/>
@@ -4315,7 +4554,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_water_tower -->
+    <!-- http://osmonto.do-roam.org/unamed#v_water_tower -->
 
     <owl:Class rdf:about="#v_water_tower">
         <rdfs:subClassOf rdf:resource="#k_man_made"/>
@@ -4323,7 +4562,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_waterfall -->
+    <!-- http://osmonto.do-roam.org/unamed#v_waterfall -->
 
     <owl:Class rdf:about="#v_waterfall">
         <rdfs:subClassOf rdf:resource="#k_waterway"/>
@@ -4331,7 +4570,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_wayside_cross -->
+    <!-- http://osmonto.do-roam.org/unamed#v_wayside_cross -->
 
     <owl:Class rdf:about="#v_wayside_cross">
         <rdfs:subClassOf rdf:resource="#k_historic"/>
@@ -4339,7 +4578,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_wayside_shrine -->
+    <!-- http://osmonto.do-roam.org/unamed#v_wayside_shrine -->
 
     <owl:Class rdf:about="#v_wayside_shrine">
         <rdfs:subClassOf rdf:resource="#k_historic"/>
@@ -4347,7 +4586,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_wetland -->
+    <!-- http://osmonto.do-roam.org/unamed#v_wetland -->
 
     <owl:Class rdf:about="#v_wetland">
         <rdfs:subClassOf rdf:resource="#k_natural"/>
@@ -4355,7 +4594,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_wind -->
+    <!-- http://osmonto.do-roam.org/unamed#v_wind -->
 
     <owl:Class rdf:about="#v_wind">
         <rdfs:subClassOf rdf:resource="#k_power_source"/>
@@ -4363,7 +4602,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_wood -->
+    <!-- http://osmonto.do-roam.org/unamed#v_wood -->
 
     <owl:Class rdf:about="#v_wood">
         <rdfs:subClassOf rdf:resource="#k_natural"/>
@@ -4371,7 +4610,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_works -->
+    <!-- http://osmonto.do-roam.org/unamed#v_works -->
 
     <owl:Class rdf:about="#v_works">
         <rdfs:subClassOf rdf:resource="#k_man_made"/>
@@ -4379,7 +4618,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_yes -->
+    <!-- http://osmonto.do-roam.org/unamed#v_yes -->
 
     <owl:Class rdf:about="#v_yes">
         <rdfs:subClassOf rdf:resource="#yes/no"/>
@@ -4387,7 +4626,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_zoo -->
+    <!-- http://osmonto.do-roam.org/unamed#v_zoo -->
 
     <owl:Class rdf:about="#v_zoo">
         <rdfs:subClassOf rdf:resource="#can_have_address"/>
@@ -4398,7 +4637,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#v_zoroastrian -->
+    <!-- http://osmonto.do-roam.org/unamed#v_zoroastrian -->
 
     <owl:Class rdf:about="#v_zoroastrian">
         <rdfs:subClassOf rdf:resource="#k_religion"/>
@@ -4406,7 +4645,7 @@
     
 
 
-    <!-- http://www.dfki.de/sks/hets/ontology/unamed#yes/no -->
+    <!-- http://osmonto.do-roam.org/unamed#yes/no -->
 
     <owl:Class rdf:about="#yes/no">
         <rdfs:subClassOf rdf:resource="#decision"/>
@@ -4422,4 +4661,5 @@
 
 
 <!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->
+
 

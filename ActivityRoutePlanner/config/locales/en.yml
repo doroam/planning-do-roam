@@ -1,12 +1,13 @@
-activities: Activities
-coordinates: Coordinates
-destination: Destination
-example: Example
-latitude: Latitude
-longitude: Longitude
-no_results_found_in_this_area: No results found in this area
-reset_route: Reset Route
-select_algorithm: Select algorithm
+en:
+  activities: Activities
+  coordinates: Coordinates
+  destination: Destination
+  example: Example
+  latitude: Latitude
+  longitude: Longitude
+  no_results_found_in_this_area: No results found in this area
+  reset_route: Reset Route
+  select_algorithm: Select algorithm
 
 
 #en:

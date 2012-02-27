@@ -43,15 +43,19 @@ class CalculateRouteController < ApplicationController
     optimization = params[:optimization]
     car_type = params[:car_type]
 
+    #set algorithmus
     if a != nil
       route.algorithmus = a
     end
+    #set sort flag
     if sort != nil
       route.sort = sort
     end
+    #set car type
     if car_type != nil
       route.car_type = car_type
     end
+    #set optimization flag
     if optimization != nil
       route.optimization = optimization
     end
@@ -62,12 +66,15 @@ class CalculateRouteController < ApplicationController
     end
   end
 
+  #not in use
   def get_energy_route
 
     nodes = Array.new
 
+    #service url
     url = "http://greennav.in.tum.de:8192/routing?wsdl"
     
+    #test xml
     xml = 
       "<routingRequest ID=\"test\">"+
       "<feature>routeCalculation</feature>"+
@@ -81,7 +88,7 @@ class CalculateRouteController < ApplicationController
       "<batteryChargeAtStart>95</batteryChargeAtStart>"+
       "<resultType>geoCoords</resultType>"+
       "</routingRequest>"
-
+    
     xml = "<?xml version=\"1.0\" ?>"+
       "<S:Envelope xmlns:S=\"http://schemas.xmlsoap.org/soap/envelope/\">"+
       "<S:Body>"+
@@ -114,6 +121,7 @@ class CalculateRouteController < ApplicationController
       xml_string = @res.to_hash[:create_routing_response_xml_string_response][:return]
       coords = REXML::Document.new(xml_string)
       @result = "xml=="+coords.elements["routingResponse/nodes"].size.to_s
+      #gets the result points
       nodes = get_points(coords.elements["routingResponse/nodes"])
       
 
