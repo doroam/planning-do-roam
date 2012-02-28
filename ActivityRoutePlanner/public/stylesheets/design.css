@@ -103,3 +103,6 @@ div.headline{
 	font-weight:bold;
 	font-size:20px;
 }
+td.structured{
+	width:100px;
+}
