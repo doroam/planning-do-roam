@@ -45,6 +45,12 @@ root {
 table{
 
 }
+h1{
+	margin-top:0px;
+	float:left;
+	font-size:16.5px;
+	font-weight:700;
+}
 .header{
     height:100px;
     width:100%;
@@ -85,6 +91,11 @@ table{
     margin: 15px 0px 5px 5px;
     overflow-y:auto;
 
+}
+.freetext{
+	width:50%; 
+	margin-bottom:7px;
+	margin-left: 50px;
 }
 
 div.headline{

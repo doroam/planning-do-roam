@@ -1,12 +1,11 @@
-<<<<<<< HEAD
 <div id="algo_form">
 	<%=form_tag "calculate_route", :remote => true do%>
 		<table width=100%>
 			<tr>
-		    	<td><%= link_to "Reset Route", "/reset_method" %></td>
+		    	<td><%= link_to t(:reset_route), "/reset_method" %></td>
 		  	</tr>
 		  	<tr>
-				<td>Notice sort (does not work):</td>
+				<td><%=t(:notice_sort)%> (does not work):</td>
 				<td align="right"><%= check_box_tag "Notice sort"%></td>
 			</tr>
 			<tr>
@@ -23,105 +22,8 @@
 		<div id="energy_form" width=100% style="display:none">
 			<%= render "init/energy_form" %>
 		</div>
-		<%= submit_tag "Route berechnen",:id => "calculate_route", :disabled => @route.is_ready, :remote => true, 
+		<%= submit_tag t(:calculate_route),:id => "calculate_route", :disabled => @route.is_ready, :remote => true, 
 						:onclick => 'showWall();'%>
 	<%end%>
 	<script type="text/javascript">readyToCreateRoute()</script>
 </div>
-=======
-<%route = Route.find(session[:main_route])%>
-<table style="font-size:11px;">
-  <tr>
-    <td><%= link_to %=t(:reset_route)%>, "/reset_method" ,:onclick => 'showWall();'%></td>
-    <td align="right">
-    <%if route.is_ready %>
-			<%= link_to "Create Route", "/check_edge", :remote => true, 
-			:onclick => 'showWall();'%>
-    	<%end %>
-	</td>
-  </tr>
-  <tr>
-	<td style="width:120px;">
-Notice sort:
-</td><td>
-<%
-	sort_list = Array.new
-        #yes:to keep the initial sort but false: no sort
-	sort_list.push Selection.new("yes","false")
-        #no: to not keep the initial sort but true to sort the list
-	sort_list.push Selection.new("no","true")
-%><%=
-	select_tag "sort",
-            options_from_collection_for_select(sort_list,"value","tag",route.sort),
-		:style=>"width:117px;",
-	    :onchange => 'showWall();'+remote_function(
-		 	 :url=> "/set_route_parameters",
-			 :with => "'sort=' +document.getElementById('sort').value")
-%>
-</td></tr>
-<tr>
-	<td style="width:120px;">	
-<%=t(:select_algorithm)%>:
-</td><td>
-<%
-	alg_list = Array.new
-	alg_list.push Selection.new("fast","A*")
-	alg_list.push Selection.new("exact","Dijkstra")
-        alg_list.push Selection.new("energy","energy")
-%>
-<%= select_tag "setAlgorithmus",
-            options_from_collection_for_select(alg_list,"value","tag",route.algorithmus),
-		:style=>"width:117px;",
-	    :onchange => 'showWall();'+remote_function(
-		 	 :url=> "/set_route_parameters",
-			 :with => "'algo=' +document.getElementById('setAlgorithmus').value")
-%>
-</td></tr>
-<%if route.algorithmus.eql?("energy")
-        optimization_list = Array.new
-	optimization_list.push Selection.new("energy","ENERGY")
-        optimization_list.push Selection.new("distance","DISTANCE")
-        optimization_list.push Selection.new("time","TIME")
-
-        car_type = Array.new
-	car_type.push Selection.new("STROMOS","STROMOS")
-        car_type.push Selection.new("Sam","Sam")        
-        car_type.push Selection.new("Luis","Luis")
-        car_type.push Selection.new("SmartRoadster","SmartRoadster")
-        car_type.push Selection.new("MUTE","MUTE")
-        car_type.push Selection.new("Karabag Fiat 500E","Karabag Fiat 500E")
-
-%>
-<tr>
-<td style="width:120px;">
-Optimization:
-</td>
-  <td>
-    <%=
-	select_tag "optimization",
-              options_from_collection_for_select(optimization_list,"value","tag",route.optimization),
-		:style=>"width:117px;",
-	    :onchange => 'showWall();'+remote_function(
-		 	 :url=> "/set_route_parameters",
-			 :with => "'optimization=' +document.getElementById('optimization').value")
-%>
-  </td>
-</tr>
-<tr>
-<td style="width:120px;">
-Car Type:
-</td>
-  <td>
-    <%=
-	select_tag "car_type",
-                options_from_collection_for_select(car_type,"value","tag",route.car_type),
-		:style=>"width:117px;",
-	    :onchange => 'showWall();'+remote_function(
-		 	 :url=> "/set_route_parameters",
-			 :with => "'car_type=' +document.getElementById('car_type').value")
-%>
-  </td>
-</tr>
-<%end%>
-</table>
->>>>>>> 17850025be8b291c0db0b53b938b28053c3618e5

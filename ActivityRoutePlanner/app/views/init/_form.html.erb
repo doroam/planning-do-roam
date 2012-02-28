@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <a href="#" onclick="toggleStructured()">Structured input</a>
 <div style="display:none" class="structured">
 	<table>
@@ -12,26 +11,3 @@
 	</table>        
 	<%= render :partial=>"calculate_route/algorithmus_form"%>
 </div>
-=======
-<%
-route = Route.find(session[:main_route])
-%>
-<br/>
-<span class="info_text">
-		Please input your coordinates or place, <br />
-		or click into the map to set coordinates.<br /><br />
-		<%=t(:example)%>: <br />"53.075890890852:8.8073324576725" <br />
-		or "Central Station" </span>
-<table>
-
-  <tr><td width="80px">Start:</td><td>
-  	 	
-  <%= render :partial => 'point/point_form',:locals => {:point => route.start_point,:type => 'start',:action_url=>"/search"} %>
-
-</td></tr>
-<tr><td><%=t(:destination)%>:</td><td>
-  
-<%= render :partial => 'point/point_form',:locals => {:point => route.end_point,:type => 'end',:action_url=>"/search"}%>
-</td></tr>
-</table>
->>>>>>> 17850025be8b291c0db0b53b938b28053c3618e5
