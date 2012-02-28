@@ -92,7 +92,7 @@ h1{
     overflow-y:auto;
 
 }
-.freetext{
+#freetext{
 	width:50%; 
 	margin-bottom:7px;
 	margin-left: 50px;
