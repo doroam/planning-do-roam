@@ -44,24 +44,19 @@ class OntologyMapping < ActiveRecord::Base
   end
   
   # find all nodetags that correspond (via the mapping) to a given class
-  def nodetags_search(c) 
+  def nodetags_search(c)
     if c.name=="Thing"
       return nil
     end
     d = self.map_class(c)
-
     if d.nil?
       return nil
     end
 
-    name = d.name
-    tag = name[2,name.size-2]
-
-    search = case name[0]
-      when 'k' then {:k=>tag}
-      when 'v' then {:v=>tag}
-      else nil
-    end    
+    tag = d.name[2,name.size-2]
+    search = nil
+    search = if d.name.starts_with?('k') then {:k => tag} end
+    search = if d.name.starts_with?('v') then {:v => tag} end  
     search
   end
      

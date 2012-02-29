@@ -1,6 +1,8 @@
 class OntologySearchController < ApplicationController
   
   def ontosearch
+    puts "#############FAIL#############"
+    return
     route = Route.find(session[:main_route])
     start_point = route.start_point
     @result = ""

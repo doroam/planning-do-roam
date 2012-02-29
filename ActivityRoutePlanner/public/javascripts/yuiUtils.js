@@ -191,10 +191,7 @@ function showOntology(){
     //render popup
     YAHOO.yuiObjectContainer.ontology.render(document.body);
 
-    var params = new Array();
-    params[0]  = ["url","ontology/content"];
-    var url = buildUrl("/load_content", params);
-    loadContent(url,"ontology_div");
+    loadContent("activity/list","ontology_div");
     YAHOO.yuiObjectContainer.ontology.show();
 }
 

@@ -51,6 +51,12 @@ h1{
 	font-size:16.5px;
 	font-weight:700;
 }
+#time_restrictions{
+	display:none;
+}
+#duration{
+	display:none;
+}
 .header{
     height:100px;
     width:100%;
