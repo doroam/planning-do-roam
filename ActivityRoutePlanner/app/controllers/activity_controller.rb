@@ -18,17 +18,17 @@ class ActivityController < ApplicationController
 
   #creates an acitivity
   def create
-    route = Route.find(session[:main_route])
+    @route = current_route
     @activity = Activity.new(params[:activity])
         
     #create activity
-    @activity.route = route
+    @activity.route = @route
     @activity.save
 
     #create point
     @point       = Point.new(params[:point])
     #get distance to start
-    @point.distance_source = RouteHelper.get_distance(route.start_point, @point)
+    @point.distance_source = RouteHelper.get_distance(current_route.start_point, @point)
     @point.activity = @activity
     #set nearest edge to activity
     @point.set_edge
@@ -124,9 +124,6 @@ class ActivityController < ApplicationController
             opening_hours_tag = nt.node.tags["opening_hours"]
             opening_hours = if opening_hours_tag.nil? then "" else opening_hours_tag.gsub(/;/,"<br />") end
             @result += "opening="+opening_hours
-            puts "name: " + name
-            puts "lat: " + lat
-            puts "start: " + start_point
             point = make_point(name, icon, lat, lon, start_point)
             @points.push(point)
           end
