@@ -36,6 +36,6 @@ if show_delete
   </td><td>
   <%if show_delete %>
 	<%= # link to remove that activity
-	link_to image_tag("delete.gif", :border=>0,:class => "delete"), "/delete_activity?delete_activity="+activity.id.to_s, :remote => true,:onclick=>'showWall();'%>
+	link_to image_tag("delete.gif", :border=>0,:class => "delete"), "/delete_activity?delete_activity="+activity.id.to_s, :remote => true%>
 <%end%>
 </td></tr>
