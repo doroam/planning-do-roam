@@ -4,7 +4,7 @@ class ActivityController < ApplicationController
   #activity
   def update_activity
     #route = Route.find(session[:main_route])
-
+    @route = current_route
     if params[:delete_activity]
       index = params[:delete_activity].to_i
       activity = Activity.find(index)      
