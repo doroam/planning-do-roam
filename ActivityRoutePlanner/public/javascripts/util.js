@@ -128,12 +128,18 @@ function loadRoute(fileName){
 
     //creates new layer with the route
     route = new OpenLayers.Layer.Vector("KML", {
+    	style: {
+                strokeColor: "#0000ff",
+                strokeWidth: 3,
+                fillOpacity: 0,
+                cursor: "pointer"
+            },
         projection: map.displayProjection,
         strategies: [new OpenLayers.Strategy.Fixed()],
         protocol: new OpenLayers.Protocol.HTTP({
             url: fileName,
             format: new OpenLayers.Format.GPX({
-                extractStyles: true,
+                extractStyles: false,
                 extractAttributes: false
             })
         })
