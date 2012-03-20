@@ -70,7 +70,6 @@ module RouteHelper
       if (source != nil && target !=nil) || is_energy
         
         if alg_select.eql?("osrm")
-          puts "##########################################################"
           #http://routingdemo.geofabrik.de/route-via/&start=53.079951,8.898292&dest=53.106218,8.85515&z=15&output=kml 
           return open("http://routingdemo.geofabrik.de/route-via/&start=#{start_lat},#{start_lon}&dest=#{end_lat},#{end_lon}&z=15&output=kml").read
         end

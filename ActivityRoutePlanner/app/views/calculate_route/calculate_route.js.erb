@@ -1,18 +1,17 @@
 <%   #sets the nearest markers
-if params[:setAlgorithmus] != "osrm"
-  res =  params[:geo_result]
+if @route.algorithmus != "osrm"
   start_lat = 0.0
   start_lon = 0.0
   end_lat = 0.0
   end_lon = 0.0
-  if res.nearest_start!=nil
-    point = res.nearest_start
+  if @result.nearest_start!=nil
+    point = @result.nearest_start
     start_lat = point.lat
     start_lon = point.lon
     type = "nearest_src"%>
     addMark("<%=point.label%>","<%=start_lat%>","<%=start_lon%>","<%=type%>");
   <%end
-  if res.nearest_end!=nil
+  if @result.nearest_end!=nil
     point = res.nearest_end
     end_lat = point.lat
     end_lon = point.lon
@@ -21,13 +20,13 @@ if params[:setAlgorithmus] != "osrm"
   addMark("<%=point.label%>","<%=end_lat%>","<%=end_lon%>","<%=type%>");
   <%end%>
 <%end%>
-loadRoute('<%=params[:file_name]%>');
+loadRoute('<%=@route.kml_path%>');
 <%error_msg = "The next paths could not be found.";
-if params[:setAlgorithmus] != "osrm"
-  res.errors.each do |error|
+if @route.algorithmus != "osrm"
+  @result.errors.each do |error|
       error_msg += "\n"+error+"."
   end
-  if res.errors.length>0%>
+  if @result.errors.length>0%>
     alert('<%=escape_javascript(error_msg)%>');
  <%end%>
 <%end%>

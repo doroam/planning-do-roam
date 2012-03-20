@@ -5,8 +5,8 @@
 		    	<td><%= link_to t(:reset_route), "/reset_method" %></td>
 		  	</tr>
 		  	<tr>
-				<td><%=t(:notice_sort)%> (does not work):</td>
-				<td align="right"><%= check_box_tag "Notice sort"%></td>
+				<td><%=t(:notice_sort)%>:</td>
+				<td align="right"><%= check_box_tag "Notice sort", true, false, :id => "sort"%></td>
 			</tr>
 			<tr>
 				<td>Select algorithm:</td>

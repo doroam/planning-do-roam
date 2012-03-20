@@ -4,46 +4,55 @@ class CalculateRouteController < ApplicationController
   require 'cgi'
   
   #generates a route and shows it
-  def calculate_route        
+  def calculate_route
+    
+    #save route
+    @route   = current_route
+    @route.setCalc(params[:sort], params[:setAlgorithmus], params[:optimization], params[:car_type])
+    
     #get session_id
     session_id    = request.session_options[:id]
-    #creates fileName
-    file_name_app = "kmlRoute_"+session_id+".kml"
-    file_name     = "public/"+file_name_app
-
-    #generates the result for the route see GeoResult
-    route   = Route.find(session[:main_route])
-    route.algorithmus = params[:setAlgorithmus]
-    (!params[:Notice_sort].nil? && params[:Notice_sort].eql("true")) ? route.sort = false : route.sort = true
-    if(route.algorithmus != "osrm")
-      result  = RouteHelper.generate_route(route);
-    end
     
-    if File.exist?(file_name)
-      File.delete(file_name)
-    end
-    if(route.algorithmus != "osrm")
+    #generates the result for the route see GeoResult
+    
+    case @route.algorithmus
+    when "osrm"
+      puts "OSRM"
+      file_name_app = "osrm_"+session_id+".gpx"
+      file_name     = "public/"+file_name_app
+      if File.exist?(file_name)
+        File.delete(file_name)
+      end
+      begin
+        puts "http://router.project-osrm.org/viaroute?loc=#{@route.start_point.lat},#{@route.start_point.lon}&loc=#{@route.end_point.lat},#{@route.end_point.lon}&z=15&output=gpx&instructions=false"
+        File.open(file_name, 'wb') do |file|
+          file.write(open("http://router.project-osrm.org/viaroute?loc=#{@route.start_point.lat},#{@route.start_point.lon}&loc=#{@route.end_point.lat},#{@route.end_point.lon}&z=15&output=gpx&instructions=false").read)
+        end
+      rescue
+        errormessage "No connection to OSRM-Website possible"
+      end
+    when "energy"
+      #creates fileName
+      file_name_app = "kmlRoute_"+session_id+".kml"
+      file_name     = "public/"+file_name_app
+      if File.exist?(file_name)
+        File.delete(file_name)
+      end
+      @result  = RouteHelper.generate_route(@route);  
       #Generates the kml of the result
-      res           = CalculateRouteHelper.generate_route(result.kml_list)
-      params[:kml]  = res
+      res           = CalculateRouteHelper.generate_route(@result.kml_list)
       File.open(file_name, 'w') {|f| f.write(res) }
     else
-      File.open(file_name, 'wb') do |file|
-        file.write(open("http://routingdemo.geofabrik.de/route-via/&start=#{route.start_point.lat},#{route.start_point.lon}&dest=#{route.end_point.lat},#{route.end_point.lon}&z=15&output=kml").read)
-        #file.write("test");
-      end
+      puts "$$$$$$$$$$$$$$$$$MIST$$$$$$$$$$$$$$$$$"
+      puts @route.algorythmus
     end
-
 
     #sets the filepath and the result to show errors
-    file_path           = file_name_app+"?nocache"+Time.now.to_s
-    route.kml_path      = file_path
-    route.save
-    params[:file_name]  = file_path
-    params[:geo_result] = result
-    respond_to do |format|
-      format.js
-    end
+    @route.kml_path      = file_name_app+"?nocache"+Time.now.to_s
+    @route.save
+    #respond_to do |format|
+    #  format.js
+    #end
   end
 
   #sets the algorithmus and sorting method to use

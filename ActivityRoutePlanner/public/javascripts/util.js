@@ -132,9 +132,9 @@ function loadRoute(fileName){
         strategies: [new OpenLayers.Strategy.Fixed()],
         protocol: new OpenLayers.Protocol.HTTP({
             url: fileName,
-            format: new OpenLayers.Format.KML({
+            format: new OpenLayers.Format.GPX({
                 extractStyles: true,
-                extractAttributes: true
+                extractAttributes: false
             })
         })
     });
@@ -151,6 +151,8 @@ function loadRoute(fileName){
         map.zoomToExtent(route.getDataExtent());
     });
 }
+
+
 function closeActivityResults(){
     removeTempMarkers();
     YAHOO.yuiObjectContainer.standardDialog.setBody("");

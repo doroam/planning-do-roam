@@ -27,7 +27,7 @@ class Route < ActiveRecord::Base
   def initialize(*params)
     super(*params)
     self.sort = "false"
-    self.algorithmus = "A*"
+    self.algorithmus = "OSRM"
     self.optimization = "ENERGY"
     self.car_type = "STROMOS"
     point = Point.new()
@@ -101,6 +101,13 @@ class Route < ActiveRecord::Base
       script += "loadRoute('"+kml_path+"');"
     end
     return script
+  end
+  
+  def setCalc(sort, algorithmus, optimization, car_type)
+    self.sort = sort
+    self.algorithmus = algorithmus
+    self.optimization = optimization
+    self.car_type = car_type
   end
 
 end

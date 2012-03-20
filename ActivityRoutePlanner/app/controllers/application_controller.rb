@@ -10,4 +10,11 @@ private
     session[:main_route] = route.id
     route
   end
+  
+  def errormessage(message)
+    @message = message
+    respond_to do |format|
+      format.js
+    end
+  end
 end
