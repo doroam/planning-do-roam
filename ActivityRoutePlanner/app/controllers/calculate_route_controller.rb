@@ -24,7 +24,6 @@ class CalculateRouteController < ApplicationController
         File.delete(file_name)
       end
       begin
-        puts "http://router.project-osrm.org/viaroute?loc=#{@route.start_point.lat},#{@route.start_point.lon}&loc=#{@route.end_point.lat},#{@route.end_point.lon}&z=15&output=gpx&instructions=false"
         File.open(file_name, 'wb') do |file|
           file.write(open("http://router.project-osrm.org/viaroute?loc=#{@route.start_point.lat},#{@route.start_point.lon}&loc=#{@route.end_point.lat},#{@route.end_point.lon}&z=15&output=gpx&instructions=false").read)
         end

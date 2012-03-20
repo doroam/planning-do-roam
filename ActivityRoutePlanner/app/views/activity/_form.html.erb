@@ -6,18 +6,20 @@
     <%= # link to remove that activity
 	link_to image_tag("arrow_down.png", :border=>0,:height=>"10px"),:controller => :activity,:action=>:move,:direction=>"down",:activity=>activity, :remote => true,:onclick=>'showWall();'%>
   </td-->
-  <td align="right">
-<%
-label = activity.result!=nil && activity.result.label!=nil ? activity.result.label : "no_name"
-if show_delete 
-        imageUrl = activity.get_image_url()
-%>
+  	<td align="right">
+		<%
+		label = activity.result!=nil && activity.result.label!=nil ? activity.result.label : "no_name"
+		if show_delete 
+		        imageUrl = activity.get_image_url()
+		%>
+	</td>
+	<td witdh="30px">
 	<img src="<%= imageUrl%>"
 		alt="<%= activity.point.label%>"
 		title="<%= activity.point.label%>"
 		height="20px"/>
 <%end%>
-</td><td width="155px">
+</td><!--<td width="155px">
   <b><%=label%></b>
 <!--%= select_tag "activity_"+activity.id.to_s,
             options_from_collection_for_select(#get available activities and sort by value
@@ -33,7 +35,7 @@ if show_delete
 	:onchange => 'showWall();'+remote_function(
 	:url=> "/add_activity",
 	:with => "'id="+activity.id.to_s+"&activity=' +document.getElementById('activity_"+activity.id.to_s+"').value")%-->
-  </td><td>
+  <!--</td>--><td>
   <%if show_delete %>
 	<%= # link to remove that activity
 	link_to image_tag("delete.gif", :border=>0,:class => "delete"), "/delete_activity?delete_activity="+activity.id.to_s, :remote => true%>

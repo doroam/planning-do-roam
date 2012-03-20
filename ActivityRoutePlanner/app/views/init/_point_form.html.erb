@@ -9,6 +9,9 @@
         <%= hidden_field_tag :maxlon %>
         <%= hidden_field_tag :maxlat %>
         <%= hidden_field_tag :zoom %>
+</span>
+</td>
+<td>
     <%if point != nil && point.label != nil && (!point.label.eql? "")%>
 		<%= # link to remove that activity
           link_to image_tag("delete.gif", :border=>0,:class => "delete"),
@@ -18,4 +21,3 @@
                         :remote => true%>
 	<% end%>
 <% end%>
-</span>

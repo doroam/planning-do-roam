@@ -4,9 +4,9 @@
  */
 var projection = new OpenLayers.Projection("EPSG:4326");
 function resizeMap(){    
-    var content = $("map");
-    content.style.width = (document.documentElement.clientWidth - content.offsetLeft-5)+"px";
-    content.style.height = (document.documentElement.clientHeight - content.offsetTop-5)+"px";
+    var content = $j("map");
+    content.width( (document.documentElement.clientWidth - content.offsetLeft-5)+"px");
+    content.height((document.documentElement.clientHeight - content.offsetTop-5)+"px");
 }
 
 function setMapExtent(extent) {
