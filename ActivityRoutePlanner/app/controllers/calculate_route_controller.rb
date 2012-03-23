@@ -23,13 +23,18 @@ class CalculateRouteController < ApplicationController
       if File.exist?(file_name)
         File.delete(file_name)
       end
-      
-      locs = ""
-      
-      
+      #start-location
+      locs = "loc=#{@route.start_point.lat},#{@route.start_point.lon}"
+      #waypoints
+      @route.activities.each do |activity|        
+        locs += "&loc=#{activity.point.lat},#{activity.point.lon}"
+      end
+      #end-location
+      locs += "&loc=#{@route.end_point.lat},#{@route.end_point.lon}"
       begin
+        puts "http://router.project-osrm.org/viaroute?#{locs}&z=15&output=gpx&instructions=false"
         File.open(file_name, 'wb') do |file|
-          file.write(open("http://router.project-osrm.org/viaroute?loc=#{@route.start_point.lat},#{@route.start_point.lon}&loc=#{@route.end_point.lat},#{@route.end_point.lon}&z=15&output=gpx&instructions=false").read)
+          file.write(open("http://router.project-osrm.org/viaroute?#{locs}&z=15&output=gpx&instructions=false").read)
         end
       rescue
         errormessage "No connection to OSRM-Website possible"
