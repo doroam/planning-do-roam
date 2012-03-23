@@ -153,7 +153,9 @@ module RouteHelper
     if point != nil
       #gets start and end point of the edge and
       start_end_coordinates = GLOBAL_FIELD_END_POINT_LONG+","+GLOBAL_FIELD_END_POINT_LAT+","+GLOBAL_FIELD_START_POINT_LONG+","+GLOBAL_FIELD_START_POINT_LAT
-      sql = "SELECT name,type_name, "+start_end_coordinates+", "+GLOBAL_FIELD_SOURCE+", "+GLOBAL_FIELD_TARGET+", distance("+GLOBAL_FIELD_TRANSFORMED_ROAD_GEOM+", GeometryFromText('POINT("+point.lon.to_s+" "+point.lat.to_s+")', 4326)) AS dist FROM "+TABLE
+      sql = "SELECT name,type_name, "+start_end_coordinates+", "+GLOBAL_FIELD_SOURCE+", "+GLOBAL_FIELD_TARGET+", distance("+GLOBAL_FIELD_TRANSFORMED_ROAD_GEOM+", GeometryFromText('POINT("+point.lon.to_s+" "+point.lat.to_s+")', 4326)) AS dist FROM "+TABLE     
+     #sql = NodeTag.find(:all,:conditions=>OSM.sql_for_area(GLOBAL_FIELD_START_POINT_LAT, GLOBAL_FIELD_START_POINT_LONG, GLOBAL_FIELD_END_POINT_LAT, GLOBAL_FIELD_END_POINT_LONG,"current_nodes.")+" AND (\"current_node_tags\".\"#{field_name}\" = '#{val}')",:include=>"node")
+#soll ersetzen!
       #data for the bounding box around the point
       #performance!
       lat_max   = (point.lat+0.15).to_s
@@ -174,23 +176,23 @@ module RouteHelper
   private
 
   #generates a route between 2 points
-  def self.generate_simple_route(source,target,route)
-    result = Array.new
-
-    if source!=nil && target!=nil
-      edge_src    = source.to_s
-      edge_target = target.to_s
-
-      #get path from source to target
-      result = get_shortest_path(edge_src,edge_target,route);
-      if result.size==0
-        p ":::::::::NO PATH FOUND"
-      end
-    else
-      p ":::::::::::NO SOURCE AND TARGET FOUND!"
-    end
-    return result
-  end
+  # def self.generate_simple_route(source,target,route)
+    # result = Array.new
+# 
+    # if source!=nil && target!=nil
+      # edge_src    = source.to_s
+      # edge_target = target.to_s
+# 
+      # #get path from source to target
+      # result = get_shortest_path(edge_src,edge_target,route);
+      # if result.size==0
+        # p ":::::::::NO PATH FOUND"
+      # end
+    # else
+      # p ":::::::::::NO SOURCE AND TARGET FOUND!"
+    # end
+    # return result
+  # end
 
 
   #gets the path from source to target TODO select algorithm

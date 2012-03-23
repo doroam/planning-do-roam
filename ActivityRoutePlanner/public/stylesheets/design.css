@@ -68,9 +68,9 @@ h1{
 }
 #map{
     position:absolute;
-    left:290px;        
+    left:290px;       
+    right:0; 
     height: 100%;
-    width: 100%;
     padding: 0;
     margin: 0;
 }

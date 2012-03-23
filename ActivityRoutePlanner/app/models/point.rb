@@ -13,6 +13,7 @@
     # t.string   "edge_end_lat"
     # t.string   "edge_end_lon"
     # t.integer  "edgeTargetID"
+    # t.integer  "route_id"
 
 
 class Point < ActiveRecord::Base
@@ -76,12 +77,8 @@ public
 
   #sets the entered coordinates to the point
   def set_coordinates(lat_st,long_st)
-    num_lat = lat_st.to_f
-    num_lat = num_lat
-    num_lon = long_st.to_f
-    num_lon = num_lon
-    self.lat = num_lat
-    self.lon = num_lon
+    self.lat = lat_st.to_f
+    self.lon = long_st.to_f
   end
 
   #parses input coordinats to lat and long
@@ -135,7 +132,7 @@ public
       self.label = result[:name]
     end
     self.set_coordinates(result[:lat], result[:lon])
-    self.set_edge
+#    self.set_edge
     self.save
       
   end
@@ -155,7 +152,7 @@ public
       self.label = lat+":"+lon
     end
     self.set_coordinates(lat, lon)
-    self.set_edge
+#    self.set_edge
     self.save
   end
 

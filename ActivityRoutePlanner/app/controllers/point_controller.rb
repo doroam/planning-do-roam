@@ -8,7 +8,7 @@ class PointController < ApplicationController
     if params[:type]=="start"
       point = @route.start_point
       @type = 'start'
-    else
+    elsif params[:type]=="end"
       point = @route.end_point
       @type = 'end'
     end

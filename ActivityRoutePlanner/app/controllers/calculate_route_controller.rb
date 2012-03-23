@@ -23,6 +23,10 @@ class CalculateRouteController < ApplicationController
       if File.exist?(file_name)
         File.delete(file_name)
       end
+      
+      locs = ""
+      
+      
       begin
         File.open(file_name, 'wb') do |file|
           file.write(open("http://router.project-osrm.org/viaroute?loc=#{@route.start_point.lat},#{@route.start_point.lon}&loc=#{@route.end_point.lat},#{@route.end_point.lon}&z=15&output=gpx&instructions=false").read)
@@ -30,6 +34,14 @@ class CalculateRouteController < ApplicationController
       rescue
         errormessage "No connection to OSRM-Website possible"
       end
+      
+      #sets the filepath and the result to show errors
+      @route.kml_path      = file_name_app+"?nocache"+Time.now.to_s
+      @route.save
+      respond_to do |format|
+        format.js {render :locals => {:format => "GPX"}}
+      end
+      return
     when "energy"
       #creates fileName
       file_name_app = "kmlRoute_"+session_id+".kml"
@@ -46,9 +58,6 @@ class CalculateRouteController < ApplicationController
       puts @route.algorythmus
     end
 
-    #sets the filepath and the result to show errors
-    @route.kml_path      = file_name_app+"?nocache"+Time.now.to_s
-    @route.save
     #respond_to do |format|
     #  format.js
     #end
