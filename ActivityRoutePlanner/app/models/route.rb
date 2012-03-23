@@ -30,6 +30,7 @@ class Route < ActiveRecord::Base
     self.algorithmus = "OSRM"
     self.optimization = "ENERGY"
     self.car_type = "STROMOS"
+    self.format = "GPX"
     point = Point.new()
     point.save
     self.start_point_id = point.id
@@ -98,7 +99,7 @@ class Route < ActiveRecord::Base
 
     #adds the route if there is one
     if kml_path != nil && !kml_path.eql?("")
-      script += "loadRoute('"+kml_path+"');"
+      script += "loadRoute('"+kml_path+"', '#{self.format}');"
     end
     return script
   end

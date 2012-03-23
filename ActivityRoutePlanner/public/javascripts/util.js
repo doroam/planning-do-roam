@@ -120,30 +120,50 @@ function handleMapClick(evt)
 /**
  * Shows the route on the map
  * @param fileName of the kml with the route
- *
+ * @param format STRING (GPX|KML)
  */
-function loadRoute(fileName){
+function loadRoute(fileName, format){
     //Delete old route
     removeRoute();
 
     //creates new layer with the route
-    route = new OpenLayers.Layer.Vector("KML", {
-    	style: {
-                strokeColor: "#0000ff",
-                strokeWidth: 3,
-                fillOpacity: 0,
-                cursor: "pointer"
-            },
-        projection: map.displayProjection,
-        strategies: [new OpenLayers.Strategy.Fixed()],
-        protocol: new OpenLayers.Protocol.HTTP({
-            url: fileName,
-            format: new OpenLayers.Format.GPX({
-                extractStyles: false,
-                extractAttributes: false
-            })
-        })
-    });
+    if(format = "GPX"){
+    	route = new OpenLayers.Layer.Vector("Route", {
+	    	style: {
+	                strokeColor: "#0000ff",
+	                strokeWidth: 3,
+	                fillOpacity: 0,
+	                cursor: "pointer"
+	            },
+	        projection: map.displayProjection,
+	        strategies: [new OpenLayers.Strategy.Fixed()],
+	        protocol: new OpenLayers.Protocol.HTTP({
+	            url: fileName,
+	            format: new OpenLayers.Format.GPX({
+	                extractStyles: false,
+	                extractAttributes: false
+	            })
+	        })
+	    });
+ } else if(format == "KML"){
+ 		route = new OpenLayers.Layer.Vector("Route", {
+	    	style: {
+	                strokeColor: "#0000ff",
+	                strokeWidth: 3,
+	                fillOpacity: 0,
+	                cursor: "pointer"
+	            },
+	        projection: map.displayProjection,
+	        strategies: [new OpenLayers.Strategy.Fixed()],
+	        protocol: new OpenLayers.Protocol.HTTP({
+	            url: fileName,
+	            format: new OpenLayers.Format.KML({
+	                extractStyles: false,
+	                extractAttributes: false
+	            })
+	        })
+	    });
+ }
 
     //adds the route layer
     map.addLayer(route);

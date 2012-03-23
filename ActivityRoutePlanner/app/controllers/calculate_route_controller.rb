@@ -42,6 +42,7 @@ class CalculateRouteController < ApplicationController
       
       #sets the filepath and the result to show errors
       @route.kml_path      = file_name_app+"?nocache"+Time.now.to_s
+      @route.format = "GPX"
       @route.save
       respond_to do |format|
         format.js {render :locals => {:format => "GPX"}}

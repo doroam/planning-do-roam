@@ -20,7 +20,7 @@ if @route.algorithmus != "osrm"
   addMark("<%=point.label%>","<%=end_lat%>","<%=end_lon%>","<%=type%>");
   <%end%>
 <%end%>
-loadRoute('<%=@route.kml_path%>');
+loadRoute('<%=@route.kml_path%>', '<%=@route.format%>');
 <%error_msg = "The next paths could not be found.";
 if @route.algorithmus != "osrm"
   @result.errors.each do |error|
