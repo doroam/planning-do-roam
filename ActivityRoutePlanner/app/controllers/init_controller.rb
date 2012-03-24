@@ -4,7 +4,8 @@ class InitController < ApplicationController
     @route = current_route
     #algorythm choices
     @alg_list = Array.new
-    @alg_list.push Selection.new("osrm","osrm")
+    @alg_list.push Selection.new("OSRM","osrm")
+    @alg_list.push Selection.new("YOURS","yours")
 #   @alg_list.push Selection.new("fast","A*") Not supportet at the moment
 #   @alg_list.push Selection.new("exact","Dijkstra") Not supportet at the moment
     @alg_list.push Selection.new("energy","energy") 

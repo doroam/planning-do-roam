@@ -1,5 +1,5 @@
 <%   #sets the nearest markers
-if @route.algorithmus != "osrm"
+if @route.algorithmus != "osrm" && @route.algorithmus != "yours"
   start_lat = 0.0
   start_lon = 0.0
   end_lat = 0.0
@@ -22,7 +22,7 @@ if @route.algorithmus != "osrm"
 <%end%>
 loadRoute('<%=@route.kml_path%>', '<%=@route.format%>');
 <%error_msg = "The next paths could not be found.";
-if @route.algorithmus != "osrm"
+if @route.algorithmus != "osrm" && @route.algorithmus != "yours"
   @result.errors.each do |error|
       error_msg += "\n"+error+"."
   end

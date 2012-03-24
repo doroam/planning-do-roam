@@ -17,7 +17,6 @@ class CalculateRouteController < ApplicationController
     
     case @route.algorithmus
     when "osrm"
-      puts "OSRM"
       file_name_app = "osrm_"+session_id+".gpx"
       file_name     = "public/"+file_name_app
       if File.exist?(file_name)
@@ -48,6 +47,29 @@ class CalculateRouteController < ApplicationController
         format.js {render :locals => {:format => "GPX"}}
       end
       return
+    when "yours"
+      file_name_app = "yours_"+session_id+".kml"
+      file_name     = "public/"+file_name_app
+      if File.exist?(file_name)
+        File.delete(file_name)
+      end
+      begin
+        puts "http://router.project-osrm.org/viaroute?#{locs}&z=15&output=gpx&instructions=false"
+        File.open(file_name, 'wb') do |file|
+          file.write(open("http://www.yournavigation.org/api/1.0/gosmore.php?format=kml&flat=#{@route.start_point.lat}&flon=#{@route.start_point.lon}&tlat=#{@route.end_point.lat}&tlon=#{@route.end_point.lon}&v=motorcar&fast=1&layer=mapnik").read)
+        end
+      rescue
+        errormessage "No connection to YOURS-Website possible"
+      end
+      
+      #sets the filepath and the result to show errors
+      @route.kml_path      = file_name_app+"?nocache"+Time.now.to_s
+      @route.format = "KML"
+      @route.save
+      respond_to do |format|
+        format.js {render :locals => {:format => "KML"}}
+      end
+      return
     when "energy"
       #creates fileName
       file_name_app = "kmlRoute_"+session_id+".kml"
@@ -61,7 +83,7 @@ class CalculateRouteController < ApplicationController
       File.open(file_name, 'w') {|f| f.write(res) }
     else
       puts "$$$$$$$$$$$$$$$$$MIST$$$$$$$$$$$$$$$$$"
-      puts @route.algorythmus
+      puts @route.algorythm
     end
 
     #respond_to do |format|

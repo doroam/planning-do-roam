@@ -125,9 +125,8 @@ function handleMapClick(evt)
 function loadRoute(fileName, format){
     //Delete old route
     removeRoute();
-
     //creates new layer with the route
-    if(format = "GPX"){
+    if(format == 'GPX' ){
     	route = new OpenLayers.Layer.Vector("Route", {
 	    	style: {
 	                strokeColor: "#0000ff",
@@ -145,7 +144,7 @@ function loadRoute(fileName, format){
 	            })
 	        })
 	    });
- } else if(format == "KML"){
+ } else if(format == 'KML'){
  		route = new OpenLayers.Layer.Vector("Route", {
 	    	style: {
 	                strokeColor: "#0000ff",
