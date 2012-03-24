@@ -31,7 +31,6 @@ class CalculateRouteController < ApplicationController
       #end-location
       locs += "&loc=#{@route.end_point.lat},#{@route.end_point.lon}"
       begin
-        puts "http://router.project-osrm.org/viaroute?#{locs}&z=15&output=gpx&instructions=false"
         File.open(file_name, 'wb') do |file|
           file.write(open("http://router.project-osrm.org/viaroute?#{locs}&z=15&output=gpx&instructions=false").read)
         end
@@ -54,9 +53,17 @@ class CalculateRouteController < ApplicationController
         File.delete(file_name)
       end
       begin
-        puts "http://router.project-osrm.org/viaroute?#{locs}&z=15&output=gpx&instructions=false"
-        File.open(file_name, 'wb') do |file|
-          file.write(open("http://www.yournavigation.org/api/1.0/gosmore.php?format=kml&flat=#{@route.start_point.lat}&flon=#{@route.start_point.lon}&tlat=#{@route.end_point.lat}&tlon=#{@route.end_point.lon}&v=motorcar&fast=1&layer=mapnik").read)
+        before = @route.start_point
+        @i=0
+        @route.activities.each do |activity|
+          File.open(file_name+@i.to_s, 'wb') do |file|
+            file.write(open("http://www.yournavigation.org/api/1.0/gosmore.php?format=kml&flat=#{before.lat}&flon=#{before.lon}&tlat=#{activity.point.lat}&tlon=#{activity.point.lon}&v=motorcar&fast=1&layer=mapnik").read)
+          end
+          before = activity.point
+          @i+=1
+        end
+        File.open(file_name+@i.to_s, 'wb') do |file|
+          file.write(open("http://www.yournavigation.org/api/1.0/gosmore.php?format=kml&flat=#{before.lat}&flon=#{before.lon}&tlat=#{@route.end_point.lat}&tlon=#{@route.end_point.lon}&v=motorcar&fast=1&layer=mapnik").read)
         end
       rescue
         errormessage "No connection to YOURS-Website possible"

@@ -122,7 +122,7 @@ function handleMapClick(evt)
  * @param fileName of the kml with the route
  * @param format STRING (GPX|KML)
  */
-function loadRoute(fileName, format){
+function loadRoute(fileName, format, range){
     //Delete old route
     removeRoute();
     //creates new layer with the route
@@ -144,8 +144,14 @@ function loadRoute(fileName, format){
 	            })
 	        })
 	    });
+	//adds the route layer
+    map.addLayer(route);
+    map.setLayerIndex(route,0);
  } else if(format == 'KML'){
- 		route = new OpenLayers.Layer.Vector("Route", {
+ 	for(i=0; i<=range;i++){
+ 		temp = fileName.split('?');
+ 		file = temp[0]+i+'?'+temp[1];
+ 		route = new OpenLayers.Layer.Vector("Route"+i, {
 	    	style: {
 	                strokeColor: "#0000ff",
 	                strokeWidth: 3,
@@ -155,18 +161,18 @@ function loadRoute(fileName, format){
 	        projection: map.displayProjection,
 	        strategies: [new OpenLayers.Strategy.Fixed()],
 	        protocol: new OpenLayers.Protocol.HTTP({
-	            url: fileName,
+	            url: file,
 	            format: new OpenLayers.Format.KML({
 	                extractStyles: false,
 	                extractAttributes: false
 	            })
 	        })
 	    });
+	    //adds the route layer
+   	 	map.addLayer(route);
+    	map.setLayerIndex(route,0);
+	 }
  }
-
-    //adds the route layer
-    map.addLayer(route);
-    map.setLayerIndex(route,0);
     //wait for the route to be displayed before
     //hiding the loading panel
     setTimeout ( "hideWall();", 1500 );

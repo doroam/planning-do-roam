@@ -99,7 +99,8 @@ class Route < ActiveRecord::Base
 
     #adds the route if there is one
     if kml_path != nil && !kml_path.eql?("")
-      script += "loadRoute('"+kml_path+"', '#{self.format}');"
+      if self.algorithmus == "yours" then range = ", #{self.activities.size}" end
+      script += "loadRoute('"+kml_path+"', '#{self.format}'#{range});"
     end
     return script
   end
