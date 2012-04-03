@@ -204,7 +204,7 @@ function reloadMarkers(){
         && YAHOO.yuiObjectContainer.standardDialog
         && YAHOO.yuiObjectContainer.standardDialog.cfg.getProperty('visible')){
         elem.innerHTML = loading;
-        var url = "/ontosearch";
+        var url = "/activity/search";
         var extent = getMapExtent();
         new Ajax.Request(url,{
             //onSuccess: function(o){showDialog(dialog);},

@@ -6,4 +6,9 @@ nbproject/
 *.project
 config/database.yml
 th-zlib/
-
+*.kml
+*.kml*
+*.gpx
+*.json
+public/javascripts/lib/
+public/javascripts/theme/

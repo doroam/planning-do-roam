@@ -3,7 +3,7 @@
     if @hour.nil? then @hour = Time.now.hour end
     if @min.nil? then @min = Time.now.min / 10 end
 %>
-<%= form_tag(:ontosearch,:id => "ontosearch_form_id",
+<%= form_tag("activity/search",:id => "ontosearch_form_id",
               :onsubmit => "setBBox('ontosearch_form_id');showWall();",
               :remote => true) do |f| %>
 <%@classes = if params[:class].nil? then [] else params[:class].keys end
