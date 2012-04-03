@@ -68,8 +68,8 @@ function init(lat,lon,zoom) {
     // Other defined layers are OpenLayers.Layer.OSM.Mapnik, OpenLayers.Layer.OSM.Maplint and OpenLayers.Layer.OSM.CycleMap
     layerMapnik = new OpenLayers.Layer.OSM.Mapnik("Mapnik");
     map.addLayer(layerMapnik);
-    layerTilesAtHome = new OpenLayers.Layer.OSM.Osmarender("Osmarender");
-    map.addLayer(layerTilesAtHome);
+    //layerTilesAtHome = new OpenLayers.Layer.OSM.Osmarender("Osmarender"); //Server was shut down
+    //map.addLayer(layerTilesAtHome);
     layerCycleMap = new OpenLayers.Layer.OSM.CycleMap("CycleMap");
     map.addLayer(layerCycleMap);
     layerMarkers = new OpenLayers.Layer.Markers("Markers");
