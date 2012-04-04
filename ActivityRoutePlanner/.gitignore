@@ -10,6 +10,7 @@ th-zlib/
 *.kml*
 *.gpx
 *.json
+*.bz2
 public/javascripts/lib/
 public/javascripts/theme/
 .loadpath

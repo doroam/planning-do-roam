@@ -27,10 +27,10 @@ class ActivityController < ApplicationController
     #create point
     @point       = Point.new(params[:point])
     #get distance to start
-    @point.distance_source = RouteHelper.get_distance(current_route.start_point, @point)
+    #@point.distance_source = RouteHelper.get_distance(current_route.start_point, @point)
     @point.activity = @activity
     #set nearest edge to activity
-    @point.set_edge
+    #@point.set_edge
     @point.save
 
     respond_to do |format|
