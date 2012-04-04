@@ -12,3 +12,5 @@ th-zlib/
 *.json
 public/javascripts/lib/
 public/javascripts/theme/
+.loadpath
+
