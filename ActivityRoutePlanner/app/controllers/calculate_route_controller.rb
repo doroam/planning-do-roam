@@ -2,6 +2,7 @@ class CalculateRouteController < ApplicationController
   include CalculateRouteHelper
   include RouteHelper
   require 'cgi'
+  require 'nokogiri'
   
   #generates a route and shows it
   def calculate_route
@@ -24,18 +25,33 @@ class CalculateRouteController < ApplicationController
       end
       #start-location
       locs = "loc=#{@route.start_point.lat},#{@route.start_point.lon}"
+      if(!@route.start_point.hint.nil?)
+        locs += "&hint=" + @route.start_point.hint.to_s
+      end
       #waypoints
       @route.activities.each do |activity|        
         locs += "&loc=#{activity.point.lat},#{activity.point.lon}"
+        if(!activity.hint.nil?)
+          locs += "&hint=" + activity.hint.to_s
+        end
       end
       #end-location
       locs += "&loc=#{@route.end_point.lat},#{@route.end_point.lon}"
+      if(!@route.end_point.hint.nil?)
+        locs += "&hint=" + @route.end_point.hint.to_s
+      end
+      if(!@route.checksum.nil?)
+        locs += "&checksum=" + @route.checksum.to_s
+      end
       begin
         File.open(file_name, 'wb') do |file|
+          puts "http://router.project-osrm.org/viaroute?#{locs}&z=15&output=gpx&instructions=false"
           file.write(open("http://router.project-osrm.org/viaroute?#{locs}&z=15&output=gpx&instructions=false").read)
+          gpx = Nokogiri::XML(file)
+          #gpx = 
         end
       rescue
-        errormessage "No connection to OSRM-Website possible"
+        putr "No connection to OSRM-Website possible"
       end
       
       #sets the filepath and the result to show errors
@@ -77,19 +93,7 @@ class CalculateRouteController < ApplicationController
         format.js {render :locals => {:format => "KML"}}
       end
       return
-    when "energy"
-      #creates fileName
-      file_name_app = "kmlRoute_"+session_id+".kml"
-      file_name     = "public/"+file_name_app
-      if File.exist?(file_name)
-        File.delete(file_name)
-      end
-      @result  = RouteHelper.generate_route(@route);  
-      #Generates the kml of the result
-      res           = CalculateRouteHelper.generate_route(@result.kml_list)
-      File.open(file_name, 'w') {|f| f.write(res) }
     else
-      puts "$$$$$$$$$$$$$$$$$MIST$$$$$$$$$$$$$$$$$"
       puts @route.algorythm
     end
 

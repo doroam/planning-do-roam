@@ -17,4 +17,8 @@ private
       format.js
     end
   end
+  
+  def putr(message)
+    errormessage(message)
+  end
 end
