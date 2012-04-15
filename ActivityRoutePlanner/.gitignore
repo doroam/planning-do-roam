@@ -8,8 +8,11 @@ config/database.yml
 th-zlib/
 *.kml
 *.kml*
+*.KML*
 *.gpx
+*.GPX
 *.json
+*.JSON
 *.bz2
 public/javascripts/lib/
 public/javascripts/theme/

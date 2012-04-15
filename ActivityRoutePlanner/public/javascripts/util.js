@@ -120,7 +120,7 @@ function handleMapClick(evt)
 /**
  * Shows the route on the map
  * @param fileName of the kml with the route
- * @param format STRING (GPX|KML)
+ * @param format STRING (GPX|KML|JSON)
  */
 function loadRoute(fileName, format, range){
     //Delete old route
@@ -147,6 +147,43 @@ function loadRoute(fileName, format, range){
 	//adds the route layer
     map.addLayer(route);
     map.setLayerIndex(route,0);
+ 	}else if(format == 'JSON' ){
+ 		var objects = $j.getJSON(fileName, function(data){
+ 			var route = new OpenLayers.Layer.Vector("Route",
+			     {isBaseLayer: false,
+			       extractAttributes: true 
+			     });
+ 			for (x in data.route_geometry) {
+ 				var mggeom = new OpenLayers.Geometry.Point(data.route_geometry[x][0],data.route_geometry[x][1]);
+ 				var mgfeat = new OpenLayers.Feature.Vector(mggeom);
+ 				route.addFeatures(mgfeat);
+ 			}
+ 			map.addLayer(route);
+   			 map.setLayerIndex(route,0);
+ 		});
+ 			
+
+ 		/*
+ 		prot = new OpenLayers.Protocol.HTTP({
+	            url: fileName,
+	            format: new OpenLayers.Format.GeoJSON({
+	                extractStyles: false,
+	                extractAttributes: false
+	            })
+	       });
+ 		
+    	route = new OpenLayers.Layer.Vector("Route", {
+	    	style: {
+	                strokeColor: "#0000ff",
+	                strokeWidth: 3,
+	                fillOpacity: 0,
+	                cursor: "pointer"
+	            },
+	        projection: map.displayProjection,
+	        strategies: [new OpenLayers.Strategy.Fixed()],
+	        protocol: prot
+	    });
+	//adds the route layer*/
  } else if(format == 'KML'){
  	for(i=0; i<=range;i++){
  		temp = fileName.split('?');

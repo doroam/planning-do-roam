@@ -18,7 +18,8 @@ class CalculateRouteController < ApplicationController
     
     case @route.algorithmus
     when "osrm"
-      file_name_app = "osrm_"+session_id+".gpx"
+      output = "GPX"
+      file_name_app = "osrm_"+session_id+".#{output}"
       file_name     = "public/"+file_name_app
       if File.exist?(file_name)
         File.delete(file_name)
@@ -45,8 +46,8 @@ class CalculateRouteController < ApplicationController
       end
       begin
         File.open(file_name, 'wb') do |file|
-          puts "http://router.project-osrm.org/viaroute?#{locs}&z=15&output=gpx&instructions=false"
-          file.write(open("http://router.project-osrm.org/viaroute?#{locs}&z=15&output=gpx&instructions=false").read)
+          puts "http://router.project-osrm.org/viaroute?#{locs}&z=15&output=#{output}&instructions=false"
+          file.write(open("http://router.project-osrm.org/viaroute?#{locs}&z=15&output=#{output}&instructions=false").read)
           gpx = Nokogiri::XML(file)
           #gpx = 
         end
@@ -56,10 +57,10 @@ class CalculateRouteController < ApplicationController
       
       #sets the filepath and the result to show errors
       @route.kml_path      = file_name_app+"?nocache"+Time.now.to_s
-      @route.format = "GPX"
+      @route.format = output
       @route.save
       respond_to do |format|
-        format.js {render :locals => {:format => "GPX"}}
+        format.js {render :locals => {:format => output}}
       end
       return
     when "yours"

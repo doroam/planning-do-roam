@@ -1,14 +1,158 @@
 de:
+  Accommodation: Unterkunft
   activities: Aktivitäten
+  add_activity_or_waypoint: Aktivität hinzufügen
+  ArtGallery: Kunsthalle
+  ATM: Geldautomat
+  Bakery: Bäckerei
+  Ballroom: Tanzsaal
+  Bank: Bank
+  Bar: Bar
+  BicycleRental: Fahrradverleih
+  BillardsAndPool: Billard
+  Bookstore: Buchhandlung
+  Bowling: Bowling
+  BusStop: Bus
+  Butcher: Fleischerei
+  Cafe: Café
+  calculate_route: Route berechnen
+  Camping: Camping
+  CarSharing: Carsharing
+  Castle: Burg
+  ChargingStation: Ladestation
+  Church: Kirche
+  Cinema: Kino
+  CivilService: Öffentlicher Dienst
+  Climbing: Klettern
+  Clothing: Bekleidung
+  College: College
+  Computer: Computer
   coordinates: Koordinaten
+  Cosmetics: Kosmetik
+  Cuisine: Küche
+  Dance: Tanzen
+  DanceClass: Tanzunterricht
+  DanceClub: Tanzclub
+  Delicatessen: Delikatessen
   destination: Ziel
+  Doctor: Arzt
+  DrivingSchool: Fahrschule
+  Drugstore: Drogerie
+  Education: Bildung
+  Electronics: Electronik
   example: Beispiel
+  Exchange: Wechselstube
+  FastFood: Fastfood
+  Finance: Finanzen
+  Fish: Fisch
+  FitnessStudio: Fitnessstudio
+  FleaMarket: Flohmarkt
+  Flowers: Blumen
+  Food: Lebensmittel
+  Forest: Wald
+  Furniture: Möbel
+  Gastronomy: Gastronomie
+  GolfCourse: Golfplatz
+  Guestroom: Gästezimmer
+  Hairdresser: Friseur
+  HairRemoval: Haarentfernung
+  Health: Gesundheit
+  Hiking: Wandern
+  HorsebackRiding: Reiten
+  Hospital: Krankenhaus
+  Hostel: Hostel
+  Hotel: Hotel
+  HouseholdGoods: Haushaltswaren
+  InformationService: Auskunft
+  Karaoke: Karaoke
+  Kindergarten: Kindergarten
+  Lake: See
+  Landscape: Landschaft
   latitude: Breitengrad
+  Leisure: Leisure
+  Library: Bibliothek
+  Lingerie: Unterwäsche
+  LiveMusic: Livemusik
   longitude: Längengrad
+  Mailbox: Briefkasten
+  Mall: Einkaufszentrum
+  ManicureSalon: Maniküre
+  MarketForBabiesAndChildren: Kleinkindbedarf
+  Massage: Massage
+  MiddleAndUpperSchool: Mittel- und Oberschule
+  MiniGolf: Minigolf
+  MobilePhone: Handy
+  Mosque: Moschee
+  Mountain: Berg
+  Motel: Motel
+  Museum: Museum
+  Musicstore: Musikalienhandlung
+  NightClub: Nachtclub
+  NightSchool: Abendschule
   no_results_found_in_this_area: Keine Resultate in diesem Kartenauschnitt
+  notice_sort: Reihenfolge beachten
+  Ocean: Meer
+  Optician: Optiker
+  Park: Park
+  Parking: Parkplatz
+  Pharmacy: Apotheke
+  Pizza: Pizza
+  PlaceOfInterest: Sehenswürdigkeit
+  PlaceOfWorship: Gebetsort
+  Pleasure: Pleasure
+  Police: Polizei
+  PostOffice: Postamt
+  PrimarySchool: Grundschule
+  PrivateSchool: Privatschule
+  Pub: Pub
+  PublicTransport: ÖPNV
+  RailStation: Zug
   reset_route: Neue Route
+  Restaurant: Restaurant
+  River: Fluss
+  Ruin: Ruine
+  Sandwich: Sandwich
+  Sauna: Sauna
+  School: Schule
+  Seafood: Meeresfrüchte
   select_algorithm: Algorithmus
-  calculate_route: Berechne Route
+  SelfDefenseAndCombatantSport: Selbstverteidigung
+  Shoe: Schuhe
+  Shopping: Einkaufen
+  SkatingRink: Eisbahn
+  SkiRun: Ski
+  Soccer: Fußball
+  SportAndFitness: Sport und Fitness
+  SportGoods: Sportbedarf
+  Squash: Squash
+  Stationery: Bürobedarf
+  Steak: Steak
+  Subway: U-Bahn
+  Supermarket: Supermarkt
+  Sushi: Sushi
+  SwimmingPool: Schwimmbad
+  Synagogue: Synagoge
+  Tapas: Tapas
+  TextureAndSewingGoods: Stoffe und Nähbedarf
+  Theatre: Theater
+  Tobacco: Tabakhandlung
+  Tourism: Tourismus
+  TouristInfo: Touristinfo
+  Toy: Spielwaren
+  Tram: Straßenbahn
+  TravelAgency: Reisebüro
+  TV: Fernseher
+  University: Universität
+  VacationApartment: Ferienhaus
+  Valley: Tal
+  Vegan: Vegan
+  Vegetarian: Vegetarisch
+  VocationalSchool: Berufsschule
+  Wellness: Wellness
+  WithRenewableEnergy: mit Ökostrom
+  Yoga: Yoga
+  YouthHostel: Jugendherberge
+
 
 
 ## Messages for German (Deutsch)
@@ -709,7 +853,7 @@ de:
 #          beach: Strand
 #          cape: Kap
 #          cave_entrance: Höhleneingang
-#          channel: Kanal
+#          channel: Kanalnotice
 #          cliff: Klippe
 #          coastline: Küstenlinie
 #          crater: Krater
