@@ -20,8 +20,9 @@ class Ontology < ActiveRecord::Base
     classes = {}
     o = Ontology.create({:name => ontologyname})
     xmldoc.elements.each("rdf:RDF/owl:Class") do |e|
+      name = element_about(e)
       c = OntologyClass.new
-      c.name = element_attr(e,"about")
+      c.name = name
       c.ontology = o
       c.save
       classes[name] = c
@@ -31,12 +32,13 @@ class Ontology < ActiveRecord::Base
       onto_parent = classes[element_attr(e,"resource")]
       onto_parent.subclasses << onto_child
     end
+    roots = o.roots
     name = "Thing"
     thing = OntologyClass.new
     thing.name = name
     thing.ontology = o
     thing.save
-    thing.subclasses = o.roots
+    thing.subclasses = roots
     return o
   end
   

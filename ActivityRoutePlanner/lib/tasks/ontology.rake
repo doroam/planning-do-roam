@@ -12,7 +12,7 @@ namespace :ontology do
     om = OntologyMapping.read_mapping("Ontology/map.view","activities2tags",s,t)
 
   
-  
+  puts "\nMapping Icons"
    
 #    icon("Strom_aus_nicht_regenerativen_Energien","fuel.png")
 #    icon("Strom_aus_regenerativen_Energien","fuelpump.png")
@@ -47,7 +47,7 @@ namespace :ontology do
   icon("Parking","parking.png")
   icon("Police","police.png")
   icon("Subway","ubahn.png")
-  icon("Opera",".png")
+#  icon("Opera",".png")
   icon("Hairdresser","hairdresser.png")
   icon("Mall","mall.png")
   icon("Toy","toys.png")
@@ -129,6 +129,8 @@ namespace :ontology do
   icon("Address","question-mark.png")
   icon("OpeningHours","question-mark.png")
 
+  puts "marking interessting elements"
+
     # mark mapped classes that have an icon as interesting
     om.ontology_mapping_elements.each do |m|
       c = m.source
@@ -137,6 +139,14 @@ namespace :ontology do
       end
     end
   end
+  
+  #TEST!!!
+  desc 'Read in OSM ontologies'
+  task :read_new => :environment do
+    puts "Reading Ontology/map.view"
+    om = OntologyMapping.read_mapping_new("Ontology/map.view","activities2tags",nil,nil)
+  end
+  
 end
 
 namespace :intervals do
