@@ -1,163 +1,164 @@
 en:
   add_activity_or_waypoint: Add activity
-  calculate_route: calculate route
-  notice_sort: notice sort
+  calculate_route: Calculate route
+  reset_route: Reset route
+  notice_sort: Notice sort
   site:
     search: Search
   ontology:
     all_activities: All activities
     restrict_to_time: Restrict to time
     duration: Duration
-    Accommodation: Unterkunft
-    activities: Aktivitäten
-    ArtGallery: Kunsthalle
-    ATM: Geldautomat
-    Bakery: Bäckerei
-    Ballroom: Tanzsaal
+    Accommodation: Accomodation
+    activities: Activities
+    ArtGallery: Art Gallery
+    ATM: ATM
+    Bakery: Bakery
+    Ballroom: Ballroom
     Bank: Bank
     Bar: Bar
-    BicycleRental: Fahrradverleih
+    BicycleRental: Bicycle Rental
     BillardsAndPool: Billard
-    Bookstore: Buchhandlung
+    Bookstore: Bookstore
     Bowling: Bowling
-    BusStop: Bus
-    Butcher: Fleischerei
+    BusStop: Bus Stop
+    Butcher: Butcher
     Cafe: Café
     Camping: Camping
-    CarSharing: Carsharing
-    Castle: Burg
-    ChargingStation: Ladestation
-    Church: Kirche
-    Cinema: Kino
-    CivilService: Öffentlicher Dienst
-    Climbing: Klettern
-    Clothing: Bekleidung
+    CarSharing: Car Sharing
+    Castle: Castle
+    ChargingStation: Charging Station
+    Church: Church
+    Cinema: Cinema
+    CivilService: Civil Service
+    Climbing: Climbing
+    Clothing: Clothing
     College: College
     Computer: Computer
-    coordinates: Koordinaten
-    Cosmetics: Kosmetik
-    Cuisine: Küche
-    Dance: Tanzen
-    DanceClass: Tanzunterricht
-    DanceClub: Tanzclub
-    Delicatessen: Delikatessen
-    destination: Ziel
-    Doctor: Arzt
-    DrivingSchool: Fahrschule
-    Drugstore: Drogerie
-    Education: Bildung
-    Electronics: Electronik
-    example: Beispiel
-    Exchange: Wechselstube
-    FastFood: Fastfood
-    Finance: Finanzen
-    Fish: Fisch
-    FitnessStudio: Fitnessstudio
-    FleaMarket: Flohmarkt
-    Flowers: Blumen
-    Food: Lebensmittel
-    Forest: Wald
-    Furniture: Möbel
-    Gastronomy: Gastronomie
-    GolfCourse: Golfplatz
-    Guestroom: Gästezimmer
-    Hairdresser: Friseur
-    HairRemoval: Haarentfernung
-    Health: Gesundheit
-    Hiking: Wandern
-    HorsebackRiding: Reiten
-    Hospital: Krankenhaus
+    coordinates: Coordinates
+    Cosmetics: Cosmetics
+    Cuisine: Cuisine
+    Dance: Dance
+    DanceClass: Dance Class
+    DanceClub: Dance Club
+    Delicatessen: Delicatessen
+    destination: Destination
+    Doctor: Doctor
+    DrivingSchool: Driving School
+    Drugstore: Drogstore
+    Education: Education
+    Electronics: Electronics
+    example: Example
+    Exchange: Exchange
+    FastFood: Fast-food
+    Finance: Finance
+    Fish: Fish
+    FitnessStudio: Fitness Studio
+    FleaMarket: Flea Market
+    Flowers: Flowers
+    Food: Food
+    Forest: Forest
+    Furniture: Furniture
+    Gastronomy: Gastronomy
+    GolfCourse: Golf Course
+    Guestroom: Guestroom
+    Hairdresser: Hairdresser
+    HairRemoval: Hair Removal
+    Health: Health
+    Hiking: Hiking
+    HorsebackRiding: Horseback Riding
+    Hospital: Hospital
     Hostel: Hostel
     Hotel: Hotel
-    HouseholdGoods: Haushaltswaren
-    InformationService: Auskunft
+    HouseholdGoods: Household Goods
+    InformationService: Information Service
     Karaoke: Karaoke
     Kindergarten: Kindergarten
-    Lake: See
-    Landscape: Landschaft
-    latitude: Breitengrad
+    Lake: Lake
+    Landscape: Landscape
+    latitude: Latitude
     Leisure: Leisure
-    Library: Bibliothek
-    Lingerie: Unterwäsche
-    LiveMusic: Livemusik
-    longitude: Längengrad
-    Mailbox: Briefkasten
-    Mall: Einkaufszentrum
-    ManicureSalon: Maniküre
-    MarketForBabiesAndChildren: Kleinkindbedarf
+    Library: Library
+    Lingerie: Lingerie
+    LiveMusic: Live Music
+    longitude: Longitude
+    Mailbox: Mailbox
+    Mall: Mall
+    ManicureSalon: Manicure Salon
+    MarketForBabiesAndChildren: Babies and Children
     Massage: Massage
-    MiddleAndUpperSchool: Mittel- und Oberschule
+    MiddleAndUpperSchool: Middle and upper school
     MiniGolf: Minigolf
-    MobilePhone: Handy
-    Mosque: Moschee
-    Mountain: Berg
+    MobilePhone: Mobile Phones
+    Mosque: Mosque
+    Mountain: Mountain
     Motel: Motel
     Museum: Museum
-    Musicstore: Musikalienhandlung
-    NightClub: Nachtclub
-    NightSchool: Abendschule
-    no_results_found_in_this_area: Keine Resultate in diesem Kartenauschnitt
-    Ocean: Meer
-    Optician: Optiker
+    Musicstore: Music store
+    NightClub: Night club
+    NightSchool: Night school
+    no_results_found_in_this_area: No results found in this area
+    Ocean: Ocean
+    Optician: Optician
     Park: Park
-    Parking: Parkplatz
-    Pharmacy: Apotheke
+    Parking: Parking
+    Pharmacy: Pharmacy
     Pizza: Pizza
-    PlaceOfInterest: Sehenswürdigkeit
-    PlaceOfWorship: Gebetsort
+    PlaceOfInterest: Places of Interest
+    PlaceOfWorship: Places of Worship
     Pleasure: Pleasure
-    Police: Polizei
-    PostOffice: Postamt
-    PrimarySchool: Grundschule
-    PrivateSchool: Privatschule
+    Police: Police
+    PostOffice: Post Office
+    PrimarySchool: Primary School
+    PrivateSchool: Private School
     Pub: Pub
-    PublicTransport: ÖPNV
-    RailStation: Zug
-    reset_route: reset_route
+    PublicTransport: Public Transport
+    RailStation: Rail Station
+    reset_route: Reset Route
     Restaurant: Restaurant
-    River: Fluss
-    Ruin: Ruine
+    River: River
+    Ruin: Ruin
     Sandwich: Sandwich
     Sauna: Sauna
-    School: Schule
-    Seafood: Meeresfrüchte
-    select_algorithm: Algorithmus
-    SelfDefenseAndCombatantSport: Selbstverteidigung
-    Shoe: Schuhe
-    Shopping: Einkaufen
-    SkatingRink: Eisbahn
+    School: School
+    Seafood: Seafood
+    select_algorithm: Algorithm
+    SelfDefenseAndCombatantSport: Self Defense 
+    Shoe: Shoes
+    Shopping: Shopping
+    SkatingRink: Skating Ring
     SkiRun: Ski
-    Soccer: Fußball
-    SportAndFitness: Sport und Fitness
-    SportGoods: Sportbedarf
+    Soccer: Football
+    SportAndFitness: Sport and Fitness
+    SportGoods: Sports
     Squash: Squash
-    Stationery: Bürobedarf
+    Stationery: Stationery
     Steak: Steak
-    Subway: U-Bahn
-    Supermarket: Supermarkt
+    Subway: Subway
+    Supermarket: Supermarket
     Sushi: Sushi
-    SwimmingPool: Schwimmbad
-    Synagogue: Synagoge
+    SwimmingPool: Swimming Pool
+    Synagogue: Synagogue
     Tapas: Tapas
-    TextureAndSewingGoods: Stoffe und Nähbedarf
-    Theatre: Theater
-    Tobacco: Tabakhandlung
-    Tourism: Tourismus
-    TouristInfo: Touristinfo
-    Toy: Spielwaren
-    Tram: Straßenbahn
-    TravelAgency: Reisebüro
-    TV: Fernseher
-    University: Universität
-    VacationApartment: Ferienhaus
-    Valley: Tal
+    TextureAndSewingGoods: Sewing
+    Theatre: Theatre
+    Tobacco: Tobacco
+    Tourism: Tourism
+    TouristInfo: Tourist Info
+    Toy: Toys
+    Tram: Tram
+    TravelAgency: Travel Agency
+    TV: TV
+    University: University
+    VacationApartment: Vacation Apartment
+    Valley: Valley
     Vegan: Vegan
-    Vegetarian: Vegetarisch
-    VocationalSchool: Berufsschule
+    Vegetarian: Vegetarian
+    VocationalSchool: Vocational School
     Wellness: Wellness
-    WithRenewableEnergy: mit Ökostrom
+    WithRenewableEnergy: with renewable energy
     Yoga: Yoga
-    YouthHostel: Jugendherberge
+    YouthHostel: Youth Hostel
 
 
 
