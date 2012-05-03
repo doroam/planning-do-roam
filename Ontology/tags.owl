@@ -7,25 +7,25 @@
     <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
-    <!ENTITY unamed "http://osmonto.do-roam.org/unamed#" >
-    <!ENTITY yes "http://osmonto.do-roam.org/unamed#yes/" >
-    <!ENTITY k_fuel "http://osmonto.do-roam.org/unamed#k_fuel:" >
-    <!ENTITY k_addr "http://osmonto.do-roam.org/unamed#k_addr:" >
-    <!ENTITY k_contact "http://osmonto.do-roam.org/unamed#k_contact:" >
-    <!ENTITY k_theatre "http://osmonto.do-roam.org/unamed#k_theatre:" >
-    <!ENTITY has_k_addr "http://osmonto.do-roam.org/unamed#has_k_addr:" >
-    <!ENTITY has_k_fuel "http://osmonto.do-roam.org/unamed#has_k_fuel:" >
-    <!ENTITY has_k_theatre "http://osmonto.do-roam.org/unamed#has_k_theatre:" >
+    <!ENTITY unamed "https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#" >
+    <!ENTITY yes "https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#yes/" >
+    <!ENTITY k_fuel "https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_fuel:" >
+    <!ENTITY k_addr "https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_addr:" >
+    <!ENTITY k_contact "https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_contact:" >
+    <!ENTITY k_theatre "https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_theatre:" >
+    <!ENTITY has_k_addr "https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#has_k_addr:" >
+    <!ENTITY has_k_fuel "https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#has_k_fuel:" >
+    <!ENTITY has_k_theatre "https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#has_k_theatre:" >
 ]>
 
 
-<rdf:RDF xmlns="http://osmonto.do-roam.org/unamed#"
-     xml:base="http://osmonto.do-roam.org/unamed"
+<rdf:RDF xmlns="https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#"
+     xml:base="https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl"
      xmlns:has_k_fuel="&unamed;has_k_fuel:"
      xmlns:k_theatre="&unamed;k_theatre:"
      xmlns:has_k_addr="&unamed;has_k_addr:"
      xmlns:k_fuel="&unamed;k_fuel:"
-     xmlns:unamed="http://osmonto.do-roam.org/unamed#"
+     xmlns:unamed="https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#"
      xmlns:k_addr="&unamed;k_addr:"
      xmlns:yes="&unamed;yes/"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
@@ -50,7 +50,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#has_address -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#has_address -->
 
     <owl:ObjectProperty rdf:about="#has_address">
         <rdfs:range rdf:resource="#address"/>
@@ -59,7 +59,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#has_contact -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#has_contact -->
 
     <owl:ObjectProperty rdf:about="#has_contact">
         <rdfs:domain rdf:resource="#can_have_contact"/>
@@ -68,7 +68,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#has_k_aeroway -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#has_k_aeroway -->
 
     <owl:ObjectProperty rdf:about="#has_k_aeroway">
         <rdfs:range rdf:resource="#k_aeroway"/>
@@ -77,7 +77,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#has_k_amenity -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#has_k_amenity -->
 
     <owl:ObjectProperty rdf:about="#has_k_amenity">
         <rdfs:range rdf:resource="#k_amenity"/>
@@ -86,7 +86,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#has_k_atm -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#has_k_atm -->
 
     <owl:ObjectProperty rdf:about="#has_k_atm">
         <rdfs:domain rdf:resource="#can_have_k_atm"/>
@@ -95,7 +95,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#has_k_bicycle_parking -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#has_k_bicycle_parking -->
 
     <owl:ObjectProperty rdf:about="#has_k_bicycle_parking">
         <rdfs:range rdf:resource="#k_bicycle_parking"/>
@@ -104,7 +104,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#has_k_castle_type -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#has_k_castle_type -->
 
     <owl:ObjectProperty rdf:about="#has_k_castle_type">
         <rdfs:domain rdf:resource="#can_have_k_castle_type"/>
@@ -113,7 +113,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#has_k_cuisine -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#has_k_cuisine -->
 
     <owl:ObjectProperty rdf:about="#has_k_cuisine">
         <rdfs:domain rdf:resource="#can_have_k_cuisine"/>
@@ -122,7 +122,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#has_k_denomination -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#has_k_denomination -->
 
     <owl:ObjectProperty rdf:about="#has_k_denomination">
         <rdfs:range rdf:resource="#k_denomination"/>
@@ -131,7 +131,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#has_k_drive-through -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#has_k_drive-through -->
 
     <owl:ObjectProperty rdf:about="#has_k_drive-through">
         <rdfs:domain rdf:resource="#can_have_k_drive-through"/>
@@ -140,7 +140,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#has_k_fee -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#has_k_fee -->
 
     <owl:ObjectProperty rdf:about="#has_k_fee">
         <rdfs:domain rdf:resource="#can_have_k_fee"/>
@@ -149,7 +149,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#has_k_fuel:electricity -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#has_k_fuel:electricity -->
 
     <owl:ObjectProperty rdf:about="#has_k_fuel:electricity">
         <rdfs:domain rdf:resource="#v_fuel"/>
@@ -158,7 +158,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#has_k_highway -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#has_k_highway -->
 
     <owl:ObjectProperty rdf:about="#has_k_highway">
         <rdfs:range rdf:resource="#k_highway"/>
@@ -167,7 +167,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#has_k_historic -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#has_k_historic -->
 
     <owl:ObjectProperty rdf:about="#has_k_historic">
         <rdfs:range rdf:resource="#k_historic"/>
@@ -176,7 +176,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#has_k_landuse -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#has_k_landuse -->
 
     <owl:ObjectProperty rdf:about="#has_k_landuse">
         <rdfs:range rdf:resource="#k_landuse"/>
@@ -185,7 +185,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#has_k_leisure -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#has_k_leisure -->
 
     <owl:ObjectProperty rdf:about="#has_k_leisure">
         <rdfs:range rdf:resource="#k_leisure"/>
@@ -194,7 +194,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#has_k_military -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#has_k_military -->
 
     <owl:ObjectProperty rdf:about="#has_k_military">
         <rdfs:range rdf:resource="#k_military"/>
@@ -203,7 +203,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#has_k_natural -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#has_k_natural -->
 
     <owl:ObjectProperty rdf:about="#has_k_natural">
         <rdfs:range rdf:resource="#k_natural"/>
@@ -212,7 +212,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#has_k_power -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#has_k_power -->
 
     <owl:ObjectProperty rdf:about="#has_k_power">
         <rdfs:range rdf:resource="#k_power"/>
@@ -221,7 +221,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#has_k_religion -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#has_k_religion -->
 
     <owl:ObjectProperty rdf:about="#has_k_religion">
         <rdfs:range rdf:resource="#k_religion"/>
@@ -230,7 +230,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#has_k_ruins -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#has_k_ruins -->
 
     <owl:ObjectProperty rdf:about="#has_k_ruins">
         <rdfs:domain rdf:resource="#can_have_k_ruins"/>
@@ -239,7 +239,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#has_k_self_service -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#has_k_self_service -->
 
     <owl:ObjectProperty rdf:about="#has_k_self_service">
         <rdfs:domain rdf:resource="#can_have_k_self_service"/>
@@ -248,7 +248,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#has_k_shop -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#has_k_shop -->
 
     <owl:ObjectProperty rdf:about="#has_k_shop">
         <rdfs:range rdf:resource="#k_shop"/>
@@ -257,7 +257,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#has_k_smokefree -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#has_k_smokefree -->
 
     <owl:ObjectProperty rdf:about="#has_k_smokefree">
         <rdfs:domain rdf:resource="#can_have_k_smokefree"/>
@@ -266,7 +266,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#has_k_smoking -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#has_k_smoking -->
 
     <owl:ObjectProperty rdf:about="#has_k_smoking">
         <rdfs:domain rdf:resource="#can_have_k_smoking"/>
@@ -275,7 +275,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#has_k_sport -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#has_k_sport -->
 
     <owl:ObjectProperty rdf:about="#has_k_sport">
         <rdfs:range rdf:resource="#k_sport"/>
@@ -284,7 +284,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#has_k_theatre:genre -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#has_k_theatre:genre -->
 
     <owl:ObjectProperty rdf:about="#has_k_theatre:genre">
         <rdfs:range rdf:resource="#k_theatre:genre"/>
@@ -293,7 +293,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#has_k_tourism -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#has_k_tourism -->
 
     <owl:ObjectProperty rdf:about="#has_k_tourism">
         <rdfs:range rdf:resource="#k_tourism"/>
@@ -302,7 +302,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#has_k_waterway -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#has_k_waterway -->
 
     <owl:ObjectProperty rdf:about="#has_k_waterway">
         <rdfs:range rdf:resource="#k_waterway"/>
@@ -322,7 +322,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_addr:city -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_addr:city -->
 
     <owl:DatatypeProperty rdf:about="#k_addr:city">
         <rdfs:domain rdf:resource="#address"/>
@@ -331,7 +331,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_addr:country -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_addr:country -->
 
     <owl:DatatypeProperty rdf:about="#k_addr:country">
         <rdfs:domain rdf:resource="#address"/>
@@ -340,7 +340,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_addr:district -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_addr:district -->
 
     <owl:DatatypeProperty rdf:about="#k_addr:district">
         <rdfs:domain rdf:resource="#address"/>
@@ -349,7 +349,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_addr:hamlet -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_addr:hamlet -->
 
     <owl:DatatypeProperty rdf:about="#k_addr:hamlet">
         <rdfs:domain rdf:resource="#address"/>
@@ -358,7 +358,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_addr:housename -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_addr:housename -->
 
     <owl:DatatypeProperty rdf:about="#k_addr:housename">
         <rdfs:domain rdf:resource="#address"/>
@@ -367,7 +367,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_addr:housenumber -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_addr:housenumber -->
 
     <owl:DatatypeProperty rdf:about="#k_addr:housenumber">
         <rdfs:domain rdf:resource="#address"/>
@@ -376,7 +376,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_addr:postcode -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_addr:postcode -->
 
     <owl:DatatypeProperty rdf:about="#k_addr:postcode">
         <rdfs:domain rdf:resource="#address"/>
@@ -385,7 +385,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_addr:province -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_addr:province -->
 
     <owl:DatatypeProperty rdf:about="#k_addr:province">
         <rdfs:domain rdf:resource="#address"/>
@@ -394,7 +394,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_addr:street -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_addr:street -->
 
     <owl:DatatypeProperty rdf:about="#k_addr:street">
         <rdfs:domain rdf:resource="#address"/>
@@ -403,7 +403,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_addr:subdistrict -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_addr:subdistrict -->
 
     <owl:DatatypeProperty rdf:about="#k_addr:subdistrict">
         <rdfs:domain rdf:resource="#address"/>
@@ -412,7 +412,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_beds -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_beds -->
 
     <owl:DatatypeProperty rdf:about="#k_beds">
         <rdfs:domain rdf:resource="#can_have_k_beds"/>
@@ -421,7 +421,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_bic -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_bic -->
 
     <owl:DatatypeProperty rdf:about="#k_bic">
         <rdfs:domain rdf:resource="#can_have_k_bic"/>
@@ -430,7 +430,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_capacity -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_capacity -->
 
     <owl:DatatypeProperty rdf:about="#k_capacity">
         <rdfs:domain rdf:resource="#can_have_k_capacity"/>
@@ -439,7 +439,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_collection_times -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_collection_times -->
 
     <owl:DatatypeProperty rdf:about="#k_collection_times">
         <rdfs:domain rdf:resource="#can_have_k_collection_times"/>
@@ -448,7 +448,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_contact:email -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_contact:email -->
 
     <owl:DatatypeProperty rdf:about="#k_contact:email">
         <rdfs:domain rdf:resource="#contact"/>
@@ -457,7 +457,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_contact:fax -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_contact:fax -->
 
     <owl:DatatypeProperty rdf:about="#k_contact:fax">
         <rdfs:domain rdf:resource="#contact"/>
@@ -466,7 +466,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_contact:phone -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_contact:phone -->
 
     <owl:DatatypeProperty rdf:about="#k_contact:phone">
         <rdfs:domain rdf:resource="#contact"/>
@@ -475,7 +475,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_contact:webcam -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_contact:webcam -->
 
     <owl:DatatypeProperty rdf:about="#k_contact:webcam">
         <rdfs:domain rdf:resource="#contact"/>
@@ -484,7 +484,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_contact:website -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_contact:website -->
 
     <owl:DatatypeProperty rdf:about="#k_contact:website">
         <rdfs:domain rdf:resource="#contact"/>
@@ -493,7 +493,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_currency -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_currency -->
 
     <owl:DatatypeProperty rdf:about="#k_currency">
         <rdfs:domain rdf:resource="#can_have_k_currency"/>
@@ -502,7 +502,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_name -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_name -->
 
     <owl:DatatypeProperty rdf:about="#k_name">
         <rdfs:domain rdf:resource="#can_have_k_name"/>
@@ -511,7 +511,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_network -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_network -->
 
     <owl:DatatypeProperty rdf:about="#k_network">
         <rdfs:domain rdf:resource="#can_have_k_network"/>
@@ -520,7 +520,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_opening_hours -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_opening_hours -->
 
     <owl:DatatypeProperty rdf:about="#k_opening_hours">
         <rdfs:domain rdf:resource="#can_have_k_opening_hours"/>
@@ -529,7 +529,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_operator -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_operator -->
 
     <owl:DatatypeProperty rdf:about="#k_operator">
         <rdfs:domain rdf:resource="#can_have_k_operator"/>
@@ -538,7 +538,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_ref -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_ref -->
 
     <owl:DatatypeProperty rdf:about="#k_ref">
         <rdfs:domain rdf:resource="#can_have_k_ref"/>
@@ -547,7 +547,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_rooms -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_rooms -->
 
     <owl:DatatypeProperty rdf:about="#k_rooms">
         <rdfs:domain rdf:resource="#can_have_k_rooms"/>
@@ -556,7 +556,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_service_times -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_service_times -->
 
     <owl:DatatypeProperty rdf:about="#k_service_times">
         <rdfs:domain rdf:resource="#can_have_k_service_times"/>
@@ -576,7 +576,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#ArabicRestaurant -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#ArabicRestaurant -->
 
     <owl:Class rdf:about="#ArabicRestaurant">
         <rdfs:subClassOf rdf:resource="#v_restaurant"/>
@@ -584,7 +584,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#AsianRestaurant -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#AsianRestaurant -->
 
     <owl:Class rdf:about="#AsianRestaurant">
         <rdfs:subClassOf rdf:resource="#v_restaurant"/>
@@ -592,7 +592,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#ChineseRestaurant -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#ChineseRestaurant -->
 
     <owl:Class rdf:about="#ChineseRestaurant">
         <rdfs:subClassOf rdf:resource="#v_restaurant"/>
@@ -600,7 +600,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#FrenchRestaurant -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#FrenchRestaurant -->
 
     <owl:Class rdf:about="#FrenchRestaurant">
         <rdfs:subClassOf rdf:resource="#v_restaurant"/>
@@ -608,7 +608,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#GermanRestaurant -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#GermanRestaurant -->
 
     <owl:Class rdf:about="#GermanRestaurant">
         <rdfs:subClassOf rdf:resource="#v_restaurant"/>
@@ -616,7 +616,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#GreekRestaurant -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#GreekRestaurant -->
 
     <owl:Class rdf:about="#GreekRestaurant">
         <rdfs:subClassOf rdf:resource="#v_restaurant"/>
@@ -624,7 +624,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#IndianRestaurant -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#IndianRestaurant -->
 
     <owl:Class rdf:about="#IndianRestaurant">
         <rdfs:subClassOf rdf:resource="#v_restaurant"/>
@@ -632,7 +632,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#ItalianRestaurant -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#ItalianRestaurant -->
 
     <owl:Class rdf:about="#ItalianRestaurant">
         <rdfs:subClassOf rdf:resource="#v_restaurant"/>
@@ -640,7 +640,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#SpanishRestaurant -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#SpanishRestaurant -->
 
     <owl:Class rdf:about="#SpanishRestaurant">
         <rdfs:subClassOf rdf:resource="#v_restaurant"/>
@@ -648,7 +648,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#ThaiRestaurant -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#ThaiRestaurant -->
 
     <owl:Class rdf:about="#ThaiRestaurant">
         <rdfs:subClassOf rdf:resource="#v_restaurant"/>
@@ -656,7 +656,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#address -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#address -->
 
     <owl:Class rdf:about="#address">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -664,7 +664,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#can_have_address -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#can_have_address -->
 
     <owl:Class rdf:about="#can_have_address">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -672,7 +672,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#can_have_contact -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#can_have_contact -->
 
     <owl:Class rdf:about="#can_have_contact">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -680,7 +680,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#can_have_k_atm -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#can_have_k_atm -->
 
     <owl:Class rdf:about="#can_have_k_atm">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -688,7 +688,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#can_have_k_beds -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#can_have_k_beds -->
 
     <owl:Class rdf:about="#can_have_k_beds">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -696,7 +696,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#can_have_k_bic -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#can_have_k_bic -->
 
     <owl:Class rdf:about="#can_have_k_bic">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -704,7 +704,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#can_have_k_brand -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#can_have_k_brand -->
 
     <owl:Class rdf:about="#can_have_k_brand">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -712,7 +712,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#can_have_k_capacity -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#can_have_k_capacity -->
 
     <owl:Class rdf:about="#can_have_k_capacity">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -720,7 +720,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#can_have_k_castle_type -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#can_have_k_castle_type -->
 
     <owl:Class rdf:about="#can_have_k_castle_type">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -728,7 +728,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#can_have_k_collection_times -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#can_have_k_collection_times -->
 
     <owl:Class rdf:about="#can_have_k_collection_times">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -736,7 +736,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#can_have_k_cuisine -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#can_have_k_cuisine -->
 
     <owl:Class rdf:about="#can_have_k_cuisine">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -744,7 +744,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#can_have_k_currency -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#can_have_k_currency -->
 
     <owl:Class rdf:about="#can_have_k_currency">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -752,7 +752,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#can_have_k_drive-through -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#can_have_k_drive-through -->
 
     <owl:Class rdf:about="#can_have_k_drive-through">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -760,7 +760,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#can_have_k_fee -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#can_have_k_fee -->
 
     <owl:Class rdf:about="#can_have_k_fee">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -768,7 +768,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#can_have_k_name -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#can_have_k_name -->
 
     <owl:Class rdf:about="#can_have_k_name">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -776,7 +776,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#can_have_k_network -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#can_have_k_network -->
 
     <owl:Class rdf:about="#can_have_k_network">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -784,7 +784,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#can_have_k_opening_hours -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#can_have_k_opening_hours -->
 
     <owl:Class rdf:about="#can_have_k_opening_hours">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -792,7 +792,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#can_have_k_operator -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#can_have_k_operator -->
 
     <owl:Class rdf:about="#can_have_k_operator">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -800,7 +800,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#can_have_k_ref -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#can_have_k_ref -->
 
     <owl:Class rdf:about="#can_have_k_ref">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -808,7 +808,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#can_have_k_rooms -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#can_have_k_rooms -->
 
     <owl:Class rdf:about="#can_have_k_rooms">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -816,7 +816,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#can_have_k_ruins -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#can_have_k_ruins -->
 
     <owl:Class rdf:about="#can_have_k_ruins">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -824,7 +824,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#can_have_k_self_service -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#can_have_k_self_service -->
 
     <owl:Class rdf:about="#can_have_k_self_service">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -832,7 +832,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#can_have_k_service_times -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#can_have_k_service_times -->
 
     <owl:Class rdf:about="#can_have_k_service_times">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -840,7 +840,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#can_have_k_smokefree -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#can_have_k_smokefree -->
 
     <owl:Class rdf:about="#can_have_k_smokefree">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -848,7 +848,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#can_have_k_smoking -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#can_have_k_smoking -->
 
     <owl:Class rdf:about="#can_have_k_smoking">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -856,7 +856,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#contact -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#contact -->
 
     <owl:Class rdf:about="#contact">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -864,7 +864,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#decision -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#decision -->
 
     <owl:Class rdf:about="#decision">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -872,7 +872,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_aerialway -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_aerialway -->
 
     <owl:Class rdf:about="#k_aerialway">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -880,7 +880,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_aerialway_v_station -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_aerialway_v_station -->
 
     <owl:Class rdf:about="#k_aerialway_v_station">
         <rdfs:subClassOf rdf:resource="#k_aerialway"/>
@@ -888,7 +888,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_aeroway -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_aeroway -->
 
     <owl:Class rdf:about="#k_aeroway">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -896,7 +896,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_amenity -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_amenity -->
 
     <owl:Class rdf:about="#k_amenity">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -904,7 +904,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_bicycle_parking -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_bicycle_parking -->
 
     <owl:Class rdf:about="#k_bicycle_parking">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -912,7 +912,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_boundary -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_boundary -->
 
     <owl:Class rdf:about="#k_boundary">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -920,7 +920,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_boundary_v_political -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_boundary_v_political -->
 
     <owl:Class rdf:about="#k_boundary_v_political">
         <rdfs:subClassOf rdf:resource="#k_boundary"/>
@@ -928,7 +928,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_castle_type -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_castle_type -->
 
     <owl:Class rdf:about="#k_castle_type">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -936,7 +936,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_cuisine -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_cuisine -->
 
     <owl:Class rdf:about="#k_cuisine">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -944,7 +944,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_cuisine_v_seafood -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_cuisine_v_seafood -->
 
     <owl:Class rdf:about="#k_cuisine_v_seafood">
         <rdfs:subClassOf rdf:resource="#k_cuisine"/>
@@ -952,7 +952,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_denomination -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_denomination -->
 
     <owl:Class rdf:about="#k_denomination">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -960,7 +960,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_emergency -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_emergency -->
 
     <owl:Class rdf:about="#k_emergency">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -968,7 +968,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_emergency_v_no -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_emergency_v_no -->
 
     <owl:Class rdf:about="#k_emergency_v_no">
         <rdfs:subClassOf rdf:resource="#k_emergency"/>
@@ -976,7 +976,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_emergency_v_yes -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_emergency_v_yes -->
 
     <owl:Class rdf:about="#k_emergency_v_yes">
         <rdfs:subClassOf rdf:resource="#k_emergency"/>
@@ -984,7 +984,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_geological -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_geological -->
 
     <owl:Class rdf:about="#k_geological">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -992,7 +992,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_highway -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_highway -->
 
     <owl:Class rdf:about="#k_highway">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -1000,7 +1000,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_historic -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_historic -->
 
     <owl:Class rdf:about="#k_historic">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -1008,7 +1008,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_landuse -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_landuse -->
 
     <owl:Class rdf:about="#k_landuse">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -1016,7 +1016,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_leisure -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_leisure -->
 
     <owl:Class rdf:about="#k_leisure">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -1024,7 +1024,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_man_made -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_man_made -->
 
     <owl:Class rdf:about="#k_man_made">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -1032,7 +1032,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_military -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_military -->
 
     <owl:Class rdf:about="#k_military">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -1040,7 +1040,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_natural -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_natural -->
 
     <owl:Class rdf:about="#k_natural">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -1048,7 +1048,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_power -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_power -->
 
     <owl:Class rdf:about="#k_power">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -1056,7 +1056,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_power_source -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_power_source -->
 
     <owl:Class rdf:about="#k_power_source">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -1064,7 +1064,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_power_source_v_no -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_power_source_v_no -->
 
     <owl:Class rdf:about="#k_power_source_v_no">
         <rdfs:subClassOf rdf:resource="#k_power_source"/>
@@ -1072,7 +1072,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_power_v_station -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_power_v_station -->
 
     <owl:Class rdf:about="#k_power_v_station">
         <rdfs:subClassOf rdf:resource="#k_power"/>
@@ -1080,7 +1080,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_power_v_tower -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_power_v_tower -->
 
     <owl:Class rdf:about="#k_power_v_tower">
         <rdfs:subClassOf rdf:resource="#k_power"/>
@@ -1088,7 +1088,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_railway -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_railway -->
 
     <owl:Class rdf:about="#k_railway">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -1096,7 +1096,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_railway_v_tram -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_railway_v_tram -->
 
     <owl:Class rdf:about="#k_railway_v_tram">
         <rdfs:subClassOf rdf:resource="#k_railway"/>
@@ -1104,7 +1104,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_religion -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_religion -->
 
     <owl:Class rdf:about="#k_religion">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -1112,7 +1112,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_route -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_route -->
 
     <owl:Class rdf:about="#k_route">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -1120,7 +1120,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_route_v_bicycle -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_route_v_bicycle -->
 
     <owl:Class rdf:about="#k_route_v_bicycle">
         <rdfs:subClassOf rdf:resource="#k_route"/>
@@ -1128,7 +1128,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_route_v_subway -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_route_v_subway -->
 
     <owl:Class rdf:about="#k_route_v_subway">
         <rdfs:subClassOf rdf:resource="#k_route"/>
@@ -1136,7 +1136,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_shop -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_shop -->
 
     <owl:Class rdf:about="#k_shop">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -1144,7 +1144,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_sport -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_sport -->
 
     <owl:Class rdf:about="#k_sport">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -1152,7 +1152,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_station -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_station -->
 
     <owl:Class rdf:about="#k_station">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -1160,7 +1160,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_theatre:genre -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_theatre:genre -->
 
     <owl:Class rdf:about="#k_theatre:genre">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -1168,7 +1168,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_tourism -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_tourism -->
 
     <owl:Class rdf:about="#k_tourism">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -1176,7 +1176,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_type -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_type -->
 
     <owl:Class rdf:about="#k_type">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -1184,7 +1184,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#k_waterway -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_waterway -->
 
     <owl:Class rdf:about="#k_waterway">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -1192,7 +1192,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#spatial_location -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#spatial_location -->
 
     <owl:Class rdf:about="#spatial_location">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -1200,7 +1200,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#track -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#track -->
 
     <owl:Class rdf:about="#track">
         <rdfs:subClassOf rdf:resource="#k_highway"/>
@@ -1208,7 +1208,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_abandoned -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_abandoned -->
 
     <owl:Class rdf:about="#v_abandoned">
         <rdfs:subClassOf rdf:resource="#k_railway"/>
@@ -1216,7 +1216,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_administrative -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_administrative -->
 
     <owl:Class rdf:about="#v_administrative">
         <rdfs:subClassOf rdf:resource="#k_boundary"/>
@@ -1224,7 +1224,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_aerodrome -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_aerodrome -->
 
     <owl:Class rdf:about="#v_aerodrome">
         <rdfs:subClassOf rdf:resource="#k_aeroway"/>
@@ -1232,7 +1232,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_airfield -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_airfield -->
 
     <owl:Class rdf:about="#v_airfield">
         <rdfs:subClassOf rdf:resource="#k_military"/>
@@ -1240,7 +1240,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_airport -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_airport -->
 
     <owl:Class rdf:about="#v_airport">
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
@@ -1248,7 +1248,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_alpine_hut -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_alpine_hut -->
 
     <owl:Class rdf:about="#v_alpine_hut">
         <rdfs:subClassOf rdf:resource="#k_tourism"/>
@@ -1256,7 +1256,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_ambulance_station -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_ambulance_station -->
 
     <owl:Class rdf:about="#v_ambulance_station">
         <rdfs:subClassOf rdf:resource="#k_emergency"/>
@@ -1264,7 +1264,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_american -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_american -->
 
     <owl:Class rdf:about="#v_american">
         <rdfs:subClassOf rdf:resource="#k_cuisine"/>
@@ -1272,7 +1272,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_anchors -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_anchors -->
 
     <owl:Class rdf:about="#v_anchors">
         <rdfs:subClassOf rdf:resource="#k_bicycle_parking"/>
@@ -1280,7 +1280,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_apron -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_apron -->
 
     <owl:Class rdf:about="#v_apron">
         <rdfs:subClassOf rdf:resource="#k_aeroway"/>
@@ -1288,7 +1288,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_arabic -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_arabic -->
 
     <owl:Class rdf:about="#v_arabic">
         <rdfs:subClassOf rdf:resource="#k_cuisine"/>
@@ -1296,7 +1296,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_archaeological_site -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_archaeological_site -->
 
     <owl:Class rdf:about="#v_archaeological_site">
         <rdfs:subClassOf rdf:resource="#k_historic"/>
@@ -1304,7 +1304,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_arena -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_arena -->
 
     <owl:Class rdf:about="#v_arena">
         <rdfs:subClassOf rdf:resource="#k_leisure"/>
@@ -1312,7 +1312,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_arts_centre -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_arts_centre -->
 
     <owl:Class rdf:about="#v_arts_centre">
         <rdfs:subClassOf rdf:resource="#can_have_address"/>
@@ -1321,7 +1321,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_artwork -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_artwork -->
 
     <owl:Class rdf:about="#v_artwork">
         <rdfs:subClassOf rdf:resource="#k_tourism"/>
@@ -1329,7 +1329,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_asian -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_asian -->
 
     <owl:Class rdf:about="#v_asian">
         <rdfs:subClassOf rdf:resource="#k_cuisine"/>
@@ -1337,7 +1337,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_athletics -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_athletics -->
 
     <owl:Class rdf:about="#v_athletics">
         <rdfs:subClassOf rdf:resource="#k_sport"/>
@@ -1345,7 +1345,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_atm -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_atm -->
 
     <owl:Class rdf:about="#v_atm">
         <rdfs:subClassOf rdf:resource="#can_have_k_currency"/>
@@ -1357,7 +1357,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_attraction -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_attraction -->
 
     <owl:Class rdf:about="#v_attraction">
         <rdfs:subClassOf rdf:resource="#k_tourism"/>
@@ -1365,7 +1365,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_bahai -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_bahai -->
 
     <owl:Class rdf:about="#v_bahai">
         <rdfs:subClassOf rdf:resource="#k_religion"/>
@@ -1373,7 +1373,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_bakery -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_bakery -->
 
     <owl:Class rdf:about="#v_bakery">
         <rdfs:subClassOf rdf:resource="#can_have_k_name"/>
@@ -1383,7 +1383,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_ballet -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_ballet -->
 
     <owl:Class rdf:about="#v_ballet">
         <rdfs:subClassOf rdf:resource="#k_theatre:genre"/>
@@ -1391,7 +1391,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_bank -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_bank -->
 
     <owl:Class rdf:about="#v_bank">
         <rdfs:subClassOf rdf:resource="#can_have_address"/>
@@ -1405,7 +1405,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_baptist -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_baptist -->
 
     <owl:Class rdf:about="#v_baptist">
         <rdfs:subClassOf rdf:resource="#k_denomination"/>
@@ -1413,7 +1413,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_bar -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_bar -->
 
     <owl:Class rdf:about="#v_bar">
         <rdfs:subClassOf rdf:resource="#can_have_address"/>
@@ -1427,7 +1427,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_barracks -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_barracks -->
 
     <owl:Class rdf:about="#v_barracks">
         <rdfs:subClassOf rdf:resource="#k_military"/>
@@ -1435,7 +1435,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_baseball -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_baseball -->
 
     <owl:Class rdf:about="#v_baseball">
         <rdfs:subClassOf rdf:resource="#k_sport"/>
@@ -1443,7 +1443,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_basketball -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_basketball -->
 
     <owl:Class rdf:about="#v_basketball">
         <rdfs:subClassOf rdf:resource="#k_sport"/>
@@ -1451,7 +1451,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_bay -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_bay -->
 
     <owl:Class rdf:about="#v_bay">
         <rdfs:subClassOf rdf:resource="#k_natural"/>
@@ -1459,7 +1459,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_beach -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_beach -->
 
     <owl:Class rdf:about="#v_beach">
         <rdfs:subClassOf rdf:resource="#k_natural"/>
@@ -1467,7 +1467,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_beauty -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_beauty -->
 
     <owl:Class rdf:about="#v_beauty">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -1475,7 +1475,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_bench -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_bench -->
 
     <owl:Class rdf:about="#v_bench">
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
@@ -1483,7 +1483,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_beverages -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_beverages -->
 
     <owl:Class rdf:about="#v_beverages">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -1491,7 +1491,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_bicycle -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_bicycle -->
 
     <owl:Class rdf:about="#v_bicycle">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -1499,7 +1499,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_bicycle_parking -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_bicycle_parking -->
 
     <owl:Class rdf:about="#v_bicycle_parking">
         <rdfs:subClassOf rdf:resource="#can_have_k_capacity"/>
@@ -1509,7 +1509,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_bicycle_rental -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_bicycle_rental -->
 
     <owl:Class rdf:about="#v_bicycle_rental">
         <rdfs:subClassOf rdf:resource="#can_have_address"/>
@@ -1518,7 +1518,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_biergarten -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_biergarten -->
 
     <owl:Class rdf:about="#v_biergarten">
         <rdfs:subClassOf rdf:resource="#can_have_address"/>
@@ -1528,7 +1528,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_bombcrater -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_bombcrater -->
 
     <owl:Class rdf:about="#v_bombcrater">
         <rdfs:subClassOf rdf:resource="#k_military"/>
@@ -1536,7 +1536,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_books -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_books -->
 
     <owl:Class rdf:about="#v_books">
         <rdfs:subClassOf rdf:resource="#can_have_k_name"/>
@@ -1547,7 +1547,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_boulevard -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_boulevard -->
 
     <owl:Class rdf:about="#v_boulevard">
         <rdfs:subClassOf rdf:resource="#k_theatre:genre"/>
@@ -1555,7 +1555,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_boundary -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_boundary -->
 
     <owl:Class rdf:about="#v_boundary">
         <rdfs:subClassOf rdf:resource="#k_type"/>
@@ -1563,7 +1563,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_boundary_stone -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_boundary_stone -->
 
     <owl:Class rdf:about="#v_boundary_stone">
         <rdfs:subClassOf rdf:resource="#k_historic"/>
@@ -1571,7 +1571,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_bowls -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_bowls -->
 
     <owl:Class rdf:about="#v_bowls">
         <rdfs:subClassOf rdf:resource="#k_sport"/>
@@ -1579,7 +1579,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_bridleway -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_bridleway -->
 
     <owl:Class rdf:about="#v_bridleway">
         <rdfs:subClassOf rdf:resource="#k_highway"/>
@@ -1587,7 +1587,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_buddhist -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_buddhist -->
 
     <owl:Class rdf:about="#v_buddhist">
         <rdfs:subClassOf rdf:resource="#k_religion"/>
@@ -1595,7 +1595,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_building -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_building -->
 
     <owl:Class rdf:about="#v_building">
         <rdfs:subClassOf rdf:resource="#k_bicycle_parking"/>
@@ -1603,7 +1603,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_bunker -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_bunker -->
 
     <owl:Class rdf:about="#v_bunker">
         <rdfs:subClassOf rdf:resource="#k_military"/>
@@ -1611,7 +1611,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_bureau_de_change -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_bureau_de_change -->
 
     <owl:Class rdf:about="#v_bureau_de_change">
         <rdfs:subClassOf rdf:resource="#can_have_address"/>
@@ -1620,7 +1620,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_burg -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_burg -->
 
     <owl:Class rdf:about="#v_burg">
         <rdfs:subClassOf rdf:resource="#k_castle_type"/>
@@ -1628,7 +1628,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_burger -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_burger -->
 
     <owl:Class rdf:about="#v_burger">
         <rdfs:subClassOf rdf:resource="#k_cuisine"/>
@@ -1636,7 +1636,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_bus -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_bus -->
 
     <owl:Class rdf:about="#v_bus">
         <rdfs:subClassOf rdf:resource="#k_route"/>
@@ -1644,7 +1644,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_bus_station -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_bus_station -->
 
     <owl:Class rdf:about="#v_bus_station">
         <rdfs:subClassOf rdf:resource="#can_have_k_operator"/>
@@ -1653,7 +1653,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_bus_stop -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_bus_stop -->
 
     <owl:Class rdf:about="#v_bus_stop">
         <rdfs:subClassOf rdf:resource="#k_highway"/>
@@ -1661,7 +1661,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_butcher -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_butcher -->
 
     <owl:Class rdf:about="#v_butcher">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -1669,7 +1669,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_cabaret -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_cabaret -->
 
     <owl:Class rdf:about="#v_cabaret">
         <rdfs:subClassOf rdf:resource="#k_theatre:genre"/>
@@ -1677,7 +1677,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_cable_car -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_cable_car -->
 
     <owl:Class rdf:about="#v_cable_car">
         <rdfs:subClassOf rdf:resource="#k_aerialway"/>
@@ -1685,7 +1685,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_cafe -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_cafe -->
 
     <owl:Class rdf:about="#v_cafe">
         <rdfs:subClassOf rdf:resource="#can_have_address"/>
@@ -1698,7 +1698,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_camp_site -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_camp_site -->
 
     <owl:Class rdf:about="#v_camp_site">
         <rdfs:subClassOf rdf:resource="#k_tourism"/>
@@ -1706,7 +1706,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_canal -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_canal -->
 
     <owl:Class rdf:about="#v_canal">
         <rdfs:subClassOf rdf:resource="#k_waterway"/>
@@ -1714,7 +1714,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_car -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_car -->
 
     <owl:Class rdf:about="#v_car">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -1722,7 +1722,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_car_rental -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_car_rental -->
 
     <owl:Class rdf:about="#v_car_rental">
         <rdfs:subClassOf rdf:resource="#can_have_address"/>
@@ -1731,7 +1731,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_car_repair -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_car_repair -->
 
     <owl:Class rdf:about="#v_car_repair">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -1739,7 +1739,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_car_sharing -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_car_sharing -->
 
     <owl:Class rdf:about="#v_car_sharing">
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
@@ -1747,7 +1747,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_car_wash -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_car_wash -->
 
     <owl:Class rdf:about="#v_car_wash">
         <rdfs:subClassOf rdf:resource="#can_have_address"/>
@@ -1759,7 +1759,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_caravan_site -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_caravan_site -->
 
     <owl:Class rdf:about="#v_caravan_site">
         <rdfs:subClassOf rdf:resource="#k_tourism"/>
@@ -1767,7 +1767,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_casino -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_casino -->
 
     <owl:Class rdf:about="#v_casino">
         <rdfs:subClassOf rdf:resource="#can_have_address"/>
@@ -1776,7 +1776,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_castle -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_castle -->
 
     <owl:Class rdf:about="#v_castle">
         <rdfs:subClassOf rdf:resource="#can_have_k_castle_type"/>
@@ -1787,7 +1787,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_catholic -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_catholic -->
 
     <owl:Class rdf:about="#v_catholic">
         <rdfs:subClassOf rdf:resource="#k_denomination"/>
@@ -1795,7 +1795,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_cave_entrance -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_cave_entrance -->
 
     <owl:Class rdf:about="#v_cave_entrance">
         <rdfs:subClassOf rdf:resource="#k_natural"/>
@@ -1803,7 +1803,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_chair_lift -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_chair_lift -->
 
     <owl:Class rdf:about="#v_chair_lift">
         <rdfs:subClassOf rdf:resource="#k_aerialway"/>
@@ -1811,7 +1811,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_chalet -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_chalet -->
 
     <owl:Class rdf:about="#v_chalet">
         <rdfs:subClassOf rdf:resource="#k_tourism"/>
@@ -1819,7 +1819,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_chamber_music -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_chamber_music -->
 
     <owl:Class rdf:about="#v_chamber_music">
         <rdfs:subClassOf rdf:resource="#k_theatre:genre"/>
@@ -1827,7 +1827,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_charging_station -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_charging_station -->
 
     <owl:Class rdf:about="#v_charging_station">
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
@@ -1835,7 +1835,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_chemist -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_chemist -->
 
     <owl:Class rdf:about="#v_chemist">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -1843,7 +1843,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_chinese -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_chinese -->
 
     <owl:Class rdf:about="#v_chinese">
         <rdfs:subClassOf rdf:resource="#k_cuisine"/>
@@ -1851,7 +1851,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_christian -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_christian -->
 
     <owl:Class rdf:about="#v_christian">
         <rdfs:subClassOf rdf:resource="#k_religion"/>
@@ -1859,7 +1859,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_cinema -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_cinema -->
 
     <owl:Class rdf:about="#v_cinema">
         <rdfs:subClassOf rdf:resource="#can_have_k_name"/>
@@ -1869,7 +1869,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_civil -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_civil -->
 
     <owl:Class rdf:about="#v_civil">
         <rdfs:subClassOf rdf:resource="#k_boundary"/>
@@ -1877,7 +1877,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_cliff -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_cliff -->
 
     <owl:Class rdf:about="#v_cliff">
         <rdfs:subClassOf rdf:resource="#k_natural"/>
@@ -1885,7 +1885,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_climbing -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_climbing -->
 
     <owl:Class rdf:about="#v_climbing">
         <rdfs:subClassOf rdf:resource="#k_sport"/>
@@ -1893,7 +1893,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_clothes -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_clothes -->
 
     <owl:Class rdf:about="#v_clothes">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -1901,7 +1901,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_coal -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_coal -->
 
     <owl:Class rdf:about="#v_coal">
         <rdfs:subClassOf rdf:resource="#k_power_source"/>
@@ -1909,7 +1909,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_coastline -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_coastline -->
 
     <owl:Class rdf:about="#v_coastline">
         <rdfs:subClassOf rdf:resource="#k_natural"/>
@@ -1917,7 +1917,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_coffee_shop -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_coffee_shop -->
 
     <owl:Class rdf:about="#v_coffee_shop">
         <rdfs:subClassOf rdf:resource="#k_cuisine"/>
@@ -1925,7 +1925,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_college -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_college -->
 
     <owl:Class rdf:about="#v_college">
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
@@ -1933,7 +1933,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_comedy -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_comedy -->
 
     <owl:Class rdf:about="#v_comedy">
         <rdfs:subClassOf rdf:resource="#k_theatre:genre"/>
@@ -1941,7 +1941,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_common -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_common -->
 
     <owl:Class rdf:about="#v_common">
         <rdfs:subClassOf rdf:resource="#k_leisure"/>
@@ -1949,7 +1949,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_community_centre -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_community_centre -->
 
     <owl:Class rdf:about="#v_community_centre">
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
@@ -1957,7 +1957,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_computer -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_computer -->
 
     <owl:Class rdf:about="#v_computer">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -1965,7 +1965,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_convenience -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_convenience -->
 
     <owl:Class rdf:about="#v_convenience">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -1973,7 +1973,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_courthouse -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_courthouse -->
 
     <owl:Class rdf:about="#v_courthouse">
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
@@ -1981,7 +1981,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_crossing -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_crossing -->
 
     <owl:Class rdf:about="#v_crossing">
         <rdfs:subClassOf rdf:resource="#k_railway"/>
@@ -1989,7 +1989,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_cycleway -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_cycleway -->
 
     <owl:Class rdf:about="#v_cycleway">
         <rdfs:subClassOf rdf:resource="#k_highway"/>
@@ -1997,7 +1997,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_dam -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_dam -->
 
     <owl:Class rdf:about="#v_dam">
         <rdfs:subClassOf rdf:resource="#k_waterway"/>
@@ -2005,7 +2005,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_dance -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_dance -->
 
     <owl:Class rdf:about="#v_dance">
         <rdfs:subClassOf rdf:resource="#k_leisure"/>
@@ -2013,7 +2013,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_danger_area -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_danger_area -->
 
     <owl:Class rdf:about="#v_danger_area">
         <rdfs:subClassOf rdf:resource="#k_military"/>
@@ -2021,7 +2021,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_dedicated -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_dedicated -->
 
     <owl:Class rdf:about="#v_dedicated">
         <rdfs:subClassOf rdf:resource="#decision"/>
@@ -2029,7 +2029,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_defensive -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_defensive -->
 
     <owl:Class rdf:about="#v_defensive">
         <rdfs:subClassOf rdf:resource="#k_castle_type"/>
@@ -2037,7 +2037,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_deli -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_deli -->
 
     <owl:Class rdf:about="#v_deli">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -2045,7 +2045,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_dentist -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_dentist -->
 
     <owl:Class rdf:about="#v_dentist">
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
@@ -2053,7 +2053,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_department_store -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_department_store -->
 
     <owl:Class rdf:about="#v_department_store">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -2061,7 +2061,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_detour -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_detour -->
 
     <owl:Class rdf:about="#v_detour">
         <rdfs:subClassOf rdf:resource="#k_route"/>
@@ -2069,7 +2069,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_disused -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_disused -->
 
     <owl:Class rdf:about="#v_disused">
         <rdfs:subClassOf rdf:resource="#k_railway"/>
@@ -2077,7 +2077,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_ditch -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_ditch -->
 
     <owl:Class rdf:about="#v_ditch">
         <rdfs:subClassOf rdf:resource="#k_waterway"/>
@@ -2085,7 +2085,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_doctors -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_doctors -->
 
     <owl:Class rdf:about="#v_doctors">
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
@@ -2093,7 +2093,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_dog_park -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_dog_park -->
 
     <owl:Class rdf:about="#v_dog_park">
         <rdfs:subClassOf rdf:resource="#k_leisure"/>
@@ -2101,7 +2101,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_doityourself -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_doityourself -->
 
     <owl:Class rdf:about="#v_doityourself">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -2109,7 +2109,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_drag_lift -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_drag_lift -->
 
     <owl:Class rdf:about="#v_drag_lift">
         <rdfs:subClassOf rdf:resource="#k_aerialway"/>
@@ -2117,7 +2117,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_drain -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_drain -->
 
     <owl:Class rdf:about="#v_drain">
         <rdfs:subClassOf rdf:resource="#k_waterway"/>
@@ -2125,7 +2125,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_drama -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_drama -->
 
     <owl:Class rdf:about="#v_drama">
         <rdfs:subClassOf rdf:resource="#k_theatre:genre"/>
@@ -2133,7 +2133,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_drinking_water -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_drinking_water -->
 
     <owl:Class rdf:about="#v_drinking_water">
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
@@ -2141,7 +2141,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_dry_cleaning -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_dry_cleaning -->
 
     <owl:Class rdf:about="#v_dry_cleaning">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -2149,7 +2149,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_electronics -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_electronics -->
 
     <owl:Class rdf:about="#v_electronics">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -2157,7 +2157,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_emergency_phone -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_emergency_phone -->
 
     <owl:Class rdf:about="#v_emergency_phone">
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
@@ -2165,7 +2165,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_environmental_hazard -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_environmental_hazard -->
 
     <owl:Class rdf:about="#v_environmental_hazard">
         <rdfs:subClassOf rdf:resource="#k_man_made"/>
@@ -2173,7 +2173,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_equestrian -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_equestrian -->
 
     <owl:Class rdf:about="#v_equestrian">
         <rdfs:subClassOf rdf:resource="#k_sport"/>
@@ -2181,7 +2181,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_fast_food -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_fast_food -->
 
     <owl:Class rdf:about="#v_fast_food">
         <rdfs:subClassOf rdf:resource="#can_have_address"/>
@@ -2195,7 +2195,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_fell -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_fell -->
 
     <owl:Class rdf:about="#v_fell">
         <rdfs:subClassOf rdf:resource="#k_natural"/>
@@ -2203,7 +2203,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_ferry -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_ferry -->
 
     <owl:Class rdf:about="#v_ferry">
         <rdfs:subClassOf rdf:resource="#k_route"/>
@@ -2211,7 +2211,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_ferry_terminal -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_ferry_terminal -->
 
     <owl:Class rdf:about="#v_ferry_terminal">
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
@@ -2219,7 +2219,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_figure -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_figure -->
 
     <owl:Class rdf:about="#v_figure">
         <rdfs:subClassOf rdf:resource="#k_theatre:genre"/>
@@ -2227,7 +2227,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_fire_hydrant -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_fire_hydrant -->
 
     <owl:Class rdf:about="#v_fire_hydrant">
         <rdfs:subClassOf rdf:resource="#k_emergency"/>
@@ -2235,7 +2235,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_fire_station -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_fire_station -->
 
     <owl:Class rdf:about="#v_fire_station">
         <rdfs:subClassOf rdf:resource="#can_have_address"/>
@@ -2244,7 +2244,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_fish -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_fish -->
 
     <owl:Class rdf:about="#v_fish">
         <rdfs:subClassOf rdf:resource="#k_cuisine"/>
@@ -2252,7 +2252,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_fishing -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_fishing -->
 
     <owl:Class rdf:about="#v_fishing">
         <rdfs:subClassOf rdf:resource="#k_leisure"/>
@@ -2260,7 +2260,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_fitness_station -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_fitness_station -->
 
     <owl:Class rdf:about="#v_fitness_station">
         <rdfs:subClassOf rdf:resource="#k_leisure"/>
@@ -2268,7 +2268,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_flightpath -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_flightpath -->
 
     <owl:Class rdf:about="#v_flightpath">
         <rdfs:subClassOf rdf:resource="#k_route"/>
@@ -2276,7 +2276,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_florist -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_florist -->
 
     <owl:Class rdf:about="#v_florist">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -2284,7 +2284,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_food_court -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_food_court -->
 
     <owl:Class rdf:about="#v_food_court">
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
@@ -2292,7 +2292,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_foot -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_foot -->
 
     <owl:Class rdf:about="#v_foot">
         <rdfs:subClassOf rdf:resource="#k_route"/>
@@ -2300,7 +2300,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_football -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_football -->
 
     <owl:Class rdf:about="#v_football">
         <rdfs:subClassOf rdf:resource="#k_sport"/>
@@ -2308,7 +2308,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_footway -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_footway -->
 
     <owl:Class rdf:about="#v_footway">
         <rdfs:subClassOf rdf:resource="#k_highway"/>
@@ -2316,7 +2316,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_forest -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_forest -->
 
     <owl:Class rdf:about="#v_forest">
         <rdfs:subClassOf rdf:resource="#k_landuse"/>
@@ -2324,7 +2324,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_fortress -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_fortress -->
 
     <owl:Class rdf:about="#v_fortress">
         <rdfs:subClassOf rdf:resource="#k_castle_type"/>
@@ -2332,7 +2332,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_fossil -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_fossil -->
 
     <owl:Class rdf:about="#v_fossil">
         <rdfs:subClassOf rdf:resource="#k_power_source"/>
@@ -2340,7 +2340,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_fountain -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_fountain -->
 
     <owl:Class rdf:about="#v_fountain">
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
@@ -2348,7 +2348,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_french -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_french -->
 
     <owl:Class rdf:about="#v_french">
         <rdfs:subClassOf rdf:resource="#k_cuisine"/>
@@ -2356,7 +2356,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_fuel -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_fuel -->
 
     <owl:Class rdf:about="#v_fuel">
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
@@ -2364,7 +2364,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_furniture -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_furniture -->
 
     <owl:Class rdf:about="#v_furniture">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -2372,7 +2372,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_garden -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_garden -->
 
     <owl:Class rdf:about="#v_garden">
         <rdfs:subClassOf rdf:resource="#k_leisure"/>
@@ -2380,7 +2380,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_garden_centre -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_garden_centre -->
 
     <owl:Class rdf:about="#v_garden_centre">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -2388,7 +2388,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_gas -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_gas -->
 
     <owl:Class rdf:about="#v_gas">
         <rdfs:subClassOf rdf:resource="#k_power_source"/>
@@ -2396,7 +2396,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_gate -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_gate -->
 
     <owl:Class rdf:about="#v_gate">
         <rdfs:subClassOf rdf:resource="#k_aeroway"/>
@@ -2404,7 +2404,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_generator -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_generator -->
 
     <owl:Class rdf:about="#v_generator">
         <rdfs:subClassOf rdf:resource="#k_power"/>
@@ -2412,7 +2412,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_german -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_german -->
 
     <owl:Class rdf:about="#v_german">
         <rdfs:subClassOf rdf:resource="#k_cuisine"/>
@@ -2420,7 +2420,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_glacier -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_glacier -->
 
     <owl:Class rdf:about="#v_glacier">
         <rdfs:subClassOf rdf:resource="#k_natural"/>
@@ -2428,7 +2428,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_golf -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_golf -->
 
     <owl:Class rdf:about="#v_golf">
         <rdfs:subClassOf rdf:resource="#k_sport"/>
@@ -2436,7 +2436,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_golf_course -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_golf_course -->
 
     <owl:Class rdf:about="#v_golf_course">
         <rdfs:subClassOf rdf:resource="#k_leisure"/>
@@ -2444,7 +2444,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_gondola -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_gondola -->
 
     <owl:Class rdf:about="#v_gondola">
         <rdfs:subClassOf rdf:resource="#k_aerialway"/>
@@ -2452,7 +2452,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_goods -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_goods -->
 
     <owl:Class rdf:about="#v_goods">
         <rdfs:subClassOf rdf:resource="#k_aerialway"/>
@@ -2460,7 +2460,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_grassland -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_grassland -->
 
     <owl:Class rdf:about="#v_grassland">
         <rdfs:subClassOf rdf:resource="#k_natural"/>
@@ -2468,7 +2468,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_grave_yard -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_grave_yard -->
 
     <owl:Class rdf:about="#v_grave_yard">
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
@@ -2476,7 +2476,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_greek -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_greek -->
 
     <owl:Class rdf:about="#v_greek">
         <rdfs:subClassOf rdf:resource="#k_cuisine"/>
@@ -2484,7 +2484,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_ground_slots -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_ground_slots -->
 
     <owl:Class rdf:about="#v_ground_slots">
         <rdfs:subClassOf rdf:resource="#k_bicycle_parking"/>
@@ -2492,7 +2492,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_guest_house -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_guest_house -->
 
     <owl:Class rdf:about="#v_guest_house">
         <rdfs:subClassOf rdf:resource="#k_tourism"/>
@@ -2500,7 +2500,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_gymnastics -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_gymnastics -->
 
     <owl:Class rdf:about="#v_gymnastics">
         <rdfs:subClassOf rdf:resource="#k_sport"/>
@@ -2508,7 +2508,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_hairdresser -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_hairdresser -->
 
     <owl:Class rdf:about="#v_hairdresser">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -2516,7 +2516,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_halt -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_halt -->
 
     <owl:Class rdf:about="#v_halt">
         <rdfs:subClassOf rdf:resource="#k_railway"/>
@@ -2524,7 +2524,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_hardware -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_hardware -->
 
     <owl:Class rdf:about="#v_hardware">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -2532,7 +2532,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_heath -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_heath -->
 
     <owl:Class rdf:about="#v_heath">
         <rdfs:subClassOf rdf:resource="#k_natural"/>
@@ -2540,7 +2540,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_helipad -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_helipad -->
 
     <owl:Class rdf:about="#v_helipad">
         <rdfs:subClassOf rdf:resource="#k_aeroway"/>
@@ -2548,7 +2548,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_hiking -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_hiking -->
 
     <owl:Class rdf:about="#v_hiking">
         <rdfs:subClassOf rdf:resource="#k_route"/>
@@ -2556,7 +2556,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_hindu -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_hindu -->
 
     <owl:Class rdf:about="#v_hindu">
         <rdfs:subClassOf rdf:resource="#k_religion"/>
@@ -2564,7 +2564,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_hockey -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_hockey -->
 
     <owl:Class rdf:about="#v_hockey">
         <rdfs:subClassOf rdf:resource="#k_sport"/>
@@ -2572,7 +2572,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_hospital -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_hospital -->
 
     <owl:Class rdf:about="#v_hospital">
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
@@ -2580,7 +2580,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_hostel -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_hostel -->
 
     <owl:Class rdf:about="#v_hostel">
         <rdfs:subClassOf rdf:resource="#can_have_address"/>
@@ -2593,7 +2593,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_hotel -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_hotel -->
 
     <owl:Class rdf:about="#v_hotel">
         <rdfs:subClassOf rdf:resource="#can_have_address"/>
@@ -2606,7 +2606,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_hydro -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_hydro -->
 
     <owl:Class rdf:about="#v_hydro">
         <rdfs:subClassOf rdf:resource="#k_power_source"/>
@@ -2614,7 +2614,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_ice_rink -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_ice_rink -->
 
     <owl:Class rdf:about="#v_ice_rink">
         <rdfs:subClassOf rdf:resource="#k_leisure"/>
@@ -2622,7 +2622,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_indian -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_indian -->
 
     <owl:Class rdf:about="#v_indian">
         <rdfs:subClassOf rdf:resource="#k_cuisine"/>
@@ -2630,7 +2630,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_informal -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_informal -->
 
     <owl:Class rdf:about="#v_informal">
         <rdfs:subClassOf rdf:resource="#k_bicycle_parking"/>
@@ -2638,7 +2638,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_information -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_information -->
 
     <owl:Class rdf:about="#v_information">
         <rdfs:subClassOf rdf:resource="#k_tourism"/>
@@ -2646,7 +2646,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_international -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_international -->
 
     <owl:Class rdf:about="#v_international">
         <rdfs:subClassOf rdf:resource="#k_cuisine"/>
@@ -2654,7 +2654,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_isolated -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_isolated -->
 
     <owl:Class rdf:about="#v_isolated">
         <rdfs:subClassOf rdf:resource="#decision"/>
@@ -2662,7 +2662,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_italian -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_italian -->
 
     <owl:Class rdf:about="#v_italian">
         <rdfs:subClassOf rdf:resource="#k_cuisine"/>
@@ -2670,7 +2670,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_jain -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_jain -->
 
     <owl:Class rdf:about="#v_jain">
         <rdfs:subClassOf rdf:resource="#k_religion"/>
@@ -2678,7 +2678,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_japanese -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_japanese -->
 
     <owl:Class rdf:about="#v_japanese">
         <rdfs:subClassOf rdf:resource="#k_cuisine"/>
@@ -2686,7 +2686,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_jewelry -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_jewelry -->
 
     <owl:Class rdf:about="#v_jewelry">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -2694,7 +2694,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_jewish -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_jewish -->
 
     <owl:Class rdf:about="#v_jewish">
         <rdfs:subClassOf rdf:resource="#k_religion"/>
@@ -2702,7 +2702,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_kebap -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_kebap -->
 
     <owl:Class rdf:about="#v_kebap">
         <rdfs:subClassOf rdf:resource="#k_cuisine"/>
@@ -2710,7 +2710,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_kindergarten -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_kindergarten -->
 
     <owl:Class rdf:about="#v_kindergarten">
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
@@ -2718,7 +2718,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_kiosk -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_kiosk -->
 
     <owl:Class rdf:about="#v_kiosk">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -2726,7 +2726,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_land -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_land -->
 
     <owl:Class rdf:about="#v_land">
         <rdfs:subClassOf rdf:resource="#k_natural"/>
@@ -2734,7 +2734,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_laundry -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_laundry -->
 
     <owl:Class rdf:about="#v_laundry">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -2742,7 +2742,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_level_crossing -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_level_crossing -->
 
     <owl:Class rdf:about="#v_level_crossing">
         <rdfs:subClassOf rdf:resource="#k_railway"/>
@@ -2750,7 +2750,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_library -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_library -->
 
     <owl:Class rdf:about="#v_library">
         <rdfs:subClassOf rdf:resource="#can_have_address"/>
@@ -2760,7 +2760,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_line -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_line -->
 
     <owl:Class rdf:about="#v_line">
         <rdfs:subClassOf rdf:resource="#k_power"/>
@@ -2768,7 +2768,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_living_street -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_living_street -->
 
     <owl:Class rdf:about="#v_living_street">
         <rdfs:subClassOf rdf:resource="#k_highway"/>
@@ -2776,7 +2776,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_lockers -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_lockers -->
 
     <owl:Class rdf:about="#v_lockers">
         <rdfs:subClassOf rdf:resource="#k_bicycle_parking"/>
@@ -2784,7 +2784,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_lutheran -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_lutheran -->
 
     <owl:Class rdf:about="#v_lutheran">
         <rdfs:subClassOf rdf:resource="#k_denomination"/>
@@ -2792,7 +2792,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_mall -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_mall -->
 
     <owl:Class rdf:about="#v_mall">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -2800,7 +2800,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_marina -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_marina -->
 
     <owl:Class rdf:about="#v_marina">
         <rdfs:subClassOf rdf:resource="#k_leisure"/>
@@ -2808,7 +2808,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_marionette -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_marionette -->
 
     <owl:Class rdf:about="#v_marionette">
         <rdfs:subClassOf rdf:resource="#k_theatre:genre"/>
@@ -2816,7 +2816,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_maritime -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_maritime -->
 
     <owl:Class rdf:about="#v_maritime">
         <rdfs:subClassOf rdf:resource="#k_boundary"/>
@@ -2824,7 +2824,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_marketplace -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_marketplace -->
 
     <owl:Class rdf:about="#v_marketplace">
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
@@ -2832,7 +2832,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_marsh -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_marsh -->
 
     <owl:Class rdf:about="#v_marsh">
         <rdfs:subClassOf rdf:resource="#k_natural"/>
@@ -2840,7 +2840,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_massage -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_massage -->
 
     <owl:Class rdf:about="#v_massage">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -2848,7 +2848,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_memorial -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_memorial -->
 
     <owl:Class rdf:about="#v_memorial">
         <rdfs:subClassOf rdf:resource="#k_historic"/>
@@ -2856,7 +2856,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_methodist -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_methodist -->
 
     <owl:Class rdf:about="#v_methodist">
         <rdfs:subClassOf rdf:resource="#k_denomination"/>
@@ -2864,7 +2864,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_mexican -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_mexican -->
 
     <owl:Class rdf:about="#v_mexican">
         <rdfs:subClassOf rdf:resource="#k_cuisine"/>
@@ -2872,7 +2872,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_miniature_golf -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_miniature_golf -->
 
     <owl:Class rdf:about="#v_miniature_golf">
         <rdfs:subClassOf rdf:resource="#k_leisure"/>
@@ -2880,7 +2880,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_minor_line -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_minor_line -->
 
     <owl:Class rdf:about="#v_minor_line">
         <rdfs:subClassOf rdf:resource="#k_power"/>
@@ -2888,7 +2888,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_mobile_phone -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_mobile_phone -->
 
     <owl:Class rdf:about="#v_mobile_phone">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -2896,7 +2896,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_monitoring_station -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_monitoring_station -->
 
     <owl:Class rdf:about="#v_monitoring_station">
         <rdfs:subClassOf rdf:resource="#k_man_made"/>
@@ -2904,7 +2904,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_monument -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_monument -->
 
     <owl:Class rdf:about="#v_monument">
         <rdfs:subClassOf rdf:resource="#k_historic"/>
@@ -2912,7 +2912,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_motel -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_motel -->
 
     <owl:Class rdf:about="#v_motel">
         <rdfs:subClassOf rdf:resource="#can_have_address"/>
@@ -2924,7 +2924,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_motorway -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_motorway -->
 
     <owl:Class rdf:about="#v_motorway">
         <rdfs:subClassOf rdf:resource="#k_highway"/>
@@ -2932,7 +2932,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_motorway_link -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_motorway_link -->
 
     <owl:Class rdf:about="#v_motorway_link">
         <rdfs:subClassOf rdf:resource="#k_highway"/>
@@ -2940,7 +2940,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_mtb -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_mtb -->
 
     <owl:Class rdf:about="#v_mtb">
         <rdfs:subClassOf rdf:resource="#k_route"/>
@@ -2948,7 +2948,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_mud -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_mud -->
 
     <owl:Class rdf:about="#v_mud">
         <rdfs:subClassOf rdf:resource="#k_natural"/>
@@ -2956,7 +2956,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_multi -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_multi -->
 
     <owl:Class rdf:about="#v_multi">
         <rdfs:subClassOf rdf:resource="#k_sport"/>
@@ -2964,7 +2964,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_multifaith -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_multifaith -->
 
     <owl:Class rdf:about="#v_multifaith">
         <rdfs:subClassOf rdf:resource="#k_religion"/>
@@ -2972,7 +2972,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_multipolygon -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_multipolygon -->
 
     <owl:Class rdf:about="#v_multipolygon">
         <rdfs:subClassOf rdf:resource="#k_type"/>
@@ -2980,7 +2980,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_museum -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_museum -->
 
     <owl:Class rdf:about="#v_museum">
         <rdfs:subClassOf rdf:resource="#can_have_address"/>
@@ -2992,7 +2992,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_musical -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_musical -->
 
     <owl:Class rdf:about="#v_musical">
         <rdfs:subClassOf rdf:resource="#k_theatre:genre"/>
@@ -3000,7 +3000,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_muslim -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_muslim -->
 
     <owl:Class rdf:about="#v_muslim">
         <rdfs:subClassOf rdf:resource="#k_religion"/>
@@ -3008,7 +3008,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_national_park -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_national_park -->
 
     <owl:Class rdf:about="#v_national_park">
         <rdfs:subClassOf rdf:resource="#k_boundary"/>
@@ -3016,7 +3016,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_nature_reserve -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_nature_reserve -->
 
     <owl:Class rdf:about="#v_nature_reserve">
         <rdfs:subClassOf rdf:resource="#k_leisure"/>
@@ -3024,7 +3024,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_naval_base -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_naval_base -->
 
     <owl:Class rdf:about="#v_naval_base">
         <rdfs:subClassOf rdf:resource="#k_military"/>
@@ -3032,7 +3032,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_nightclub -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_nightclub -->
 
     <owl:Class rdf:about="#v_nightclub">
         <rdfs:subClassOf rdf:resource="#can_have_address"/>
@@ -3043,7 +3043,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_no -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_no -->
 
     <owl:Class rdf:about="#v_no">
         <rdfs:subClassOf rdf:resource="#yes/no"/>
@@ -3051,7 +3051,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_nuclear -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_nuclear -->
 
     <owl:Class rdf:about="#v_nuclear">
         <rdfs:subClassOf rdf:resource="#k_power_source"/>
@@ -3059,7 +3059,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_nuclear_explosion_site -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_nuclear_explosion_site -->
 
     <owl:Class rdf:about="#v_nuclear_explosion_site">
         <rdfs:subClassOf rdf:resource="#k_military"/>
@@ -3067,7 +3067,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_opera -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_opera -->
 
     <owl:Class rdf:about="#v_opera">
         <rdfs:subClassOf rdf:resource="#k_theatre:genre"/>
@@ -3075,7 +3075,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_optician -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_optician -->
 
     <owl:Class rdf:about="#v_optician">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -3083,7 +3083,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_organic -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_organic -->
 
     <owl:Class rdf:about="#v_organic">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -3091,7 +3091,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_orthodox -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_orthodox -->
 
     <owl:Class rdf:about="#v_orthodox">
         <rdfs:subClassOf rdf:resource="#k_denomination"/>
@@ -3099,7 +3099,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_outdoor -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_outdoor -->
 
     <owl:Class rdf:about="#v_outdoor">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -3107,7 +3107,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_pagan -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_pagan -->
 
     <owl:Class rdf:about="#v_pagan">
         <rdfs:subClassOf rdf:resource="#k_religion"/>
@@ -3115,7 +3115,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_palaeontological_site -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_palaeontological_site -->
 
     <owl:Class rdf:about="#v_palaeontological_site">
         <rdfs:subClassOf rdf:resource="#k_geological"/>
@@ -3123,7 +3123,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_park -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_park -->
 
     <owl:Class rdf:about="#v_park">
         <rdfs:subClassOf rdf:resource="#k_leisure"/>
@@ -3131,7 +3131,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_parking -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_parking -->
 
     <owl:Class rdf:about="#v_parking">
         <rdfs:subClassOf rdf:resource="#can_have_k_capacity"/>
@@ -3140,7 +3140,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_pastafarian -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_pastafarian -->
 
     <owl:Class rdf:about="#v_pastafarian">
         <rdfs:subClassOf rdf:resource="#k_religion"/>
@@ -3148,7 +3148,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_path -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_path -->
 
     <owl:Class rdf:about="#v_path">
         <rdfs:subClassOf rdf:resource="#k_highway"/>
@@ -3156,7 +3156,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_peak -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_peak -->
 
     <owl:Class rdf:about="#v_peak">
         <rdfs:subClassOf rdf:resource="#k_natural"/>
@@ -3164,7 +3164,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_pedestrian -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_pedestrian -->
 
     <owl:Class rdf:about="#v_pedestrian">
         <rdfs:subClassOf rdf:resource="#k_highway"/>
@@ -3172,7 +3172,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_pet -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_pet -->
 
     <owl:Class rdf:about="#v_pet">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -3180,7 +3180,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_pharmacy -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_pharmacy -->
 
     <owl:Class rdf:about="#v_pharmacy">
         <rdfs:subClassOf rdf:resource="#can_have_address"/>
@@ -3191,7 +3191,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_philharmonic -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_philharmonic -->
 
     <owl:Class rdf:about="#v_philharmonic">
         <rdfs:subClassOf rdf:resource="#k_theatre:genre"/>
@@ -3199,7 +3199,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_phone -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_phone -->
 
     <owl:Class rdf:about="#v_phone">
         <rdfs:subClassOf rdf:resource="#k_emergency"/>
@@ -3207,7 +3207,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_photovoltaic -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_photovoltaic -->
 
     <owl:Class rdf:about="#v_photovoltaic">
         <rdfs:subClassOf rdf:resource="#k_power_source"/>
@@ -3215,7 +3215,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_picnic_site -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_picnic_site -->
 
     <owl:Class rdf:about="#v_picnic_site">
         <rdfs:subClassOf rdf:resource="#k_tourism"/>
@@ -3223,7 +3223,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_picnic_table -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_picnic_table -->
 
     <owl:Class rdf:about="#v_picnic_table">
         <rdfs:subClassOf rdf:resource="#k_leisure"/>
@@ -3231,7 +3231,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_pier -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_pier -->
 
     <owl:Class rdf:about="#v_pier">
         <rdfs:subClassOf rdf:resource="#k_man_made"/>
@@ -3239,7 +3239,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_pipeline -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_pipeline -->
 
     <owl:Class rdf:about="#v_pipeline">
         <rdfs:subClassOf rdf:resource="#k_man_made"/>
@@ -3247,7 +3247,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_piste -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_piste -->
 
     <owl:Class rdf:about="#v_piste">
         <rdfs:subClassOf rdf:resource="#k_route"/>
@@ -3255,7 +3255,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_pitch -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_pitch -->
 
     <owl:Class rdf:about="#v_pitch">
         <rdfs:subClassOf rdf:resource="#k_leisure"/>
@@ -3263,7 +3263,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_pizza -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_pizza -->
 
     <owl:Class rdf:about="#v_pizza">
         <rdfs:subClassOf rdf:resource="#k_cuisine"/>
@@ -3271,7 +3271,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_place_of_worship -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_place_of_worship -->
 
     <owl:Class rdf:about="#v_place_of_worship">
         <rdfs:subClassOf rdf:resource="#can_have_address"/>
@@ -3282,7 +3282,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_platform -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_platform -->
 
     <owl:Class rdf:about="#v_platform">
         <rdfs:subClassOf rdf:resource="#k_railway"/>
@@ -3290,7 +3290,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_playground -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_playground -->
 
     <owl:Class rdf:about="#v_playground">
         <rdfs:subClassOf rdf:resource="#k_leisure"/>
@@ -3298,7 +3298,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_pole -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_pole -->
 
     <owl:Class rdf:about="#v_pole">
         <rdfs:subClassOf rdf:resource="#k_power"/>
@@ -3306,7 +3306,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_police -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_police -->
 
     <owl:Class rdf:about="#v_police">
         <rdfs:subClassOf rdf:resource="#can_have_address"/>
@@ -3315,7 +3315,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_political -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_political -->
 
     <owl:Class rdf:about="#v_political">
         <rdfs:subClassOf rdf:resource="#k_theatre:genre"/>
@@ -3323,7 +3323,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_post_box -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_post_box -->
 
     <owl:Class rdf:about="#v_post_box">
         <rdfs:subClassOf rdf:resource="#can_have_k_brand"/>
@@ -3335,7 +3335,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_post_office -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_post_office -->
 
     <owl:Class rdf:about="#v_post_office">
         <rdfs:subClassOf rdf:resource="#can_have_address"/>
@@ -3347,7 +3347,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_power -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_power -->
 
     <owl:Class rdf:about="#v_power">
         <rdfs:subClassOf rdf:resource="#k_route"/>
@@ -3355,7 +3355,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_primary -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_primary -->
 
     <owl:Class rdf:about="#v_primary">
         <rdfs:subClassOf rdf:resource="#k_highway"/>
@@ -3363,7 +3363,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_primary_link -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_primary_link -->
 
     <owl:Class rdf:about="#v_primary_link">
         <rdfs:subClassOf rdf:resource="#k_highway"/>
@@ -3371,7 +3371,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_protected_area -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_protected_area -->
 
     <owl:Class rdf:about="#v_protected_area">
         <rdfs:subClassOf rdf:resource="#k_boundary"/>
@@ -3379,7 +3379,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_protestant -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_protestant -->
 
     <owl:Class rdf:about="#v_protestant">
         <rdfs:subClassOf rdf:resource="#k_denomination"/>
@@ -3387,7 +3387,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_pub -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_pub -->
 
     <owl:Class rdf:about="#v_pub">
         <rdfs:subClassOf rdf:resource="#can_have_address"/>
@@ -3401,7 +3401,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_puppet -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_puppet -->
 
     <owl:Class rdf:about="#v_puppet">
         <rdfs:subClassOf rdf:resource="#k_theatre:genre"/>
@@ -3409,7 +3409,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_pylon -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_pylon -->
 
     <owl:Class rdf:about="#v_pylon">
         <rdfs:subClassOf rdf:resource="#k_aerialway"/>
@@ -3417,7 +3417,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_raceway -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_raceway -->
 
     <owl:Class rdf:about="#v_raceway">
         <rdfs:subClassOf rdf:resource="#k_highway"/>
@@ -3425,7 +3425,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_rail -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_rail -->
 
     <owl:Class rdf:about="#v_rail">
         <rdfs:subClassOf rdf:resource="#k_railway"/>
@@ -3433,7 +3433,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_railway -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_railway -->
 
     <owl:Class rdf:about="#v_railway">
         <rdfs:subClassOf rdf:resource="#k_route"/>
@@ -3441,7 +3441,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_range -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_range -->
 
     <owl:Class rdf:about="#v_range">
         <rdfs:subClassOf rdf:resource="#k_military"/>
@@ -3449,7 +3449,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_recreation_ground -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_recreation_ground -->
 
     <owl:Class rdf:about="#v_recreation_ground">
         <rdfs:subClassOf rdf:resource="#k_leisure"/>
@@ -3457,7 +3457,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_recycling -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_recycling -->
 
     <owl:Class rdf:about="#v_recycling">
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
@@ -3465,7 +3465,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_reef -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_reef -->
 
     <owl:Class rdf:about="#v_reef">
         <rdfs:subClassOf rdf:resource="#k_natural"/>
@@ -3473,7 +3473,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_regional -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_regional -->
 
     <owl:Class rdf:about="#v_regional">
         <rdfs:subClassOf rdf:resource="#k_cuisine"/>
@@ -3481,7 +3481,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_renewable -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_renewable -->
 
     <owl:Class rdf:about="#v_renewable">
         <rdfs:subClassOf rdf:resource="#k_power_source"/>
@@ -3489,7 +3489,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_residential -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_residential -->
 
     <owl:Class rdf:about="#v_residential">
         <rdfs:subClassOf rdf:resource="#k_highway"/>
@@ -3497,7 +3497,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_restaurant -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_restaurant -->
 
     <owl:Class rdf:about="#v_restaurant">
         <rdfs:subClassOf rdf:resource="#can_have_address"/>
@@ -3512,7 +3512,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_restriction -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_restriction -->
 
     <owl:Class rdf:about="#v_restriction">
         <rdfs:subClassOf rdf:resource="#k_type"/>
@@ -3520,7 +3520,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_river -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_river -->
 
     <owl:Class rdf:about="#v_river">
         <rdfs:subClassOf rdf:resource="#k_waterway"/>
@@ -3528,7 +3528,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_riverbank -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_riverbank -->
 
     <owl:Class rdf:about="#v_riverbank">
         <rdfs:subClassOf rdf:resource="#k_waterway"/>
@@ -3536,7 +3536,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_road -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_road -->
 
     <owl:Class rdf:about="#v_road">
         <rdfs:subClassOf rdf:resource="#k_route"/>
@@ -3544,7 +3544,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_rock -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_rock -->
 
     <owl:Class rdf:about="#v_rock">
         <rdfs:subClassOf rdf:resource="#k_natural"/>
@@ -3552,7 +3552,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_rocks -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_rocks -->
 
     <owl:Class rdf:about="#v_rocks">
         <rdfs:subClassOf rdf:resource="#k_natural"/>
@@ -3560,7 +3560,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_route -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_route -->
 
     <owl:Class rdf:about="#v_route">
         <rdfs:subClassOf rdf:resource="#k_type"/>
@@ -3568,7 +3568,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_ruins -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_ruins -->
 
     <owl:Class rdf:about="#v_ruins">
         <rdfs:subClassOf rdf:resource="#k_historic"/>
@@ -3576,7 +3576,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_runway -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_runway -->
 
     <owl:Class rdf:about="#v_runway">
         <rdfs:subClassOf rdf:resource="#k_aeroway"/>
@@ -3584,7 +3584,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_sand -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_sand -->
 
     <owl:Class rdf:about="#v_sand">
         <rdfs:subClassOf rdf:resource="#k_natural"/>
@@ -3592,7 +3592,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_sauna -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_sauna -->
 
     <owl:Class rdf:about="#v_sauna">
         <rdfs:subClassOf rdf:resource="#can_have_address"/>
@@ -3601,7 +3601,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_schloss -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_schloss -->
 
     <owl:Class rdf:about="#v_schloss">
         <rdfs:subClassOf rdf:resource="#k_castle_type"/>
@@ -3609,7 +3609,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_school -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_school -->
 
     <owl:Class rdf:about="#v_school">
         <rdfs:subClassOf rdf:resource="#can_have_address"/>
@@ -3618,7 +3618,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_scientologist -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_scientologist -->
 
     <owl:Class rdf:about="#v_scientologist">
         <rdfs:subClassOf rdf:resource="#k_religion"/>
@@ -3626,7 +3626,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_scrub -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_scrub -->
 
     <owl:Class rdf:about="#v_scrub">
         <rdfs:subClassOf rdf:resource="#k_natural"/>
@@ -3634,7 +3634,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_seafood -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_seafood -->
 
     <owl:Class rdf:about="#v_seafood">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -3642,7 +3642,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_secondary -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_secondary -->
 
     <owl:Class rdf:about="#v_secondary">
         <rdfs:subClassOf rdf:resource="#k_highway"/>
@@ -3650,7 +3650,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_secondary_link -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_secondary_link -->
 
     <owl:Class rdf:about="#v_secondary_link">
         <rdfs:subClassOf rdf:resource="#k_highway"/>
@@ -3658,7 +3658,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_seperated -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_seperated -->
 
     <owl:Class rdf:about="#v_seperated">
         <rdfs:subClassOf rdf:resource="#decision"/>
@@ -3666,7 +3666,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_service -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_service -->
 
     <owl:Class rdf:about="#v_service">
         <rdfs:subClassOf rdf:resource="#k_highway"/>
@@ -3674,7 +3674,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_services -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_services -->
 
     <owl:Class rdf:about="#v_services">
         <rdfs:subClassOf rdf:resource="#k_highway"/>
@@ -3682,7 +3682,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_shadow_play -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_shadow_play -->
 
     <owl:Class rdf:about="#v_shadow_play">
         <rdfs:subClassOf rdf:resource="#k_theatre:genre"/>
@@ -3690,7 +3690,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_shed -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_shed -->
 
     <owl:Class rdf:about="#v_shed">
         <rdfs:subClassOf rdf:resource="#k_bicycle_parking"/>
@@ -3698,7 +3698,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_shelter -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_shelter -->
 
     <owl:Class rdf:about="#v_shelter">
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
@@ -3706,7 +3706,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_shinto -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_shinto -->
 
     <owl:Class rdf:about="#v_shinto">
         <rdfs:subClassOf rdf:resource="#k_religion"/>
@@ -3714,7 +3714,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_shoes -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_shoes -->
 
     <owl:Class rdf:about="#v_shoes">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -3722,7 +3722,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_sikh -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_sikh -->
 
     <owl:Class rdf:about="#v_sikh">
         <rdfs:subClassOf rdf:resource="#k_religion"/>
@@ -3730,7 +3730,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_site -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_site -->
 
     <owl:Class rdf:about="#v_site">
         <rdfs:subClassOf rdf:resource="#k_type"/>
@@ -3738,7 +3738,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_skateboard -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_skateboard -->
 
     <owl:Class rdf:about="#v_skateboard">
         <rdfs:subClassOf rdf:resource="#k_sport"/>
@@ -3746,7 +3746,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_skating -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_skating -->
 
     <owl:Class rdf:about="#v_skating">
         <rdfs:subClassOf rdf:resource="#k_sport"/>
@@ -3754,7 +3754,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_ski -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_ski -->
 
     <owl:Class rdf:about="#v_ski">
         <rdfs:subClassOf rdf:resource="#k_route"/>
@@ -3762,7 +3762,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_skiing -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_skiing -->
 
     <owl:Class rdf:about="#v_skiing">
         <rdfs:subClassOf rdf:resource="#k_sport"/>
@@ -3770,7 +3770,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_slipway -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_slipway -->
 
     <owl:Class rdf:about="#v_slipway">
         <rdfs:subClassOf rdf:resource="#k_leisure"/>
@@ -3778,7 +3778,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_soccer -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_soccer -->
 
     <owl:Class rdf:about="#v_soccer">
         <rdfs:subClassOf rdf:resource="#k_sport"/>
@@ -3786,7 +3786,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_spanish -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_spanish -->
 
     <owl:Class rdf:about="#v_spanish">
         <rdfs:subClassOf rdf:resource="#k_cuisine"/>
@@ -3794,7 +3794,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_spiritualist -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_spiritualist -->
 
     <owl:Class rdf:about="#v_spiritualist">
         <rdfs:subClassOf rdf:resource="#k_religion"/>
@@ -3802,7 +3802,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_sports -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_sports -->
 
     <owl:Class rdf:about="#v_sports">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -3810,7 +3810,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_sports_centre -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_sports_centre -->
 
     <owl:Class rdf:about="#v_sports_centre">
         <rdfs:subClassOf rdf:resource="#k_leisure"/>
@@ -3818,7 +3818,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_spring -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_spring -->
 
     <owl:Class rdf:about="#v_spring">
         <rdfs:subClassOf rdf:resource="#k_natural"/>
@@ -3826,7 +3826,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_spur -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_spur -->
 
     <owl:Class rdf:about="#v_spur">
         <rdfs:subClassOf rdf:resource="#k_railway"/>
@@ -3834,7 +3834,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_stadium -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_stadium -->
 
     <owl:Class rdf:about="#v_stadium">
         <rdfs:subClassOf rdf:resource="#k_leisure"/>
@@ -3842,7 +3842,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_stand_up_comedy -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_stand_up_comedy -->
 
     <owl:Class rdf:about="#v_stand_up_comedy">
         <rdfs:subClassOf rdf:resource="#k_theatre:genre"/>
@@ -3850,7 +3850,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_stands -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_stands -->
 
     <owl:Class rdf:about="#v_stands">
         <rdfs:subClassOf rdf:resource="#k_bicycle_parking"/>
@@ -3858,7 +3858,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_stately -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_stately -->
 
     <owl:Class rdf:about="#v_stately">
         <rdfs:subClassOf rdf:resource="#k_castle_type"/>
@@ -3866,7 +3866,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_station -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_station -->
 
     <owl:Class rdf:about="#v_station">
         <rdfs:subClassOf rdf:resource="#k_railway"/>
@@ -3874,7 +3874,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_stationery -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_stationery -->
 
     <owl:Class rdf:about="#v_stationery">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -3882,7 +3882,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_steps -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_steps -->
 
     <owl:Class rdf:about="#v_steps">
         <rdfs:subClassOf rdf:resource="#k_highway"/>
@@ -3890,7 +3890,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_storage_tank -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_storage_tank -->
 
     <owl:Class rdf:about="#v_storage_tank">
         <rdfs:subClassOf rdf:resource="#k_man_made"/>
@@ -3898,7 +3898,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_stream -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_stream -->
 
     <owl:Class rdf:about="#v_stream">
         <rdfs:subClassOf rdf:resource="#k_waterway"/>
@@ -3906,7 +3906,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_sub_station -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_sub_station -->
 
     <owl:Class rdf:about="#v_sub_station">
         <rdfs:subClassOf rdf:resource="#k_power"/>
@@ -3914,7 +3914,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_subway -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_subway -->
 
     <owl:Class rdf:about="#v_subway">
         <rdfs:subClassOf rdf:resource="#k_station"/>
@@ -3922,7 +3922,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_supermarket -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_supermarket -->
 
     <owl:Class rdf:about="#v_supermarket">
         <rdfs:subClassOf rdf:resource="#can_have_k_name"/>
@@ -3933,7 +3933,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_survey_point -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_survey_point -->
 
     <owl:Class rdf:about="#v_survey_point">
         <rdfs:subClassOf rdf:resource="#k_man_made"/>
@@ -3941,7 +3941,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_sushi -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_sushi -->
 
     <owl:Class rdf:about="#v_sushi">
         <rdfs:subClassOf rdf:resource="#k_cuisine"/>
@@ -3949,7 +3949,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_swimming -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_swimming -->
 
     <owl:Class rdf:about="#v_swimming">
         <rdfs:subClassOf rdf:resource="#k_sport"/>
@@ -3957,7 +3957,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_swimming_pool -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_swimming_pool -->
 
     <owl:Class rdf:about="#v_swimming_pool">
         <rdfs:subClassOf rdf:resource="#can_have_address"/>
@@ -3967,7 +3967,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_table_tennis -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_table_tennis -->
 
     <owl:Class rdf:about="#v_table_tennis">
         <rdfs:subClassOf rdf:resource="#k_sport"/>
@@ -3975,7 +3975,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_taoist -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_taoist -->
 
     <owl:Class rdf:about="#v_taoist">
         <rdfs:subClassOf rdf:resource="#k_religion"/>
@@ -3983,7 +3983,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_taxi -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_taxi -->
 
     <owl:Class rdf:about="#v_taxi">
         <rdfs:subClassOf rdf:resource="#can_have_k_capacity"/>
@@ -3993,7 +3993,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_taxiway -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_taxiway -->
 
     <owl:Class rdf:about="#v_taxiway">
         <rdfs:subClassOf rdf:resource="#k_aeroway"/>
@@ -4001,7 +4001,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_telephone -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_telephone -->
 
     <owl:Class rdf:about="#v_telephone">
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
@@ -4009,7 +4009,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_tennis -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_tennis -->
 
     <owl:Class rdf:about="#v_tennis">
         <rdfs:subClassOf rdf:resource="#k_sport"/>
@@ -4017,7 +4017,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_terminal -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_terminal -->
 
     <owl:Class rdf:about="#v_terminal">
         <rdfs:subClassOf rdf:resource="#k_aeroway"/>
@@ -4025,7 +4025,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_tertiary -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_tertiary -->
 
     <owl:Class rdf:about="#v_tertiary">
         <rdfs:subClassOf rdf:resource="#k_highway"/>
@@ -4033,7 +4033,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_thai -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_thai -->
 
     <owl:Class rdf:about="#v_thai">
         <rdfs:subClassOf rdf:resource="#k_cuisine"/>
@@ -4041,7 +4041,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_theatre -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_theatre -->
 
     <owl:Class rdf:about="#v_theatre">
         <rdfs:subClassOf rdf:resource="#can_have_address"/>
@@ -4050,7 +4050,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_theme_park -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_theme_park -->
 
     <owl:Class rdf:about="#v_theme_park">
         <rdfs:subClassOf rdf:resource="#k_tourism"/>
@@ -4058,7 +4058,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_toilets -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_toilets -->
 
     <owl:Class rdf:about="#v_toilets">
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
@@ -4066,7 +4066,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_tower -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_tower -->
 
     <owl:Class rdf:about="#v_tower">
         <rdfs:subClassOf rdf:resource="#k_man_made"/>
@@ -4074,7 +4074,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_town_hall -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_town_hall -->
 
     <owl:Class rdf:about="#v_town_hall">
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
@@ -4082,7 +4082,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_toys -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_toys -->
 
     <owl:Class rdf:about="#v_toys">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -4090,7 +4090,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_track -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_track -->
 
     <owl:Class rdf:about="#v_track">
         <rdfs:subClassOf rdf:resource="#k_leisure"/>
@@ -4098,7 +4098,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_train -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_train -->
 
     <owl:Class rdf:about="#v_train">
         <rdfs:subClassOf rdf:resource="#k_route"/>
@@ -4106,7 +4106,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_tram -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_tram -->
 
     <owl:Class rdf:about="#v_tram">
         <rdfs:subClassOf rdf:resource="#k_route"/>
@@ -4114,7 +4114,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_tram_stop -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_tram_stop -->
 
     <owl:Class rdf:about="#v_tram_stop">
         <rdfs:subClassOf rdf:resource="#k_railway"/>
@@ -4122,7 +4122,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_transformer -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_transformer -->
 
     <owl:Class rdf:about="#v_transformer">
         <rdfs:subClassOf rdf:resource="#k_power"/>
@@ -4130,7 +4130,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_travel_agency -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_travel_agency -->
 
     <owl:Class rdf:about="#v_travel_agency">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -4138,7 +4138,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_tree -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_tree -->
 
     <owl:Class rdf:about="#v_tree">
         <rdfs:subClassOf rdf:resource="#k_natural"/>
@@ -4146,7 +4146,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_trolleybus -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_trolleybus -->
 
     <owl:Class rdf:about="#v_trolleybus">
         <rdfs:subClassOf rdf:resource="#k_route"/>
@@ -4154,7 +4154,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_truck -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_truck -->
 
     <owl:Class rdf:about="#v_truck">
         <rdfs:subClassOf rdf:resource="#k_route"/>
@@ -4162,7 +4162,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_trunk -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_trunk -->
 
     <owl:Class rdf:about="#v_trunk">
         <rdfs:subClassOf rdf:resource="#k_highway"/>
@@ -4170,7 +4170,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_trunk_link -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_trunk_link -->
 
     <owl:Class rdf:about="#v_trunk_link">
         <rdfs:subClassOf rdf:resource="#k_highway"/>
@@ -4178,7 +4178,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_turkish -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_turkish -->
 
     <owl:Class rdf:about="#v_turkish">
         <rdfs:subClassOf rdf:resource="#k_cuisine"/>
@@ -4186,7 +4186,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_unclassified -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_unclassified -->
 
     <owl:Class rdf:about="#v_unclassified">
         <rdfs:subClassOf rdf:resource="#k_highway"/>
@@ -4194,7 +4194,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_unitarian -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_unitarian -->
 
     <owl:Class rdf:about="#v_unitarian">
         <rdfs:subClassOf rdf:resource="#k_religion"/>
@@ -4202,7 +4202,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_university -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_university -->
 
     <owl:Class rdf:about="#v_university">
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
@@ -4210,7 +4210,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_valley -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_valley -->
 
     <owl:Class rdf:about="#v_valley">
         <rdfs:subClassOf rdf:resource="#k_natural"/>
@@ -4218,7 +4218,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_variet&#233; -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_variet&#233; -->
 
     <owl:Class rdf:about="#v_variet&#233;">
         <rdfs:subClassOf rdf:resource="#k_theatre:genre"/>
@@ -4226,7 +4226,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_vegetarian -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_vegetarian -->
 
     <owl:Class rdf:about="#v_vegetarian">
         <rdfs:subClassOf rdf:resource="#k_cuisine"/>
@@ -4234,7 +4234,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_veterinary -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_veterinary -->
 
     <owl:Class rdf:about="#v_veterinary">
         <rdfs:subClassOf rdf:resource="#can_have_address"/>
@@ -4243,7 +4243,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_video -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_video -->
 
     <owl:Class rdf:about="#v_video">
         <rdfs:subClassOf rdf:resource="#k_shop"/>
@@ -4251,7 +4251,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_viewpoint -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_viewpoint -->
 
     <owl:Class rdf:about="#v_viewpoint">
         <rdfs:subClassOf rdf:resource="#k_tourism"/>
@@ -4259,7 +4259,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_volcano -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_volcano -->
 
     <owl:Class rdf:about="#v_volcano">
         <rdfs:subClassOf rdf:resource="#k_natural"/>
@@ -4267,7 +4267,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_walking -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_walking -->
 
     <owl:Class rdf:about="#v_walking">
         <rdfs:subClassOf rdf:resource="#k_route"/>
@@ -4275,7 +4275,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_wall_loops -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_wall_loops -->
 
     <owl:Class rdf:about="#v_wall_loops">
         <rdfs:subClassOf rdf:resource="#k_bicycle_parking"/>
@@ -4283,7 +4283,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_waste_basket -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_waste_basket -->
 
     <owl:Class rdf:about="#v_waste_basket">
         <rdfs:subClassOf rdf:resource="#k_amenity"/>
@@ -4291,7 +4291,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_wastewater_plant -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_wastewater_plant -->
 
     <owl:Class rdf:about="#v_wastewater_plant">
         <rdfs:subClassOf rdf:resource="#k_man_made"/>
@@ -4299,7 +4299,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_water -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_water -->
 
     <owl:Class rdf:about="#v_water">
         <rdfs:subClassOf rdf:resource="#k_natural"/>
@@ -4307,7 +4307,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_water_park -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_water_park -->
 
     <owl:Class rdf:about="#v_water_park">
         <rdfs:subClassOf rdf:resource="#k_leisure"/>
@@ -4315,7 +4315,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_water_tower -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_water_tower -->
 
     <owl:Class rdf:about="#v_water_tower">
         <rdfs:subClassOf rdf:resource="#k_man_made"/>
@@ -4323,7 +4323,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_waterfall -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_waterfall -->
 
     <owl:Class rdf:about="#v_waterfall">
         <rdfs:subClassOf rdf:resource="#k_waterway"/>
@@ -4331,7 +4331,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_wayside_cross -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_wayside_cross -->
 
     <owl:Class rdf:about="#v_wayside_cross">
         <rdfs:subClassOf rdf:resource="#k_historic"/>
@@ -4339,7 +4339,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_wayside_shrine -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_wayside_shrine -->
 
     <owl:Class rdf:about="#v_wayside_shrine">
         <rdfs:subClassOf rdf:resource="#k_historic"/>
@@ -4347,7 +4347,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_wetland -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_wetland -->
 
     <owl:Class rdf:about="#v_wetland">
         <rdfs:subClassOf rdf:resource="#k_natural"/>
@@ -4355,7 +4355,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_wind -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_wind -->
 
     <owl:Class rdf:about="#v_wind">
         <rdfs:subClassOf rdf:resource="#k_power_source"/>
@@ -4363,7 +4363,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_wood -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_wood -->
 
     <owl:Class rdf:about="#v_wood">
         <rdfs:subClassOf rdf:resource="#k_natural"/>
@@ -4371,7 +4371,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_works -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_works -->
 
     <owl:Class rdf:about="#v_works">
         <rdfs:subClassOf rdf:resource="#k_man_made"/>
@@ -4379,7 +4379,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_yes -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_yes -->
 
     <owl:Class rdf:about="#v_yes">
         <rdfs:subClassOf rdf:resource="#yes/no"/>
@@ -4387,7 +4387,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_zoo -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_zoo -->
 
     <owl:Class rdf:about="#v_zoo">
         <rdfs:subClassOf rdf:resource="#can_have_address"/>
@@ -4398,7 +4398,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#v_zoroastrian -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_zoroastrian -->
 
     <owl:Class rdf:about="#v_zoroastrian">
         <rdfs:subClassOf rdf:resource="#k_religion"/>
@@ -4406,7 +4406,7 @@
     
 
 
-    <!-- http://osmonto.do-roam.org/unamed#yes/no -->
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#yes/no -->
 
     <owl:Class rdf:about="#yes/no">
         <rdfs:subClassOf rdf:resource="#decision"/>
