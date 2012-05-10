@@ -1,30 +1,48 @@
 grammar Mapping
-	rule map
-		( 
-			'('
-				( 
-					(class ', Class ' property) /
-					(class ", Class or" white "\n" property+) /
-					(class ', ' class) /
-					(class ',' white)
-				) 
-			'),' "\n"* 
-		)*
+	
+	rule mapping
+		(map space "\n"*)+
 	end
+	
+	rule map
+		'(' space class space ',' space "Class" space conzept space ')'
+	end
+	
+	rule conzept
+		 atomic / not / or / and / exists
+	end
+	
+	rule not
+		"not " space conzept
+	end
+	
+	rule or
+		"or " (space conzept)+
+	end
+	
+	rule and
+		"and " (space conzept)+
+	end
+	
+	rule exists
+		"exists " space role space " . " space conzept
+	end
+	
+	rule role
+		[a-zA-Z_]+
+	end
+	
+	rule atomic
+		[a-zA-Z_]*
+	end
+	
 	rule class
 		"Class " [a-zA-Z_]+
 	end
-	rule property
-		(white "exists " key ' . ' value "\n") /
-		(white "exists " key ' . ' value)
+	
+	rule space
+		" "*
 	end
-	rule key
-		"has_k_" [a-zA-Z_:]+
-	end
-	rule value
-		"v_" [a-zA-Z_:]+
-	end
-	rule white
-		' '*
-	end
-end	
+
+
+end
