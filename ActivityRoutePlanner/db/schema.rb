@@ -83,9 +83,9 @@ ActiveRecord::Schema.define(:version => 20120405192301) do
   add_index "countries", ["code"], :name => "countries_code_idx", :unique => true
 
   create_table "current_node_tags", :id => false, :force => true do |t|
-    t.integer "id", :limit => 8,                 :null => false
-    t.string  "k",               :default => "", :null => false
-    t.string  "v",               :default => "", :null => false
+    t.integer "node_id", :limit => 8,                 :null => false
+    t.string  "k",                    :default => "", :null => false
+    t.string  "v",                    :default => "", :null => false
   end
 
   create_table "current_nodes", :force => true do |t|
@@ -142,9 +142,6 @@ ActiveRecord::Schema.define(:version => 20120405192301) do
 
   add_index "current_ways", ["timestamp"], :name => "current_ways_timestamp_idx"
 
-# Could not dump table "db_topo" because of following StandardError
-#   Unknown type 'geometry' for column 'geom_way'
-
   create_table "diary_comments", :force => true do |t|
     t.integer  "diary_entry_id", :limit => 8,                   :null => false
     t.integer  "user_id",        :limit => 8,                   :null => false
@@ -180,16 +177,6 @@ ActiveRecord::Schema.define(:version => 20120405192301) do
 
   add_index "friends", ["friend_user_id"], :name => "user_id_idx"
   add_index "friends", ["user_id"], :name => "friends_user_id_idx"
-
-  create_table "geometry_columns", :id => false, :force => true do |t|
-    t.string  "f_table_catalog",   :limit => 256, :null => false
-    t.string  "f_table_schema",    :limit => 256, :null => false
-    t.string  "f_table_name",      :limit => 256, :null => false
-    t.string  "f_geometry_column", :limit => 256, :null => false
-    t.integer "coord_dimension",                  :null => false
-    t.integer "srid",                             :null => false
-    t.string  "type",              :limit => 30,  :null => false
-  end
 
   create_table "gps_points", :id => false, :force => true do |t|
     t.float    "altitude"
@@ -367,18 +354,6 @@ ActiveRecord::Schema.define(:version => 20120405192301) do
     t.datetime "updated_at"
   end
 
-# Could not dump table "planet_osm_line" because of following StandardError
-#   Unknown type 'geometry' for column 'way'
-
-# Could not dump table "planet_osm_point" because of following StandardError
-#   Unknown type 'geometry' for column 'way'
-
-# Could not dump table "planet_osm_polygon" because of following StandardError
-#   Unknown type 'geometry' for column 'way'
-
-# Could not dump table "planet_osm_roads" because of following StandardError
-#   Unknown type 'geometry' for column 'way'
-
   create_table "points", :force => true do |t|
     t.float    "lat"
     t.float    "lon"
@@ -443,14 +418,6 @@ ActiveRecord::Schema.define(:version => 20120405192301) do
   end
 
   add_index "sessions", ["session_id"], :name => "sessions_session_id_idx", :unique => true
-
-  create_table "spatial_ref_sys", :id => false, :force => true do |t|
-    t.integer "srid",                      :null => false
-    t.string  "auth_name", :limit => 256
-    t.integer "auth_srid"
-    t.string  "srtext",    :limit => 2048
-    t.string  "proj4text", :limit => 2048
-  end
 
   create_table "user_blocks", :force => true do |t|
     t.integer  "user_id",    :limit => 8,                    :null => false

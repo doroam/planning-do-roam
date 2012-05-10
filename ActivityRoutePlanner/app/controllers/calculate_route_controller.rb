@@ -32,8 +32,8 @@ class CalculateRouteController < ApplicationController
       #waypoints
       @route.activities.each do |activity|        
         locs += "&loc=#{activity.point.lat},#{activity.point.lon}"
-        if(!activity.hint.nil?)
-          locs += "&hint=" + activity.hint.to_s
+        if(!activity.point.hint.nil?)
+          locs += "&hint=" + activity.point.hint.to_s
         end
       end
       #end-location

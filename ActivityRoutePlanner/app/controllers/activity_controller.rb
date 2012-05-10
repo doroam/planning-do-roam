@@ -45,8 +45,7 @@ class ActivityController < ApplicationController
   end
 
   def search
-    route = current_route
-    start_point = route.start_point
+    start_point = current_route.start_point
     @result = ""
 
     if !params[:reload].nil? && params[:reload]
@@ -69,7 +68,7 @@ class ActivityController < ApplicationController
       
     @result += classes.to_s+"<br/>"
     @points = Array.new
-    
+puts @result
     # begin of loop
     classes.each do |cid|
       c = OntologyClass.find_by_id(cid.to_i)

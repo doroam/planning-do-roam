@@ -1,12 +1,12 @@
 #!/bin/bash
 
 # parameters
-PBF=http://download.geofabrik.de/osm/europe/andorra.osm.pbf
-OSM=http://download.geofabrik.de/osm/europe/andorra.osm.bz2
+PBF=http://download.geofabrik.de/osm/europe/germany/bremen.osm.pbf
+OSM=http://download.geofabrik.de/osm/europe/germany/bremen.osm.bz2
 USER=openstreetmap
-DATABASE=test
+DATABASE=bremen
 PASSWORD=dfkiteam
-PSQL_VERSION=8.4
+PSQL_VERSION=9.1
 MODE=development #development, test or productive
 RAILS_PORT_FOLDER=$HOME/web/rails-port 
 PLANNING_DO_ROAM=$HOME/web/planning-do-roam/ActivityRoutePlanner
@@ -15,22 +15,27 @@ PLANNING_DO_ROAM=$HOME/web/planning-do-roam/ActivityRoutePlanner
 set -e
 set -x
 
+
 OSM_FILE=$(basename $OSM)
 
 # 1. set up the OSM database and give the user "$USER" all privileges 
 
 psql -U $USER -c "DROP DATABASE $DATABASE;" || true
 createdb -U $USER $DATABASE
-createlang -U $USER plpgsql $DATABASE
-echo "Here you need to be postgres, the PostgreSQL-Admin"
-psql -U postgres -d $DATABASE < /usr/share/postgresql/$PSQL_VERSION/contrib/btree_gist.sql
+createlang -U $USER plpgsql $DATABASE || true
+if [ $PSQL_VERSION == 9.1 ]; then
+  psql -U openstreetmap -d $DATABASE -c "CREATE EXTENSION btree_gist;"
+else
+  echo "Here you need to be postgres, the PostgreSQL-Admin"
+  psql -U postgres -d DATABASE < /usr/share/postgresql/$PSQL_VERSION/contrib/btree_gist.sql
+fi
 psql -U $USER -d $DATABASE -c "GRANT ALL PRIVILEGES ON DATABASE $DATABASE TO $USER" 
 
 # 2. create the OSM tables
 
 # in the rails port repository folder
 cd $RAILS_PORT_FOLDER
-cp config/database.yml config/database.yml.original
+mv config/database.yml config/database.yml.original
 echo "
 #DO-ROAM-DB-Setup
 development:
@@ -41,7 +46,7 @@ development:
   host: localhost
   port: 5432
   encoding: utf8" > config/database.yml
-rake db:migrate RAILS_ENV=development
+bundle exec rake db:migrate RAILS_ENV=development || true
 mv -f config/database.yml.original config/database.yml
 
 # 3. run Osmosis
