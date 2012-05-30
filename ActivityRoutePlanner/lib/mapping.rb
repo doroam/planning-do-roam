@@ -14,7 +14,7 @@ module Mapping
     end
 
     def space
-      elements[1]
+      elements[2]
     end
 
   end
@@ -36,26 +36,36 @@ module Mapping
       r2 = _nt_map
       s1 << r2
       if r2
-        r3 = _nt_space
+        if has_terminal?(",", false, index)
+          r3 = instantiate_node(SyntaxNode,input, index...(index + 1))
+          @index += 1
+        else
+          terminal_parse_failure(",")
+          r3 = nil
+        end
         s1 << r3
         if r3
-          s4, i4 = [], index
-          loop do
-            if has_terminal?("\n", false, index)
-              r5 = instantiate_node(SyntaxNode,input, index...(index + 1))
-              @index += 1
-            else
-              terminal_parse_failure("\n")
-              r5 = nil
-            end
-            if r5
-              s4 << r5
-            else
-              break
-            end
-          end
-          r4 = instantiate_node(SyntaxNode,input, i4...index, s4)
+          r4 = _nt_space
           s1 << r4
+          if r4
+            s5, i5 = [], index
+            loop do
+              if has_terminal?("\n", false, index)
+                r6 = instantiate_node(SyntaxNode,input, index...(index + 1))
+                @index += 1
+              else
+                terminal_parse_failure("\n")
+                r6 = nil
+              end
+              if r6
+                s5 << r6
+              else
+                break
+              end
+            end
+            r5 = instantiate_node(SyntaxNode,input, i5...index, s5)
+            s1 << r5
+          end
         end
       end
       if s1.last
@@ -114,6 +124,25 @@ module Mapping
 
   end
 
+  module Map1
+    def space1
+      elements[1]
+    end
+
+    def class
+      elements[2]
+    end
+
+    def space2
+      elements[3]
+    end
+
+    def space3
+      elements[5]
+    end
+
+  end
+
   def _nt_map
     start_index = index
     if node_cache[:map].has_key?(index)
@@ -125,63 +154,64 @@ module Mapping
       return cached
     end
 
-    i0, s0 = index, []
+    i0 = index
+    i1, s1 = index, []
     if has_terminal?('(', false, index)
-      r1 = instantiate_node(SyntaxNode,input, index...(index + 1))
+      r2 = instantiate_node(SyntaxNode,input, index...(index + 1))
       @index += 1
     else
       terminal_parse_failure('(')
-      r1 = nil
+      r2 = nil
     end
-    s0 << r1
-    if r1
-      r2 = _nt_space
-      s0 << r2
-      if r2
-        r3 = _nt_class
-        s0 << r3
-        if r3
-          r4 = _nt_space
-          s0 << r4
-          if r4
+    s1 << r2
+    if r2
+      r3 = _nt_space
+      s1 << r3
+      if r3
+        r4 = _nt_class
+        s1 << r4
+        if r4
+          r5 = _nt_space
+          s1 << r5
+          if r5
             if has_terminal?(',', false, index)
-              r5 = instantiate_node(SyntaxNode,input, index...(index + 1))
+              r6 = instantiate_node(SyntaxNode,input, index...(index + 1))
               @index += 1
             else
               terminal_parse_failure(',')
-              r5 = nil
+              r6 = nil
             end
-            s0 << r5
-            if r5
-              r6 = _nt_space
-              s0 << r6
-              if r6
+            s1 << r6
+            if r6
+              r7 = _nt_space
+              s1 << r7
+              if r7
                 if has_terminal?("Class", false, index)
-                  r7 = instantiate_node(SyntaxNode,input, index...(index + 5))
+                  r8 = instantiate_node(SyntaxNode,input, index...(index + 5))
                   @index += 5
                 else
                   terminal_parse_failure("Class")
-                  r7 = nil
+                  r8 = nil
                 end
-                s0 << r7
-                if r7
-                  r8 = _nt_space
-                  s0 << r8
-                  if r8
-                    r9 = _nt_conzept
-                    s0 << r9
-                    if r9
-                      r10 = _nt_space
-                      s0 << r10
-                      if r10
+                s1 << r8
+                if r8
+                  r9 = _nt_space
+                  s1 << r9
+                  if r9
+                    r10 = _nt_conzept
+                    s1 << r10
+                    if r10
+                      r11 = _nt_space
+                      s1 << r11
+                      if r11
                         if has_terminal?(')', false, index)
-                          r11 = instantiate_node(SyntaxNode,input, index...(index + 1))
+                          r12 = instantiate_node(SyntaxNode,input, index...(index + 1))
                           @index += 1
                         else
                           terminal_parse_failure(')')
-                          r11 = nil
+                          r12 = nil
                         end
-                        s0 << r11
+                        s1 << r12
                       end
                     end
                   end
@@ -192,12 +222,74 @@ module Mapping
         end
       end
     end
-    if s0.last
-      r0 = instantiate_node(SyntaxNode,input, i0...index, s0)
-      r0.extend(Map0)
+    if s1.last
+      r1 = instantiate_node(SyntaxNode,input, i1...index, s1)
+      r1.extend(Map0)
     else
-      @index = i0
-      r0 = nil
+      @index = i1
+      r1 = nil
+    end
+    if r1
+      r0 = r1
+    else
+      i13, s13 = index, []
+      if has_terminal?('(', false, index)
+        r14 = instantiate_node(SyntaxNode,input, index...(index + 1))
+        @index += 1
+      else
+        terminal_parse_failure('(')
+        r14 = nil
+      end
+      s13 << r14
+      if r14
+        r15 = _nt_space
+        s13 << r15
+        if r15
+          r16 = _nt_class
+          s13 << r16
+          if r16
+            r17 = _nt_space
+            s13 << r17
+            if r17
+              if has_terminal?(',', false, index)
+                r18 = instantiate_node(SyntaxNode,input, index...(index + 1))
+                @index += 1
+              else
+                terminal_parse_failure(',')
+                r18 = nil
+              end
+              s13 << r18
+              if r18
+                r19 = _nt_space
+                s13 << r19
+                if r19
+                  if has_terminal?(')', false, index)
+                    r20 = instantiate_node(SyntaxNode,input, index...(index + 1))
+                    @index += 1
+                  else
+                    terminal_parse_failure(')')
+                    r20 = nil
+                  end
+                  s13 << r20
+                end
+              end
+            end
+          end
+        end
+      end
+      if s13.last
+        r13 = instantiate_node(SyntaxNode,input, i13...index, s13)
+        r13.extend(Map1)
+      else
+        @index = i13
+        r13 = nil
+      end
+      if r13
+        r0 = r13
+      else
+        @index = i0
+        r0 = nil
+      end
     end
 
     node_cache[:map][start_index] = r0
@@ -507,11 +599,11 @@ module Mapping
           r4 = _nt_space
           s0 << r4
           if r4
-            if has_terminal?(" . ", false, index)
-              r5 = instantiate_node(SyntaxNode,input, index...(index + 3))
-              @index += 3
+            if has_terminal?(".", false, index)
+              r5 = instantiate_node(SyntaxNode,input, index...(index + 1))
+              @index += 1
             else
-              terminal_parse_failure(" . ")
+              terminal_parse_failure(".")
               r5 = nil
             end
             s0 << r5

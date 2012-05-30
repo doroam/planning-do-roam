@@ -1,15 +1,16 @@
 grammar Mapping
 	
 	rule mapping
-		(map space "\n"*)+
+		(map "," space "\n"*)+
 	end
 	
 	rule map
-		'(' space class space ',' space "Class" space conzept space ')'
+		'(' space class space ',' space "Class" space conzept space ')' /
+		'(' space class space ',' space ')'
 	end
 	
 	rule conzept
-		 atomic / not / or / and / exists
+		 exists / not / or / and / atomic
 	end
 	
 	rule not
@@ -25,7 +26,7 @@ grammar Mapping
 	end
 	
 	rule exists
-		"exists " space role space " . " space conzept
+		"exists " space role space "." space conzept
 	end
 	
 	rule role

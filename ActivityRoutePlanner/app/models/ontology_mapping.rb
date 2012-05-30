@@ -15,7 +15,7 @@ class OntologyMapping < ActiveRecord::Base
     Treetop.load "lib/mapping"
     parser = MappingParser.new
     puts "test"
-    if(parser.parse(File.read(filename)))
+    if(parser.parse("((Class Bakery, Class exists has_k_shop . v_bakery),"))
       puts "success"
     else
       puts "fail"
