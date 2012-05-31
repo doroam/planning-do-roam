@@ -9,13 +9,14 @@ class OntologyMapping < ActiveRecord::Base
   belongs_to :source, :foreign_key => :source_id, :class_name => 'Ontology'
   belongs_to :target, :foreign_key => :target_id, :class_name => 'Ontology'
   require 'treetop'
-  require 'lib/mapping'
-  
+#  require 'lib/mapping.rb'
+ 
   def self.read_mapping_new(filename, name, s, t)
     Treetop.load "lib/mapping"
     parser = MappingParser.new
     puts "test"
-    if(parser.parse("((Class Bakery, Class exists has_k_shop . v_bakery),"))
+    
+    if(parser.parse(File.read(filename)))
       puts "success"
     else
       puts "fail"

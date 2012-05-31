@@ -309,7 +309,7 @@ module Mapping
     end
 
     i0 = index
-    r1 = _nt_atomic
+    r1 = _nt_exists
     if r1
       r0 = r1
     else
@@ -325,7 +325,7 @@ module Mapping
           if r4
             r0 = r4
           else
-            r5 = _nt_exists
+            r5 = _nt_atomic
             if r5
               r0 = r5
             else
@@ -394,7 +394,7 @@ module Mapping
   end
 
   module Or0
-    def space
+    def white
       elements[0]
     end
 
@@ -404,6 +404,14 @@ module Mapping
   end
 
   module Or1
+    def white
+      elements[1]
+    end
+
+    def conzept
+      elements[2]
+    end
+
   end
 
   def _nt_or
@@ -418,44 +426,52 @@ module Mapping
     end
 
     i0, s0 = index, []
-    if has_terminal?("or ", false, index)
-      r1 = instantiate_node(SyntaxNode,input, index...(index + 3))
-      @index += 3
+    if has_terminal?("or", false, index)
+      r1 = instantiate_node(SyntaxNode,input, index...(index + 2))
+      @index += 2
     else
-      terminal_parse_failure("or ")
+      terminal_parse_failure("or")
       r1 = nil
     end
     s0 << r1
     if r1
-      s2, i2 = [], index
-      loop do
-        i3, s3 = index, []
-        r4 = _nt_space
-        s3 << r4
-        if r4
-          r5 = _nt_conzept
-          s3 << r5
-        end
-        if s3.last
-          r3 = instantiate_node(SyntaxNode,input, i3...index, s3)
-          r3.extend(Or0)
-        else
-          @index = i3
-          r3 = nil
-        end
-        if r3
-          s2 << r3
-        else
-          break
-        end
-      end
-      if s2.empty?
-        @index = i2
-        r2 = nil
-      else
-        r2 = instantiate_node(SyntaxNode,input, i2...index, s2)
-      end
+      r2 = _nt_white
       s0 << r2
+      if r2
+        r3 = _nt_conzept
+        s0 << r3
+        if r3
+          s4, i4 = [], index
+          loop do
+            i5, s5 = index, []
+            r6 = _nt_white
+            s5 << r6
+            if r6
+              r7 = _nt_conzept
+              s5 << r7
+            end
+            if s5.last
+              r5 = instantiate_node(SyntaxNode,input, i5...index, s5)
+              r5.extend(Or0)
+            else
+              @index = i5
+              r5 = nil
+            end
+            if r5
+              s4 << r5
+            else
+              break
+            end
+          end
+          if s4.empty?
+            @index = i4
+            r4 = nil
+          else
+            r4 = instantiate_node(SyntaxNode,input, i4...index, s4)
+          end
+          s0 << r4
+        end
+      end
     end
     if s0.last
       r0 = instantiate_node(SyntaxNode,input, i0...index, s0)
@@ -548,7 +564,7 @@ module Mapping
   end
 
   module Exists0
-    def space1
+    def white
       elements[1]
     end
 
@@ -556,15 +572,15 @@ module Mapping
       elements[2]
     end
 
-    def space2
+    def space1
       elements[3]
     end
 
-    def space3
+    def space2
       elements[5]
     end
 
-    def conzept
+    def atomic
       elements[6]
     end
   end
@@ -581,16 +597,16 @@ module Mapping
     end
 
     i0, s0 = index, []
-    if has_terminal?("exists ", false, index)
-      r1 = instantiate_node(SyntaxNode,input, index...(index + 7))
-      @index += 7
+    if has_terminal?("exists", false, index)
+      r1 = instantiate_node(SyntaxNode,input, index...(index + 6))
+      @index += 6
     else
-      terminal_parse_failure("exists ")
+      terminal_parse_failure("exists")
       r1 = nil
     end
     s0 << r1
     if r1
-      r2 = _nt_space
+      r2 = _nt_white
       s0 << r2
       if r2
         r3 = _nt_role
@@ -611,7 +627,7 @@ module Mapping
               r6 = _nt_space
               s0 << r6
               if r6
-                r7 = _nt_conzept
+                r7 = _nt_atomic
                 s0 << r7
               end
             end
@@ -645,7 +661,7 @@ module Mapping
 
     s0, i0 = [], index
     loop do
-      if has_terminal?('\G[a-zA-Z_]', true, index)
+      if has_terminal?('\G[a-zA-Z_:]', true, index)
         r1 = true
         @index += 1
       else
@@ -682,7 +698,7 @@ module Mapping
 
     s0, i0 = [], index
     loop do
-      if has_terminal?('\G[a-zA-Z_]', true, index)
+      if has_terminal?('\G[a-zA-Z_:]', true, index)
         r1 = true
         @index += 1
       else
@@ -727,7 +743,7 @@ module Mapping
     if r1
       s2, i2 = [], index
       loop do
-        if has_terminal?('\G[a-zA-Z_]', true, index)
+        if has_terminal?('\G[a-zA-Z_:]', true, index)
           r3 = true
           @index += 1
         else
@@ -773,11 +789,10 @@ module Mapping
 
     s0, i0 = [], index
     loop do
-      if has_terminal?(" ", false, index)
-        r1 = instantiate_node(SyntaxNode,input, index...(index + 1))
+      if has_terminal?('\G[ \\n\\t]', true, index)
+        r1 = true
         @index += 1
       else
-        terminal_parse_failure(" ")
         r1 = nil
       end
       if r1
@@ -789,6 +804,43 @@ module Mapping
     r0 = instantiate_node(SyntaxNode,input, i0...index, s0)
 
     node_cache[:space][start_index] = r0
+
+    r0
+  end
+
+  def _nt_white
+    start_index = index
+    if node_cache[:white].has_key?(index)
+      cached = node_cache[:white][index]
+      if cached
+        cached = SyntaxNode.new(input, index...(index + 1)) if cached == true
+        @index = cached.interval.end
+      end
+      return cached
+    end
+
+    s0, i0 = [], index
+    loop do
+      if has_terminal?('\G[ \\n\\t]', true, index)
+        r1 = true
+        @index += 1
+      else
+        r1 = nil
+      end
+      if r1
+        s0 << r1
+      else
+        break
+      end
+    end
+    if s0.empty?
+      @index = i0
+      r0 = nil
+    else
+      r0 = instantiate_node(SyntaxNode,input, i0...index, s0)
+    end
+
+    node_cache[:white][start_index] = r0
 
     r0
   end
