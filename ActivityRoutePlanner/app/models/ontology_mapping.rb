@@ -9,6 +9,7 @@ class OntologyMapping < ActiveRecord::Base
   belongs_to :source, :foreign_key => :source_id, :class_name => 'Ontology'
   belongs_to :target, :foreign_key => :target_id, :class_name => 'Ontology'
   require 'treetop'
+  require 'pp'
 #  require 'lib/mapping.rb'
  
   def self.read_mapping_new(filename, name, s, t)
@@ -16,8 +17,9 @@ class OntologyMapping < ActiveRecord::Base
     parser = MappingParser.new
     puts "test"
     
-    if(parser.parse(File.read(filename)))
+    if(p = parser.parse(File.read(filename)))
       puts "success"
+      pp p
     else
       puts "fail"
     end

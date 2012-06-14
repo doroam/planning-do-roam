@@ -19,6 +19,12 @@ module Mapping
 
   end
 
+  module Mapping1
+    def content
+        elements.map{ |e| e.content }
+    end
+  end
+
   def _nt_mapping
     start_index = index
     if node_cache[:mapping].has_key?(index)
@@ -86,6 +92,7 @@ module Mapping
       r0 = nil
     else
       r0 = instantiate_node(SyntaxNode,input, i0...index, s0)
+      r0.extend(Mapping1)
     end
 
     node_cache[:mapping][start_index] = r0
@@ -141,6 +148,12 @@ module Mapping
       elements[5]
     end
 
+  end
+
+  module Map2
+    def content
+        elements.map{ |e| e.content }
+    end
   end
 
   def _nt_map
@@ -280,6 +293,7 @@ module Mapping
       if s13.last
         r13 = instantiate_node(SyntaxNode,input, i13...index, s13)
         r13.extend(Map1)
+        r13.extend(Map2)
       else
         @index = i13
         r13 = nil
@@ -295,6 +309,12 @@ module Mapping
     node_cache[:map][start_index] = r0
 
     r0
+  end
+
+  module Conzept0
+    def content
+        elements.map{ |e| e.content }
+    end
   end
 
   def _nt_conzept
@@ -326,6 +346,7 @@ module Mapping
             r0 = r4
           else
             r5 = _nt_atomic
+            r5.extend(Conzept0)
             if r5
               r0 = r5
             else
@@ -349,6 +370,12 @@ module Mapping
 
     def conzept
       elements[2]
+    end
+  end
+
+  module Not1
+    def content
+        elements.map{ |e| e.content }
     end
   end
 
@@ -383,6 +410,7 @@ module Mapping
     if s0.last
       r0 = instantiate_node(SyntaxNode,input, i0...index, s0)
       r0.extend(Not0)
+      r0.extend(Not1)
     else
       @index = i0
       r0 = nil
@@ -412,6 +440,12 @@ module Mapping
       elements[2]
     end
 
+  end
+
+  module Or2
+    def content
+        elements.map{ |e| e.content }
+    end
   end
 
   def _nt_or
@@ -476,6 +510,7 @@ module Mapping
     if s0.last
       r0 = instantiate_node(SyntaxNode,input, i0...index, s0)
       r0.extend(Or1)
+      r0.extend(Or2)
     else
       @index = i0
       r0 = nil
@@ -497,6 +532,12 @@ module Mapping
   end
 
   module And1
+  end
+
+  module And2
+    def content
+        elements.map{ |e| e.content }
+    end
   end
 
   def _nt_and
@@ -553,6 +594,7 @@ module Mapping
     if s0.last
       r0 = instantiate_node(SyntaxNode,input, i0...index, s0)
       r0.extend(And1)
+      r0.extend(And2)
     else
       @index = i0
       r0 = nil
@@ -582,6 +624,12 @@ module Mapping
 
     def atomic
       elements[6]
+    end
+  end
+
+  module Exists1
+    def content
+        elements.map{ |e| e.content }
     end
   end
 
@@ -638,6 +686,7 @@ module Mapping
     if s0.last
       r0 = instantiate_node(SyntaxNode,input, i0...index, s0)
       r0.extend(Exists0)
+      r0.extend(Exists1)
     else
       @index = i0
       r0 = nil
@@ -646,6 +695,12 @@ module Mapping
     node_cache[:exists][start_index] = r0
 
     r0
+  end
+
+  module Role0
+    def content
+      [:role, text_value]
+    end
   end
 
   def _nt_role
@@ -678,11 +733,18 @@ module Mapping
       r0 = nil
     else
       r0 = instantiate_node(SyntaxNode,input, i0...index, s0)
+      r0.extend(Role0)
     end
 
     node_cache[:role][start_index] = r0
 
     r0
+  end
+
+  module Atomic0
+    def content
+      [:atomic, text_value]
+    end
   end
 
   def _nt_atomic
@@ -711,6 +773,7 @@ module Mapping
       end
     end
     r0 = instantiate_node(SyntaxNode,input, i0...index, s0)
+    r0.extend(Atomic0)
 
     node_cache[:atomic][start_index] = r0
 
@@ -718,6 +781,12 @@ module Mapping
   end
 
   module Class0
+  end
+
+  module Class1
+    def content
+      [:class, text_value]
+    end
   end
 
   def _nt_class
@@ -766,6 +835,7 @@ module Mapping
     if s0.last
       r0 = instantiate_node(SyntaxNode,input, i0...index, s0)
       r0.extend(Class0)
+      r0.extend(Class1)
     else
       @index = i0
       r0 = nil
