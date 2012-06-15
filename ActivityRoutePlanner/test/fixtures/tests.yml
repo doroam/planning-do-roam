@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  task: MyText
+  screen_question: MyString
+  screen_solution: MyString
+
+two:
+  task: MyText
+  screen_question: MyString
+  screen_solution: MyString

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120405192301) do
+ActiveRecord::Schema.define(:version => 20120614155911) do
 
   create_table "acls", :force => true do |t|
     t.string "address", :limit => nil, :null => false
@@ -177,6 +177,16 @@ ActiveRecord::Schema.define(:version => 20120405192301) do
 
   add_index "friends", ["friend_user_id"], :name => "user_id_idx"
   add_index "friends", ["user_id"], :name => "friends_user_id_idx"
+
+  create_table "geometry_columns", :id => false, :force => true do |t|
+    t.string  "f_table_catalog",   :limit => 256, :null => false
+    t.string  "f_table_schema",    :limit => 256, :null => false
+    t.string  "f_table_name",      :limit => 256, :null => false
+    t.string  "f_geometry_column", :limit => 256, :null => false
+    t.integer "coord_dimension",                  :null => false
+    t.integer "srid",                             :null => false
+    t.string  "type",              :limit => 30,  :null => false
+  end
 
   create_table "gps_points", :id => false, :force => true do |t|
     t.float    "altitude"
@@ -418,6 +428,22 @@ ActiveRecord::Schema.define(:version => 20120405192301) do
   end
 
   add_index "sessions", ["session_id"], :name => "sessions_session_id_idx", :unique => true
+
+  create_table "spatial_ref_sys", :id => false, :force => true do |t|
+    t.integer "srid",                      :null => false
+    t.string  "auth_name", :limit => 256
+    t.integer "auth_srid"
+    t.string  "srtext",    :limit => 2048
+    t.string  "proj4text", :limit => 2048
+  end
+
+  create_table "tests", :force => true do |t|
+    t.text     "task"
+    t.string   "screen_question"
+    t.string   "screen_solution"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "user_blocks", :force => true do |t|
     t.integer  "user_id",    :limit => 8,                    :null => false

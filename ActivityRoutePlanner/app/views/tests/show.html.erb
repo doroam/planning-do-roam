@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+<div style='width=500'>
+	<div id="task" style='float: left; width: 300px; height:400px; border-right: 3px double black'>
+	  <b>Task:</b>
+	  <p><%= @test.task %></p>
+	</div> 
+	
+	
+	<div id="input" style='margin-left:300px;'>
+		
+		<%= form_tag("/answer", :method => "get") do %>
+			<%= label_tag(:q, "Query:") %>
+			<%= text_field_tag(:q) %>
+			<%= submit_tag("Route") %>
+		
+			<%image_tag("/images/test1.png", :height => 60, :title =>"Screenshot_query", :alt=>"Screenshot_query", :border => "0")%>
+			
+			<p>
+			  <b>Screen solution:</b>
+			  <%= @test.screen_solution %>
+			</p>
+		<% end %>
+		
+		
+		<%= link_to 'Edit', edit_test_path(@test) %> |
+		<%= link_to 'Back', tests_path %>
+	</div>
+</div>

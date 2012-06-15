@@ -1,5 +1,7 @@
 ActivityRoutePlanner::Application.routes.draw do
   
+  resources :tests
+
   #get "init/header"
   #get "init/content"
   #get "init/menu"
