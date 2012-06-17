@@ -80,4 +80,19 @@ class TestsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  def answer
+    @test = Test.find(params[:id])
+
+    respond_to do |format|
+      format.html # answer.html.erb
+    end
+  end
+  
+    def begin
+
+    respond_to do |format|
+      format.html # answer.html.erb
+    end
+  end
 end

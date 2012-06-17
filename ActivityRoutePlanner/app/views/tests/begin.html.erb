@@ -1,0 +1,19 @@
+<h2>DO-ROAM Experiment</h2>
+
+<div id="input" style= padding-top:30px;'>
+		<%= form_tag("/tests/1", :method => "get") do %>
+		<%= label_tag("mother", "Welche Sprache ist ihre Muttersprache:") %>
+		<%= text_field_tag("mother") %>
+		<br />
+		<%= label_tag("home", "Welche Sprache sprechen sie zu Hause:") %>
+		<%= text_field_tag("home") %>
+		<br />
+		<%= label_tag("partner", "Mit ihrem Partner/ihrer Partnerin:") %>
+		<%= text_field_tag("partner") %>
+		<br />
+		
+		<%= submit_tag("Anfangen") %>
+		<br /><br />	
+		<% end %>
+		
+	</div>
