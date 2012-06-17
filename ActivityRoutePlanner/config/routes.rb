@@ -10,6 +10,7 @@ ActivityRoutePlanner::Application.routes.draw do
   root :to => "init#index"
   match "answer" => "tests#answer"
   match "test" => "tests#begin"
+  match "end" => "tests#end"
   match "get_algo_dynamic_content" => "init#get_algo_dynamic_content"
   match "calculate_route" => "calculate_route#calculate_route"
   match "update_point" => "point#update_point"

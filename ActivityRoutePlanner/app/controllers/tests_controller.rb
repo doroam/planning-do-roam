@@ -83,13 +83,21 @@ class TestsController < ApplicationController
   
   def answer
     @test = Test.find(params[:id])
+    @tests = Test.all
 
     respond_to do |format|
       format.html # answer.html.erb
     end
   end
   
-    def begin
+  def begin
+
+    respond_to do |format|
+      format.html # answer.html.erb
+    end
+  end
+  
+  def end
 
     respond_to do |format|
       format.html # answer.html.erb

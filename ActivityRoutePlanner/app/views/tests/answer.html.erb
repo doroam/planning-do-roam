@@ -10,7 +10,11 @@
 		<h3>Resultat</h3>
 		<%=image_tag("/images/test2.png", :height => 350, :title =>"Screenshot_query", :alt=>"Screenshot_query", :border => "0")%>			
 		<br />
+		<% if @tests[@test.id+1].nil?%>
+		<%= link_to 'Fertig', "end" %>
+		<%else%>
 		<%= link_to 'Weiter', "/tests/#{@test.id+1}" %>
+		<%end%>
 	</div>
 </div>
 
