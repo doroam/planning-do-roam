@@ -8,12 +8,12 @@
 	<div id="input" style='margin-left:330px; padding-top:30px;'>
 		
 		<h3>Resultat</h3>
-		<%=image_tag("/images/test2.png", :height => 350, :title =>"Screenshot_query", :alt=>"Screenshot_query", :border => "0")%>			
+		<%=image_tag("/images/#{@test.screen_solution}", :height => 450, :title =>"Screenshot_query", :alt=>"Screenshot_query", :border => "0")%>			
 		<br />
 		<% if @next.nil?%>
 		<%= link_to 'Fertig', "end" %>
 		<%else%>
-		<%= link_to 'Weiter', "/tests/#{@test.id+1}" %>
+		<%= link_to 'Weiter', "/tests/#{@next.id}" %>
 		<%end%>
 	</div>
 </div>

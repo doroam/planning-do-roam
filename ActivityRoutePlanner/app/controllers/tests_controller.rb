@@ -16,8 +16,11 @@ class TestsController < ApplicationController
     @test = Test.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @test }
+      if ( params[:mother] == "" || params[:home] == "" || params[:partner] == "" ) #begin without input
+        format.html { redirect_to("/test", :notice => 'Bitte alles ausfuellen') }
+      else  #normal
+        format.html # show.html.erb
+      end
     end
   end
 
@@ -82,23 +85,27 @@ class TestsController < ApplicationController
   end
   
   def answer
-    @test = Test.find(params[:id])
-    @next = Test.find_by_id(params[:id].to_i+1)
+    @next = Test.next(params[:id])
 
     respond_to do |format|
-      format.html # answer.html.erb
+      if( params[:q] == "" ) # normal task without input
+        @test = Test.find(params[:id])
+        format.html { redirect_to(@test, :notice => 'Bitte alles ausfuellen') }
+      else  #normal
+        @test = Test.find(params[:id])
+        format.html # answer.html.erb
+      end
     end
   end
   
   def begin
-
+    @test = Test.next(0)
     respond_to do |format|
       format.html # answer.html.erb
     end
   end
   
   def end
-
     respond_to do |format|
       format.html # answer.html.erb
     end
