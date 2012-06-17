@@ -83,7 +83,7 @@ class TestsController < ApplicationController
   
   def answer
     @test = Test.find(params[:id])
-    @tests = Test.all
+    @next = Test.find_by_id(params[:id].to_i+1)
 
     respond_to do |format|
       format.html # answer.html.erb
