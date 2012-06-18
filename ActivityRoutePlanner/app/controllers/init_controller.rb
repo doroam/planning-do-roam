@@ -46,12 +46,13 @@ class InitController < ApplicationController
     else
      w = Word.find_by_lemma(act.downcase)
      if w.nil? then # the word is not an activity, do standard search
-       #redirect_to  :controller => "geocoder", :action => "search" and return
+       redirect_to  :controller => "geocoder", :action => "search"
+       return
        #redirect_to your_controller_action_url :params => { :a => "value", :b => "value2" }
        #redirect_to "geocoder_controller" :params => { :action => "search" } and return
        #redirect_to {:action => "search", "/geocoder_controller.rb"} and return
        #redirect_to (:geocoder_search_path) and return
-       render :js => "search" and return
+       #render :js => "search" and return
 
      
      else
@@ -62,8 +63,9 @@ class InitController < ApplicationController
 	#redirect_to "geocoder_controller" :params => { :action => "search" } and return
 	#redirect_to {:action => "search" , "/geocoder_controller.rb"} and return
 	#redirect_to ("/app/controllers/geocoder_controller.rb") and return
-	#redirect_to :controller => "geocoder", :action => "search" and return
-	render :js => "search" and return
+	redirect_to :controller => "geocoder", :action => "search" 
+	return
+	#render :js => "search" and return
      
       else
         #interval search here
