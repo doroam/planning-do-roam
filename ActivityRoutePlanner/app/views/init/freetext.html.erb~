@@ -1,0 +1,10 @@
+
+
+ <table>
+<% @classes.each do |classes| %>
+  <tr>
+    <td><%= classes.name.to_s %></td>
+    
+  </tr>
+<% end %>
+ </table>

@@ -1,61 +1,64 @@
-class ActivityController < ApplicationController
+class FreetextController < ApplicationController
   
-  #method is called on a action of each 
-  #activity
-  def update_activity
-    @route = current_route
-    if params[:delete_activity]
-      index = params[:delete_activity].to_i
-      activity = Activity.find(index)      
-      activity.destroy
-    end    
-      
-    respond_to do |format|      
-      format.js
-    end
-  end
+require 'uri'
+  require 'net/http'
+  require 'rexml/document'
 
-  #creates an acitivity
-  def create
-    @route = current_route
-    @activity = Activity.new(params[:activity])
-        
-    #create activity
-    @activity.route = @route
-    @activity.save
-
-    #create point
-    @point       = Point.new(params[:point])
-    #get distance to start
-    #@point.distance_source = RouteHelper.get_distance(current_route.start_point, @point)
-    @point.activity = @activity
-    #set nearest edge to activity
-    #@point.set_edge
-    @point.save
-
-    respond_to do |format|
-      format.js
-    end
-  end
-
-  def move
-    respond_to do |format|
-      format.js
-    end
-  end
+  before_filter :authorize_web
+  before_filter :set_locale
 
   def search
+    @query = params[:query]
+    qterms = @query.split(',')
+    act = qterms.at(0)
+    if act.nil? then # empty string, let osm handle
+      osm_search
+    else
+     w = Word.find_by_lemma(act.downcase)
+     if w.nil? then # the word is not an activity, do standard search
+        osm_search
+     else
+       wsyns = w.synonyms.map{|x| OntologyClass.find_by_name(x.lemma.capitalize)}
+       wsyns.delete(nil)
+      if wsyns == [] then # no class found, do standard search
+        osm_search
+      else
+        #interval search here
+        interv = qterms.at(1)
+        @interval = Interval.new(:start => 0, :stop => 0)
+        if not interv.nil? then
+          # we have a term that might be an interval
+          intlist = Interval.parse_one(interv)
+          if intlist != [] then
+            # we have some intervals, we need to set up parameters
+            @interval = intlist.first.first
+            qterms.delete_at(1)
+          end
+        end
+        @classes = wsyns.uniq.map{|x| x.id.to_s}
+        activity_search
+	qterms.delete_at(0)
+        @query = qterms.to_s
+        
+      end
+     end
+    end
+
+
+  end
+  
+  def activity_search
     start_point = current_route.start_point
     @result = ""
 
     if !params[:reload].nil? && params[:reload]
       #get activity->getclasses
-      classes = session[:current_classes]  
-      interval = session[:current_interval] 
+      classes = session[:current_classes]  + @classes
+      interval = session[:current_interval] + @interval
     else
       classes = if params[:class].nil? then [] else params[:class].keys end
-      
-      session[:current_classes] = classes
+      classes+=@classes
+      session[:current_classes] = classes + @classes
       if !params[:time].nil? then
         start = params[:day].to_i * Interval::DAY + params[:hour].to_i * 60 + params[:min].to_i * 10
         stop = start + params[:duration_hour].to_i * 60 + params[:duration_min].to_i * 10
@@ -100,9 +103,7 @@ puts @result
           val = search.first[1]
           nts = NodeTag.find(:all,:conditions=>OSM.sql_for_area(minlat, minlon, maxlat, maxlon,"current_nodes.")+" AND (\"current_node_tags\".\"#{field_name}\" = '#{val}')",:include=>"node")
           if !interval.nil? then
-            # TODO: optimise this using database queries, similar to those (but be aware of duplicate use to NodeTag that is needed):
-            # Interval.find(:all,:conditions => ["start <=  ? and stop >= ?",start,stop])
-            # positions = Positions.find :all, :conditions => ['id in (?)', nts.map(&:id)]
+            
             @result += "\nresults:::"+nts.size.to_s
             nts = nts.select{
               |nt|
@@ -188,3 +189,4 @@ puts @result
   end
 
 end
+  

@@ -1,0 +1,139 @@
+class FreetextController < ApplicationController
+  
+require 'uri'
+  require 'net/http'
+  require 'rexml/document'
+
+  before_filter :authorize_web
+  before_filter :set_locale
+
+  def search
+    @query = params[:query]
+    qterms = @query.split(',')
+    act = qterms.at(0)
+    if act.nil? then # empty string, let osm handle
+      osm_search
+    else
+     w = Word.find_by_lemma(act.downcase)
+     if w.nil? then # the word is not an activity, do standard search
+        osm_search
+     else
+       wsyns = w.synonyms.map{|x| OntologyClass.find_by_name(x.lemma.capitalize)}
+       wsyns.delete(nil)
+      if wsyns == [] then # no class found, do standard search
+        osm_search
+      else
+        #interval search here
+        interv = qterms.at(1)
+        @interval = Interval.new(:start => 0, :stop => 0)
+        if not interv.nil? then
+          # we have a term that might be an interval
+          intlist = Interval.parse_one(interv)
+          if intlist != [] then
+            # we have some intervals, we need to set up parameters
+            @interval = intlist.first.first
+            qterms.delete_at(1)
+          end
+        end
+        @classes = wsyns.uniq.map{|x| x.id.to_s}
+        activity_search
+	qterms.delete_at(0)
+        @query = qterms.to_s
+        
+      end
+     end
+    end
+
+
+  end
+  
+  def activity_search
+    start_point = current_route.start_point
+    @result = ""
+
+    if !params[:reload].nil? && params[:reload]
+      #get activity->getclasses
+      classes = session[:current_classes]  + @classes
+      interval = session[:current_interval] + @interval
+    else
+      classes = if params[:class].nil? then [] else params[:class].keys end
+      classes+=@classes
+      session[:current_classes] = classes + @classes
+      if !params[:time].nil? then
+        start = params[:day].to_i * Interval::DAY + params[:hour].to_i * 60 + params[:min].to_i * 10
+        stop = start + params[:duration_hour].to_i * 60 + params[:duration_min].to_i * 10
+        @result += "\n:::"+start.to_s+"   "+stop.to_s
+        interval = Interval.new(:start => start, :stop => stop)
+        @result += "\n:::"+interval.to_s
+      end
+      
+      session[:current_interval] = interval
+    end
+      
+    @result += classes.to_s+"<br/>"
+    @points = Array.new
+puts @result
+    # begin of loop
+    classes.each do |cid|
+      c = OntologyClass.find_by_id(cid.to_i)
+      @result += c.name+"<br/>"
+      
+      
+      minlon = params[:minlon].to_f
+      minlat = params[:minlat].to_f
+      maxlon = params[:maxlon].to_f
+      maxlat = params[:maxlat].to_f
+
+      min_lon, min_lat, max_lon, max_lat = sanitise_boundaries([minlon,minlat, maxlon, maxlat])
+      # check boundary is sane and area within defined
+      begin
+        check_boundaries(min_lon, min_lat, max_lon, max_lat)
+      rescue Exception => err
+        # TODO senceless rescue!
+        @result += ":::::::"+err.to_s
+        return
+      end
+      
+      # get all the points
+      om = OntologyMapping.find_by_name("activities2tags")
+      for sub in c.descendants.select{|x| x.safe_iconfile!="question-mark.png"} # .select{|x| x.interesting(om)}
+        search = om.nodetags_search(sub) # different queries
+        if !search.nil?
+          field_name = search.first[0]
+          val = search.first[1]
+          nts = NodeTag.find(:all,:conditions=>OSM.sql_for_area(minlat, minlon, maxlat, maxlon,"current_nodes.")+" AND (\"current_node_tags\".\"#{field_name}\" = '#{val}')",:include=>"node")
+          if !interval.nil? then
+            
+            @result += "\nresults:::"+nts.size.to_s
+            nts = nts.select{
+              |nt|
+              if nt.intervals.size>0
+                @result += "\nintervals:::"+nt.intervals.size.to_s
+              end
+              
+              interval.dsfe_many(nt.intervals)
+
+              }
+            @result += "\nresultsafter:::"+nts.size.to_s
+          end
+          for nt in nts
+            lat = nt.node.lat.to_s
+            lon = nt.node.lon.to_s
+            name = nt.node.tags["name"]
+            icon = sub.safe_iconfile
+            opening_hours_tag = nt.node.tags["opening_hours"]
+            opening_hours = if opening_hours_tag.nil? then "" else opening_hours_tag.gsub(/;/,"<br />") end
+            @result += "opening="+opening_hours
+            point = make_point(name, icon, lat, lon, start_point)
+            @points.push(point)
+          end
+        end
+      end
+    end
+    #end of loop
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  
