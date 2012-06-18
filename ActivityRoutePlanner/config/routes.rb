@@ -19,12 +19,12 @@ ActivityRoutePlanner::Application.routes.draw do
   match "check_edge" => "calculate_route#calculate_route"
   match "set_route_parameters"=>"calculate_route#set_route_parameters"
   match "load_content"=>"content_loader#load_content"
-  match "search"=>"geocoder#search"
+  match "search"=>"geocoder#search", :as => :geocoder_search
   match "ontosearch"=>"ontology_search#ontosearch"
   match "get_energy"=>"calculate_route#get_energy_route"
   match "activity/list" => "activity#list"
-  match "activity/search" => "activity#search"
-  
+  match "activity/search" => "activity#search", :as => :activity_search
+  match "freetext" => "init#freetext"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
