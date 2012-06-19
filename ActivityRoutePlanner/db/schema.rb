@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120614155911) do
+ActiveRecord::Schema.define(:version => 20120618161746) do
 
   create_table "acls", :force => true do |t|
     t.string "address", :limit => nil, :null => false
@@ -141,6 +141,9 @@ ActiveRecord::Schema.define(:version => 20120614155911) do
   end
 
   add_index "current_ways", ["timestamp"], :name => "current_ways_timestamp_idx"
+
+# Could not dump table "db_topo" because of following StandardError
+#   Unknown type 'geometry' for column 'geom_way'
 
   create_table "diary_comments", :force => true do |t|
     t.integer  "diary_entry_id", :limit => 8,                   :null => false
@@ -364,6 +367,18 @@ ActiveRecord::Schema.define(:version => 20120614155911) do
     t.datetime "updated_at"
   end
 
+# Could not dump table "planet_osm_line" because of following StandardError
+#   Unknown type 'geometry' for column 'way'
+
+# Could not dump table "planet_osm_point" because of following StandardError
+#   Unknown type 'geometry' for column 'way'
+
+# Could not dump table "planet_osm_polygon" because of following StandardError
+#   Unknown type 'geometry' for column 'way'
+
+# Could not dump table "planet_osm_roads" because of following StandardError
+#   Unknown type 'geometry' for column 'way'
+
   create_table "points", :force => true do |t|
     t.float    "lat"
     t.float    "lon"
@@ -437,10 +452,26 @@ ActiveRecord::Schema.define(:version => 20120614155911) do
     t.string  "proj4text", :limit => 2048
   end
 
+  create_table "testdatas", :force => true do |t|
+    t.integer  "testuser"
+    t.integer  "task"
+    t.string   "answer"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "tests", :force => true do |t|
     t.text     "task"
     t.string   "screen_question"
     t.string   "screen_solution"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "testusers", :force => true do |t|
+    t.string   "mother"
+    t.string   "home"
+    t.string   "partner"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

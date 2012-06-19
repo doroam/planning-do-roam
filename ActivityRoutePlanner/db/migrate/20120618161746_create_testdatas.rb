@@ -1,8 +1,8 @@
 class CreateTestdatas < ActiveRecord::Migration
   def self.up
     create_table :testdatas do |t|
-      t.int :testuser
-      t.int :task
+      t.integer :testuser
+      t.integer :task
       t.string :answer
 
       t.timestamps

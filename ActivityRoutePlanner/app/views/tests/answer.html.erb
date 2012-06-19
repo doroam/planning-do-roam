@@ -13,7 +13,7 @@
 		<% if @next.nil?%>
 		<%= link_to 'Fertig', "end" %>
 		<%else%>
-		<%= link_to 'Weiter', "/tests/#{@next.id}" %>
+		<%= link_to 'Weiter', "/tests/#{@next.id}?user=#{@user.id}" %>
 		<%end%>
 	</div>
 </div>

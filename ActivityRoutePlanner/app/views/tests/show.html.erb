@@ -11,6 +11,7 @@
 			<%= label_tag(:q, "Query:") %>
 			<%= text_field_tag(:q) %>
 			<input type="hidden" name="id" value="<%= @test.id%>">
+			<input type="hidden" name="user" value"<%=@user.id%>">
 			<%= submit_tag("Senden") %>
 			<br /><br />
 			<%=image_tag("/images/#{@test.screen_question}", :height => 450, :title =>"Screenshot_query", :alt=>"Screenshot_query", :border => "0")%>

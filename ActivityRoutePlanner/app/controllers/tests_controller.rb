@@ -15,6 +15,8 @@ class TestsController < ApplicationController
   def show
     @test = Test.find(params[:id])
 
+    @user = Testuser.find(params[:user])
+
     respond_to do |format|
       if ( params[:mother] == "" || params[:home] == "" || params[:partner] == "" ) #begin without input
         format.html { redirect_to("/test", :notice => 'Bitte alles ausfuellen') }
@@ -87,6 +89,8 @@ class TestsController < ApplicationController
   def answer
     @next = Test.next(params[:id])
 
+    Testdata.new(params[:id], params[:user], params[:q])
+
     respond_to do |format|
       if( params[:q] == "" ) # normal task without input
         @test = Test.find(params[:id])
@@ -100,8 +104,14 @@ class TestsController < ApplicationController
   
   def begin
     @test = Test.next(0)
+    @user = Testuser.new
+    puts "#################################" + @user.id
     respond_to do |format|
-      format.html # answer.html.erb
+      if @test.nil?
+        format.html {render :notice => "Keine Testfaelle vorhanden" }
+      else
+        format.html # answer.html.erb
+      end
     end
   end
   
