@@ -106,7 +106,7 @@ class TestsController < ApplicationController
     @test = Test.next(0)
     @user = Testuser.new
     @user.save!
-    puts "#################################" + @user.id
+    # puts "#################################" + @user.id
     respond_to do |format|
       if @test.nil?
         format.html {render :notice => "Keine Testfaelle vorhanden" }
