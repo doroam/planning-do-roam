@@ -102,7 +102,7 @@ class TestsController < ApplicationController
     end
   end
   
-  def begin
+  def begintest
     @test = Test.next(0)
     @user = Testuser.new
     puts "#################################" + @user.id
@@ -115,7 +115,7 @@ class TestsController < ApplicationController
     end
   end
   
-  def end
+  def endtest
     respond_to do |format|
       format.html # answer.html.erb
     end
