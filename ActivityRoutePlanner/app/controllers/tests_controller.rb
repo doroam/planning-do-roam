@@ -105,6 +105,7 @@ class TestsController < ApplicationController
   def begintest
     @test = Test.next(0)
     @user = Testuser.new
+    @user.save!
     puts "#################################" + @user.id
     respond_to do |format|
       if @test.nil?
