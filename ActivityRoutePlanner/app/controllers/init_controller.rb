@@ -118,10 +118,10 @@ puts @result
       #logger.debug("======================>" + @result)  
       
       
-      minlon = 8.7884897133291
-      minlat = 53.057703977907
-      maxlon = 8.8808435341298
-      maxlat = 53.084107472864
+      minlon = params[:minlon].to_f #8.7884897133291
+      minlat = params[:minlat].to_f #53.057703977907
+      maxlon = params[:maxlon].to_f #8.8808435341298
+      maxlat = params[:maxlat].to_f #53.084107472864
       logger.debug("======================>" + minlon.to_s + " " + minlat.to_s + " " + maxlon.to_s + " " + maxlat.to_s)  
 
       min_lon, min_lat, max_lon, max_lat = sanitise_boundaries([minlon,minlat, maxlon, maxlat])
