@@ -1,5 +1,4 @@
 
-
  <table>
 <% @classes.each do |classes| %>
   <tr>
@@ -7,4 +6,19 @@
     
   </tr>
 <% end %>
+ </table>
+
+<%if @points.empty? %>
+<%= "No results"%>
+
+<%else%>
+ <table>
+
+<% @points.uniq.each do |points| %>
+  <tr>
+    <td><%= points.label %></td>
+    
+  </tr>
+<% end %>
+<%end %>
  </table>

@@ -1,3 +1,6 @@
+<%coordinates = point.lat.to_s+":"+point.lon.to_s+":"+index.to_s
+  label = point.label!=nil && !"".eql?(point.label) ? point.label : "no name"%>
+
 <% form_tag :action => "freetext" do %>
 
 <%=text_field_tag 'freetext', 
@@ -6,14 +9,11 @@
                   :id => 'freetext', 
                   :align => "center"
 %>
+  <%= hidden_field_tag :minlon %>
+  <%= hidden_field_tag :minlat %>
+  <%= hidden_field_tag :maxlon %>
+  <%= hidden_field_tag :maxlat %>
+  <%= hidden_field_tag :zoom %>
 
 <% end %>
 
- <table>
-<% @classes.each do |classes| %>
-  <tr>
-    <td><%= classes.to_s %></td>
-    
-  </tr>
-<% end %>
- </table>

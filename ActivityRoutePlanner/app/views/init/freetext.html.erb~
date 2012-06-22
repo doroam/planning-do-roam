@@ -1,10 +1,23 @@
 
-
  <table>
 <% @classes.each do |classes| %>
   <tr>
-    <td><%= classes.name.to_s %></td>
+    <td><%= classes.to_s %></td>
     
   </tr>
 <% end %>
+ </table>
+
+<%if @points.empty? %>
+<%= "No results"%>
+
+<%else%>
+ <table>
+<% @points.each do |points| %>
+  <tr>
+    <td><%= points.label %></td>
+    
+  </tr>
+<% end %>
+<%end %>
  </table>

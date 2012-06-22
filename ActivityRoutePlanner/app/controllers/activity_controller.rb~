@@ -50,11 +50,11 @@ class ActivityController < ApplicationController
 
     if !params[:reload].nil? && params[:reload]
       #get activity->getclasses
-      classes = session[:current_classes] + @classes
-      interval = session[:current_interval] + @interval
+      classes = session[:current_classes]  
+      interval = session[:current_interval] 
     else
       classes = if params[:class].nil? then [] else params[:class].keys end
-      classes += @classes
+      
       session[:current_classes] = classes
       if !params[:time].nil? then
         start = params[:day].to_i * Interval::DAY + params[:hour].to_i * 60 + params[:min].to_i * 10
