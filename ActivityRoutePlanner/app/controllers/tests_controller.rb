@@ -14,8 +14,13 @@ class TestsController < ApplicationController
   # GET /tests/1.xml
   def show
     @test = Test.find(params[:id])
-
     @user = Testuser.find(params[:user])
+    if(!params[:mother].nil?)
+      @user.mother = params[:mother]
+      @user.home = params[:home]
+      @user.partner = params[:partner]
+      @user.save
+    end
 
     respond_to do |format|
       if ( params[:mother] == "" || params[:home] == "" || params[:partner] == "" ) #begin without input

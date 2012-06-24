@@ -7,6 +7,7 @@ class Testdata < ActiveRecord::Base
     self.task = task
     self.testuser = user
     self.answer = query
+    self.save
   end
 
 end
