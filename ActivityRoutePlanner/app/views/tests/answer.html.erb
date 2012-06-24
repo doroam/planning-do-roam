@@ -8,7 +8,7 @@
 	<div id="input" style='margin-left:330px; padding-top:30px;'>
 		
 		<h3>Resultat</h3>
-		<%=image_tag("/images/#{@test.screen_solution}", :height => 450, :title =>"Screenshot_query", :alt=>"Screenshot_query", :border => "0")%>			
+		<%=image_tag("/images/#{@test.screen_solution}", :height => 450, :title =>"Screenshot_answer", :alt=>"Screenshot is missing", :border => "0")%>			
 		<br />
 		<% if @next.nil?%>
 		<%= link_to 'Fertig', "end" %>
