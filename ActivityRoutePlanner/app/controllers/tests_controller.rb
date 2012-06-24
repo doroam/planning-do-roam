@@ -94,8 +94,14 @@ class TestsController < ApplicationController
   def answer
     @next = Test.next(params[:id])
     @user = Testuser.find(params[:id])
-    Testdata.new(params[:id], params[:user], params[:q])
-
+#    Testdata.new(params[:id], params[:user], params[:q])
+    Testdata.new do |data|
+      data.task = params[:id]
+      puts data.task
+      data.testuser = params[:user]
+      data.answer = params[:q]
+      data.save
+    end
     respond_to do |format|
       if( params[:q] == "" ) # normal task without input
         @test = Test.find(params[:id])
