@@ -103,11 +103,11 @@ class TestsController < ApplicationController
   end
   
   def begintest
+    @route = current_route
     @test = Test.next(0)
     @user = Testuser.new
     @user.save!
      
-    puts "#################################" + (@user.id.to_s)
     respond_to do |format|
       if @test.nil?
         format.html {render :notice => "Keine Testfaelle vorhanden" }
