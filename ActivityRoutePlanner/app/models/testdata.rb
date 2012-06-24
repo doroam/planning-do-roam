@@ -1,5 +1,5 @@
 class Testdata < ActiveRecord::Base
-  attr_accessor :task, :testuser, :answer
+  attr_accessible :task, :testuser, :answer
 #  has_many :testusers
 #  has_many :tests
   

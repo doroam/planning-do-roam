@@ -95,13 +95,23 @@ class TestsController < ApplicationController
     @next = Test.next(params[:id])
     @user = Testuser.find(params[:id])
 #    Testdata.new(params[:id], params[:user], params[:q])
-    Testdata.new do |data|
-      data.task = params[:id]
-      puts data.task
-      data.testuser = params[:user]
-      data.answer = params[:q]
-      data.save
-    end
+    logger.debug("============>>>>>>>>>>>>>>" + params[:id].to_s)
+    @data  = Testdata.new
+    #data.save
+    @data.task = params[:id]
+    @data.testuser = params[:user]
+    @data.answer = params[:q]
+    logger.debug("============>>>>>>>>>>>>>>" + @data.answer.to_s)
+    @data.save!
+    #Testdata.update(data.id, :task => params[:id], :testuser => params[:user], :answer => params[:q])
+    #data.update_attributes({:task => params[:id], :testuser => params[:user], :answer => params[:q]})
+    #Testdata.new do |data|
+    #  data.task = params[:id]
+    #  data.testuser = params[:user]
+    #  data.answer = params[:q]
+    #  logger.debug("============>>>>>>>>>>>>>>" + data.answer.to_s)
+    #  data.save!
+    #end
     respond_to do |format|
       if( params[:q] == "" ) # normal task without input
         @test = Test.find(params[:id])
