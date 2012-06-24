@@ -1,6 +1,7 @@
 class Testdata < ActiveRecord::Base
-  has_many :testusers
-  has_many :tests
+  attr_accessor :task, :testuser, :answer
+#  has_many :testusers
+#  has_many :tests
   
   def initialize(task, user, query)
     self.task = task

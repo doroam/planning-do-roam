@@ -88,7 +88,7 @@ class TestsController < ApplicationController
   
   def answer
     @next = Test.next(params[:id])
-
+    @user = Testuser.find(params[:id])
     Testdata.new(params[:id], params[:user], params[:q])
 
     respond_to do |format|
