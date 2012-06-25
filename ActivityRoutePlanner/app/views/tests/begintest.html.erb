@@ -4,16 +4,25 @@
 		<%= form_tag(@test, :method => "get") do %>
 		<input type="hidden" name="id" value="0">
 		<input type="hidden" name="user" value="<%=@user.id%>">
-		<%= label_tag("mother", "Welche Sprache ist ihre Muttersprache:") %>
+		<%= label_tag("mother", "Sprachen oder Dialekte, die du mit deinen Eltern gesprochen hast:") %>
+		<br />
 		<%= text_field_tag("mother") %>
 		<br />
-		<%= label_tag("home", "Welche Sprache sprechen sie zu Hause:") %>
+		<%= label_tag("home", "Sprachen oder Dialekte, die du mit Partnern u. in der Familie gesprochen hast:") %>
+		<br />
 		<%= text_field_tag("home") %>
 		<br />
-		<%= label_tag("partner", "Mit ihrem Partner/ihrer Partnerin:") %>
+		<%= label_tag("partner", "Sprachen oder Dialekte, die du außerhalb der Familie gesprochen hast:") %>
+		<br />
 		<%= text_field_tag("partner") %>
 		<br />
+		<%= label_tag("language", "Choose language for the experiment:") %>
+		<br />
+		<%= select_tag("test_language", "<option selected=\"selected\">Deutsch</option><option>Englisch</option>".html_safe) %>
 		
+		<br />
+		<br />
+		<br />
 		<%= submit_tag("Anfangen") %>
 		<br /><br />	
 		<% end %>

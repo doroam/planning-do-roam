@@ -19,6 +19,8 @@ class TestsController < ApplicationController
       @user.mother = params[:mother]
       @user.home = params[:home]
       @user.partner = params[:partner]
+      @user.language = params[:test_language]
+      session[:language] = params[:test_language]
       @user.save
     end
 
@@ -92,16 +94,17 @@ class TestsController < ApplicationController
   end
   
   def answer
-    @next = Test.next(params[:id])
     @user = Testuser.find(params[:id])
+    @next = Test.next(params[:id], session[:language])
+    
 #    Testdata.new(params[:id], params[:user], params[:q])
-    logger.debug("============>>>>>>>>>>>>>>" + params[:id].to_s)
+    #logger.debug("============>>>>>>>>>>>>>>" + params[:id].to_s)
     @data  = Testdata.new
     #data.save
     @data.task = params[:id]
     @data.testuser = params[:user]
     @data.answer = params[:q]
-    logger.debug("============>>>>>>>>>>>>>>" + @data.answer.to_s)
+    #logger.debug("============>>>>>>>>>>>>>>" + @data.answer.to_s)
     @data.save!
     #Testdata.update(data.id, :task => params[:id], :testuser => params[:user], :answer => params[:q])
     #data.update_attributes({:task => params[:id], :testuser => params[:user], :answer => params[:q]})
@@ -124,8 +127,9 @@ class TestsController < ApplicationController
   end
   
   def begintest
+    logger.debug("============>>>>>>>>>>>>>> \n \n \n Language:" + params[:test_language].to_s)
     @route = current_route
-    @test = Test.next(0)
+    @test = Test.next(0, "Englisch")
     @user = Testuser.new
     @user.save!
      
