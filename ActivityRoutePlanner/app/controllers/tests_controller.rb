@@ -13,7 +13,14 @@ class TestsController < ApplicationController
   # GET /tests/1
   # GET /tests/1.xml
   def show
-    @test = Test.find(params[:id])
+    if (params[:start] == "1")
+      #logger.debug("=============> " + Test.find_by_test_language(session[:language]).first.id.to_s)
+      @test = Test.first(:conditions => ["test_language = ?", session[:language]], :order => "id asc")
+      
+    else
+      
+      @test = Test.find(params[:id])
+    end
     @user = Testuser.find(params[:user])
     if(!params[:mother].nil?)
       @user.mother = params[:mother]
@@ -129,7 +136,7 @@ class TestsController < ApplicationController
   def begintest
     logger.debug("============>>>>>>>>>>>>>> \n \n \n Language:" + params[:test_language].to_s)
     @route = current_route
-    @test = Test.next(0, "Englisch")
+    @test = Test.next(0, "Deutsch")
     @user = Testuser.new
     @user.save!
      
