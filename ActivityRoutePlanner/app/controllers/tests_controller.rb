@@ -13,9 +13,10 @@ class TestsController < ApplicationController
   # GET /tests/1
   # GET /tests/1.xml
   def show
+    
     if (params[:start] == "1")
       #logger.debug("=============> " + Test.find_by_test_language(session[:language]).first.id.to_s)
-      @test = Test.first(:conditions => ["test_language = ?", session[:language]], :order => "id asc")
+      @test = Test.first(:conditions => ["test_language = ?", params[:test_language]], :order => "id asc")
       
     else
       
