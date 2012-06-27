@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120627111202) do
+ActiveRecord::Schema.define(:version => 20120627132426) do
 
   create_table "acls", :force => true do |t|
     t.string "address", :limit => nil, :null => false
@@ -463,6 +463,7 @@ ActiveRecord::Schema.define(:version => 20120627111202) do
     t.string   "language"
     t.string   "name"
     t.string   "email"
+    t.text     "feedback"
   end
 
   create_table "user_blocks", :force => true do |t|

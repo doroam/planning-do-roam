@@ -35,6 +35,7 @@ class TestsController < ApplicationController
       session[:language] = params[:test_language]
       @user.save
     end
+    session[:user] = @user.id
 
     respond_to do |format|
       if (params[:mail] == "" || params[:name] == "" || params[:mother1] == "" || params[:home1] == "" || params[:partner1] == "" ) #begin without input
@@ -155,6 +156,13 @@ class TestsController < ApplicationController
   end
   
   def endtest
+    
+    if (params[:feedback] != "")
+      user = Testuser.find(session[:user])
+      user.feedback = params[:feedback]
+      user.save
+    end
+    
     respond_to do |format|
       format.html # answer.html.erb
     end
