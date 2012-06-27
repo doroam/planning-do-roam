@@ -159,6 +159,20 @@ en:
     WithRenewableEnergy: with renewable energy
     Yoga: Yoga
     YouthHostel: Youth Hostel
+  your_name: Your name
+  your_mail: Your emailadress
+  languages: Sprachen oder Dialekte, die du mit deinen Eltern gesprochen hast
+  mother: Sprachen oder Dialekte, die du mit deinen Eltern gesprochen hast
+  home: Sprachen oder Dialekte, die du mit Partnern u. in der Familie gesprochen hast
+  outside: Sprachen oder Dialekte, die du außerhalb der Familie gesprochen hast
+  choose_language: Choose language for the experiment
+  begin: begin
+  result: result
+  ready: ready
+  next: next
+  thanks: Thanks for your help
+  send: send
+  missing: Please answer every Question
 
 
 

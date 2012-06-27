@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120618161746) do
+ActiveRecord::Schema.define(:version => 20120627111202) do
 
   create_table "acls", :force => true do |t|
     t.string "address", :limit => nil, :null => false
@@ -451,6 +451,7 @@ ActiveRecord::Schema.define(:version => 20120618161746) do
     t.string   "screen_solution"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "test_language"
   end
 
   create_table "testusers", :force => true do |t|
@@ -459,6 +460,9 @@ ActiveRecord::Schema.define(:version => 20120618161746) do
     t.string   "partner"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "language"
+    t.string   "name"
+    t.string   "email"
   end
 
   create_table "user_blocks", :force => true do |t|

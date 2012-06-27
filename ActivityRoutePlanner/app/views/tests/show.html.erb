@@ -12,7 +12,7 @@
 			<%= text_field_tag(:q) %>
 			<input type="hidden" name="id" value="<%= @test.id%>">
 			<input type="hidden" name="user" value="<%=@user.id%>">
-			<%= submit_tag("Senden") %>
+			<%= submit_tag(t("send")) %>
 			<br /><br />
 			<%=image_tag("/images/#{@test.screen_question}", :height => 450, :title =>"Screenshot_query", :alt=>"Screenshot is missing", :border => "0")%>
 			

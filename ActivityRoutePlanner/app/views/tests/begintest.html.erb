@@ -5,26 +5,36 @@
 		<input type="hidden" name="id" value="0">
 		<input type="hidden" name="start" value="1">
 		<input type="hidden" name="user" value="<%=@user.id%>">
-		<%= label_tag("mother", "Sprachen oder Dialekte, die du mit deinen Eltern gesprochen hast:") %>
+		<%= label_tag("name", t("your_name")) %>
 		<br />
-		<%= text_field_tag("mother") %>
+		<%= text_field_tag("name") %>
 		<br />
-		<%= label_tag("home", "Sprachen oder Dialekte, die du mit Partnern u. in der Familie gesprochen hast:") %>
+		<%= label_tag("mail", t("your_mail")) %>
 		<br />
-		<%= text_field_tag("home") %>
+		<%= text_field_tag("mail") %>
 		<br />
-		<%= label_tag("partner", "Sprachen oder Dialekte, die du außerhalb der Familie gesprochen hast:") %>
+		<%= label_tag("mother", t("mother")) %>
 		<br />
-		<%= text_field_tag("partner") %>
+		<%= text_field_tag("mother1") %><%= text_field_tag("mother2") %><%= text_field_tag("mother3") %>
 		<br />
-		<%= label_tag("language", "Choose language for the experiment:") %>
+		<%= label_tag("home", t("home")) %>
+		<br />
+		<%= text_field_tag("home1") %><%= text_field_tag("home2") %><%= text_field_tag("home3") %>
+		<br />
+		<%= label_tag("partner", t("outside")) %>
+		<br />
+		<%= text_field_tag("partner1") %><%= text_field_tag("partner2") %><%= text_field_tag("partner3") %>
+		<br />
+		<%= text_field_tag("partner4") %><%= text_field_tag("partner5") %><%= text_field_tag("partner6") %>
+		<br />
+		<%= label_tag("language", t("choose_language")) %>
 		<br />
 		<%= select_tag("test_language", "<option selected=\"selected\">Deutsch</option><option>Englisch</option>".html_safe) %>
 		
 		<br />
 		<br />
 		<br />
-		<%= submit_tag("Anfangen") %>
+		<%= submit_tag(t("begin")) %>
 		<br /><br />	
 		<% end %>
 		

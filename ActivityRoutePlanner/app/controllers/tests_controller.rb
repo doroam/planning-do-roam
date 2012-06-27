@@ -15,7 +15,6 @@ class TestsController < ApplicationController
   def show
     
     if (params[:start] == "1")
-      #logger.debug("=============> " + Test.find_by_test_language(session[:language]).first.id.to_s)
       @test = Test.first(:conditions => ["test_language = ?", params[:test_language]], :order => "id asc")
       
     else
@@ -24,17 +23,20 @@ class TestsController < ApplicationController
     end
     @user = Testuser.find(params[:user])
     if(!params[:mother].nil?)
-      @user.mother = params[:mother]
-      @user.home = params[:home]
-      @user.partner = params[:partner]
+      @user.name = params[:name]
+      @user.mail = params[:mail]
+      @user.mother = params[:mother1] + "," + params[:mother2] + "," + params[:mother3]
+      @user.home = params[:home1] + "," + params[:home2] + "," + params[:home3]
+      @user.partner = params[:partner1] + "," + params[:partner2] + "," + params[:partner3] + "," + 
+                      params[:partner4] + "," + params[:partner5] + "," + params[:partner6]
       @user.language = params[:test_language]
       session[:language] = params[:test_language]
       @user.save
     end
 
     respond_to do |format|
-      if ( params[:mother] == "" || params[:home] == "" || params[:partner] == "" ) #begin without input
-        format.html { redirect_to("/test", :notice => 'Bitte alles ausfuellen') }
+      if (params[:mail] == "" || params[:name] == "" || params[:mother1] == "" || params[:home1] == "" || params[:partner1] == "" ) #begin without input
+        format.html { redirect_to("/test", :notice => I18n.t("missing")) }
       else  #normal
         format.html # show.html.erb
       end
@@ -126,7 +128,7 @@ class TestsController < ApplicationController
     respond_to do |format|
       if( params[:q] == "" ) # normal task without input
         @test = Test.find(params[:id])
-        format.html { redirect_to(@test, :notice => 'Bitte alles ausfuellen') }
+        format.html { redirect_to(@test, :notice => I18n.t("missing")) }
       else  #normal
         @test = Test.find(params[:id])
         format.html # answer.html.erb
@@ -135,7 +137,6 @@ class TestsController < ApplicationController
   end
   
   def begintest
-    logger.debug("============>>>>>>>>>>>>>> \n \n \n Language:" + params[:test_language].to_s)
     @route = current_route
     @test = Test.next(0, "Deutsch")
     @user = Testuser.new
