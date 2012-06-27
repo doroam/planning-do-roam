@@ -1,15 +1,19 @@
 <p id="notice"><%= notice %></p>
 <div style='width:500'>
 	<div id="task" style='float: left; width: 300px; height:400px; border-right: 3px double black'>
-	  <b>Task:</b>
+	  <b>Task <%= session[:count].to_s+" "+t("of")+" 10" %>:</b>
 	  <p><%= @test.task %></p>
+		<%= form_tag("/test", :method => "get") do %>
+			<input type="hidden" name="user" value="<%= @user.id%>">
+			<%= submit_tag(t("next"), :disabled => true) %>
+		<%end%>
 	</div> 
 	
 	
 	<div id="input" style='margin-left:330px; padding-top:30px;'>
 		<%= form_tag("/answer", :method => "get") do %>
 			<%= label_tag(:q, "Query:") %>
-			<%= text_field_tag(:q) %>
+			<%= text_field_tag(:q, "", :size => 50) %>
 			<input type="hidden" name="id" value="<%= @test.id%>">
 			<input type="hidden" name="user" value="<%=@user.id%>">
 			<%= submit_tag(t("send")) %>

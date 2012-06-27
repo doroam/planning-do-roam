@@ -13,9 +13,11 @@ class TestsController < ApplicationController
   # GET /tests/1
   # GET /tests/1.xml
   def show
+    session[:count] += 1
     
     if (params[:start] == "1")
       @test = Test.first(:conditions => ["test_language = ?", params[:test_language]], :order => "id asc")
+      session[:language] = params[:test_language]
       
     else
       
@@ -137,6 +139,7 @@ class TestsController < ApplicationController
   end
   
   def begintest
+    session[:count] = 0
     @route = current_route
     @test = Test.next(0, "Deutsch")
     @user = Testuser.new

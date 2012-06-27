@@ -171,8 +171,9 @@ en:
   ready: ready
   next: next
   thanks: Thanks for your help
-  send: send
+  send: search
   missing: Please answer every Question
+  of: of
 
 
 
