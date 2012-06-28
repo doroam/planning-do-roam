@@ -146,7 +146,7 @@ class TestsController < ApplicationController
     session[:count] = 0
     #session[:language] = params[:locale]
     @route = current_route
-    @test = Test.next(0, "Deutsch")
+    @test = Test.next(0, "de")
     @user = Testuser.new
     @user.save!
      
