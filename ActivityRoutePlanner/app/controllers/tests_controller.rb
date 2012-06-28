@@ -25,6 +25,7 @@ class TestsController < ApplicationController
       @test = Test.find(params[:id])
     end
     @user = Testuser.find(params[:user])
+    logger.debug("============================================>params[:mail]:" + params[:mail].to_s)
     if(!params[:mail].nil?)
       @user.name = params[:name]
       @user.email = params[:mail]
