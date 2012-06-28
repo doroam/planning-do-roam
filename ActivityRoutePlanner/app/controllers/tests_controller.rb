@@ -16,7 +16,7 @@ class TestsController < ApplicationController
     session[:count] += 1
     
     if (params[:start] == "1")
-      logger.debug("===>>>>>>>>>>>>>>>>>>>>>>>>>>>>" + params[:locale].to_s)
+      logger.debug("===>>>>>>>>>>>>>>>>>>>>>>>>>>>>" + session[:language].to_s)
       @test = Test.first(:conditions => ["test_language = ?", session[:language].to_s], :order => "id asc")
       #session[:language] = params[:locale]
       
@@ -25,9 +25,9 @@ class TestsController < ApplicationController
       @test = Test.find(params[:id])
     end
     @user = Testuser.find(params[:user])
-    if(!params[:mother].nil?)
+    if(!params[:mail].nil?)
       @user.name = params[:name]
-      @user.mail = params[:mail]
+      @user.email = params[:mail]
       @user.mother = params[:mother1] + "," + params[:mother2] + "," + params[:mother3]
       @user.home = params[:home1] + "," + params[:home2] + "," + params[:home3]
       @user.partner = params[:partner1] + "," + params[:partner2] + "," + params[:partner3] + "," + 
@@ -142,7 +142,7 @@ class TestsController < ApplicationController
   
   def begintest
     session[:count] = 0
-    session[:language] = params[:locale]
+    #session[:language] = params[:locale]
     @route = current_route
     @test = Test.next(0, "Deutsch")
     @user = Testuser.new
