@@ -13,6 +13,7 @@ class TestsController < ApplicationController
   # GET /tests/1
   # GET /tests/1.xml
   def show
+     logger.debug("************************* SHOW CALLED!!!!!!!!!!!!!!!!!!!!!" )
     session[:count] += 1
     
     if (params[:start] == "1")
