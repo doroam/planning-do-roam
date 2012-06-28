@@ -4,6 +4,9 @@ class ApplicationController < ActionController::Base
 before_filter :set_locale
  
 def set_locale
+  if (session[:language].nil || session[:language].nil == "")
+    session[:language] = params[:locale]
+  end
   I18n.locale = session[:language] || I18n.default_locale
 end
   
