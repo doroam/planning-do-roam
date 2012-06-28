@@ -25,7 +25,8 @@ class TestsController < ApplicationController
       
       @test = Test.find(params[:id])
     end
-    @user = Testuser.find(params[:user])
+    logger.debug(" ########################### " + session[:user].to_s)
+    @user = Testuser.find(session[:user])
     logger.debug("============================================>params[:mail]:" + params[:mail].to_s)
     if(!params[:mail].nil?)
       @user.name = params[:name]
@@ -110,7 +111,7 @@ class TestsController < ApplicationController
   end
   
   def answer
-    @user = Testuser.find(params[:id])
+    @user = Testuser.find(session[:user])
     @next = Test.next(params[:id], session[:language])
     
 #    Testdata.new(params[:id], params[:user], params[:q])
@@ -118,7 +119,7 @@ class TestsController < ApplicationController
     @data  = Testdata.new
     #data.save
     @data.task = params[:id]
-    @data.testuser = params[:user]
+    @data.testuser = session[:user]
     @data.answer = params[:q]
     #logger.debug("============>>>>>>>>>>>>>>" + @data.answer.to_s)
     @data.save!
@@ -149,6 +150,7 @@ class TestsController < ApplicationController
     @test = Test.next(0, "de")
     @user = Testuser.new
     @user.save!
+    session[:user] = @user.id
      
     respond_to do |format|
       if @test.nil?
