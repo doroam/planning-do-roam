@@ -22,40 +22,32 @@
 		<input type="hidden" name="id" value="0">
 		<input type="hidden" name="start" value="1">
 		<input type="hidden" name="user" value="<%=@user.id%>">
+
 		<%= label_tag("name", t("user_name")) %>
-		<br />
-		<%= text_field_tag("name") %>
-		<br />
+		<%= text_field_tag 'name', nil, :class => 'form-field first last' %>
+
 		<%= label_tag("mail", t("user_mail")) %>
-		<br />
-		<%= text_field_tag 'mail', nil, :class => 'form-field' %>
-		<br />
+		<%= text_field_tag 'mail', nil, :class => 'form-field first last' %>
+
 		<%= label_tag("mother1", t("user_parent_language")) %>
-		<br />
-		<%= text_field_tag 'mother1', nil, :class => 'form-field' %>
+		<%= text_field_tag 'mother1', nil, :class => 'form-field first' %>
 		<%= text_field_tag 'mother2', nil, :class => 'form-field' %>
-		<%= text_field_tag 'mother3', nil, :class => 'form-field' %>
-		<br />
+		<%= text_field_tag 'mother3', nil, :class => 'form-field last' %>
+
 		<%= label_tag("home1", t("user_partner_language")) %>
-		<br />
-		<%= text_field_tag 'home1', nil, :class => 'form-field' %>
+		<%= text_field_tag 'home1', nil, :class => 'form-field first' %>
 		<%= text_field_tag 'home2', nil, :class => 'form-field' %>
-		<%= text_field_tag 'home3', nil, :class => 'form-field' %>
-		<br />
+		<%= text_field_tag 'home3', nil, :class => 'form-field last' %>
+
 		<%= label_tag("partner1", t("user_society_language")) %>
-		<br />
-		<%= text_field_tag 'partner1', nil, :class => 'form-field' %>
+		<%= text_field_tag 'partner1', nil, :class => 'form-field first' %>
 		<%= text_field_tag 'partner2', nil, :class => 'form-field' %>
-		<%= text_field_tag 'partner3', nil, :class => 'form-field' %>
-		<br />
-		<%= text_field_tag 'partner4', nil, :class => 'form-field' %>
+		<%= text_field_tag 'partner3', nil, :class => 'form-field last' %>
+		<%= text_field_tag 'partner4', nil, :class => 'form-field first' %>
 		<%= text_field_tag 'partner5', nil, :class => 'form-field' %>
-		<%= text_field_tag 'partner6', nil, :class => 'form-field' %>
-		<br />
-		<br />
-		<br />
+		<%= text_field_tag 'partner6', nil, :class => 'form-field last' %>
+
 		<%= submit_tag(t("begin")) %>
-		<br /><br />
 		<% end %>
 	</div>
 </div>

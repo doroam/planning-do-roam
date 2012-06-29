@@ -10,6 +10,54 @@
    TODO customize this sample style
    Syntax recommendation http://www.w3.org/TR/REC-CSS2/
 */
+
+/**
+ * experiment
+ */
+.experiment {
+    border: 1px solid #C0D0FF;
+    margin: 50px;
+    padding: 20px;
+    background-color: #F8F8FF;
+    box-shadow: 0px 0px 3px 1px #ccc;
+}
+#registration-form {
+    min-width: 620px;
+}
+#registration-form label {
+    clear: both;
+    display: block;
+    font-size: 10px;
+    font-weight: bold;
+    margin: 15px 0 0 0;
+}
+.form-field {
+    display: block;
+    float: left;
+    margin: 0 0 15px 10px;
+    width: 200px;
+    height: 18px;
+    box-sizing: content-box;
+    line-height: 18px;
+    padding: 2px 4px;
+    font-size: 13px;
+}
+.form-field.first {
+    margin-left: 0;
+}
+.form-field.first.last,
+.form-field.first.last {
+    width: 422px;
+}
+
+.section-title {
+    margin-bottom: 0;
+}
+.section-paragraph {
+    font-size: 12px;
+    margin-top: 5px;
+}
+
 a:visited{
 	color:#757575;
         font-weight:bolder;
