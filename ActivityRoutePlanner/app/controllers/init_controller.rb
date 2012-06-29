@@ -82,17 +82,22 @@ class InitController < ApplicationController
         if not interv.nil? then
           # we have a term that might be an interval
           intlist = Interval.parse_one(interv)
-          if intlist != [] then
+        #  if intlist != [] then
             # we have some intervals, we need to set up parameters
-            @interval = intlist.first.first
+            @interval = intlist
             qterms.delete_at(1)
-          end
+         # end
         end
+	#wo = Words::Wordnet.new
+        #word = "bank"
+
+	#@classes = wo.find(word)
         @classes = wsyns.uniq.map{|x| x.name}
         classes2 = wsyns.map{|x| x.id}
 	qterms.delete_at(0)
         @query = qterms.to_s
-	ac(classes2)
+
+	ac(classes2,intlist)
     
       end
      end
@@ -105,14 +110,15 @@ class InitController < ApplicationController
     end
   end
 
-  def ac(cls)
+  def ac(cls,inte)
   start_point = current_route.start_point
         @result = ""
 
         #classes = cls
  
     @result += cls.to_s+"<br/>"
-    @points = Array.new
+    #@points = Array.new
+    @points = Hash.new
 puts @result
     # begin of loop
     cls.each do |cid|
@@ -121,11 +127,17 @@ puts @result
       #logger.debug("======================>" + @result)  
       
       
-      minlon = params[:minlon].to_f #8.7884897133291
-      minlat = params[:minlat].to_f #53.057703977907
-      maxlon = params[:maxlon].to_f #8.8808435341298
-      maxlat = params[:maxlat].to_f #53.084107472864
+      #minlon = 8.7884897133291
+      #minlat = 53.057703977907
+      #maxlon = 8.8808435341298
+      #maxlat = 53.084107472864
+      minlon = params[:minlon].to_f
+      minlat = params[:minlat].to_f
+      maxlon = params[:maxlon].to_f
+      maxlat = params[:maxlat].to_f
+
       logger.debug("======================>" + minlon.to_s + " " + minlat.to_s + " " + maxlon.to_s + " " + maxlat.to_s)  
+      
 
       min_lon, min_lat, max_lon, max_lat = sanitise_boundaries([minlon,minlat, maxlon, maxlat])
       # check boundary is sane and area within defined
@@ -145,21 +157,45 @@ puts @result
           field_name = search.first[0]
           val = search.first[1]
           nts = NodeTag.find(:all,:conditions=>OSM.sql_for_area(minlat, minlon, maxlat, maxlon,"current_nodes.")+" AND (\"current_node_tags\".\"#{field_name}\" = '#{val}')",:include=>"node")
-          
+	  if not inte.nil?
+          logger.debug("****************>+++++++" + @interval[0].to_s + " "+@interval[-1].to_s)  
+	  if inte[0]!=nil and inte[-1]!=nil then
+	    
+   
+            nts = nts.select{
+              |nt|
+              
+              inte.any? do |h| 
+	    logger.debug("****************>+++++++" + h[0].class.to_s)  
+	          h.dsfe_many(nt.intervals)
+	      end
+
+              }
+            #@result += "\nresultsafter:::"+nts.size.to_s
+          end
+	  end
+
           for nt in nts
             lat = nt.node.lat.to_s
             lon = nt.node.lon.to_s
             name = nt.node.tags["name"]
             icon = sub.safe_iconfile
+	    opening_hours_tag = nt.node.tags["opening_hours"]
+            opening_hours = if opening_hours_tag.nil? then "" else opening_hours_tag.gsub(/;/,"<br />") end
             point = make_point(name, icon, lat, lon, start_point)
-            @points.push(point)
+	    
+	      #@points.push(point)
+	      v={ point => opening_hours }
+	      @points.merge!(v)
           end
         end
       end
-      @points.uniq
+      
+      
     end
   end
   
+
   
     def make_point(name,icon,lat,lon,start_point)
     point       = Point.new

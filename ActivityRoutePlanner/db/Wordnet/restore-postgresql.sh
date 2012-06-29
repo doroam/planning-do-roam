@@ -2,7 +2,7 @@
 # bbou@ac-toulouse;fr
 # 21.02.2009 
 
-db='openstreetmap'
+db='bremen'
 dbtype=postgresql
 dbuser=openstreetmap
 dbdelete=

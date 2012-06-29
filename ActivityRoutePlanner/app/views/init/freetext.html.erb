@@ -14,11 +14,15 @@
 <%else%>
  <table>
 
-<% @points.uniq.each do |points| %>
+<% @points.each do |poin,value| %>
   <tr>
-    <td><%= points.label %></td>
+    <td><%= poin.label %></td>
+    <td><%= value %></td>
+
     
   </tr>
 <% end %>
+
 <%end %>
+
  </table>

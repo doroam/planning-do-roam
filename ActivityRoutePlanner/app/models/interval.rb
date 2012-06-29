@@ -18,10 +18,11 @@ class Interval < ActiveRecord::Base
         else (start..stop).to_a 
       end
     end.flatten.sort.uniq
+    logger.debug("-------------------->+++++++" + days.to_s)
     hours = parse[2].split(",").map do |h|
       start,stop = h.split("-")
       if stop.nil? then
-        if start[-1] == 43 # "+" means "open end"
+        if start[-1] == "+" # "+" means "open end"
           starth = Interval.parse_hour(start.chop)
           if starth.nil? then nil
           else (starth..DAY)
@@ -29,6 +30,7 @@ class Interval < ActiveRecord::Base
         else
           puts "Could not parse #{h}"; []
         end  
+	
       else  
         start = Interval.parse_hour(start)
         stop = Interval.parse_hour(stop)
@@ -38,6 +40,7 @@ class Interval < ActiveRecord::Base
         end  
       end
     end.flatten
+    logger.debug("======================>+++++++" + hours.to_s)
     intervals = days.map do |d|
       hours.map do |h|
         start = h.begin
@@ -49,7 +52,9 @@ class Interval < ActiveRecord::Base
         Interval.make(d*DAY+start,d*DAY+stop)
       end
     end
-    intervals
+    #logger.debug("======================>22222222" + intervals.to_s)
+    intervals.flatten
+    
   end
 
   def self.parse_day(s)
