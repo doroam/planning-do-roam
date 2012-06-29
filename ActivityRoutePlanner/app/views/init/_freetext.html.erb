@@ -1,7 +1,9 @@
 <%#coordinates = point.lat.to_s+":"+point.lon.to_s+":"+index.to_s
   #label = point.label!=nil && !"".eql?(point.label) ? point.label : "no name"%>
-
-<% form_tag :action => "freetext" do %>
+<% type="start" %>
+<% form_tag "/freetext",
+            :id => type+"_form_id",
+            :onsubmit => "setBBox('"+type+"_form_id');" do %>
 
 <%=text_field_tag 'freetext', 
                   nil,
