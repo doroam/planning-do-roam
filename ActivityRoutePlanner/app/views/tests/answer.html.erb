@@ -4,6 +4,7 @@
 	  <p><%= @test.task %></p>
 		<% if @next.nil?%>
 			<%= form_tag("/end", :method => "get") do %>
+				<input type="hidden" name="user" value="<%= @user.id%>">
 				<%= submit_tag(t("ready")) %>
 			<%end%>
 		<%else%>
