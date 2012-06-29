@@ -1,37 +1,61 @@
-<h2>DO-ROAM Experiment</h2>
-<p id="notice"><%= notice %></p>
-<div id="input" style= padding-top:30px;'>
+<div class="experiment">
+	<h2 class="title">DO-ROAM Experiment</h2>
+	<div class="section">
+		<h3 class="section-title">
+		  <%= t("experiment-description-title") %>
+		</h3>
+		<p class="section-paragraph">
+		  <%= t("experiment-description") %>
+		</p>
+	</div>
+	<div class="section">
+		<h3 class="section-title">
+		  <%= t("experiment-payment-title") %>
+		</h3>
+		<p class="section-paragraph">
+		  <%= t("experiment-payment") %>
+		</p>
+	</div>
+	<p id="notice"><%= notice %></p>
+	<div id="registration-form" class="form">
 		<%= form_tag(@test, :method => "get") do %>
 		<input type="hidden" name="id" value="0">
 		<input type="hidden" name="start" value="1">
 		<input type="hidden" name="user" value="<%=@user.id%>">
-		<%= label_tag("name", t("your_name")) %>
+		<%= label_tag("name", t("user_name")) %>
 		<br />
 		<%= text_field_tag("name") %>
 		<br />
-		<%= label_tag("mail", t("your_mail")) %>
+		<%= label_tag("mail", t("user_mail")) %>
 		<br />
-		<%= text_field_tag("mail") %>
+		<%= text_field_tag 'mail', nil, :class => 'form-field' %>
 		<br />
-		<%= label_tag("mother", t("mother")) %>
+		<%= label_tag("mother1", t("user_parent_language")) %>
 		<br />
-		<%= text_field_tag("mother1") %><%= text_field_tag("mother2") %><%= text_field_tag("mother3") %>
+		<%= text_field_tag 'mother1', nil, :class => 'form-field' %>
+		<%= text_field_tag 'mother2', nil, :class => 'form-field' %>
+		<%= text_field_tag 'mother3', nil, :class => 'form-field' %>
 		<br />
-		<%= label_tag("home", t("home")) %>
+		<%= label_tag("home1", t("user_partner_language")) %>
 		<br />
-		<%= text_field_tag("home1") %><%= text_field_tag("home2") %><%= text_field_tag("home3") %>
+		<%= text_field_tag 'home1', nil, :class => 'form-field' %>
+		<%= text_field_tag 'home2', nil, :class => 'form-field' %>
+		<%= text_field_tag 'home3', nil, :class => 'form-field' %>
 		<br />
-		<%= label_tag("partner", t("outside")) %>
+		<%= label_tag("partner1", t("user_society_language")) %>
 		<br />
-		<%= text_field_tag("partner1") %><%= text_field_tag("partner2") %><%= text_field_tag("partner3") %>
+		<%= text_field_tag 'partner1', nil, :class => 'form-field' %>
+		<%= text_field_tag 'partner2', nil, :class => 'form-field' %>
+		<%= text_field_tag 'partner3', nil, :class => 'form-field' %>
 		<br />
-		<%= text_field_tag("partner4") %><%= text_field_tag("partner5") %><%= text_field_tag("partner6") %>
-		
+		<%= text_field_tag 'partner4', nil, :class => 'form-field' %>
+		<%= text_field_tag 'partner5', nil, :class => 'form-field' %>
+		<%= text_field_tag 'partner6', nil, :class => 'form-field' %>
 		<br />
 		<br />
 		<br />
 		<%= submit_tag(t("begin")) %>
-		<br /><br />	
+		<br /><br />
 		<% end %>
-		
 	</div>
+</div>

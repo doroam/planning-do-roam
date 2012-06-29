@@ -159,12 +159,6 @@ en:
     WithRenewableEnergy: with renewable energy
     Yoga: Yoga
     YouthHostel: Youth Hostel
-  your_name: Your name
-  your_mail: Your emailadress
-  languages: Sprachen oder Dialekte, die du mit deinen Eltern gesprochen hast
-  mother: Sprachen oder Dialekte, die du mit deinen Eltern gesprochen hast
-  home: Sprachen oder Dialekte, die du mit Partnern u. in der Familie gesprochen hast
-  outside: Sprachen oder Dialekte, die du außerhalb der Familie gesprochen hast
   choose_language: Choose language for the experiment
   begin: begin
   result: result
@@ -175,8 +169,15 @@ en:
   missing: Please answer every Question
   of: of
   feedback: send
-
-
+  user_name: Last Name, First Name
+  user_mail: E-Mail Address
+  user_parent_language: Languages or Dialects that you have spoken with your parents.
+  user_partner_language: Languages or Dialects that you have spoken with partners or other family members.
+  user_society_language: Languages or Dialects that you have used outside your family.
+  experiment-description-title: a0
+  experiment-description: a1
+  experiment-payment-title: b0
+  experiment-payment: b1
 
 ## Messages for German (Deutsch)
 ## Exported from translatewiki.net
