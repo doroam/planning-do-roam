@@ -20,6 +20,7 @@
     padding: 20px;
     background-color: #F8F8FF;
     box-shadow: 0px 0px 3px 1px #ccc;
+    min-width: 660px;
 }
 #registration-form {
     min-width: 620px;
