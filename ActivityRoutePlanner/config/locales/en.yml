@@ -169,6 +169,9 @@ en:
   missing: Please answer every Question
   of: of
   feedback: send
+  gender: Gender
+  male: Male
+  female: Female
   user_name: Last Name, First Name
   user_mail: E-Mail Address
   user_parent_language: Languages or Dialects that you have spoken with your parents.

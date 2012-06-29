@@ -162,6 +162,9 @@ de:
   missing: Bitte alle Fragen beantworten
   of: von
   feedback: Abschicken
+  gender: Geschlecht
+  male: Männlich
+  female: Weiblich
   user_name: Name, Vorname
   user_mail: E-Mail-Adresse
   user_parent_language: Sprachen oder Dialekte, die du mit deinen Eltern gesprochen hast

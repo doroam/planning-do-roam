@@ -31,6 +31,7 @@ class TestsController < ApplicationController
     if(!params[:mail].nil?)
       @user.name = params[:name]
       @user.email = params[:mail]
+      @user.gender = params[:gender]
       @user.mother = params[:mother1] + "," + params[:mother2] + "," + params[:mother3]
       @user.home = params[:home1] + "," + params[:home2] + "," + params[:home3]
       @user.partner = params[:partner1] + "," + params[:partner2] + "," + params[:partner3] + "," + 
