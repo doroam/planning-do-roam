@@ -27,7 +27,7 @@
                 <%= text_field_tag 'name', nil, :class => 'form-field first last' %>
 
                 <%= label_tag("gender", t("gender")) %>
-                <%= select_tag "gender", ("<option>"+t(:male)+"</option><option selected='selected'>"+t(:female)+"</option>").html_safe, :class => 'form-field first last' %>
+                <%= select_tag "gender", ("<option>"+t(:male)+"</option><option selected='selected'>"+t(:female)+"</option>").html_safe %>
 
                 <%= label_tag("mail", t("user_mail")) %>
                 <%= text_field_tag 'mail', nil, :class => 'form-field first last' %>
