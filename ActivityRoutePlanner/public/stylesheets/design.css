@@ -43,11 +43,16 @@
     font-size: 13px;
 }
 .form-field.first {
+	clear: both;
     margin-left: 0;
 }
 .form-field.first.last,
 .form-field.first.last {
     width: 422px;
+}
+.form-submit {
+    clear: both;
+    display: block;
 }
 
 .section-title {
