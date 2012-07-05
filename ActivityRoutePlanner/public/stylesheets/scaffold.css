@@ -1,4 +1,8 @@
-body { background-color: #fff; color: #333; }
+body { color: #333; }
+
+.experiment {
+	background-color: #FFF
+}
 
 body, p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
