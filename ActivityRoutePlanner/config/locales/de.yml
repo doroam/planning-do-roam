@@ -168,12 +168,12 @@ de:
   user_name: Name, Vorname
   user_mail: E-Mail-Adresse
   user_parent_language: Sprachen oder Dialekte, die du mit deinen Eltern gesprochen hast
-  user_partner_language: Sprachen oder Dialekte, die du mit Partnern u. in der Familie gesprochen hast
+  user_partner_language: Sprachen oder Dialekte, die du mit Partnern und in der Familie gesprochen hast
   user_society_language: Sprachen oder Dialekte, die du außerhalb der Familie verwendet hast
   experiment-description-title: Experimentziel
-  experiment-description: Wir möchten wissen, was man im Anfragenfeld interaktiver Karten schreibt.
+  experiment-description: Wir möchten wissen, wie Benutzer im Eingabefeld interaktiver Karten ihre Suchen formulieren.
   experiment-payment-title: Teilnahme
-  experiment-payment: Wenn man im Experiment teilnimmt, bekommt man ein Teilnameschein, das im Kartesium mit Mihai Codescu oder Daniel Couto Vale abholbar ist.
+  experiment-payment: Wenn man am Experiment teilnimmt, bekommt man einen Teilnahmeschein, der im Cartesium bei Mihai Codescu oder Daniel Couto Vale abholbar ist.
 
 ## Messages for German (Deutsch)
 ## Exported from translatewiki.net
