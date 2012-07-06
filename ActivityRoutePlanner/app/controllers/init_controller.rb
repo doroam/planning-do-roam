@@ -1,5 +1,11 @@
 class InitController < ApplicationController
 
+    NOMINATIM_URL = "http://nominatim.openstreetmap.org/"
+  require 'uri'
+  require 'net/http'
+  require 'rexml/document'
+  include GeocoderHelper
+  
   def index  
     @route = current_route
     #algorythm choices
@@ -42,39 +48,26 @@ class InitController < ApplicationController
     qterms = @query.split(',')
     act = qterms.at(0)
     if act.nil? then # empty string, let osm handle
-      
+      @results=get_results("") 
+      @classes=[]  
+      @points=[]
+      logger.debug("<><><><><><><><<><>>+++++++" + @results[0].to_s)
     else
      w = Word.find_by_lemma(act.downcase)
      if w.nil? then # the word is not an activity, do standard search
-       redirect_to  :controller => "geocoder", :action => "search"
-       return
-       #redirect_to your_controller_action_url :params => { :a => "value", :b => "value2" }
-       #redirect_to "geocoder_controller" :params => { :action => "search" } and return
-       #redirect_to {:action => "search", "/geocoder_controller.rb"} and return
-       #redirect_to (:geocoder_search_path) and return
-       #render :js => "search" and return
-       link_to_remote "Search", :update => "div_id", 
-         :url  => {:controller=>"geocoder_controller",:action=>"search"}, :method => :delete, 
-         :html => { :class  => "divs" } 
-
+       @results=get_results("") 
+       @classes=[]  
+       @points=[]
+       logger.debug("<><><><><><><><<><>>+++++++" + @results[0].to_s)
      
      else
        wsyns = w.synonyms.map{|x| OntologyClass.find_by_name(x.lemma.capitalize)}
        wsyns.delete(nil)
       if wsyns == [] then # no class found, do standard search
-      #  redirect_to  :controller => "geocoder", :action => "search" and return
-	#redirect_to "geocoder_controller" :params => { :action => "search" } and return
-	#redirect_to {:action => "search" , "/geocoder_controller.rb"} and return
-	#redirect_to ("/app/controllers/geocoder_controller.rb") and return
-	#redirect_to :controller => "geocoder", :action => "search" and return
-	#render :js => "search" and return
-	link_to_remote "Search", :update => "div_id", 
-         :url  => {:controller=>"geocoder_controller",:action=>"search"}, :method => :delete, 
-         :html => { :class  => "divs" } 
-	#redirect_to :controller => "geocoder", :action => "search" 
-	#return
-	#render :js => "search" and return
-     
+	@results=get_results("") 
+	logger.debug("<><><><><><><><<><>>+++++++" + @results[0].to_s)
+	@classes=[]  
+	@points=[]
       else
         #interval search here
         interv = qterms.at(1)
@@ -89,7 +82,8 @@ class InitController < ApplicationController
          # end
         end
 	#wo = Words::Wordnet.new
-        #word = "bank"
+        #word = "bank"\
+	
 
 	#@classes = wo.find(word)
         @classes = wsyns.uniq.map{|x| x.name}
@@ -106,31 +100,23 @@ class InitController < ApplicationController
    
     
     respond_to do |format|
-        format.html 
+        format.js render "search"
     end
   end
 
   def ac(cls,inte)
   start_point = current_route.start_point
-        @result = ""
+        @results = ""
+	@result=""
 
         #classes = cls
  
-    @result += cls.to_s+"<br/>"
-    #@points = Array.new
+    
     @points = Hash.new
-puts @result
     # begin of loop
     cls.each do |cid|
       c = OntologyClass.find_by_id(cid)
-      @result += c.name+"<br/>"
-      #logger.debug("======================>" + @result)  
-      
-      
-      #minlon = 8.7884897133291
-      #minlat = 53.057703977907
-      #maxlon = 8.8808435341298
-      #maxlat = 53.084107472864
+
       minlon = params[:minlon].to_f
       minlat = params[:minlat].to_f
       maxlon = params[:maxlon].to_f
@@ -194,6 +180,65 @@ puts @result
       
     end
   end
+  
+    def get_results(url)
+    # get query parameters
+    query = params[:freetext]
+    minlon = params[:minlon]
+    minlat = params[:minlat]
+    maxlon = params[:maxlon]
+    maxlat = params[:maxlat]
+
+    # get view box
+    if minlon && minlat && maxlon && maxlat
+      viewbox = "&viewbox=#{minlon},#{maxlat},#{maxlon},#{minlat}"
+    end
+
+    # get objects to excude
+    if params[:exclude]
+      exclude = "&exclude_place_ids=#{params[:exclude].join(',')}"
+    end
+
+    query_url = "#{NOMINATIM_URL}search?format=xml&q=#{escape_query(query)}#{viewbox}#{exclude}"
+
+    # ask nominatim
+    response = fetch_xml(query_url)
+
+    # create result array
+    @results = Array.new
+
+    # create parameter hash for "more results" link
+    #@more_params = params.reverse_merge({ :exclude => [] })
+
+    # extract the results from the response
+    results =  response.elements["searchresults"]
+
+    # parse the response
+    results.elements.each("place") do |place|
+      lat = place.attributes["lat"].to_s
+      lon = place.attributes["lon"].to_s
+      #klass = place.attributes["class"].to_s
+      #type = place.attributes["type"].to_s
+      name = place.attributes["display_name"].to_s
+      min_lat,max_lat,min_lon,max_lon = place.attributes["boundingbox"].to_s.split(",")
+      id = place.attributes["place_id"].to_s
+      #prefix_name = t "geocoder.search_osm_nominatim.prefix.#{klass}.#{type}", :default => type.gsub("_", " ").capitalize
+      #prefix = t "geocoder.search_osm_nominatim.prefix_format", :name => prefix_name
+
+      @results.push({:lat => lat, :lon => lon,
+          :min_lat => min_lat, :max_lat => max_lat,
+          :min_lon => min_lon, :max_lon => max_lon,
+          :place_id => id, :name => name})
+      #:prefix => prefix, :name => name})
+      #@more_params[:exclude].push(place.attributes["place_id"].to_s)
+    end
+
+    return @results
+  rescue Exception => ex
+    p "Error contacting nominatim.openstreetmap.org: #{ex.to_s}"
+    @results = Array.new
+  end
+
   
 
   

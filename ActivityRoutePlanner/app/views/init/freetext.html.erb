@@ -1,15 +1,56 @@
 
+
+<%if !@results.empty? %>
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "search.js.erb" %>
+<% end %>
+<script type="javascript">
+var d = makeDialog('nominatim',reloadRouteFields);
+var elem = document.getElementById('nominatim_div');
+var body = "";
+<% if @results.empty?  %>
+  elem.innerHTML = "";
+  body = "<%=escape_javascript(render :partial => 'no_results_found',:locals=>{:error=>""})%>";
+  elem.innerHTML += body;
+<%else%>
+    elem.innerHTML = "";
+   <%@results.each do |result| %>
+    addTempMarker('<%=result[:place_id]%>',encodeURIComponent('<%=result[:name]%>'),'<%=result[:lat]%>','<%=result[:lon]%>','<%=params[:type]%>');
+    body = "<%=escape_javascript(render :partial => 'geocoder/result',:locals => {:result=>result,:type=>params[:type]})%>";
+    elem.innerHTML += body;
+  <% end %>
+<%end%>
+zoomToMarkers();
+d.show();
+hideWall();
+
+</script>
  <table>
+<% @results.each do |results| %>
+  <tr>
+    <td><%= results[:name].to_s %></td>
+    
+  </tr>
+
+<% end %>
+<%else%>
+<%= "No results "%>
+<% end %>
+ </table>
+
+
+<%if !@classes.empty? %>
 <% @classes.each do |classes| %>
   <tr>
     <td><%= classes.to_s %></td>
     
   </tr>
 <% end %>
+<%end%>
  </table>
 
 <%if @points.empty? %>
-<%= "No results"%>
+<%= "No results points"%>
 
 <%else%>
  <table>
