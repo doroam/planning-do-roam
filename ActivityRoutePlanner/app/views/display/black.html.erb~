@@ -1,0 +1,7 @@
+<br>
+<%@data.each do |key|%>
+<ol>
+
+<li><%= key.answer.to_s%></li>
+</ol>
+<%end%>

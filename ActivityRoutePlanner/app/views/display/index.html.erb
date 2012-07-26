@@ -1,0 +1,5 @@
+<%@user.each do |user|%>
+
+
+<p><%= link_to user.name, {:controller => "display", :action => "black", :param=>user } %></p>
+<%end%>
