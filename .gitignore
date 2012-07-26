@@ -1,3 +1,5 @@
+*~
+.project
 .bundle
 db/*.sqlite3
 log/*.log
@@ -6,4 +8,3 @@ nbproject/
 *.project
 config/database.yml
 th-zlib/
-config/database.yml
