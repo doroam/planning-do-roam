@@ -3,6 +3,7 @@
 <% type="start" %>
 <% form_tag "/freetext",
             :id => type+"_form_id",
+            :remote => true,
             :onsubmit => "setBBox('"+type+"_form_id');" do %>
 
 <%=text_field_tag 'freetext', 

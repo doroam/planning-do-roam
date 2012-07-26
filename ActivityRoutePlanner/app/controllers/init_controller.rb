@@ -98,7 +98,7 @@ class InitController < ApplicationController
     end
 
     respond_to do |format|
-        format.html { render :template => "activity/search.js.erb" }
+        format.js { render :template => "activity/search.js.erb" }
     end
   end
 
