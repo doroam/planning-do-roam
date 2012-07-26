@@ -1,7 +1,34 @@
 <br>
 
-<ol>
+<table border="1" align="center" width="100%">
+  <tr>
+       
+       <td align="center" width="11%">Language</td>
+       <td align="center" width="11%">E-mail</td>
+       <td align="center" width="11%">Mother Tongue</td>
+       <td align="center" width="11%">Home Tongue</td>
+       <td align="center" width="11%">Partner Tongue</td>
+       <td align="center" width="11%">Feedback</td>
+       <td align="center" width="11%">Gender<td>
+       <td align="center" width="11%">Answer 1</td>
+       <td align="center" width="11%">Answer 2</td>
+  </tr>
+  
+  <tr>
+       <td align="center" width="11%"><%= @user2.language.to_s%><td>
+       <td align="center" width="11%"><%= @user2.email.to_s%><td>
+       <td align="center" width="11%"><%= @user2.mother.to_s%><td>
+       <td align="center" width="11%"><%= @user2.home.to_s%><td>
+       <td align="center" width="11%"><%= @user2.partner.to_s%><td>
+       <td align="center" width="11%"><%= @user2.feedback.to_s%><td>
+       <td align="center" width="11%"><%= @user2.gender.to_s%><td>
 <%@data.each do |key|%>
-<li><%= key.answer.to_s%></li>
-<%end%>
-</ol>
+  
+       <td align="center" width="11%"><%= key.answer.to_s%><td>
+
+<%end%>       
+  </tr>
+
+
+
+</table>
