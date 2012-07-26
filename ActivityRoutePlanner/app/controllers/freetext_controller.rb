@@ -14,7 +14,8 @@ require 'uri'
     if act.nil? then # empty string, let osm handle
       osm_search
     else
-     w = Word.find_by_lemma(act.downcase)
+     #w = Word.find_by_lemma(act.downcase)
+     w = Word.find_by_lemma("tist")
      if w.nil? then # the word is not an activity, do standard search
         osm_search
      else
