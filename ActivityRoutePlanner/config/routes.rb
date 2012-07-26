@@ -1,5 +1,8 @@
 ActivityRoutePlanner::Application.routes.draw do
   
+  get "display/index"
+  get "display/black"
+
   resources :tests
 
   #get "init/header"

@@ -25,6 +25,15 @@ private
     session[:main_route] = route.id
     route
   end
+private
+
+  def current_user
+     Testuser.find(session[:testuser_id])
+  rescue ActiveRecord::RecordNotFound
+    testuser = Testuser.create
+    session[:testuser_id] = testuser.id
+    testuser
+  end
   
   def errormessage(message)
     @message = message
