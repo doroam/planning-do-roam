@@ -1,0 +1,29 @@
+//alert('<%=escape_javascript(@result)%>');
+var d = makeDialog('activity_results',closeActivityResults);
+var elem = document.getElementById('activity_results_div');
+var body = "";
+elem.innerHTML = "";
+removeTempMarkers();
+<%if not @points.empty?%>
+    body = "<b>The Results are sorted by distance to start point</b><br/><br/>";
+    elem.innerHTML += body;
+    <%@points.sort.each_with_index do |point,index|
+      label = point.label!=nil && !"".eql?(point.label) ? point.label : "no name"%>
+      addTempMarker('<%=point.lat.to_s+":"+point.lon.to_s+":"+index.to_s%>','<%=escape_javascript(label)%>','<%=point.lat%>','<%=point.lon%>',null,'<%=point.icon%>');
+      body = "<%=escape_javascript(render :partial => 'activity/result',:locals => {:point=>point, :index => index})%>";
+      elem.innerHTML += body;
+      <%end%>
+<%elsif not @results.empty? %>  
+    elem.innerHTML = "";
+    <%@results.each do |result| %>
+    addTempMarker('<%=result[:place_id]%>',encodeURIComponent('<%=result[:name]%>'),'<%=result[:lat]%>','<%=result[:lon]%>','<%=params[:type]%>');
+    body = "<%=escape_javascript(render :partial => 'geocoder/result',:locals => {:result=>result,:type=>params[:type]})%>";
+    elem.innerHTML += body;
+    <% end %>
+<%else%>
+    body = "<%=escape_javascript(render :partial => 'content_loader/no_results_found',:locals =>{:error =>@result})%>";
+    elem.innerHTML = body;
+<%end%>
+hideOntology();
+d.show();
+hideWall();

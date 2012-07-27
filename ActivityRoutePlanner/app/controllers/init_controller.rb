@@ -81,12 +81,7 @@ class InitController < ApplicationController
             qterms.delete_at(1)
          # end
         end
-	#wo = Words::Wordnet.new
-        #word = "bank"\
-	
-
-	#@classes = wo.find(word)
-        @classes = wsyns.uniq.map{|x| x.name}
+	@classes = wsyns.uniq.map{|x| x.name}
         classes2 = wsyns.map{|x| x.id}
 	qterms.delete_at(0)
         @query = qterms.to_s
@@ -98,7 +93,7 @@ class InitController < ApplicationController
     end
 
     respond_to do |format|
-        format.js { render :template => "activity/search.js.erb" }
+        format.js { render :template => "init/search.js.erb" }
     end
   end
 
@@ -107,10 +102,7 @@ class InitController < ApplicationController
         @results = ""
 	@result=""
 
-        #classes = cls
- 
-    
-    @points = Hash.new
+        
     # begin of loop
     cls.each do |cid|
       c = OntologyClass.find_by_id(cid)
@@ -158,6 +150,7 @@ class InitController < ApplicationController
             #@result += "\nresultsafter:::"+nts.size.to_s
           end
 	  end
+	  @points = Array.new
 
           for nt in nts
             lat = nt.node.lat.to_s
@@ -168,9 +161,8 @@ class InitController < ApplicationController
             opening_hours = if opening_hours_tag.nil? then "" else opening_hours_tag.gsub(/;/,"<br />") end
             point = make_point(name, icon, lat, lon, start_point)
 	    
-	      #@points.push(point)
-	      v={ point => opening_hours }
-	      @points.merge!(v)
+	      @points.push(point)
+	      
           end
         end
       end
