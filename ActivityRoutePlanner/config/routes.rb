@@ -1,7 +1,9 @@
 ActivityRoutePlanner::Application.routes.draw do
   
-  get "display/index"
-  get "display/black"
+  get "fa37_jnc_c_hry_dsbzayy4c_bw_dx_s22_jjz/index"
+  get "fa37_jnc_c_hry_dsbzayy4c_bw_dx_s22_jjz/black"
+
+
 
   resources :tests
 

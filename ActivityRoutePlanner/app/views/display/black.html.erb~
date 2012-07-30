@@ -1,22 +1,22 @@
 <br>
 
-<table border="1" align="center" width="100%">
-
-  <tr>
-       <td align="center" width="11%"><%= @user2.language.to_s%><td>
-       <td align="center" width="11%"><%= @user2.email.to_s%><td>
-       <td align="center" width="11%"><%= @user2.mother.to_s%><td>
-       <td align="center" width="11%"><%= @user2.home.to_s%><td>
-       <td align="center" width="11%"><%= @user2.partner.to_s%><td>
-       <td align="center" width="11%"><%= @user2.feedback.to_s%><td>
-       <td align="center" width="11%"><%= @user2.gender.to_s%><td>
-<%@data.each do |key|%>
+<ol>
+       
+<%@result.each do |data, test|%>
   
-       <td align="center" width="11%"><%= key.answer.to_s%><td>
+       <li>
+           <p><%= test.task%></p>
+           <ul>
+                <li><%= data.answer%></li>
+           </ul>
+      </li>
 
-<%end%>       
-  </tr>
 
 
+<%end%>    
+<li>
+<p>Feedback</p>
+<p><%= @user2.feedback %></p>
+</li>   
+</ol>
 
-</table>

@@ -1,4 +1,4 @@
-class DisplayController < ApplicationController
+class Fa37JncCHryDsbzayy4cBwDxS22JjzController < ApplicationController
   def index
     @user=Testuser.all
     @question=Test.all
@@ -14,6 +14,4 @@ class DisplayController < ApplicationController
     end
     
   end
-    
-
 end
