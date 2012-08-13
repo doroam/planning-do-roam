@@ -68,7 +68,6 @@ class ActivityController < ApplicationController
       
     @result += classes.to_s+"<br/>"
     @points = Array.new
-puts @result
     # begin of loop
     classes.each do |cid|
       c = OntologyClass.find_by_id(cid.to_i)
@@ -92,6 +91,8 @@ puts @result
         return
       end
       
+      area = OSM.sql_for_area(minlat, minlon, maxlat, maxlon,"current_nodes.")
+      
       # get all the points
       om = OntologyMapping.find_by_name("activities2tags")
       for sub in c.descendants.select{|x| x.safe_iconfile!="question-mark.png"} # .select{|x| x.interesting(om)}
@@ -99,7 +100,7 @@ puts @result
         if !search.nil?
           field_name = search.first[0]
           val = search.first[1]
-          nts = NodeTag.find(:all,:conditions=>OSM.sql_for_area(minlat, minlon, maxlat, maxlon,"current_nodes.")+" AND (\"current_node_tags\".\"#{field_name}\" = '#{val}')",:include=>"node")
+          nts = NodeTag.find(:all,:conditions=>area+" AND (\"current_node_tags\".\"#{field_name}\" = '#{val}')",:include=>"node")
           if !interval.nil? then
             # TODO: optimise this using database queries, similar to those (but be aware of duplicate use to NodeTag that is needed):
             # Interval.find(:all,:conditions => ["start <=  ? and stop >= ?",start,stop])
