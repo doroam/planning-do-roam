@@ -8,9 +8,10 @@ removeTempMarkers();
   body = "<%=escape_javascript(render :partial => 'content_loader/no_results_found',:locals =>{:error =>@result})%>";
   elem.innerHTML = body;
 <%else%>
+<%@points.sort! {|a,b| b.distance_source <=> a.distance_source } %>
   body = "<b>The Results are sorted by distance to start point</b><br/><br/>";
   elem.innerHTML += body;
-  <%@points.sort.each_with_index do |point,index|
+  <%@points.each_with_index do |point,index|
     label = point.label!=nil && !"".eql?(point.label) ? point.label : "no name"%>
     
     addTempMarker('<%=point.lat.to_s+":"+point.lon.to_s+":"+index.to_s%>','<%=escape_javascript(label)%>','<%=point.lat%>','<%=point.lon%>',null,'<%=point.icon%>');
