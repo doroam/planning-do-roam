@@ -2,7 +2,7 @@
 Users
 </h1>
 <br>
-<table border="1" align="center">
+<table border="1">
   <tr>
        <th align="center" >Last Name, First Name</th>
        <th align="center" >Gender</th>
@@ -15,8 +15,9 @@ Users
 
   </tr>
   <%@user.each do |user|%>
+  <% if user.mother || user.name || user.home || user.partner || user.language || user.email # irgendwas angegeben??%>
   <tr>
-       <td align="center" ><%= link_to user.name, {:controller => "display", :action => "black", :param=>user } %></td>
+       <td align="center" ><%= link_to user.name ? user.name : "Kein Name", {:controller => "display", :action => "black", :param=>user } %></td>
        <td align="center" ><%= user.gender%></td>
        <td align="center" ><%= user.language%></td>
        <td align="center" ><%= user.email%></td>
@@ -25,8 +26,7 @@ Users
        <td align="center" ><%= user.partner%></td>
        
   </tr>
-  <p></p>
-
+  <%else end%>
 <%end%>
 
 </table>
