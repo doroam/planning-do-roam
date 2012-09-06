@@ -94,6 +94,10 @@ class CalculateRouteController < ApplicationController
         format.js {render :locals => {:format => "KML"}}
       end
       return
+    
+    when "energy"
+      get_energy_route
+    
     else
       puts @route.algorythm
     end
@@ -142,60 +146,78 @@ class CalculateRouteController < ApplicationController
     nodes = Array.new
 
     #service url
-    url = "http://greennav.in.tum.de:8192/routing?wsdl"
+    url = "http://www.isp.uni-luebeck.de/greennav/green/route.action"
     
     #test xml
     xml = 
-      "<routingRequest ID=\"test\">"+
-      "<feature>routeCalculation</feature>"+
-      "<startNode>"+
-      "<geoCoords latitude=\"47.733333\" longitude=\"10.316667\"/>"+
-      "</startNode>"+
-      "<targetNode>"+
-      "<geoCoords latitude=\"47.733433\" longitude=\"10.316567\"/>"+
-      "</targetNode>"+
-      "<vehicleType>STROMOS</vehicleType>"+
-      "<batteryChargeAtStart>95</batteryChargeAtStart>"+
-      "<resultType>geoCoords</resultType>"+
-      "</routingRequest>"
     
-    xml = "<?xml version=\"1.0\" ?>"+
-      "<S:Envelope xmlns:S=\"http://schemas.xmlsoap.org/soap/envelope/\">"+
-      "<S:Body>"+
-      "<ns2:createRoutingResponseXMLString xmlns:ns2=\"http://server.greennav.in.tum.de/\"><arg0>"+
-        "&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;"+
-        "&lt;routingRequest ID=&quot;11:32:56 STROMOS 234&quot;&gt;"+
-        "&lt;feature&gt;rangePrediction&lt;/feature&gt;"+
-        "&lt;startNode&gt;"+
-        "&lt;geoCoords latitude=&quot;47.733333&quot; longitude=&quot;10.316667&quot;/&gt;"+
-        "&lt;/startNode&gt;"+
-        "&lt;vehicleType&gt;STROMOS&lt;/vehicleType&gt;&lt;batteryChargeAtStart&gt;95&lt;/batteryChargeAtStart&gt;"+
-        "&lt;resultType&gt;geoCoords&lt;/resultType&gt;"+
-        "&lt;/routingRequest&gt;"+
-      "</arg0></ns2:createRoutingResponseXMLString></S:Body></S:Envelope>"
-
+    "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+<routingRequest ID=\"test\">
+  <feature>routeCalculation</feature>
+  <startNode>
+    <geoCoords latitude=\"47.733333\"  longitude=\"10.316667\"/>
+  </startNode>
+  <targetNode>
+    <geoCoords latitude=\"46.733333\"  longitude=\"9.316667\"/>
+  </targetNode>
+  <vehicleType>Karabag Fiat 500E</vehicleType>
+  <optimization>ENERGY</optimization>
+  <batteryChargeAtStart>75</batteryChargeAtStart>
+  <resultType>geoCoords</resultType>
+</routingRequest>"
+    
+    #
+    #  "<routingRequest ID=\"test\">"+
+    #  "<feature>routeCalculation</feature>"+
+    #  "<startNode>"+
+    #  "<geoCoords latitude=\"47.733333\" longitude=\"10.316667\"/>"+
+    #  "</startNode>"+
+    #  "<targetNode>"+
+    #  "<geoCoords latitude=\"47.733433\" longitude=\"10.316567\"/>"+
+    #  "</targetNode>"+
+    #  "<vehicleType>STROMOS</vehicleType>"+
+    #  "<batteryChargeAtStart>95</batteryChargeAtStart>"+
+    #  "<resultType>geoCoords</resultType>"+
+    #  "</routingRequest>"
+    
+   # xml = "<?xml version=\"1.0\" ?>"+
+   #   "<S:Envelope xmlns:S=\"http://schemas.xmlsoap.org/soap/envelope/\">"+
+   #   "<S:Body>"+
+   #   "<ns2:createRoutingResponseXMLString xmlns:ns2=\"http://server.greennav.in.tum.de/\"><arg0>"+
+   #     "&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;"+
+   #     "&lt;routingRequest ID=&quot;11:32:56 STROMOS 234&quot;&gt;"+
+   #     "&lt;feature&gt;rangePrediction&lt;/feature&gt;"+
+   #     "&lt;startNode&gt;"+
+   #     "&lt;geoCoords latitude=&quot;47.733333&quot; longitude=&quot;10.316667&quot;/&gt;"+
+   #     "&lt;/startNode&gt;"+
+   #     "&lt;vehicleType&gt;STROMOS&lt;/vehicleType&gt;&lt;batteryChargeAtStart&gt;95&lt;/batteryChargeAtStart&gt;"+
+   #     "&lt;resultType&gt;geoCoords&lt;/resultType&gt;"+
+   #     "&lt;/routingRequest&gt;"+
+   #   "</arg0></ns2:createRoutingResponseXMLString></S:Body></S:Envelope>"
+puts "AAAAAAAAAAAAAA"
     @error = ""
     begin
       client = Savon::Client.new do
           wsdl.document = url
       end
-
+puts "BBBBBBBBBBBBBB"
 
 
       #@res = client.request :wsdl, :create_routing_response_xml_string, "khkh" => @xml_doc
       @actions = client.wsdl.soap_actions
-      @res = client.request :wsdl,:create_routing_response_xml_string do |soap|
+      @res = client.request "",:create_routing_response_xml_string do |soap|
         soap.xml = xml
       end
-
+puts "CCCCCCCCCCCCCC"
       xml_string = @res.to_hash[:create_routing_response_xml_string_response][:return]
       coords = REXML::Document.new(xml_string)
       @result = "xml=="+coords.elements["routingResponse/nodes"].size.to_s
       #gets the result points
       nodes = get_points(coords.elements["routingResponse/nodes"])
       
-
+puts "DDDDDDDDDDDDDDDD"
     rescue Exception => err
+      puts "EEEEEEEEEEEEEEEEEE"
       @error = err.to_s
       p "error="+err.to_s
     end
