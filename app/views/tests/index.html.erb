@@ -1,0 +1,29 @@
+<h1>Listing tests</h1>
+
+<table>
+  <tr>
+    <th>Task</th>
+    <th>Screen question</th>
+    <th>Screen solution</th>
+    <th>Language</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @tests.each do |test| %>
+  <tr>
+    <td><%= test.task %></td>
+    <td><%= test.screen_question %></td>
+    <td><%= test.screen_solution %></td>
+    <td><%= test.test_language %></td>
+    <td><%= link_to 'Show', test %></td>
+    <td><%= link_to 'Edit', edit_test_path(test) %></td>
+    <td><%= link_to 'Destroy', test, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Test', new_test_path %>

@@ -159,8 +159,28 @@ en:
     WithRenewableEnergy: with renewable energy
     Yoga: Yoga
     YouthHostel: Youth Hostel
-
-
+  choose_language: Choose language for the experiment
+  begin: begin
+  result: result
+  ready: ready
+  next: next
+  thanks: Thanks for your help
+  send: search
+  missing: Please answer every Question
+  of: of
+  feedback: send
+  gender: Gender
+  male: Male
+  female: Female
+  user_name: Last Name, First Name
+  user_mail: E-Mail Address
+  user_parent_language: Languages or Dialects that you have spoken with your parents.
+  user_partner_language: Languages or Dialects that you have spoken with partners or other family members.
+  user_society_language: Languages or Dialects that you have used outside your family.
+  experiment-description-title: a0
+  experiment-description: a1
+  experiment-payment-title: b0
+  experiment-payment: b1
 
 ## Messages for German (Deutsch)
 ## Exported from translatewiki.net

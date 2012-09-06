@@ -71,7 +71,9 @@ class ActivityController < ApplicationController
       minlon = params[:minlon].to_f
       minlat = params[:minlat].to_f
       maxlon = params[:maxlon].to_f
-      maxlat = params[:maxlat].to_f
+      maxlat = params[:maxlat].to_f 
+
+      logger.debug ("=======================================>" + minlon.to_s +  " " + minlat.to_s  + " " + maxlon.to_s + " " + maxlat.to_s)
 
       min_lon, min_lat, max_lon, max_lat = sanitise_boundaries([minlon,minlat, maxlon, maxlat])
       # check boundary is sane and area within defined

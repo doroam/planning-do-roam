@@ -1,0 +1,10 @@
+<h2><%= t("thanks") %></h2>
+<%if params[:feedback].nil?%>
+	<%= form_tag("/end", :method => "get") do %>
+		<%= label_tag("feedback", "Feedback:") %>
+		<br />
+		<%= text_area_tag("feedback", "", :rows => 10, :cols => 45) %>
+		<%= submit_tag(t("feedback")) %>			
+	<% end %>
+<%end%>
+	
