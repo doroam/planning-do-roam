@@ -13,7 +13,7 @@ class Node < ActiveRecord::Base
   has_many :way_nodes
   has_many :ways, :through => :way_nodes
 
-  has_many :node_tags, :foreign_key => :id
+  has_many :node_tags, :foreign_key => :node_id
   
   has_many :old_way_nodes
   has_many :ways_via_history, :class_name=> "Way", :through => :old_way_nodes, :source => :way

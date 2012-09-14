@@ -1,0 +1,103 @@
+grammar Mapping
+	
+	rule mapping
+		(map "," space "\n"*)+
+                {
+                    def content
+                        elements.map{ |e| e.content }
+                    end
+                }
+                        
+	end
+	
+	rule map
+		'(' space class space ',' space "Class" space conzept space ')' /
+		'(' space class space ',' space ')'
+                {
+                    def content
+                        elements.map{ |e| e.content }
+                    end
+                }
+	end
+	
+	rule conzept
+		 exists / not / or / and / atomic
+                {
+                    def content
+                        elements.map{ |e| e.content }
+                    end
+                }
+	end
+	
+	rule not
+		"not " space conzept
+                {
+                    def content
+                        elements.map{ |e| e.content }
+                    end
+                }
+	end
+	
+	rule or
+		"or" white conzept (white conzept)+
+                {
+                    def content
+                        elements.map{ |e| e.content }
+                    end
+                }
+	end
+	
+	rule and
+		"and " (space conzept)+
+                {
+                    def content
+                        elements.map{ |e| e.content }
+                    end
+                }
+	end
+	
+	rule exists
+		"exists" white role space "." space atomic
+                {
+                    def content
+                        elements.map{ |e| e.content }
+                    end
+                }
+	end
+	
+	rule role
+		[a-zA-Z_:]+ 
+                {
+                  def content
+                    [:role, text_value]
+                  end
+                }
+	end
+	
+	rule atomic
+		[a-zA-Z_:]*
+                {
+                  def content
+                    [:atomic, text_value]
+                  end
+                }
+	end
+	
+	rule class
+		"Class " [a-zA-Z_:]+
+                {
+                  def content
+                    [:class, text_value]
+                  end
+                }
+	end
+	
+	rule space
+		[ \n\t]*
+	end
+
+        rule white
+                [ \n\t]+
+        end
+
+end

@@ -1,11 +1,6 @@
 <div class="route" id="route_id">
-	<div class="headline">Route</div><br/>
-	<span style="font-size:12px;">          
-		  <%= render :partial=>"calculate_route/algorithmus_form"%>
-	</span>
-<%= render 'init/form' %>
-<%= link_to "reset zoom","#", :onclick => 'resetCenter();'%>
-<!--%= link_to "get_energy","get_energy"%-->
-<%= render 'activity/index' %>
+	<%= render 'init/form' %>
+	<br />
+	<%= link_to "reset zoom","#", :onclick => 'resetCenter();'%>
 </div>
 <script type="text/javascript">hideWall();</script>

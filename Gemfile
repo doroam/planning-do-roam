@@ -1,5 +1,5 @@
 source 'http://rubygems.org'
-
+gem 'rake', '0.8.7'
 gem 'rails', '3.0.4'
 
 # Bundle edge Rails instead:
@@ -7,11 +7,13 @@ gem 'rails', '3.0.4'
 
 gem 'sqlite3'
 gem 'pg'
-gem 'savon'
+gem 'savon', '0.9.7'
 gem 'libxml-ruby'
 gem 'nokogiri'
 gem 'soap4r'
 #gem 'rmagick-2.12.0-x86-mswin32'
+
+gem 'treetop'
 
 # Use unicorn as the web server
 # gem 'unicorn'

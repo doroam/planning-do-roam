@@ -10,6 +10,60 @@
    TODO customize this sample style
    Syntax recommendation http://www.w3.org/TR/REC-CSS2/
 */
+
+/**
+ * experiment
+ */
+.experiment {
+    border: 1px solid #C0D0FF;
+    margin: 50px;
+    padding: 20px;
+    background-color: #F8F8FF;
+    box-shadow: 0px 0px 3px 1px #ccc;
+    min-width: 660px;
+}
+#registration-form {
+    min-width: 620px;
+}
+#registration-form label {
+    clear: both;
+    display: block;
+    font-size: 10px;
+    font-weight: bold;
+    margin: 15px 0 0 0;
+}
+.form-field {
+    display: block;
+    float: left;
+    margin: 0 0 15px 10px;
+    width: 200px;
+    height: 18px;
+    box-sizing: content-box;
+    line-height: 18px;
+    padding: 2px 4px;
+    font-size: 13px;
+}
+.form-field.first {
+	clear: both;
+    margin-left: 0;
+}
+.form-field.first.last,
+.form-field.first.last {
+    width: 422px;
+}
+.form-submit {
+    clear: both;
+    display: block;
+}
+
+.section-title {
+    margin-bottom: 0;
+}
+.section-paragraph {
+    font-size: 12px;
+    margin-top: 5px;
+}
+
 a:visited{
 	color:#757575;
         font-weight:bolder;
@@ -45,6 +99,18 @@ root {
 table{
 
 }
+h1{
+	margin-top:0px;
+	float:left;
+	font-size:16.5px;
+	font-weight:700;
+}
+#time_restrictions{
+	display:none;
+}
+#duration{
+	display:none;
+}
 .header{
     height:100px;
     width:100%;
@@ -56,9 +122,9 @@ table{
 }
 #map{
     position:absolute;
-    left:280px;        
+    left:290px;       
+    right:0; 
     height: 100%;
-    width: 100%;
     padding: 0;
     margin: 0;
 }
@@ -86,9 +152,17 @@ table{
     overflow-y:auto;
 
 }
+#freetext{
+	width:50%; 
+	margin-bottom:7px;
+	margin-left: 50px;
+}
 
 div.headline{
 	text-align:center;
 	font-weight:bold;
 	font-size:20px;
+}
+td.structured{
+	width:100px;
 }

@@ -68,8 +68,8 @@ function init(lat,lon,zoom) {
     // Other defined layers are OpenLayers.Layer.OSM.Mapnik, OpenLayers.Layer.OSM.Maplint and OpenLayers.Layer.OSM.CycleMap
     layerMapnik = new OpenLayers.Layer.OSM.Mapnik("Mapnik");
     map.addLayer(layerMapnik);
-    layerTilesAtHome = new OpenLayers.Layer.OSM.Osmarender("Osmarender");
-    map.addLayer(layerTilesAtHome);
+    //layerTilesAtHome = new OpenLayers.Layer.OSM.Osmarender("Osmarender"); //Server was shut down
+    //map.addLayer(layerTilesAtHome);
     layerCycleMap = new OpenLayers.Layer.OSM.CycleMap("CycleMap");
     map.addLayer(layerCycleMap);
     layerMarkers = new OpenLayers.Layer.Markers("Markers");
@@ -120,28 +120,96 @@ function handleMapClick(evt)
 /**
  * Shows the route on the map
  * @param fileName of the kml with the route
- *
+ * @param format STRING (GPX|KML|JSON)
  */
-function loadRoute(fileName){
+function loadRoute(fileName, format, range){
     //Delete old route
     removeRoute();
-
     //creates new layer with the route
-    route = new OpenLayers.Layer.Vector("KML", {
-        projection: map.displayProjection,
-        strategies: [new OpenLayers.Strategy.Fixed()],
-        protocol: new OpenLayers.Protocol.HTTP({
-            url: fileName,
-            format: new OpenLayers.Format.KML({
-                extractStyles: true,
-                extractAttributes: true
-            })
-        })
-    });
-
-    //adds the route layer
+    if(format == 'GPX' ){
+    	route = new OpenLayers.Layer.Vector("Route", {
+	    	style: {
+	                strokeColor: "#0000ff",
+	                strokeWidth: 3,
+	                fillOpacity: 0,
+	                cursor: "pointer"
+	            },
+	        projection: map.displayProjection,
+	        strategies: [new OpenLayers.Strategy.Fixed()],
+	        protocol: new OpenLayers.Protocol.HTTP({
+	            url: fileName,
+	            format: new OpenLayers.Format.GPX({
+	                extractStyles: false,
+	                extractAttributes: false
+	            })
+	        })
+	    });
+	//adds the route layer
     map.addLayer(route);
     map.setLayerIndex(route,0);
+ 	}else if(format == 'JSON' ){
+ 		var objects = $j.getJSON(fileName, function(data){
+ 			var route = new OpenLayers.Layer.Vector("Route",
+			     {isBaseLayer: false,
+			       extractAttributes: true 
+			     });
+ 			for (x in data.route_geometry) {
+ 				var mggeom = new OpenLayers.Geometry.Point(data.route_geometry[x][0],data.route_geometry[x][1]);
+ 				var mgfeat = new OpenLayers.Feature.Vector(mggeom);
+ 				route.addFeatures(mgfeat);
+ 			}
+ 			map.addLayer(route);
+   			 map.setLayerIndex(route,0);
+ 		});
+ 			
+
+ 		/*
+ 		prot = new OpenLayers.Protocol.HTTP({
+	            url: fileName,
+	            format: new OpenLayers.Format.GeoJSON({
+	                extractStyles: false,
+	                extractAttributes: false
+	            })
+	       });
+ 		
+    	route = new OpenLayers.Layer.Vector("Route", {
+	    	style: {
+	                strokeColor: "#0000ff",
+	                strokeWidth: 3,
+	                fillOpacity: 0,
+	                cursor: "pointer"
+	            },
+	        projection: map.displayProjection,
+	        strategies: [new OpenLayers.Strategy.Fixed()],
+	        protocol: prot
+	    });
+	//adds the route layer*/
+ } else if(format == 'KML'){
+ 	for(i=0; i<=range;i++){
+ 		temp = fileName.split('?');
+ 		file = temp[0]+i+'?'+temp[1];
+ 		route = new OpenLayers.Layer.Vector("Route"+i, {
+	    	style: {
+	                strokeColor: "#0000ff",
+	                strokeWidth: 3,
+	                fillOpacity: 0,
+	                cursor: "pointer"
+	            },
+	        projection: map.displayProjection,
+	        strategies: [new OpenLayers.Strategy.Fixed()],
+	        protocol: new OpenLayers.Protocol.HTTP({
+	            url: file,
+	            format: new OpenLayers.Format.KML({
+	                extractStyles: false,
+	                extractAttributes: false
+	            })
+	        })
+	    });
+	    //adds the route layer
+   	 	map.addLayer(route);
+    	map.setLayerIndex(route,0);
+	 }
+ }
     //wait for the route to be displayed before
     //hiding the loading panel
     setTimeout ( "hideWall();", 1500 );
@@ -151,6 +219,8 @@ function loadRoute(fileName){
         map.zoomToExtent(route.getDataExtent());
     });
 }
+
+
 function closeActivityResults(){
     removeTempMarkers();
     YAHOO.yuiObjectContainer.standardDialog.setBody("");
@@ -171,7 +241,7 @@ function reloadMarkers(){
         && YAHOO.yuiObjectContainer.standardDialog
         && YAHOO.yuiObjectContainer.standardDialog.cfg.getProperty('visible')){
         elem.innerHTML = loading;
-        var url = "/ontosearch";
+        var url = "/activity/search";
         var extent = getMapExtent();
         new Ajax.Request(url,{
             //onSuccess: function(o){showDialog(dialog);},
@@ -434,4 +504,23 @@ function testInit(){
     map.addLayer(layerMarkers);
 }
 
+function readyToCreateRoute(){
+	//if start and endpoint are set
+	if((document.getElementById("start_query").value != "") && (document.getElementById("end_query").value != "")){
+		document.getElementById("calculate_route").disabled = false;
+	} else {
+		document.getElementById("calculate_route").disabled = true;
+	}
+}
 
+function algoContent(){
+	if($j("#setAlgorithmus").val() == "energy") {
+		$j("#energy_form").slideDown();
+	} else {
+		$j("#energy_form").slideUp();
+	}
+}
+		
+function toggleStructured(){
+	$j(".structured").slideToggle();
+}

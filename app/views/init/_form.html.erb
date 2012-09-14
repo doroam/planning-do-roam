@@ -1,21 +1,16 @@
-<%
-route = Route.find(session[:main_route])
-%>
-<br/>
-<span class="info_text">
-		Please input your coordinates or place, <br />
-		or click into the map to set coordinates.<br /><br />
-		<%=t(:example)%>: <br />"53.075890890852:8.8073324576725" <br />
-		or "Central Station" </span>
-<table>
-
-  <tr><td width="80px">Start:</td><td>
-  	 	
-  <%= render :partial => 'point/point_form',:locals => {:point => route.start_point,:type => 'start',:action_url=>"/search"} %>
-
-</td></tr>
-<tr><td><%=t(:destination)%>:</td><td>
-  
-<%= render :partial => 'point/point_form',:locals => {:point => route.end_point,:type => 'end',:action_url=>"/search"}%>
-</td></tr>
-</table>
+<a href="#" onclick="toggleStructured()">Structured input</a>
+<div style="display:none" class="structured">
+	<table>
+		<tr><td>Start:</td><td align="right" id="start">
+	  		<%= render :partial => 'init/point_form',:locals => {:point => @route.start_point,:type => 'start',:action_url=>"/search"} %>
+		</td></tr>
+		<%= render 'activity/activity' %>
+		<tr id="add_waypoint"><td colspan="2">
+		<%= link_to image_tag("add.png", :border=>0,:class => "delete"), "#", :remote => true,:onclick=>'showOntology();'%> <%= t("add_activity_or_waypoint")%>
+		</td></tr>
+		<tr><td>Destination:</td><td align="right" id="end">
+			<%= render :partial => 'init/point_form',:locals => {:point => @route.end_point,:type => 'end',:action_url=>"/search"}%>
+		</td></tr>
+	</table>        
+	<%= render :partial=>"calculate_route/algorithmus_form"%>
+</div>

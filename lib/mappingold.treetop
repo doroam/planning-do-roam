@@ -1,0 +1,30 @@
+grammar Mapping
+	rule map
+		( 
+			'('
+				( 
+					(class ', Class ' property) /
+					(class ", Class or" white "\n" property+) /
+					(class ', ' class) /
+					(class ',' white)
+				) 
+			'),' "\n"* 
+		)*
+	end
+	rule class
+		"Class " [a-zA-Z_]+
+	end
+	rule property
+		(white "exists " key ' . ' value "\n") /
+		(white "exists " key ' . ' value)
+	end
+	rule key
+		"has_k_" [a-zA-Z_:]+
+	end
+	rule value
+		"v_" [a-zA-Z_:]+
+	end
+	rule white
+		' '*
+	end
+end	

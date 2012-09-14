@@ -8,6 +8,22 @@ class OntologyMapping < ActiveRecord::Base
   has_many :ontology_mapping_elements, :dependent => :destroy
   belongs_to :source, :foreign_key => :source_id, :class_name => 'Ontology'
   belongs_to :target, :foreign_key => :target_id, :class_name => 'Ontology'
+  require 'treetop'
+  require 'pp'
+#  require 'lib/mapping.rb'
+ 
+  def self.read_mapping_new(filename, name, s, t)
+    Treetop.load "lib/mapping"
+    parser = MappingParser.new
+    puts "test"
+    
+    if(p = parser.parse(File.read(filename)))
+      puts "success"
+      pp p
+    else
+      puts "fail"
+    end
+  end
   
   # read in an ontology mapping as output by the Heterogeneous Tool Set
   def self.read_mapping(filename,name,s,t)
@@ -44,24 +60,19 @@ class OntologyMapping < ActiveRecord::Base
   end
   
   # find all nodetags that correspond (via the mapping) to a given class
-  def nodetags_search(c) 
+  def nodetags_search(c)
     if c.name=="Thing"
       return nil
     end
     d = self.map_class(c)
-
     if d.nil?
       return nil
     end
 
-    name = d.name
-    tag = name[2,name.size-2]
-
-    search = case name[0]
-      when 'k' then {:k=>tag}
-      when 'v' then {:v=>tag}
-      else nil
-    end    
+    tag = d.name[2,name.size-2]
+    search = nil
+    search = if d.name.starts_with?('k') then {:k => tag} end
+    search = if d.name.starts_with?('v') then {:v => tag} end  
     search
   end
      

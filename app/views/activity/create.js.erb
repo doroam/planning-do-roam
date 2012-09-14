@@ -1,8 +1,10 @@
 removeMarks();
 removeTempMarkers();
-<%=Route.find(session[:main_route]).show_markers()%>
-var elem = document.getElementById('route_id');
-elem.innerHTML = "<%= escape_javascript(render(:partial => 'init/menu'))%>";
+<%=@route.show_markers()%>
+//var elem = document.getElementById('activitiy');
+$j(".activity").remove();
+$j("#add_waypoint").before("<%= escape_javascript(render(:partial => 'activity'))%>")
+//elem.innerHTML = "<%= escape_javascript(render(:partial => 'activity'))%>";
 hideDialog();
 zoomToMarkers();
 hideWall();

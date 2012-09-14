@@ -1,5 +1,12 @@
 removeMarks();
-<%=Route.find(session[:main_route]).show_markers()%>
-var elem = document.getElementById('route_id');
-elem.innerHTML = "<%= escape_javascript(render(:partial => 'init/menu'))%>";
+<%=@route.show_markers()%>
+var elem = document.getElementById('<%=@type%>');
+elem.innerHTML = "<%= 
+if @type == "start"
+escape_javascript(render(:partial => 'init/point_form',:locals => {:point => @route.start_point,:type => 'start',:action_url=>"/search"}))
+else @type == "end"
+escape_javascript(render(:partial => 'init/point_form',:locals => {:point => @route.end_point,:type => 'end',:action_url=>"/search"}))	
+end
+%>";
+document.getElementById("calculate_route").disabled = true;
 hideWall();

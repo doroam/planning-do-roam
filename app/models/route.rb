@@ -1,7 +1,19 @@
+    # t.string   "algorithmus"
+    # t.string   "sort"
+    # t.string   "kml_path"
+    # t.string   "optimization"
+    # t.string   "car_type"
+    # t.float    "charge"
+    # t.integer  "start_point_id"
+    # t.integer  "end_point_id"
+    # t.datetime "created_at"
+    # t.datetime "updated_at"
+
 class Route < ActiveRecord::Base
   include RouteHelper
 
   has_many :activities
+  has_many :points, :dependent => :destroy
 
   #contains the main information of the application
   GLOBAL_FIELD_NAME     = Global::GLOBAL_FIELD_NAME
@@ -15,9 +27,10 @@ class Route < ActiveRecord::Base
   def initialize(*params)
     super(*params)
     self.sort = "false"
-    self.algorithmus = "A*"
+    self.algorithmus = "OSRM"
     self.optimization = "ENERGY"
     self.car_type = "STROMOS"
+    self.format = "GPX"
     point = Point.new()
     point.save
     self.start_point_id = point.id
@@ -86,9 +99,17 @@ class Route < ActiveRecord::Base
 
     #adds the route if there is one
     if kml_path != nil && !kml_path.eql?("")
-      script += "loadRoute('"+kml_path+"');"
+      if self.algorithmus == "yours" then range = ", #{self.activities.size}" end
+      script += "loadRoute('"+kml_path+"', '#{self.format}'#{range});"
     end
     return script
+  end
+  
+  def setCalc(sort, algorithmus, optimization, car_type)
+    self.sort = sort
+    self.algorithmus = algorithmus
+    self.optimization = optimization
+    self.car_type = car_type
   end
 
 end

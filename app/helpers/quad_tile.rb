@@ -61,7 +61,6 @@ module QuadTile
   def self.iterate_tiles_for_area(minlat, minlon, maxlat, maxlon)
     tiles = tiles_for_area(minlat, minlon, maxlat, maxlon)
     first = last = nil
-
     tiles.sort.each do |tile|
       if last.nil?
         first = last = tile
@@ -73,7 +72,6 @@ module QuadTile
         first = last = tile
       end
     end
-
     yield first, last unless last.nil?
   end
 

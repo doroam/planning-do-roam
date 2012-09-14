@@ -3,6 +3,8 @@ class GeocoderController < ApplicationController
   require 'uri'
   require 'net/http'
   require 'rexml/document'
+  include GeocoderHelper
+  
   def search
     #@sources = Array.new
     #@sources.push "osm_nominatim"
@@ -16,6 +18,7 @@ class GeocoderController < ApplicationController
     end
 
   end
+  
   def get_results(url)
     # get query parameters
     query = params[:query]
@@ -72,17 +75,5 @@ class GeocoderController < ApplicationController
   rescue Exception => ex
     p "Error contacting nominatim.openstreetmap.org: #{ex.to_s}"
     @results = Array.new
-  end
-
-  def fetch_text(url)
-    return Net::HTTP.get(URI.parse(url))
-  end
-
-  def fetch_xml(url)
-    return REXML::Document.new(fetch_text(url))
-  end
-
-  def escape_query(query)
-    return URI.escape(query, Regexp.new("[^#{URI::PATTERN::UNRESERVED}]", false, 'N'))
   end
 end

@@ -17,7 +17,6 @@ class Ontology < ActiveRecord::Base
   def self.read_ontology(filename,ontologyname)
     xmlfile = File.open(filename)
     xmldoc = Document.new(xmlfile)
-    root = xmldoc.root
     classes = {}
     o = Ontology.create({:name => ontologyname})
     xmldoc.elements.each("rdf:RDF/owl:Class") do |e|

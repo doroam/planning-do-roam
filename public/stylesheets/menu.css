@@ -6,7 +6,7 @@
 /* first level */
 #menu { width: 120px; float:left;}
 #menu li,
-#menu a { float: left; width: 170px; }
+#menu a { float: left; width: 175px; }
 #menu a { display: block; background: #EEE; }
 #menu a:hover,
 #menu a.menu_open { background: #DDD; }

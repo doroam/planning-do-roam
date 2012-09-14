@@ -191,24 +191,22 @@ function showOntology(){
     //render popup
     YAHOO.yuiObjectContainer.ontology.render(document.body);
 
-    var params = new Array();
-    params[0]  = ["url","ontology/content"];
-    var url = buildUrl("/load_content", params);
-    loadContent(url,"ontology_div");
+    loadContent("activity/list","ontology_div");
     YAHOO.yuiObjectContainer.ontology.show();
 }
+
 function hideOntology(){
     if(YAHOO.yuiObjectContainer.ontology)
         YAHOO.yuiObjectContainer.ontology.hide();
 }
 
 function reloadRouteFields(){
-    showWall();
+    //showWall();
     removeTempMarkers();
     var params = new Array();
     params[0]  = ["url","init/menu"];
     var url = buildUrl("/load_content", params);
-    loadContent(url,"route_id");
+    //loadContent(url,"route_id");
 }
 
 function makeDialogAt(e,div_id){
