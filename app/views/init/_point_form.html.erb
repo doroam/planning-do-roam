@@ -1,0 +1,23 @@
+<span class="pointInput" id="<%=type%>_id">
+<%= form_tag('/search',:id => type+"_form_id",
+              :onsubmit => "setBBox('"+type+"_form_id');",
+              :remote => true) do %>
+			<%= text_field_tag type+"_query",point.label, :style=> "width:150px;", :name => "query" %>
+        <%= hidden_field_tag :type, type %>
+        <%= hidden_field_tag :minlon %>
+        <%= hidden_field_tag :minlat %>
+        <%= hidden_field_tag :maxlon %>
+        <%= hidden_field_tag :maxlat %>
+        <%= hidden_field_tag :zoom %>
+</span>
+</td>
+<td>
+    <%if point != nil && point.label != nil && (!point.label.eql? "")%>
+		<%= # link to remove that activity
+          link_to image_tag("delete.gif", :border=>0,:class => "delete"),
+                        {:controller => :point,
+                        :action => :remove_point,
+                        :delete_point => type},
+                        :remote => true%>
+	<% end%>
+<% end%>

@@ -1,0 +1,14 @@
+<table style="width:100%">
+	<tr><td>Optimization:</td><td align="right"><%=
+			select_tag "optimization",
+	      	options_from_collection_for_select(@optimization_list,"value","tag",@route.optimization),
+			:style=>"width:117px;"
+		%>
+	</td></tr>
+	<tr><td>Car Type:</td><td align="right"><%=
+			select_tag "car_type",
+	        options_from_collection_for_select(@car_type,"value","tag",@route.car_type),
+			:style=>"width:117px;"
+		%>
+	</td></tr>
+</table>

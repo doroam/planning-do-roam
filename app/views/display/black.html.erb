@@ -1,0 +1,24 @@
+<br>
+
+<ol>
+       
+<%@result.each do |data, test|%>
+  
+       <li>
+           <p><%= test.task%></p>
+           <ul>
+                <li><%= data.answer%></li>
+           </ul>
+      </li>
+
+
+
+<%end%>    
+<li>
+<p>Feedback</p>
+<ul>
+<li><%= @user2.feedback %></li>
+</ul>
+</li>   
+</ol>
+

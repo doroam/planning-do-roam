@@ -1,0 +1,37 @@
+<%   #sets the nearest markers
+if @route.algorithmus != "osrm" && @route.algorithmus != "yours"
+  start_lat = 0.0
+  start_lon = 0.0
+  end_lat = 0.0
+  end_lon = 0.0
+  if @result.nearest_start!=nil
+    point = @result.nearest_start
+    start_lat = point.lat
+    start_lon = point.lon
+    type = "nearest_src"%>
+    addMark("<%=point.label%>","<%=start_lat%>","<%=start_lon%>","<%=type%>");
+  <%end
+  if @result.nearest_end!=nil
+    point = res.nearest_end
+    end_lat = point.lat
+    end_lon = point.lon
+    type = "nearest_target"
+  %>
+  addMark("<%=point.label%>","<%=end_lat%>","<%=end_lon%>","<%=type%>");
+  <%end%>
+<%end%>
+<%if @route.algorithmus == "yours"%>
+loadRoute('<%=@route.kml_path%>', '<%=@route.format%>', <%=@i%>);
+<%else%>
+loadRoute('<%=@route.kml_path%>', '<%=@route.format%>');
+<%end%>
+<%error_msg = "The next paths could not be found.";
+if @route.algorithmus != "osrm" && @route.algorithmus != "yours"
+  @result.errors.each do |error|
+      error_msg += "\n"+error+"."
+  end
+  if @result.errors.length>0%>
+    alert('<%=escape_javascript(error_msg)%>');
+ <%end%>
+<%end%>
+

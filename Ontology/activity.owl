@@ -1,0 +1,2081 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY my-ecar "https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#"
+     xml:base="https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:my-ecar="https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#">
+    <owl:Ontology rdf:about=""/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#HasOwner -->
+
+    <owl:ObjectProperty rdf:about="#HasOwner">
+        <rdfs:domain rdf:resource="#ATM"/>
+        <rdfs:range rdf:resource="#Bank"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#hasCuisine -->
+
+    <owl:ObjectProperty rdf:about="#hasCuisine">
+        <rdfs:domain rdf:resource="#Gastronomy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#hasCuisineofNationality -->
+
+    <owl:ObjectProperty rdf:about="#hasCuisineofNationality">
+        <rdfs:domain rdf:resource="#Gastronomy"/>
+        <rdfs:range rdf:resource="#Nationality"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#hasNationality -->
+
+    <owl:ObjectProperty rdf:about="#hasNationality">
+        <rdfs:range rdf:resource="#Nationality"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#has_address -->
+
+    <owl:ObjectProperty rdf:about="#has_address">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="#Address"/>
+        <rdfs:domain rdf:resource="#Places_for_activities"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#has_opening_hour -->
+
+    <owl:ObjectProperty rdf:about="#has_opening_hour">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="#OpeningHours"/>
+        <rdfs:domain rdf:resource="#Places_for_activities"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#you_have_to_pay -->
+
+    <owl:ObjectProperty rdf:about="#you_have_to_pay">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#Places_for_activities"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#ATM -->
+
+    <owl:Class rdf:about="#ATM">
+        <rdfs:subClassOf rdf:resource="#Finance"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Accommodation -->
+
+    <owl:Class rdf:about="#Accommodation">
+        <rdfs:subClassOf rdf:resource="#Tourism"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Address -->
+
+    <owl:Class rdf:about="#Address"/>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Albanian -->
+
+    <owl:Class rdf:about="#Albanian">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#American -->
+
+    <owl:Class rdf:about="#American">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Anaesthesiology -->
+
+    <owl:Class rdf:about="#Anaesthesiology">
+        <rdfs:subClassOf rdf:resource="#Doctor"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Angiology -->
+
+    <owl:Class rdf:about="#Angiology">
+        <rdfs:subClassOf rdf:resource="#InternalMedicine"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Argentinian -->
+
+    <owl:Class rdf:about="#Argentinian">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Armenian -->
+
+    <owl:Class rdf:about="#Armenian">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#ArtGallery -->
+
+    <owl:Class rdf:about="#ArtGallery">
+        <rdfs:subClassOf rdf:resource="#Leisure"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Australian -->
+
+    <owl:Class rdf:about="#Australian">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Bakery -->
+
+    <owl:Class rdf:about="#Bakery">
+        <rdfs:subClassOf rdf:resource="#Food"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Ballroom -->
+
+    <owl:Class rdf:about="#Ballroom">
+        <rdfs:subClassOf rdf:resource="#Dance"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Bank -->
+
+    <owl:Class rdf:about="#Bank">
+        <rdfs:subClassOf rdf:resource="#Finance"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Bar -->
+
+    <owl:Class rdf:about="#Bar">
+        <rdfs:subClassOf rdf:resource="#Gastronomy"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Belgian -->
+
+    <owl:Class rdf:about="#Belgian">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#BicycleRental -->
+
+    <owl:Class rdf:about="#BicycleRental">
+        <rdfs:subClassOf rdf:resource="#PublicTransport"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#BillardsAndPool -->
+
+    <owl:Class rdf:about="#BillardsAndPool">
+        <rdfs:subClassOf rdf:resource="#Pleasure"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Biochemistry -->
+
+    <owl:Class rdf:about="#Biochemistry">
+        <rdfs:subClassOf rdf:resource="#Doctor"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Bookstore -->
+
+    <owl:Class rdf:about="#Bookstore">
+        <rdfs:subClassOf rdf:resource="#Shopping"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Bosnian -->
+
+    <owl:Class rdf:about="#Bosnian">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Bowling -->
+
+    <owl:Class rdf:about="#Bowling">
+        <rdfs:subClassOf rdf:resource="#Pleasure"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Brazilian -->
+
+    <owl:Class rdf:about="#Brazilian">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#British -->
+
+    <owl:Class rdf:about="#British">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Bulgarian -->
+
+    <owl:Class rdf:about="#Bulgarian">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Burmese -->
+
+    <owl:Class rdf:about="#Burmese">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#BusStop -->
+
+    <owl:Class rdf:about="#BusStop">
+        <rdfs:subClassOf rdf:resource="#PublicTransport"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Butcher -->
+
+    <owl:Class rdf:about="#Butcher">
+        <rdfs:subClassOf rdf:resource="#Food"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Cafe -->
+
+    <owl:Class rdf:about="#Cafe">
+        <rdfs:subClassOf rdf:resource="#Gastronomy"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Cameroonian -->
+
+    <owl:Class rdf:about="#Cameroonian">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Camping -->
+
+    <owl:Class rdf:about="#Camping">
+        <rdfs:subClassOf rdf:resource="#Accommodation"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#CarSharing -->
+
+    <owl:Class rdf:about="#CarSharing">
+        <rdfs:subClassOf rdf:resource="#PublicTransport"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Cardiology -->
+
+    <owl:Class rdf:about="#Cardiology">
+        <rdfs:subClassOf rdf:resource="#InternalMedicine"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Castle -->
+
+    <owl:Class rdf:about="#Castle">
+        <rdfs:subClassOf rdf:resource="#PlaceOfInterest"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#ChargingStation -->
+
+    <owl:Class rdf:about="#ChargingStation">
+        <rdfs:subClassOf rdf:resource="#Places_for_activities"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#ChildrensAndAdolescentMedicine -->
+
+    <owl:Class rdf:about="#ChildrensAndAdolescentMedicine">
+        <rdfs:subClassOf rdf:resource="#Doctor"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#ChildrensAndYouthPsychology -->
+
+    <owl:Class rdf:about="#ChildrensAndYouthPsychology">
+        <rdfs:subClassOf rdf:resource="#ChildrensAndAdolescentMedicine"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Chilean -->
+
+    <owl:Class rdf:about="#Chilean">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Chinese -->
+
+    <owl:Class rdf:about="#Chinese">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Church -->
+
+    <owl:Class rdf:about="#Church">
+        <rdfs:subClassOf rdf:resource="#PlaceOfWorship"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Cinema -->
+
+    <owl:Class rdf:about="#Cinema">
+        <rdfs:subClassOf rdf:resource="#Leisure"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#CivilService -->
+
+    <owl:Class rdf:about="#CivilService">
+        <rdfs:subClassOf rdf:resource="#Places_for_activities"/>
+        <rdfs:comment
+            >includes all public and administrative establishments</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Climbing -->
+
+    <owl:Class rdf:about="#Climbing">
+        <rdfs:subClassOf rdf:resource="#SportAndFitness"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#ClinicalPharmacology -->
+
+    <owl:Class rdf:about="#ClinicalPharmacology">
+        <rdfs:subClassOf rdf:resource="#Doctor"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Clothing -->
+
+    <owl:Class rdf:about="#Clothing">
+        <rdfs:subClassOf rdf:resource="#Shopping"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#College -->
+
+    <owl:Class rdf:about="#College">
+        <rdfs:subClassOf rdf:resource="#Education"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Colombian -->
+
+    <owl:Class rdf:about="#Colombian">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Computer -->
+
+    <owl:Class rdf:about="#Computer">
+        <rdfs:subClassOf rdf:resource="#Electronics"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Cosmetics -->
+
+    <owl:Class rdf:about="#Cosmetics">
+        <rdfs:subClassOf rdf:resource="#Places_for_activities"/>
+        <rdfs:comment
+            >generic term for ranges of services of beauty</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Cuban -->
+
+    <owl:Class rdf:about="#Cuban">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Cuisine -->
+
+    <owl:Class rdf:about="#Cuisine">
+        <rdfs:subClassOf rdf:resource="#Gastronomy"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Dance -->
+
+    <owl:Class rdf:about="#Dance">
+        <rdfs:subClassOf rdf:resource="#Pleasure"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#DanceClass -->
+
+    <owl:Class rdf:about="#DanceClass">
+        <rdfs:subClassOf rdf:resource="#Dance"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#DanceClub -->
+
+    <owl:Class rdf:about="#DanceClub">
+        <rdfs:subClassOf rdf:resource="#Dance"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Danish -->
+
+    <owl:Class rdf:about="#Danish">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Delicatessen -->
+
+    <owl:Class rdf:about="#Delicatessen">
+        <rdfs:subClassOf rdf:resource="#Food"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Dentistry -->
+
+    <owl:Class rdf:about="#Dentistry">
+        <rdfs:subClassOf rdf:resource="#Doctor"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#DiagnosticRadiology -->
+
+    <owl:Class rdf:about="#DiagnosticRadiology">
+        <rdfs:subClassOf rdf:resource="#Radiology"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Doctor -->
+
+    <owl:Class rdf:about="#Doctor">
+        <rdfs:subClassOf rdf:resource="#Health"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#DrivingSchool -->
+
+    <owl:Class rdf:about="#DrivingSchool">
+        <rdfs:subClassOf rdf:resource="#Education"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Drugstore -->
+
+    <owl:Class rdf:about="#Drugstore">
+        <rdfs:subClassOf rdf:resource="#Shopping"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#EarNoseThroatMedicine -->
+
+    <owl:Class rdf:about="#EarNoseThroatMedicine">
+        <rdfs:subClassOf rdf:resource="#Doctor"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Education -->
+
+    <owl:Class rdf:about="#Education">
+        <rdfs:subClassOf rdf:resource="#Places_for_activities"/>
+        <rdfs:comment
+            >establishments where one can learn about some facts and methods</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Egyptian -->
+
+    <owl:Class rdf:about="#Egyptian">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Electronics -->
+
+    <owl:Class rdf:about="#Electronics">
+        <rdfs:subClassOf rdf:resource="#Shopping"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Endocrinology -->
+
+    <owl:Class rdf:about="#Endocrinology">
+        <rdfs:subClassOf rdf:resource="#InternalMedicine"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Ethiopian -->
+
+    <owl:Class rdf:about="#Ethiopian">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Exchange -->
+
+    <owl:Class rdf:about="#Exchange">
+        <rdfs:subClassOf rdf:resource="#Finance"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#FastFood -->
+
+    <owl:Class rdf:about="#FastFood">
+        <rdfs:subClassOf rdf:resource="#Cuisine"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Finance -->
+
+    <owl:Class rdf:about="#Finance">
+        <rdfs:subClassOf rdf:resource="#Places_for_activities"/>
+        <rdfs:comment
+            >locations for drawing out, banking, changing and tranfering money</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Finnish -->
+
+    <owl:Class rdf:about="#Finnish">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Fish -->
+
+    <owl:Class rdf:about="#Fish">
+        <rdfs:subClassOf rdf:resource="#Food"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#FitnessStudio -->
+
+    <owl:Class rdf:about="#FitnessStudio">
+        <rdfs:subClassOf rdf:resource="#SportAndFitness"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#FleaMarket -->
+
+    <owl:Class rdf:about="#FleaMarket">
+        <rdfs:subClassOf rdf:resource="#Shopping"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Flowers -->
+
+    <owl:Class rdf:about="#Flowers">
+        <rdfs:subClassOf rdf:resource="#Shopping"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Food -->
+
+    <owl:Class rdf:about="#Food">
+        <rdfs:subClassOf rdf:resource="#Shopping"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Forest -->
+
+    <owl:Class rdf:about="#Forest">
+        <rdfs:subClassOf rdf:resource="#Landscape"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#French -->
+
+    <owl:Class rdf:about="#French">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Furniture -->
+
+    <owl:Class rdf:about="#Furniture">
+        <rdfs:subClassOf rdf:resource="#Shopping"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Gastroenterology -->
+
+    <owl:Class rdf:about="#Gastroenterology">
+        <rdfs:subClassOf rdf:resource="#InternalMedicine"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Gastronomy -->
+
+    <owl:Class rdf:about="#Gastronomy">
+        <rdfs:subClassOf rdf:resource="#Places_for_activities"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#GeneralChildrensAndAdolescentMedicine -->
+
+    <owl:Class rdf:about="#GeneralChildrensAndAdolescentMedicine">
+        <rdfs:subClassOf rdf:resource="#ChildrensAndAdolescentMedicine"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#GeneralInternalMedicine -->
+
+    <owl:Class rdf:about="#GeneralInternalMedicine">
+        <rdfs:subClassOf rdf:resource="#InternalMedicine"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#GeneralMedicine -->
+
+    <owl:Class rdf:about="#GeneralMedicine">
+        <rdfs:subClassOf rdf:resource="#Doctor"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#GeneralOrthopedics -->
+
+    <owl:Class rdf:about="#GeneralOrthopedics">
+        <rdfs:subClassOf rdf:resource="#Orthopedics"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#GeneralPathology -->
+
+    <owl:Class rdf:about="#GeneralPathology">
+        <rdfs:subClassOf rdf:resource="#Pathology"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#GeneralRadiology -->
+
+    <owl:Class rdf:about="#GeneralRadiology">
+        <rdfs:subClassOf rdf:resource="#Radiology"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#GeneralSurgery -->
+
+    <owl:Class rdf:about="#GeneralSurgery">
+        <rdfs:subClassOf rdf:resource="#Surgery"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Georgian -->
+
+    <owl:Class rdf:about="#Georgian">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#German -->
+
+    <owl:Class rdf:about="#German">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#GolfCourse -->
+
+    <owl:Class rdf:about="#GolfCourse">
+        <rdfs:subClassOf rdf:resource="#SportAndFitness"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Greek -->
+
+    <owl:Class rdf:about="#Greek">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Guestroom -->
+
+    <owl:Class rdf:about="#Guestroom">
+        <rdfs:subClassOf rdf:resource="#Accommodation"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Gynecology -->
+
+    <owl:Class rdf:about="#Gynecology">
+        <rdfs:subClassOf rdf:resource="#WomensHealth"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#HairRemoval -->
+
+    <owl:Class rdf:about="#HairRemoval">
+        <rdfs:subClassOf rdf:resource="#Cosmetics"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Hairdresser -->
+
+    <owl:Class rdf:about="#Hairdresser">
+        <rdfs:subClassOf rdf:resource="#Cosmetics"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Health -->
+
+    <owl:Class rdf:about="#Health">
+        <rdfs:subClassOf rdf:resource="#Places_for_activities"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#HeartSurgery -->
+
+    <owl:Class rdf:about="#HeartSurgery">
+        <rdfs:subClassOf rdf:resource="#Surgery"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#HematologyAndOncology -->
+
+    <owl:Class rdf:about="#HematologyAndOncology">
+        <rdfs:subClassOf rdf:resource="#InternalMedicine"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Hiking -->
+
+    <owl:Class rdf:about="#Hiking">
+        <rdfs:subClassOf rdf:resource="#SportAndFitness"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Homeopathy -->
+
+    <owl:Class rdf:about="#Homeopathy">
+        <rdfs:subClassOf rdf:resource="#Doctor"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#HorsebackRiding -->
+
+    <owl:Class rdf:about="#HorsebackRiding">
+        <rdfs:subClassOf rdf:resource="#SportAndFitness"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Hospital -->
+
+    <owl:Class rdf:about="#Hospital">
+        <rdfs:subClassOf rdf:resource="#Health"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Hostel -->
+
+    <owl:Class rdf:about="#Hostel">
+        <rdfs:subClassOf rdf:resource="#Accommodation"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Hotel -->
+
+    <owl:Class rdf:about="#Hotel">
+        <rdfs:subClassOf rdf:resource="#Accommodation"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#HouseholdGoods -->
+
+    <owl:Class rdf:about="#HouseholdGoods">
+        <rdfs:subClassOf rdf:resource="#Shopping"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#HumanGenetics -->
+
+    <owl:Class rdf:about="#HumanGenetics">
+        <rdfs:subClassOf rdf:resource="#Doctor"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Indian -->
+
+    <owl:Class rdf:about="#Indian">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#InformationService -->
+
+    <owl:Class rdf:about="#InformationService">
+        <rdfs:subClassOf rdf:resource="#Tourism"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#InternalMedicine -->
+
+    <owl:Class rdf:about="#InternalMedicine">
+        <rdfs:subClassOf rdf:resource="#Doctor"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Iraqi -->
+
+    <owl:Class rdf:about="#Iraqi">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Irish -->
+
+    <owl:Class rdf:about="#Irish">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Israeli -->
+
+    <owl:Class rdf:about="#Israeli">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Italian -->
+
+    <owl:Class rdf:about="#Italian">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Japanese -->
+
+    <owl:Class rdf:about="#Japanese">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Karaoke -->
+
+    <owl:Class rdf:about="#Karaoke">
+        <rdfs:subClassOf rdf:resource="#Pleasure"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Kindergarten -->
+
+    <owl:Class rdf:about="#Kindergarten">
+        <rdfs:subClassOf rdf:resource="#Education"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Korean -->
+
+    <owl:Class rdf:about="#Korean">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#LaboratoryMedicine -->
+
+    <owl:Class rdf:about="#LaboratoryMedicine">
+        <rdfs:subClassOf rdf:resource="#Doctor"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Lake -->
+
+    <owl:Class rdf:about="#Lake">
+        <rdfs:subClassOf rdf:resource="#Landscape"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Landscape -->
+
+    <owl:Class rdf:about="#Landscape">
+        <rdfs:subClassOf rdf:resource="#Places_for_activities"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Leisure -->
+
+    <owl:Class rdf:about="#Leisure">
+        <rdfs:subClassOf rdf:resource="#Places_for_activities"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Library -->
+
+    <owl:Class rdf:about="#Library">
+        <rdfs:subClassOf rdf:resource="#CivilService"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Lingerie -->
+
+    <owl:Class rdf:about="#Lingerie">
+        <rdfs:subClassOf rdf:resource="#Clothing"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#LiveMusic -->
+
+    <owl:Class rdf:about="#LiveMusic">
+        <rdfs:subClassOf rdf:resource="#Pleasure"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Mailbox -->
+
+    <owl:Class rdf:about="#Mailbox">
+        <rdfs:subClassOf rdf:resource="#CivilService"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Mall -->
+
+    <owl:Class rdf:about="#Mall">
+        <rdfs:subClassOf rdf:resource="#Shopping"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#ManicureSalon -->
+
+    <owl:Class rdf:about="#ManicureSalon">
+        <rdfs:subClassOf rdf:resource="#Cosmetics"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#MarketForBabiesAndChildren -->
+
+    <owl:Class rdf:about="#MarketForBabiesAndChildren">
+        <rdfs:subClassOf rdf:resource="#Shopping"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Massage -->
+
+    <owl:Class rdf:about="#Massage">
+        <rdfs:subClassOf rdf:resource="#Wellness"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Mexican -->
+
+    <owl:Class rdf:about="#Mexican">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#MicrobiologyAndInfectionsEpidemiology -->
+
+    <owl:Class rdf:about="#MicrobiologyAndInfectionsEpidemiology">
+        <rdfs:subClassOf rdf:resource="#Doctor"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#MiddleAndUpperSchool -->
+
+    <owl:Class rdf:about="#MiddleAndUpperSchool">
+        <rdfs:subClassOf rdf:resource="#Education"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#MiniGolf -->
+
+    <owl:Class rdf:about="#MiniGolf">
+        <rdfs:subClassOf rdf:resource="#Pleasure"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#MobilePhone -->
+
+    <owl:Class rdf:about="#MobilePhone">
+        <rdfs:subClassOf rdf:resource="#Electronics"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Mosque -->
+
+    <owl:Class rdf:about="#Mosque">
+        <rdfs:subClassOf rdf:resource="#PlaceOfWorship"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Motel -->
+
+    <owl:Class rdf:about="#Motel">
+        <rdfs:subClassOf rdf:resource="#Accommodation"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Mountain -->
+
+    <owl:Class rdf:about="#Mountain">
+        <rdfs:subClassOf rdf:resource="#Landscape"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Museum -->
+
+    <owl:Class rdf:about="#Museum">
+        <rdfs:subClassOf rdf:resource="#Leisure"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Musicstore -->
+
+    <owl:Class rdf:about="#Musicstore">
+        <rdfs:subClassOf rdf:resource="#Shopping"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Nationality -->
+
+    <owl:Class rdf:about="#Nationality"/>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Neonatology -->
+
+    <owl:Class rdf:about="#Neonatology">
+        <rdfs:subClassOf rdf:resource="#ChildrensAndAdolescentMedicine"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Nepalese -->
+
+    <owl:Class rdf:about="#Nepalese">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Nephrology -->
+
+    <owl:Class rdf:about="#Nephrology">
+        <rdfs:subClassOf rdf:resource="#InternalMedicine"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Neurology -->
+
+    <owl:Class rdf:about="#Neurology">
+        <rdfs:subClassOf rdf:resource="#Doctor"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#NeurologyAndPsychiatry -->
+
+    <owl:Class rdf:about="#NeurologyAndPsychiatry">
+        <rdfs:subClassOf rdf:resource="#Neurology"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Neuropaediatrics -->
+
+    <owl:Class rdf:about="#Neuropaediatrics">
+        <rdfs:subClassOf rdf:resource="#ChildrensAndAdolescentMedicine"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Neuropathology -->
+
+    <owl:Class rdf:about="#Neuropathology">
+        <rdfs:subClassOf rdf:resource="#Pathology"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Neuroradiology -->
+
+    <owl:Class rdf:about="#Neuroradiology">
+        <rdfs:subClassOf rdf:resource="#Radiology"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Neurosurgery -->
+
+    <owl:Class rdf:about="#Neurosurgery">
+        <rdfs:subClassOf rdf:resource="#Neurology"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#NightClub -->
+
+    <owl:Class rdf:about="#NightClub">
+        <rdfs:subClassOf rdf:resource="#Pleasure"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#NightSchool -->
+
+    <owl:Class rdf:about="#NightSchool">
+        <rdfs:subClassOf rdf:resource="#Education"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#NuclearMedicine -->
+
+    <owl:Class rdf:about="#NuclearMedicine">
+        <rdfs:subClassOf rdf:resource="#Doctor"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Obstetrics -->
+
+    <owl:Class rdf:about="#Obstetrics">
+        <rdfs:subClassOf rdf:resource="#WomensHealth"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Ocean -->
+
+    <owl:Class rdf:about="#Ocean">
+        <rdfs:subClassOf rdf:resource="#Landscape"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#OpeningHours -->
+
+    <owl:Class rdf:about="#OpeningHours"/>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Ophthalmology -->
+
+    <owl:Class rdf:about="#Ophthalmology">
+        <rdfs:subClassOf rdf:resource="#Doctor"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Optician -->
+
+    <owl:Class rdf:about="#Optician">
+        <rdfs:subClassOf rdf:resource="#Shopping"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#OralAndMaxillofacialSurgery -->
+
+    <owl:Class rdf:about="#OralAndMaxillofacialSurgery">
+        <rdfs:subClassOf rdf:resource="#LaboratoryMedicine"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Orthopedics -->
+
+    <owl:Class rdf:about="#Orthopedics">
+        <rdfs:subClassOf rdf:resource="#Doctor"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#OrthopedicsAndAccidentSurgery -->
+
+    <owl:Class rdf:about="#OrthopedicsAndAccidentSurgery">
+        <rdfs:subClassOf rdf:resource="#Orthopedics"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Pakistani -->
+
+    <owl:Class rdf:about="#Pakistani">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Park -->
+
+    <owl:Class rdf:about="#Park">
+        <rdfs:subClassOf rdf:resource="#Leisure"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Parking -->
+
+    <owl:Class rdf:about="#Parking">
+        <rdfs:subClassOf rdf:resource="#Places_for_activities"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Pathology -->
+
+    <owl:Class rdf:about="#Pathology">
+        <rdfs:subClassOf rdf:resource="#Doctor"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#PediatricCardiology -->
+
+    <owl:Class rdf:about="#PediatricCardiology">
+        <rdfs:subClassOf rdf:resource="#ChildrensAndAdolescentMedicine"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#PediatricRadiology -->
+
+    <owl:Class rdf:about="#PediatricRadiology">
+        <rdfs:subClassOf rdf:resource="#ChildrensAndAdolescentMedicine"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#PediatricSurgery -->
+
+    <owl:Class rdf:about="#PediatricSurgery">
+        <rdfs:subClassOf rdf:resource="#ChildrensAndAdolescentMedicine"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Pharmacy -->
+
+    <owl:Class rdf:about="#Pharmacy">
+        <rdfs:subClassOf rdf:resource="#Health"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#PhoniatryAndAudiology -->
+
+    <owl:Class rdf:about="#PhoniatryAndAudiology">
+        <rdfs:subClassOf rdf:resource="#Doctor"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#PhysicalAndRehabilitatveMedicine -->
+
+    <owl:Class rdf:about="#PhysicalAndRehabilitatveMedicine">
+        <rdfs:subClassOf rdf:resource="#Doctor"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Pizza -->
+
+    <owl:Class rdf:about="#Pizza">
+        <rdfs:subClassOf rdf:resource="#Cuisine"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#PlaceOfInterest -->
+
+    <owl:Class rdf:about="#PlaceOfInterest">
+        <rdfs:subClassOf rdf:resource="#Tourism"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#PlaceOfWorship -->
+
+    <owl:Class rdf:about="#PlaceOfWorship">
+        <rdfs:subClassOf rdf:resource="#Places_for_activities"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Places_for_activities -->
+
+    <owl:Class rdf:about="#Places_for_activities">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#PlasticSurgery -->
+
+    <owl:Class rdf:about="#PlasticSurgery">
+        <rdfs:subClassOf rdf:resource="#Surgery"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Pleasure -->
+
+    <owl:Class rdf:about="#Pleasure">
+        <rdfs:subClassOf rdf:resource="#Leisure"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#PneumologyANDPulmonaryMedicine -->
+
+    <owl:Class rdf:about="#PneumologyANDPulmonaryMedicine">
+        <rdfs:subClassOf rdf:resource="#InternalMedicine"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Police -->
+
+    <owl:Class rdf:about="#Police">
+        <rdfs:subClassOf rdf:resource="#CivilService"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#PostOffice -->
+
+    <owl:Class rdf:about="#PostOffice">
+        <rdfs:subClassOf rdf:resource="#CivilService"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#PrimarySchool -->
+
+    <owl:Class rdf:about="#PrimarySchool">
+        <rdfs:subClassOf rdf:resource="#Education"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#PrivateSchool -->
+
+    <owl:Class rdf:about="#PrivateSchool">
+        <rdfs:subClassOf rdf:resource="#Education"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#PsychiatryAndPsychotherapy -->
+
+    <owl:Class rdf:about="#PsychiatryAndPsychotherapy">
+        <rdfs:subClassOf rdf:resource="#Doctor"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Pub -->
+
+    <owl:Class rdf:about="#Pub">
+        <rdfs:subClassOf rdf:resource="#Gastronomy"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#PublicTransport -->
+
+    <owl:Class rdf:about="#PublicTransport">
+        <rdfs:subClassOf rdf:resource="#Places_for_activities"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#RadiationTherapy -->
+
+    <owl:Class rdf:about="#RadiationTherapy">
+        <rdfs:subClassOf rdf:resource="#Doctor"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Radiology -->
+
+    <owl:Class rdf:about="#Radiology">
+        <rdfs:subClassOf rdf:resource="#Doctor"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#RailStation -->
+
+    <owl:Class rdf:about="#RailStation">
+        <rdfs:subClassOf rdf:resource="#PublicTransport"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Restaurant -->
+
+    <owl:Class rdf:about="#Restaurant">
+        <rdfs:subClassOf rdf:resource="#Gastronomy"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Rheumatology -->
+
+    <owl:Class rdf:about="#Rheumatology">
+        <rdfs:subClassOf rdf:resource="#InternalMedicine"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#River -->
+
+    <owl:Class rdf:about="#River">
+        <rdfs:subClassOf rdf:resource="#Landscape"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Romanian -->
+
+    <owl:Class rdf:about="#Romanian">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Ruin -->
+
+    <owl:Class rdf:about="#Ruin">
+        <rdfs:subClassOf rdf:resource="#PlaceOfInterest"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Sandwich -->
+
+    <owl:Class rdf:about="#Sandwich">
+        <rdfs:subClassOf rdf:resource="#Cuisine"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Sauna -->
+
+    <owl:Class rdf:about="#Sauna">
+        <rdfs:subClassOf rdf:resource="#Wellness"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#School -->
+
+    <owl:Class rdf:about="#School">
+        <rdfs:subClassOf rdf:resource="#Education"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Seafood -->
+
+    <owl:Class rdf:about="#Seafood">
+        <rdfs:subClassOf rdf:resource="#Cuisine"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#SelfDefenseAndCombatantSport -->
+
+    <owl:Class rdf:about="#SelfDefenseAndCombatantSport">
+        <rdfs:subClassOf rdf:resource="#SportAndFitness"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Shoe -->
+
+    <owl:Class rdf:about="#Shoe">
+        <rdfs:subClassOf rdf:resource="#Clothing"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Shopping -->
+
+    <owl:Class rdf:about="#Shopping">
+        <rdfs:subClassOf rdf:resource="#Places_for_activities"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#SkatingRink -->
+
+    <owl:Class rdf:about="#SkatingRink">
+        <rdfs:subClassOf rdf:resource="#SportAndFitness"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#SkiRun -->
+
+    <owl:Class rdf:about="#SkiRun">
+        <rdfs:subClassOf rdf:resource="#SportAndFitness"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#SkinAndVenerealDiseases -->
+
+    <owl:Class rdf:about="#SkinAndVenerealDiseases">
+        <rdfs:subClassOf rdf:resource="#Doctor"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Soccer -->
+
+    <owl:Class rdf:about="#Soccer">
+        <rdfs:subClassOf rdf:resource="#SportAndFitness"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Spanish -->
+
+    <owl:Class rdf:about="#Spanish">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#SportAndFitness -->
+
+    <owl:Class rdf:about="#SportAndFitness">
+        <rdfs:subClassOf rdf:resource="#Leisure"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#SportGoods -->
+
+    <owl:Class rdf:about="#SportGoods">
+        <rdfs:subClassOf rdf:resource="#Shopping"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Squash -->
+
+    <owl:Class rdf:about="#Squash">
+        <rdfs:subClassOf rdf:resource="#SportAndFitness"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Stationery -->
+
+    <owl:Class rdf:about="#Stationery">
+        <rdfs:subClassOf rdf:resource="#Shopping"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Steak -->
+
+    <owl:Class rdf:about="#Steak">
+        <rdfs:subClassOf rdf:resource="#Cuisine"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Subway -->
+
+    <owl:Class rdf:about="#Subway">
+        <rdfs:subClassOf rdf:resource="#PublicTransport"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Supermarket -->
+
+    <owl:Class rdf:about="#Supermarket">
+        <rdfs:subClassOf rdf:resource="#Shopping"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Surgery -->
+
+    <owl:Class rdf:about="#Surgery">
+        <rdfs:subClassOf rdf:resource="#Doctor"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Sushi -->
+
+    <owl:Class rdf:about="#Sushi">
+        <rdfs:subClassOf rdf:resource="#Cuisine"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#SwimmingPool -->
+
+    <owl:Class rdf:about="#SwimmingPool">
+        <rdfs:subClassOf rdf:resource="#Leisure"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Synagogue -->
+
+    <owl:Class rdf:about="#Synagogue">
+        <rdfs:subClassOf rdf:resource="#PlaceOfWorship"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#TV -->
+
+    <owl:Class rdf:about="#TV">
+        <rdfs:subClassOf rdf:resource="#Electronics"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Tapas -->
+
+    <owl:Class rdf:about="#Tapas">
+        <rdfs:subClassOf rdf:resource="#Cuisine"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#TextureAndSewingGoods -->
+
+    <owl:Class rdf:about="#TextureAndSewingGoods">
+        <rdfs:subClassOf rdf:resource="#Shopping"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Thai -->
+
+    <owl:Class rdf:about="#Thai">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Theatre -->
+
+    <owl:Class rdf:about="#Theatre">
+        <rdfs:subClassOf rdf:resource="#Leisure"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#ThoracicSurgery -->
+
+    <owl:Class rdf:about="#ThoracicSurgery">
+        <rdfs:subClassOf rdf:resource="#Surgery"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Tobacco -->
+
+    <owl:Class rdf:about="#Tobacco">
+        <rdfs:subClassOf rdf:resource="#Shopping"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Tourism -->
+
+    <owl:Class rdf:about="#Tourism">
+        <rdfs:subClassOf rdf:resource="#Places_for_activities"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#TouristInfo -->
+
+    <owl:Class rdf:about="#TouristInfo">
+        <rdfs:subClassOf rdf:resource="#InformationService"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Toy -->
+
+    <owl:Class rdf:about="#Toy">
+        <rdfs:subClassOf rdf:resource="#Shopping"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Tram -->
+
+    <owl:Class rdf:about="#Tram">
+        <rdfs:subClassOf rdf:resource="#PublicTransport"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#TransfusionMedicine -->
+
+    <owl:Class rdf:about="#TransfusionMedicine">
+        <rdfs:subClassOf rdf:resource="#Doctor"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#TraumaSurgery -->
+
+    <owl:Class rdf:about="#TraumaSurgery">
+        <rdfs:subClassOf rdf:resource="#Surgery"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#TravelAgency -->
+
+    <owl:Class rdf:about="#TravelAgency">
+        <rdfs:subClassOf rdf:resource="#InformationService"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Turkish -->
+
+    <owl:Class rdf:about="#Turkish">
+        <rdfs:subClassOf rdf:resource="#Nationality"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#University -->
+
+    <owl:Class rdf:about="#University">
+        <rdfs:subClassOf rdf:resource="#Education"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Urology -->
+
+    <owl:Class rdf:about="#Urology">
+        <rdfs:subClassOf rdf:resource="#Doctor"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#VacationApartment -->
+
+    <owl:Class rdf:about="#VacationApartment">
+        <rdfs:subClassOf rdf:resource="#Accommodation"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Valley -->
+
+    <owl:Class rdf:about="#Valley">
+        <rdfs:subClassOf rdf:resource="#Landscape"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#VascularSurgery -->
+
+    <owl:Class rdf:about="#VascularSurgery">
+        <rdfs:subClassOf rdf:resource="#Surgery"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Vegan -->
+
+    <owl:Class rdf:about="#Vegan">
+        <rdfs:subClassOf rdf:resource="#Cuisine"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Vegetarian -->
+
+    <owl:Class rdf:about="#Vegetarian">
+        <rdfs:subClassOf rdf:resource="#Cuisine"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Visceral -->
+
+    <owl:Class rdf:about="#Visceral">
+        <rdfs:subClassOf rdf:resource="#Surgery"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#VocationalSchool -->
+
+    <owl:Class rdf:about="#VocationalSchool">
+        <rdfs:subClassOf rdf:resource="#Education"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Wellness -->
+
+    <owl:Class rdf:about="#Wellness">
+        <rdfs:subClassOf rdf:resource="#Leisure"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#WithRenewableEnergy -->
+
+    <owl:Class rdf:about="#WithRenewableEnergy">
+        <rdfs:subClassOf rdf:resource="#ChargingStation"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#WomensHealth -->
+
+    <owl:Class rdf:about="#WomensHealth">
+        <rdfs:subClassOf rdf:resource="#Doctor"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#Yoga -->
+
+    <owl:Class rdf:about="#Yoga">
+        <rdfs:subClassOf rdf:resource="#SportAndFitness"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/activities.owl#YouthHostel -->
+
+    <owl:Class rdf:about="#YouthHostel">
+        <rdfs:subClassOf rdf:resource="#Accommodation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->
+

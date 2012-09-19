@@ -1,0 +1,24 @@
+removeMarks();
+removeTempMarkers();
+<%=@route.show_markers()%>
+<%if flash[:error_msg]!= nil%>
+alert('<%=escape_javascript(flash[:error_msg])%>');
+<%end%>
+
+<%if params[:result]!= nil%>
+//setZoom(<%= params[:result][:min_lon] %>, <%= params[:result][:min_lat] %>, <%= params[:result][:max_lon] %>, <%= params[:result][:max_lat] %>);
+<%end%>
+
+<%if params[:type].to_s == "end"
+point = @route.end_point
+else
+point = @route.start_point
+end%>
+var elem = document.getElementById('<%=params[:type].to_s%>');
+elem.innerHTML = "<%=escape_javascript(render(:partial => 'init/point_form',:locals => {:point => point,:type => params[:type],:action_url=>"/search"}))%>";
+hideDialog();
+readyToCreateRoute()
+<% if @route.is_ready%>
+zoomToMarkers();
+<%end%>
+hideWall();

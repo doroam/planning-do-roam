@@ -1,0 +1,24 @@
+//alert('<%=escape_javascript(@result)%>');
+var d = makeDialog('activity_results',closeActivityResults);
+var elem = document.getElementById('activity_results_div');
+var body = "";
+elem.innerHTML = "";
+removeTempMarkers();
+<%if @points.empty?%>
+  body = "<%=escape_javascript(render :partial => 'content_loader/no_results_found',:locals =>{:error =>@result})%>";
+  elem.innerHTML = body;
+<%else%>
+<%@points.sort! {|a,b| b.distance_source <=> a.distance_source } %>
+  body = "<b>The Results are sorted by distance to start point</b><br/><br/>";
+  elem.innerHTML += body;
+  <%@points.each_with_index do |point,index|
+    label = point.label!=nil && !"".eql?(point.label) ? point.label : "no name"%>
+    
+    addTempMarker('<%=point.lat.to_s+":"+point.lon.to_s+":"+index.to_s%>','<%=escape_javascript(label)%>','<%=point.lat%>','<%=point.lon%>',null,'<%=point.icon%>');
+    body = "<%=escape_javascript(render :partial => 'activity/result',:locals => {:point=>point, :index => index})%>";
+    elem.innerHTML += body;
+  <%end%>
+<%end%>
+hideOntology();
+d.show();
+hideWall();

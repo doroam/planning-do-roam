@@ -1,0 +1,52 @@
+<%= form_tag("activity/search",:id => "ontosearch_form_id",
+              :onsubmit => "setBBox('ontosearch_form_id');showWall();",
+              :remote => true) do |f| %>
+	<%@classes = if params[:class].nil? then [] else params[:class].keys end
+	@main_class = OntologyClass.find_by_name("Places_for_activities")%>
+  	<table border=0 width="350px">
+    	<tr><td>
+        	<ul id="menu">
+          		<li>
+          			<%= check_box_tag("class[" + @main_class.id.to_s + "]")%> <%= t("ontology.all_activities") %>	
+          		</li>
+      			<% @main_class.subclasses.sort{|c1,c2| c1.name <=> c2.name}.each do |c| %>
+        			<%= render :partial => 'display_class_menu',:locals => {:c=>c, :selected_classes =>@classes}%>
+      			<% end %>
+        	</ul>
+      	</td></tr>
+    	<tr><td>
+	        <%= submit_tag(t("site.search"))%>
+        </td></tr>
+        <tr><td>
+	        <%= check_box_tag "time_restriction_box", 1, @time, :onchange => "$j('#time_restrictions').toggle()" %>  <%= t("ontology.restrict_to_time") %>:
+	        <div id="time_restrictions"> <%= select_tag "day",
+	            options_for_select([[t("ontology.mon"), 0],[t("ontology.tue"),1],[t("ontology.wed"),2],[t("ontology.thu"),3],[t("ontology.fri"),4],[t("ontology.sat"),5],[t("ontology.sun"),6]],
+	            [@day.to_i]) %>
+	          <%= select_tag "hour",
+	            options_for_select((0..23).map{|i| [i,i]},
+	            [@hour.to_i]) %>
+	          <%= select_tag "min",
+	            options_for_select((0..5).map{|i| [i.to_s+"0",i]},
+	            [@min.to_i]) %>
+	        </div>
+		</td></tr>
+        <tr><td>
+        	<%= check_box_tag "duration_box", 1, false , :onchange => "$j('#duration').toggle()"  %> <%= t("ontology.duration") %>:
+        	<div id="duration"> 
+		        <%= select_tag "duration_hour",
+		          options_for_select((0..23).map{|i| [i,i]},
+		          [@duration_hour.to_i]) %> :
+		        <%= select_tag "duration_min",
+		          options_for_select((0..5).map{|i| [i.to_s+"0",i]},
+		          [@duration_min.to_i]) %>
+	        </div>
+      </td></tr>
+  </table>
+  <%= hidden_field_tag :minlon %>
+  <%= hidden_field_tag :minlat %>
+  <%= hidden_field_tag :maxlon %>
+  <%= hidden_field_tag :maxlat %>
+  <%= hidden_field_tag :zoom %>
+<%end%>
+<!-- Make the menu be interactive on mouseover -->
+<script type="text/javascript">Menu.init("menu", {"orientation": Menu.VERTICAL});</script>

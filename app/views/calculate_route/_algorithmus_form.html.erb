@@ -1,0 +1,30 @@
+<div id="algo_form">
+	<%=form_tag "calculate_route", :remote => true do%>
+		<table width=100%>
+			<tr>
+		    	<td><%= link_to t(:reset_route), "/reset_method" %></td>
+		  	</tr>
+		  	<tr>
+				<td><%=t(:notice_sort)%>:</td>
+				<td align="right"><%= check_box_tag "Notice sort", true, false, :id => "sort"%></td>
+			</tr>
+			<tr>
+				<td>Select algorithm:</td>
+				<td align="right">
+						<%= select_tag "setAlgorithmus",
+		            		options_from_collection_for_select(@alg_list, "value","tag",@route.algorithmus),
+								:style=>"width:117px;",
+			    				:onchange => "algoContent();"
+						%>
+				</td>
+			</tr>
+		</table>
+		<div id="energy_form" width=100% style="display:none">
+			<%= render "init/energy_form" %>
+		</div>
+		<%= submit_tag t(:calculate_route),:id => "calculate_route", :disabled => @route.is_ready, :remote => true, 
+						:onclick => 'showWall();'%>
+	<%end%>
+	<script type="text/javascript">readyToCreateRoute()</script>
+</div>
+

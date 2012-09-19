@@ -1,0 +1,10 @@
+<%if flash[:error]%>
+  alert('<%= flash[:error]%>');
+<%  flash[:error] = false%>
+<%end%>
+removeMarks();
+<%=@route.show_markers()%>
+$j(".activity").remove();
+$j("#add_waypoint").before("<%= escape_javascript(render(:partial => 'activity'))%>")
+zoomToMarkers();
+hideWall();
