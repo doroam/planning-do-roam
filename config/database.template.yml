@@ -2,7 +2,7 @@
 #   gem install sqlite3
 development:
   adapter: postgresql
-  database: bremen
+  database: test
   username: openstreetmap
   password: dfkiteam
   host: localhost

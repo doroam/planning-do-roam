@@ -1,0 +1,2 @@
+module OntologySearchHelper
+end
