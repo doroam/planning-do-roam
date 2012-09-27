@@ -14,6 +14,7 @@ gem 'soap4r'
 #gem 'rmagick-2.12.0-x86-mswin32'
 
 gem 'treetop'
+gem 'will_paginate', '~> 3.0'
 
 # Use unicorn as the web server
 # gem 'unicorn'

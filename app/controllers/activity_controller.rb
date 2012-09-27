@@ -95,8 +95,11 @@ class ActivityController < ApplicationController
           field_name = search.first[0]
           val = search.first[1]
           #nts = NodeTag.find(:all, :conditions => "(\"current_node_tags\".\"#{field_name}\" = '#{val}') AND " + area,:include=>"node")
-          nts = NodeTag.find(:all, :joins => "INNER JOIN \"current_nodes_with_tags_mv\" ON \"current_nodes_with_tags_mv\".\"id\" = current_node_tags.node_id ", :conditions => "(\"current_nodes_with_tags_mv\".\"#{field_name}\" LIKE '#{val}') AND (\"current_nodes_with_tags_mv\".latitude BETWEEN #{(minlat * 10000000).round} AND #{(maxlat * 10000000).round}) AND (\"current_nodes_with_tags_mv\".longitude BETWEEN #{(minlon * 10000000).round} AND #{(maxlon * 10000000).round})")
-          # nts = ActiveRecord::Base.connection.execute("SELECT id FROM current_nodes_with_tags_mv WHERE #{field_name} = '#{val}' AND (latitude BETWEEN #{(minlat * 10000000).round} AND #{(maxlat * 10000000).round}) AND (longitude BETWEEN #{(minlon * 10000000).round} AND #{(maxlon * 10000000).round});")
+          points = NodeTag.page(params[:page]).find(:all, :joins => "INNER JOIN \"current_nodes_with_tags_mv\" ON \"current_nodes_with_tags_mv\".\"id\" = current_node_tags.node_id ", :conditions => "(\"current_nodes_with_tags_mv\".\"#{field_name}\" LIKE '#{val}') AND (\"current_nodes_with_tags_mv\".latitude BETWEEN #{(minlat * 10000000).round} AND #{(maxlat * 10000000).round}) AND (\"current_nodes_with_tags_mv\".longitude BETWEEN #{(minlon * 10000000).round} AND #{(maxlon * 10000000).round})")
+          points.each { |p| p.icon = sub.safe_iconfile}
+          @points += points
+          nts = @points
+          # nts = ActiveRecord::Base.connection.execute("SELECT id FROM current_nodes_with_tags_mv WHERE #{field_name} = '#{val}' AND (latitude BETWEEN #{(minlat * 10000000).round} AND #{(maxlat * 10000000).round}) AND (longitude BETWEEN #{(minlon * 10000000).round} AND #{(maxlon * 10000000).round});")=> 
           if !interval.nil? then
             # TODO: optimise this using database queries, similar to those (but be aware of duplicate use to NodeTag that is needed):
             # Interval.find(:all,:conditions => ["start <=  ? and stop >= ?",start,stop])
@@ -122,7 +125,7 @@ class ActivityController < ApplicationController
             opening_hours = if opening_hours_tag.nil? then "" else opening_hours_tag.gsub(/;/,"<br />") end
             @result += "opening="+opening_hours
             point = make_point(name, icon, lat, lon, start_point)
-            @points.push(point)
+            #@points.push(point)
           end
         end
       end
