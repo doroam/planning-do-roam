@@ -94,9 +94,8 @@ class ActivityController < ApplicationController
         if !search.nil?
           field_name = search.first[0]
           val = search.first[1]
-          #nts = NodeTag.find(:all, :conditions => "(\"current_node_tags\".\"#{field_name}\" = '#{val}') AND " + area,:include=>"node")
-          page = params[:page] ? params[:page] : 0    
-          nts = NodeTag.find(:all, :limit => 15, :offset => 15* page , :joins => "INNER JOIN \"current_nodes_with_tags_mv\" ON \"current_nodes_with_tags_mv\".\"id\" = current_node_tags.node_id ", :conditions => "(\"current_nodes_with_tags_mv\".\"#{field_name}\" LIKE '#{val}') AND (\"current_nodes_with_tags_mv\".latitude BETWEEN #{(minlat * 10000000).round} AND #{(maxlat * 10000000).round}) AND (\"current_nodes_with_tags_mv\".longitude BETWEEN #{(minlon * 10000000).round} AND #{(maxlon * 10000000).round})")
+          #nts = NodeTag.find(:all, :conditions => "(\"current_node_tags\".\"#{field_name}\" = '#{val}') AND " + area,:include=>"node")   
+          @nts = NodeTag.paginate(:page => params[:page], :per_page => 15).find(:all, :joins => "INNER JOIN \"current_nodes_with_tags_mv\" ON \"current_nodes_with_tags_mv\".\"id\" = current_node_tags.node_id ", :conditions => "(\"current_nodes_with_tags_mv\".\"#{field_name}\" LIKE '#{val}') AND (\"current_nodes_with_tags_mv\".latitude BETWEEN #{(minlat * 10000000).round} AND #{(maxlat * 10000000).round}) AND (\"current_nodes_with_tags_mv\".longitude BETWEEN #{(minlon * 10000000).round} AND #{(maxlon * 10000000).round})")
           # @points.each { |p| p.icon = sub.safe_iconfile}
           # nts = ActiveRecord::Base.connection.execute("SELECT id FROM current_nodes_with_tags_mv WHERE #{field_name} = '#{val}' AND (latitude BETWEEN #{(minlat * 10000000).round} AND #{(maxlat * 10000000).round}) AND (longitude BETWEEN #{(minlon * 10000000).round} AND #{(maxlon * 10000000).round});")=> 
           if !interval.nil? then
@@ -104,7 +103,7 @@ class ActivityController < ApplicationController
             # Interval.find(:all,:conditions => ["start <=  ? and stop >= ?",start,stop])
             # positions = Positions.find :all, :conditions => ['id in (?)', nts.map(&:id)]
             @result += "\nresults:::"+nts.size.to_s
-            nts = nts.select{
+            @nts = @nts.select{
               |nt|
               if nt.intervals.size>0
                 @result += "\nintervals:::"+nt.intervals.size.to_s
@@ -115,22 +114,22 @@ class ActivityController < ApplicationController
               }
             @result += "\nresultsafter:::"+nts.size.to_s
           end
-          for nt in nts
-            lat = nt.node.lat.to_s
-            lon = nt.node.lon.to_s
-            name = nt.node.tags["name"]
-            icon = sub.safe_iconfile
-            opening_hours_tag = nt.node.tags["opening_hours"]
-            opening_hours = if opening_hours_tag.nil? then "" else opening_hours_tag.gsub(/;/,"<br />") end
-            @result += "opening="+opening_hours
-            point = make_point(name, icon, lat, lon, start_point)
-            @points.push(point)
+          for nt in @nts
+            #lat = nt.node.lat.to_s
+            #lon = nt.node.lon.to_s
+            #name = nt.node.tags["name"]
+            nt.icon = sub.safe_iconfile
+            #opening_hours_tag = nt.node.tags["opening_hours"]
+            #opening_hours = if opening_hours_tag.nil? then "" else opening_hours_tag.gsub(/;/,"<br />") end
+            #@result += "opening="+opening_hours
+            #point = make_point(name, icon, lat, lon, start_point)
+            #@points.push(point)
           end
         end
       end
     end
-    
-    @ppoints = @points.paginate(:page => params[:page], :per_page => 15)
+    @ppoints = @nts
+#    @ppoints = @points.paginate(:page => params[:page], :per_page => 15)
     #end of loop
     respond_to do |format|
       format.js

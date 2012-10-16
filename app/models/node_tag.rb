@@ -11,4 +11,13 @@ class NodeTag < ActiveRecord::Base
   
   has_many :node_tag_intervals
   has_many :intervals, :through => :node_tag_intervals
+  
+  
+  def icon
+    @iconcontent.nil? ? Global::IMAGE_URL_PREFIX+"question-mark.png" : Global::IMAGE_URL_PREFIX+@iconcontent
+  end
+  
+  def icon=(i)
+    @iconcontent = i
+  end
 end
