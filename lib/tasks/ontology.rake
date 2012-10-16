@@ -5,7 +5,7 @@ namespace :ontology do
     Ontology.all.each do |o| o.destroy end
     OntologyMapping.all.each do |o| o.destroy end
     puts "Reading Ontology/activity-eng.owl"
-    s = Ontology.read_ontology("Ontology/activity-eng.owl","activities")
+    s = Ontology.read_ontology("Ontology/activity.owl","activities")
     puts "Reading Ontology/tags.owl"
     t = Ontology.read_ontology("Ontology/tags.owl","tags")
     puts "Reading Ontology/map.view"

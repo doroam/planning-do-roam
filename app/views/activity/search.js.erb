@@ -6,7 +6,6 @@ elem.innerHTML = "";
 removeTempMarkers();
 <%if @ppoints.empty?%>
   body = "<%=escape_javascript(render :partial => 'content_loader/no_results_found',:locals =>{:error =>@result})%>";
-  elem.innerHTML = body;
 <%else%>
   elem.innerHTML += <%= will_paginate @ppoints%>;
   <% @ppoints.each_with_index do |point,index|

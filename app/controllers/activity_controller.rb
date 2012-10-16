@@ -95,8 +95,9 @@ class ActivityController < ApplicationController
           field_name = search.first[0]
           val = search.first[1]
           #nts = NodeTag.find(:all, :conditions => "(\"current_node_tags\".\"#{field_name}\" = '#{val}') AND " + area,:include=>"node")
-          nts = NodeTag.find(:all, :joins => "INNER JOIN \"current_nodes_with_tags_mv\" ON \"current_nodes_with_tags_mv\".\"id\" = current_node_tags.node_id ", :conditions => "(\"current_nodes_with_tags_mv\".\"#{field_name}\" LIKE '#{val}') AND (\"current_nodes_with_tags_mv\".latitude BETWEEN #{(minlat * 10000000).round} AND #{(maxlat * 10000000).round}) AND (\"current_nodes_with_tags_mv\".longitude BETWEEN #{(minlon * 10000000).round} AND #{(maxlon * 10000000).round})")
-          @points.each { |p| p.icon = sub.safe_iconfile}
+          page = params[:page] ? params[:page] : 0    
+          nts = NodeTag.find(:all, :limit => 15, :offset => 15* page , :joins => "INNER JOIN \"current_nodes_with_tags_mv\" ON \"current_nodes_with_tags_mv\".\"id\" = current_node_tags.node_id ", :conditions => "(\"current_nodes_with_tags_mv\".\"#{field_name}\" LIKE '#{val}') AND (\"current_nodes_with_tags_mv\".latitude BETWEEN #{(minlat * 10000000).round} AND #{(maxlat * 10000000).round}) AND (\"current_nodes_with_tags_mv\".longitude BETWEEN #{(minlon * 10000000).round} AND #{(maxlon * 10000000).round})")
+          # @points.each { |p| p.icon = sub.safe_iconfile}
           # nts = ActiveRecord::Base.connection.execute("SELECT id FROM current_nodes_with_tags_mv WHERE #{field_name} = '#{val}' AND (latitude BETWEEN #{(minlat * 10000000).round} AND #{(maxlat * 10000000).round}) AND (longitude BETWEEN #{(minlon * 10000000).round} AND #{(maxlon * 10000000).round});")=> 
           if !interval.nil? then
             # TODO: optimise this using database queries, similar to those (but be aware of duplicate use to NodeTag that is needed):
@@ -129,7 +130,7 @@ class ActivityController < ApplicationController
       end
     end
     
-            @ppoints = @points.paginate(:page => params[:page])
+    @ppoints = @points.paginate(:page => params[:page], :per_page => 15)
     #end of loop
     respond_to do |format|
       format.js
