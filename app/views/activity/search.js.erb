@@ -7,7 +7,7 @@ removeTempMarkers();
 <%if @ppoints.empty?%>
   body = "<%=escape_javascript(render :partial => 'content_loader/no_results_found',:locals =>{:error =>@result})%>";
 <%else%>
-  elem.innerHTML += <%= will_paginate @ppoints%>;
+  elem.innerHTML += <%= will_paginate @ppoints, :params=>{:reload=>true, :maxlon => @maxlon, :minlon => @minlon, :maxlat => @maxlat, :minlat => @minlat}%>;
   <% @ppoints.each_with_index do |point,index|
     label = point.node.tags["name"]!=nil && !"".eql?(point.node.tags["name"]) ? point.node.tags["name"] : "no name"%>
     addTempMarker('<%=point.node.lat.to_s+":"+point.node.lon.to_s+":"+index.to_s%>','<%=escape_javascript(label)%>','<%=point.node.lat%>','<%=point.node.lon%>',null,'<%=point.icon%>');
