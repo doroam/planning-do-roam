@@ -3,6 +3,10 @@ en:
   calculate_route: Calculate route
   reset_route: Reset route
   notice_sort: Notice sort
+  will_paginate:
+    previous_label: back
+    page_gap: ...
+    next_label: next
   site:
     search: Search
   ontology:

@@ -14,7 +14,7 @@ gem 'soap4r'
 #gem 'rmagick-2.12.0-x86-mswin32'
 
 gem 'treetop'
-gem 'will_paginate', :path => "vendor/gems/will_paginate-3.0"
+gem 'will_paginate', :path => "vendor/plugins/will_paginate"
 
 # Use unicorn as the web server
 # gem 'unicorn'

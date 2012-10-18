@@ -1,6 +1,10 @@
 de:
   add_activity_or_waypoint: Aktivität hinzufügen
   notice_sort: Reihenfolge beachten
+  will_paginate:
+    previous_label: zurück
+    page_gap: ...
+    next_label: weiter
   site:
     search: suchen
   ontology:

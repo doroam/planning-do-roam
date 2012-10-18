@@ -1,5 +1,5 @@
 PATH
-  remote: vendor/gems/will_paginate-3.0
+  remote: vendor/plugins/will_paginate
   specs:
     will_paginate (3.0.3)
 
