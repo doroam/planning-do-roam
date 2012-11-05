@@ -3,9 +3,22 @@ en:
   calculate_route: Calculate route
   reset_route: Reset route
   notice_sort: Notice sort
+  structured_input: Structures input
+  start: Start
+  destination: Destination
+  select_algorithm: Select algorithm
+  reset_zoom: Reset zoom
+    
   site:
     search: Search
   ontology:
+    mon: monday
+    tue: tuesday
+    wed: wednesday
+    thu: thursday
+    fri: friday
+    sat: saturday
+    sun: sunday
     all_activities: All activities
     restrict_to_time: Restrict to time
     duration: Duration

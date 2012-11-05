@@ -6,10 +6,10 @@
 		  	</tr>
 		  	<tr>
 				<td><%=t(:notice_sort)%>:</td>
-				<td align="right"><%= check_box_tag "Notice sort", true, false, :id => "sort"%></td>
+				<td align="right"><%= check_box_tag t("notice_sort"), true, false, :id => "sort"%></td>
 			</tr>
 			<tr>
-				<td>Select algorithm:</td>
+				<td><%=t("select_algorithm")%>:</td>
 				<td align="right">
 						<%= select_tag "setAlgorithmus",
 		            		options_from_collection_for_select(@alg_list, "value","tag",@route.algorithmus),
