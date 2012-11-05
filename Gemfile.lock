@@ -1,3 +1,8 @@
+PATH
+  remote: vendor/gems/will_paginate-3.0
+  specs:
+    will_paginate (3.0.3)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -102,3 +107,4 @@ DEPENDENCIES
   soap4r
   sqlite3
   treetop
+  will_paginate!

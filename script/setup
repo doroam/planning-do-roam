@@ -15,6 +15,7 @@ PLANNING_DO_ROAM=$HOME/web/planning-do-roam/ActivityRoutePlanner
 set -e
 set -x
 
+sudo apt-get install 
 
 OSM_FILE=$(basename $OSM)
 
