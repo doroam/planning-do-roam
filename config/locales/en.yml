@@ -8,7 +8,10 @@ en:
   destination: Destination
   select_algorithm: Select algorithm
   reset_zoom: Reset zoom
-    
+  will_paginate:
+    previous_label: previous
+    page_gap: ...
+    next_label: next
   site:
     search: Search
   ontology:
