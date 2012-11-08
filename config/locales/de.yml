@@ -1,6 +1,8 @@
 de:
   add_activity_or_waypoint: Aktivität hinzufügen
   notice_sort: Reihenfolge beachten
+  results: Ergebnisse
+  no_results_found_in_this_area: Keine Ergebnisse in diesem Gebiet
   will_paginate:
     previous_label: zurück
     page_gap: ...
