@@ -16,6 +16,7 @@ OSMOSIS=$HOME/doroam/osmosis-0.41/bin/osmosis
 set -e
 set -x
 
+sudo apt-get install 
 
 OSM_FILE=$(basename $OSM)
 
