@@ -3,15 +3,25 @@ en:
   calculate_route: Calculate route
   reset_route: Reset route
   notice_sort: Notice sort
-  results: results
-  no_results_found_in_this_area: No results found in this area
+  structured_input: Structures input
+  start: Start
+  destination: Destination
+  select_algorithm: Select algorithm
+  reset_zoom: Reset zoom
   will_paginate:
-    previous_label: back
+    previous_label: previous
     page_gap: ...
     next_label: next
   site:
     search: Search
   ontology:
+    mon: monday
+    tue: tuesday
+    wed: wednesday
+    thu: thursday
+    fri: friday
+    sat: saturday
+    sun: sunday
     all_activities: All activities
     restrict_to_time: Restrict to time
     duration: Duration

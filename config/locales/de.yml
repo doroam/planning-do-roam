@@ -171,6 +171,16 @@ de:
     WithRenewableEnergy: mit Ökostrom
     Yoga: Yoga
     YouthHostel: Jugendherberge
+  calculate_route: Route berechnen
+  destination: Ziel
+  start: Start
+  structured_input: Strukturierte Eingabe
+  notice_sort: Reihenfolge beachten
+  select_algorithm: Algorithmus wählen
+  optimization: Optimierung
+  car_type: Auto-Typ
+  reset_zoom: Zoom zurücksetzen
+  reset_route: Route löschen
   choose_language: Wähle eine Sprache für das Experiment
   begin: Anfangen
   result: Resultat

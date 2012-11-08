@@ -1,14 +1,14 @@
-<a href="#" onclick="toggleStructured()">Structured input</a>
+<a href="#" onclick="toggleStructured()"><%=t("structured_input")%></a>
 <div style="display:none" class="structured">
 	<table>
-		<tr><td>Start:</td><td align="right" id="start">
+		<tr><td><%=t("start")%>:</td><td align="right" id="start">
 	  		<%= render :partial => 'init/point_form',:locals => {:point => @route.start_point,:type => 'start',:action_url=>"/search"} %>
 		</td></tr>
 		<%= render 'activity/activity' %>
 		<tr id="add_waypoint"><td colspan="2">
 		<%= link_to image_tag("add.png", :border=>0,:class => "delete"), "#", :remote => true,:onclick=>'showOntology();'%> <%= t("add_activity_or_waypoint")%>
 		</td></tr>
-		<tr><td>Destination:</td><td align="right" id="end">
+		<tr><td><%=t("destination")%>:</td><td align="right" id="end">
 			<%= render :partial => 'init/point_form',:locals => {:point => @route.end_point,:type => 'end',:action_url=>"/search"}%>
 		</td></tr>
 	</table>        
