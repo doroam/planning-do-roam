@@ -3,6 +3,11 @@ de:
   notice_sort: Reihenfolge beachten
   results: Ergebnisse
   no_results_found_in_this_area: Keine Ergebnisse in diesem Gebiet
+  coordinates: Koordinaten
+  latitude: Breitengrad
+  longitude: Längengrad
+  set_start_point: Startpunkt setzen
+  set_end_point: Zielpunkt setzen
   will_paginate:
     previous_label: zurück
     page_gap: ...
@@ -47,7 +52,6 @@ de:
     Clothing: Bekleidung
     College: College
     Computer: Computer
-    coordinates: Koordinaten
     Cosmetics: Kosmetik
     Cuisine: Küche
     Dance: Tanzen
@@ -88,7 +92,6 @@ de:
     Kindergarten: Kindergarten
     Lake: See
     Landscape: Landschaft
-    latitude: Breitengrad
     Leisure: Leisure
     Library: Bibliothek
     Lingerie: Unterwäsche

@@ -3,11 +3,16 @@ en:
   calculate_route: Calculate route
   reset_route: Reset route
   notice_sort: Notice sort
-  structured_input: Structures input
+  structured_input: Structured input
   start: Start
   destination: Destination
   select_algorithm: Select algorithm
   reset_zoom: Reset zoom
+  coordinates: Coordinates
+  latitude: Latitude
+  longitude: Longitude
+  set_start_point: Set start point
+  set_end_point: Set end point
   will_paginate:
     previous_label: previous
     page_gap: ...

@@ -2,14 +2,14 @@
 <b><%=t(:latitude)%>:</b> <%=params[:lat]%><br/>
 <b><%=t(:longitude)%>:</b> <%=params[:lon]%><br/>
 <%coordinates = params[:lat]+":"+params[:lon]%>
-<%= link_to "Set start point", {:controller => :point,
+<%= link_to t(:set_start_point), {:controller => :point,
             :action=> :update_point,
             :type=> "start",
             :lat => params[:lat],
             :lon=> params[:lon]},
              :remote => true,:onclick => 'hideSetPoint();'%>
 &nbsp
-<%= link_to "Set end point", {:controller => :point,
+<%= link_to t(:set_end_point), {:controller => :point,
             :action=> :update_point,
             :type=> "end",
             :lat => params[:lat],
