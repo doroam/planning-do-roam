@@ -92,6 +92,19 @@ describe WillPaginate::ActiveRecord do
       rel.offset.should == 6
     end
 
+    it "supports #first" do
+      rel = Developer.order('id').page(2).per_page(4)
+      rel.first.should == users(:dev_5)
+      rel.first(2).should == users(:dev_5, :dev_6)
+    end
+
+    it "supports #last" do
+      rel = Developer.order('id').page(2).per_page(4)
+      rel.last.should == users(:dev_8)
+      rel.last(2).should == users(:dev_7, :dev_8)
+      rel.page(3).last.should == users(:poor_jamis)
+    end
+
     it "keeps pagination data after 'scoped'" do
       rel = Developer.page(2).scoped
       rel.per_page.should == 10
@@ -207,7 +220,7 @@ describe WillPaginate::ActiveRecord do
         sql = "select content from topics where content like '%futurama%'"
         topics = Topic.paginate_by_sql sql, :page => 1, :per_page => 1
         topics.total_entries.should == 1
-        topics.first['title'].should be_nil
+        topics.first.attributes.has_key?('title').should be_false
       }.should run_queries(2)
     end
 
@@ -368,7 +381,7 @@ describe WillPaginate::ActiveRecord do
     end
 
     it "should paginate through association extension" do
-      project = Project.find(:first)
+      project = Project.order('id').first
       expected = [replies(:brave)]
 
       lambda {

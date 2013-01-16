@@ -47,7 +47,6 @@ module WillPaginate
     # * <tt>:class</tt> -- CSS class name for the generated DIV (default: "pagination")
     # * <tt>:previous_label</tt> -- default: "« Previous"
     # * <tt>:next_label</tt> -- default: "Next »"
-    # * <tt>:page_links</tt> -- when false, only previous/next links are rendered (default: true)
     # * <tt>:inner_window</tt> -- how many links are shown around the current page (default: 4)
     # * <tt>:outer_window</tt> -- how many links are around the first and the last page (default: 1)
     # * <tt>:link_separator</tt> -- string separator for page HTML elements (default: single space)
@@ -137,7 +136,7 @@ module WillPaginate
         i18n_key = :"page_entries_info.single_page#{html_key}"
         keys = [:"#{model_key}.#{i18n_key}", i18n_key]
 
-        will_paginate_translate keys, :count => collection.size, :model => model_name do |_, opts|
+        will_paginate_translate keys, :count => collection.total_entries, :model => model_name do |_, opts|
           case opts[:count]
           when 0; "No #{opts[:model]} found"
           when 1; "Displaying #{b}1#{eb} #{opts[:model]}"

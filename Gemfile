@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 gem 'rake', '0.8.7'
-gem 'rails', '3.0.4'
+gem 'rails', '3.2.11'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -12,6 +12,8 @@ gem 'libxml-ruby'
 gem 'nokogiri'
 gem 'soap4r'
 #gem 'rmagick-2.12.0-x86-mswin32'
+
+#gem 'prototype-rails'
 
 gem 'treetop'
 gem 'will_paginate', :path => "vendor/plugins/will_paginate"

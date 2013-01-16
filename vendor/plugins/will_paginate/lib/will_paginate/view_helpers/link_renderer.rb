@@ -59,7 +59,7 @@ module WillPaginate
       end
       
       def next_page
-        num = @collection.current_page < @collection.total_pages && @collection.current_page + 1
+        num = @collection.current_page < total_pages && @collection.current_page + 1
         previous_or_next_page(num, @options[:next_label], 'next_page')
       end
       
@@ -96,7 +96,7 @@ module WillPaginate
         attributes[:href] = target
         tag(:a, text, attributes)
       end
-      
+
       def tag(name, value, attributes = {})
         string_attributes = attributes.inject('') do |attrs, pair|
           unless pair.last.nil?

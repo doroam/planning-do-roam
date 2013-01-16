@@ -39,6 +39,26 @@ module WillPaginate
         end
       end
 
+      # dirty hack to enable `first` after `limit` behavior above
+      def first(*args)
+        if current_page
+          rel = clone
+          rel.current_page = nil
+          rel.first(*args)
+        else
+          super
+        end
+      end
+
+      # fix for Rails 3.0
+      def find_last
+        if !loaded? and offset_value || limit_value
+          @last ||= to_a.last
+        else
+          super
+        end
+      end
+
       def offset(value = nil)
         if value.nil? then offset_value
         else super(value)
@@ -138,7 +158,17 @@ module WillPaginate
       end
 
       def page(num)
-        rel = scoped.extending(RelationMethods)
+        rel = if ::ActiveRecord::Relation === self
+          self
+        elsif !defined?(::ActiveRecord::Scoping) or ::ActiveRecord::Scoping::ClassMethods.method_defined? :with_scope
+          # Active Record 3
+          scoped
+        else
+          # Active Record 4
+          all
+        end
+
+        rel = rel.extending(RelationMethods)
         pagenum = ::WillPaginate::PageNumber(num.nil? ? 1 : num)
         per_page = rel.limit_value || self.per_page
         rel = rel.offset(pagenum.to_offset(per_page).to_i)
